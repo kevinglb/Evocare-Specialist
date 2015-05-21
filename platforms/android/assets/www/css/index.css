@@ -366,15 +366,57 @@ input[type=number]{
 }
 
 /*signup detail page*/
-#signup_detail_page .slide{
+.onboarding_avatar_lg{
+    height: 25vh !important;
+    width: 25vh !important;
+    margin: 15px auto;
+}
+.onboarding_avatar_mini {
+    margin: 2vh auto;
+    width: 12vh !important;
+    height: 12vh !important;
+}
+#signup_detail_page1 .slide, #signup_detail_page2 .slide{
     height: 100%;
 }
-
 #signup_inner_slide {
-    height: 25vh !important;
+    min-height: 25vh;
+    max-height: 40vh !important;
+    max-width: 90%;
+    margin: 0px auto 30px auto;
+    border-radius: 0 0 0.5em 0.5em;
+    border: 1px solid #A0B2B7;
 }
+.slogen {
+    max-width: 90%;
+    margin: 2vh auto 0 auto;
+    padding: 0.5em;
+    border-radius: 0.5em 0.5em 0 0;
+    background-color: #8FCDBE;
+    border: 1px solid #A0B2B7;
+}
+
 #signup_inner_slide .carousel-inner{
     height: 100% !important;
+    overflow: hidden;
+}
+.dots-row{
+    max-width: 96px;
+    margin: 10px auto 0 auto;
+}
+
+.dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background-color: #A0B2B7;
+    float: left;
+    margin: 0 10px;
+    position: relative;
+
+}
+.dots-row .dot.active{
+    background-color: #8FCDBE; 
 }
 /*slide settting*/
 .ui-content .slide{
@@ -388,9 +430,7 @@ input[type=number]{
     overflow-x: hidden;
     overflow-y: auto;
 }
-.carousel-inner .item{
-    height: 100%;
-}
+
 .carousel_controls{
     width: 100%;
     height: 60px;
