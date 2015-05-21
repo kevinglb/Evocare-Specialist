@@ -166,7 +166,7 @@
                         <label>Aready a member log in</label>
                     </div>
                     <div class="from-group">
-                        <a href="#signup_detail_page" data-transition="fade"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                        <a href="#signup_detail_page1" data-transition="fade"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
                     </div>
                 </div>
                 </div>
@@ -175,69 +175,105 @@
             </div>
         </div>
         <!-- signup detail page for user to fill info -->
-        <div id="signup_detail_page" class="text-center" data-role="page">
-            <div data-role="header" class="ui-header">
-            </div>
+        <div id="signup_detail_page1" class="text-center" data-role="page">
             <div class="ui-content">
-                <div id="signup_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                    <div class="carousel-inner" data-role="listbox">
-                        <div class="item container active">
                             <div class="text-center container">
-                                <img style="width:50%" src="img/login-logo.png"/>
+                                <img style="width:50%;margin:15px 0;" src="img/login-logo.png"/>
                             </div>
 
-                                <div class="row">
+                                <div class="container">
                                     <h3>Compete your profile</h3>
                                     <div class="form-group">
                                     <input id="signup_name" class="input-lg" type="text" placeholder="Your name"/>
                                     </div>
                                     <div class="form-group">
-                                        <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
+                                        <img type="file" id="onboarding_avatar" class="onboarding_avatar_lg img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
                                     </div>
 
                                     <div class="form-group">
-                                        <a href="#" class="btn btn-block signup_btn " role="button"  onClick="NextItem()">Continue</a>
+                                        <a href="#signup_detail_page2" data-transition="fade" class="btn btn-block signup_btn " role="button">Continue</a>
+                                    </div>
+                                    <div class="row dots-row">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                    <span class="dot"></span>
                                     </div>
                                 </div>
                             </div>
-                        <div class="item container">
-                            <div class="row">
-                                 <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
-                                 <span class="welcome"></span>
-                            </div>
-                            <!-- procedure bar -->   
-                            <div class="row">
 
-                            </div>
-                            <div class="row">
-                                <div></div>
-                                <div id="signup_inner_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                                    <div class="carousel-inner" data-role='listbox'>
-                                        <div class="item active">
-                                            <h3>Gender</h3>
-                                            <div class="row">
-                                                <div class="xs-col-6">
-                                                    <a href="#">
-                                                        <i class="fa fa-2x fa-male"></i>
-                                                    </a>  
-                                                </div>
-                                                <div class="xs-col-6">
-                                                    <a href="#">
-                                                        <i class="fa fa-2x fa-female"></i>
-                                                    </a> 
-                                                </div>
-                                            </div>
-                                        </div>
+        </div>
+
+        <div id="signup_detail_page2" data-role="page">
+            
+            <div class="ui-content text-center">
+                <div class="row">
+                    <img type="file"  id="onboarding_avatar" class="onboarding_avatar_mini img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;" />
+                        <span class="welcome"></span>
+                </div>
+                <!-- procedure bar -->   
+                <div class="row">
+                    <div class="slogen">
+                        <h3>Three quick things</h3>
+                        <label>Tell doctors a little more so they can personalize their answers</label>
+                    </div>
+                    <div id="signup_inner_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <div class="carousel-inner" data-role='listbox'>
+                            <div class="item active">
+                                <h3>Gender</h3>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <a href="#" onClick="setupSignUpPage2()">
+                                            <i class="fa fa-4x fa-male"></i>
+                                        </a>  
                                     </div>
+                                    <div class="col-xs-6">
+                                        <a href="#" onClick="setupSignUpPage2()">
+                                            <i class="fa fa-4x fa-female"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h3>Date of Birth</h3>
+                                <div class="row">
+                                    <a href="#" >
+                                        <i class="fa fa-3x fa-calendar"></i>
+                                    </a> 
+                                </div>
+                                <div class="row">
+                                    <label class="dob">MM - DD - Year</label>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h3>Location</h3>
+                                <div class="row">
+                                    <a href="#">
+                                        <i class=" fa fa-3x fa-location-arrow"></i>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <label class="location_text">Use Current Location</label>
+                                    <label>Or Enter Manually</label>
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+                
+                    <div class="carousel-controls" style="width:90%; margin:0 auto; height:58px;">
+                 
+                        <a href="#" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
+                    </div>
+                    </div>
+                    <div class="row dots-row">
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                        </div>
                     </div>
                 </div>
-                
             </div>
         </div>
-
         <!-- signup detail page -->
 
         <!-- signup page -->
@@ -1904,6 +1940,26 @@
                     dateOrder: 'dd M yy',
                     dateFormat: 'dd-M-yy'
                 });
+                $('.fa-calendar').mobiscroll().date({
+                    theme: 'android-holo-light',
+                    mode : 'scroller',
+                    display: 'modal',
+                    dateOrder: 'dd M yy',
+                    dateFormat: 'dd-M-yy',
+                    onSelect: function(valueText,inst){
+                        var dateArray = inst.getVal().toString().split(" ");
+                        console.log(date.toString().split(" "));
+
+                        var selectMonth = dateArray[1];
+                        var selectDate = dateArray[2];
+                        var selectYear = dateArray[3];
+                        $('label.dob').text(selectMonth+" - "+ selectDate+" - "+selectYear);
+                        $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
+                        console.log("mongth: "+selectMonth);
+                        console.log("date: " +selectDate);
+                        console.log("year: " +selectYear);
+                    }
+                })
                  var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -1975,6 +2031,8 @@ function setHeightofContent(){
     console.log(contentCurrent);
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
+    $("#signup_detail_page1 .ui-content").height(screen);
+    $("#signup_detail_page2 .ui-content").height(screen);
     
 }
 function addSymptom(){
@@ -2187,8 +2245,18 @@ var date = new Date();
     });
 });
 
-function NextItem(){
-    $("#signup_slide").carousel('next');
+function setupSignUpPage2(){
+    $("#signup_inner_slide").carousel('next');
+    $("#signup_detail_page2 .signup_btn").attr('disabled','disabled');
+    setTimeout(function(){
+    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
+       $('#signup_detail_page2 .signup_btn').hide(); 
+    }
+    else {
+       $('#signup_detail_page2 .signup_btn').show(); 
+    }   
+
+    }, 400);
 }
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
