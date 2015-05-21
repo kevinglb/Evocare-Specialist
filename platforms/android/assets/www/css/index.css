@@ -103,8 +103,6 @@ input[type=number]{
 {
     margin-right: 15px;
     margin-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 /*clearing floating*/
 .row:after{
@@ -338,7 +336,10 @@ input[type=number]{
 }
 
 
-#signup_form .ui-input-text input{
+#signup_page {
+    text-align: center;
+}
+#signup_page .ui-input-text input{
     text-align: center;
     border: none;
     box-shadow: none;
@@ -351,7 +352,7 @@ input[type=number]{
     color: #fff;
 }
 
-#signup_submit{
+.signup_btn{
     background-color: rgba(189, 201, 205, 1);
     color: rgba(44, 118, 108, 1) !important;
     font-family: "Bendons-Medium";
@@ -360,6 +361,21 @@ input[type=number]{
     padding: 0;
 }
 
+.signup_btn[disabled]{
+    color:#495559 !important;
+}
+
+/*signup detail page*/
+#signup_detail_page .slide{
+    height: 100%;
+}
+
+#signup_inner_slide {
+    height: 25vh !important;
+}
+#signup_inner_slide .carousel-inner{
+    height: 100% !important;
+}
 /*slide settting*/
 .ui-content .slide{
     height: 80vh;
@@ -1294,3 +1310,4 @@ img#onboarding_avatar
     width: 120px;
     height: 120px;
 }
+

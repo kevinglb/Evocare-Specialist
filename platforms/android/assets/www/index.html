@@ -5,7 +5,6 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
         <!-- css & font libraries  -->
@@ -44,6 +43,8 @@
     </head>
     <body onload="setHeightofContent()">
         <!-- log in page -->
+
+        
         <div id="login_page" data-role="page">
             <!-- header -->
             <div date-role="header" class="ui-header" position="fixed">
@@ -86,13 +87,13 @@
         </div>
         <!-- log in page end -->
         <!-- signn up page -->
-        <div  id="signup_page" data-role="page">
+       <!--  <div  id="signup_page" data-role="page">
             <div data-role="header">
             </div>
             <div data-role="main" class="ui-content">
                 <div id="signup_content">
                     <div class="row">
-                        <!-- signup form -->
+       
                         <form id="signup_form" role="form">
                             <div class="form-group">
                                 <input type="text" id="signup_fullname" name="fullname" class="form-control  " placeholder="Full Name" />
@@ -141,7 +142,104 @@
 
                 </div>
             </div>
+        </div> -->
+
+        <div id="signup_page" data-role="page">
+            <div data-role="header" class="ui-header"></div>
+            <div class="ui-content">
+                <div class="text-center container">
+                    <img style="width:50%" src="img/login-logo.png"/>
+                </div>
+                <div class="container">
+                    <div class="row">
+                    <h3>Create a free, private account or login</h3>
+                    <div class="form-group">
+                        <input id="signup_email" class="input-lg" type="email" placeholder="Your email"/>
+                    </div>
+                    <div class="form-group">
+                        <input id="signup_password" class="input-lg" type="password" placeholder="Password"/>
+                    </div>
+                    <div class="row">
+                        <label>You agree to our Terms and Privacy Policy</label>
+                    </div>
+                    <div class="row">
+                        <label>Aready a member log in</label>
+                    </div>
+                    <div class="from-group">
+                        <a href="#signup_detail_page" data-transition="fade"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
         </div>
+        <!-- signup detail page for user to fill info -->
+        <div id="signup_detail_page" class="text-center" data-role="page">
+            <div data-role="header" class="ui-header">
+            </div>
+            <div class="ui-content">
+                <div id="signup_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <div class="carousel-inner" data-role="listbox">
+                        <div class="item container active">
+                            <div class="text-center container">
+                                <img style="width:50%" src="img/login-logo.png"/>
+                            </div>
+
+                                <div class="row">
+                                    <h3>Compete your profile</h3>
+                                    <div class="form-group">
+                                    <input id="signup_name" class="input-lg" type="text" placeholder="Your name"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <a href="#" class="btn btn-block signup_btn " role="button"  onClick="NextItem()">Continue</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="item container">
+                            <div class="row">
+                                 <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
+                                 <span class="welcome"></span>
+                            </div>
+                            <!-- procedure bar -->   
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+                                <div></div>
+                                <div id="signup_inner_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                                    <div class="carousel-inner" data-role='listbox'>
+                                        <div class="item active">
+                                            <h3>Gender</h3>
+                                            <div class="row">
+                                                <div class="xs-col-6">
+                                                    <a href="#">
+                                                        <i class="fa fa-2x fa-male"></i>
+                                                    </a>  
+                                                </div>
+                                                <div class="xs-col-6">
+                                                    <a href="#">
+                                                        <i class="fa fa-2x fa-female"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- signup detail page -->
+
         <!-- signup page -->
         <!-- main page -->
         <div  id="main_page" data-role="page">
@@ -2088,6 +2186,10 @@ var date = new Date();
         
     });
 });
+
+function NextItem(){
+    $("#signup_slide").carousel('next');
+}
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
