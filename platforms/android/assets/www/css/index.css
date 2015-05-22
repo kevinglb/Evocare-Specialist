@@ -377,7 +377,7 @@ input[type=number]{
     margin: 15px auto;
 }
 .onboarding_avatar_mini {
-    margin: 0 auto 1vh auto;
+    margin: 0 auto 2vh auto;
     width: 12vh !important;
     height: 12vh !important;
     max-width: 120px;

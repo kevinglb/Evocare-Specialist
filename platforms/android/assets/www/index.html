@@ -162,11 +162,12 @@
                     <div class="row">
                         <label>You agree to our Terms and Privacy Policy</label>
                     </div>
-                    <div class="row">
-                        <label>Aready a member log in</label>
-                    </div>
+                    
                     <div class="from-group">
                         <a href="#signup_detail_page1" data-transition="fade"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                    </div>
+                    <div class="below_content">
+                        <a href="#login_page" data-transition="slidedown">Aready a member? log in now</a>
                     </div>
                 </div>
                 </div>
@@ -275,10 +276,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4 col-xs-offset-2">
-                            <a href="#signup_inner_slide" role="button" class="btn" data-slide="prev" onClick="">Back</a>
+                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>Back</a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#signup_inner_slide" role="button" class="btn" data-slide="next" onClick="">Skip</a>
+                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
                         </div>
                     </div>
                     </div>
@@ -841,7 +842,6 @@
                             </div>                     
                            <div class="item container">
                                 <div class="row">
-
                                     <div class="form-group">
                                         <label for="triage_note">Edit your note:</label>
                                         <textarea  name="triage_note" id="triage_note"></textarea>
@@ -1978,46 +1978,52 @@
                         console.log("year: " +selectYear);
                     }
                 })
-                 var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-                //calendar initialization
-                $("#calendar").jqmCalendar({
-                    events: [{
-            "title": "Meet PM",
-            "type" : "personal",
-            "begin": new Date(y,m, 27 ),
-            "end": new Date(y, m, 28)
+                    var date = new Date();
+                    var d = date.getDate();
+                    var m = date.getMonth();
+                    var y = date.getFullYear();
+                    //calendar initialization
+                    $("#calendar").jqmCalendar({
+                            events: [{
+                                "title": "Meet PM",
+                                "type" : "personal",
+                                "begin": new Date(y,m, 27 ),
+                                "end": new Date(y, m, 28)
             
-        }, 
-        {
-            "title": "gym",
-            "type" : "fitness",
-            "begin": new Date(y,m, 22 ),
-            "end": new Date(y, m, 28)
+                        }, 
+                        {
+                                "title": "gym",
+                                "type" : "fitness",
+                                "begin": new Date(y,m, 22 ),
+                                "end": new Date(y, m, 28)
             
-        },{
-            "title": "Dinner",
-            "type": "personal",
-            "begin": new Date(y, m, d+3,1,10,0,0),
-            "end": new Date(y, m, d + 4,15,15,0,0)
+                        },{
+                                "title": "Dinner",
+                                "type": "personal",
+                                "begin": new Date(y, m, d+3,1,10,0,0),
+                                "end": new Date(y, m, d + 4,15,15,0,0)
             
-        }, {
-            "title": "Lunch with Friends",
-            "type": "public",
-            "begin": new Date(y, m, d + 6),
-            "end": new Date(y, m, d + 7)
+                        }, {
+                                "title": "Lunch with Friends",
+                                "type": "public",
+                                "begin": new Date(y, m, d + 6),
+                                "end": new Date(y, m, d + 7)
             
-        }, 
-                ],
+                        }, 
+                        ],
                     months : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                     startOfWeek : 0
                     }); 
+
+                    
         });
 </script>
 
 <script type="text/javascript">
+
+$("#signup_inner_slide").bind('slid.bs.carousel',function(){
+    detectInnerSlide1();
+});
 
 function addNewTag()
 {
@@ -2277,6 +2283,32 @@ function setupSignUpPage2(){
 
     }, 400);
 }
+
+function detectInnerSlide1(){
+    $('#signup_detail_page2 .signup_btn').attr('disabled', 'disabled');
+    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
+        $('.slogen h4').text('Three quick things');
+        $('#signup_detail_page2 .signup_btn').hide();
+        $('#signup_detail_page2 .back_btn').attr('disabled','disabled');
+    }
+    else if($('#signup_inner_slide .carousel-inner .item:nth-child(2)').hasClass('active')){
+        $('.slogen h4').text('Two quick things');
+        $('#signup_detail_page2 .signup_btn').show();
+        $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+        $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
+        if($('.dob').text()!="MM - DD - Year"){
+            $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
+        }
+    }   
+    else if($('#signup_inner_slide .carousel-inner .item:last').hasClass('active')){
+        $('.slogen h4').text('One quick things');
+        $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .skip_btn').attr('href', '#signup_detail_page3');
+    }
+}
+
+
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
