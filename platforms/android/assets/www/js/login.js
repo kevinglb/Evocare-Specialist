@@ -57,26 +57,19 @@ $('#login_submit') .click(function()
 	}
 })
 
-// when sign up button was clicked 
-$('#signup_submit').click(function()
-{
-	// get user sign up info from input text fields
-	var fullname = $('#signup_fullname').val();
-	var email = $('#signup_email').val();
-	var password = $('#signup_password').val();
-	var password_confirm = $('#signup_password_confirm').val();
-	var dateOfBirth = $('#signup_birthday').val()
-	var contactNumber = $('#signup_contact_number').val();
-	var hospital = $('#signup_hospital').val();
-	var jobTitle = $('#signup_job_title').val();
-	var registrationNumber = $('#signup_registration_number').val();
-	var medical_insurance = $('#signup_medical_insurance').val();
 
-	if(!fullname.trim())
-	{
-		alert("Please input your fullname");
-		return;
-	}
+// initialise signup information
+var email = "";
+var password = "";
+var password_confirm = "";
+var fullname = "";
+
+// signup page
+function signupPageCheck()
+{
+	email = $('#signup_email').val();
+	password = $('#signup_password').val();
+	password_confirm = $('#signup_password_confirm').val();
 
 	if(!email.trim())
 	{
@@ -107,6 +100,53 @@ $('#signup_submit').click(function()
 		alert("Password doesn't match");
 		return;
 	}
+
+	else
+	{
+		$.mobile.changePage("#signup_detail_page1", 
+		{
+    		transition: "fade",
+    		reverse: false,
+   			changeHash: true
+    	});
+	}
+}
+
+// sign up page1
+function signupPage1Check()
+{
+	fullname = $('#signup_fullname').val();
+	
+	if(!fullname.trim())
+	{
+		alert("Please input your fullname");
+		return;
+	}
+	else
+	{
+		$.mobile.changePage("#signup_detail_page2", 
+		{
+    		transition: "fade",
+    		reverse: false,
+   			changeHash: true
+    	});
+	}
+}
+
+// when sign up button was clicked 
+$('#signup_submit').click(function()
+{
+	// get user sign up info from input text fields
+	
+	
+	
+	var dateOfBirth = $('#signup_birthday').val()
+	var contactNumber = $('#signup_contact_number').val();
+	var hospital = $('#signup_hospital').val();
+	var jobTitle = $('#signup_job_title').val();
+	var registrationNumber = $('#signup_registration_number').val();
+	var medical_insurance = $('#signup_medical_insurance').val();
+
 
 	if(!dateOfBirth.trim())
 	{

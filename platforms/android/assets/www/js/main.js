@@ -716,10 +716,13 @@ function onBoardingBack()
 }
 
 
+var avatar_page = "";
 // onboarding page requries user avatar 
-function selectAvatar()
+function selectAvatar(element)
 {
-   navigator.notification.confirm
+  avatar_page = element;
+
+  navigator.notification.confirm
    (
       'Choose Profile Picture',  // message
       onConfirm,         // callback
@@ -765,8 +768,17 @@ function onConfirm(buttonIndex)
 function onAvatarSuccess(imageURI)
 {
   uploadAvatar = true;
-  var image = document.getElementById("onboarding_avatar");
-  image.src = imageURI;
+
+  if(avatar_page == "onboarding_avatar")
+  {
+    var image = document.getElementById("onboarding_avatar");
+    image.src = imageURI;
+  }
+
+  if(avatar_page == "signup_avatar")
+  {
+    $('.signup_avatar_mini').attr('src', imageURI);
+  }
 }
 
 function onFail(message)

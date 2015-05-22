@@ -158,6 +158,9 @@
                     <div class="form-group">
                         <input id="signup_password" class="input-lg" type="password" placeholder="Password"/>
                     </div>
+                    <div class="form-group">
+                        <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password"/>
+                    </div>
                     <div class="row">
                         <label>You agree to our Terms and Privacy Policy</label>
                     </div>
@@ -185,13 +188,14 @@
                                     <h3>Compete your profile</h3>
                                     <h5>Only doctors can see this</h5>
                                     <div class="form-group">
-                                    <input id="signup_name" class="input-lg" type="text" placeholder="Your name"/>
+                                    <input id="signup_fullname" class="input-lg" type="text" placeholder="Your name"/>
                                     </div>
                                     <div class="form-group">
-                                        <img type="file" id="onboarding_avatar" class="onboarding_avatar_lg img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
+                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
                                     </div>
 
                                     <div class="form-group">
+
                                         <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
                                     </div>
                                     <div class="dots-row">
@@ -207,8 +211,9 @@
         <div id="signup_detail_page2" data-role="page">
             
             <div class="ui-content text-center">
+
                 <div class="container thumbs_comtainer">
-                        <img type="file"  id="onboarding_avatar" class="onboarding_avatar_mini img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;" />
+                         <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
                             <span class="welcome"></span>
                 <div class="precodure_bar">
                     
@@ -221,11 +226,12 @@
                             <h4>Three quick things</h4>
                             <label>Tell doctors a little more so they can personalize their answers</label>
                         </div>
+
                         <div id="signup_inner_slide" class="carousel slide inner_slide" data-ride="carousel" data-interval="false" data-wrap="false">
                             <div class="carousel-inner" data-role='listbox'>
                                 <div class="item active">
                                 <h3>Gender</h3>
-                                <div class="row">
+                                <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
                                         <a href="#signup_inner_slide" data-slide="next" >
                                             <i class="fa fa-4x fa-male"></i>
@@ -262,11 +268,12 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 
+                
+
                     <div class="inner_carousel_controls" >
-                        <a href="#" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
+                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
                     
                     <div class="dots-row">
@@ -285,15 +292,85 @@
                     </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                </div>
+
           
 
-        <div id="signup_detail_page3" data-role="page">
-            <div date-role="header" class="ui-header"></div>
-            <div class="ui-content">
+
+                <div id="signup_detail_page3" data-role="page">
+            
+                    <div class="ui-content text-center" style="height: 100vh">
+                        <div class="row" style="35%">
+                            <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                            <span class="welcome"></span>
+                        
+                        <!-- procedure bar -->   
+                    
+                            <div class="slogen">
+                                <h3>For a more personalized experience</h3>
+                                <label>Follow three or more topics of interest</label>
+                            </div>
+                        </div>
+
+                        <div class="row" style="height: 50%">
+                            <div class="signup_details_listview">
+                                <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
+                                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/RedCross.png"/> Living Healthier</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/RedCross.png"/> Parenting and Pregnancy</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+
+                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/RedCross.png"/> Growing Older</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+
+                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/RedCross.png"/> Managing a Condition</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    <div class="row" style="height: 10%">
+                            <div class="carousel-controls" style="width:90%; margin:0 auto; height:58px;">
+                                <a href="#" class="signup_btn btn-block btn" role="button">Continue</a>
+                            </div>
+                     </div>
+
+                    <div class=" dots-row" style="height: 5%">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                    </div>
+
+                </div>
             </div>
-        </div>
+              
+        
+
         <!-- signup detail pages -->
 
         <!-- signup page -->
@@ -1288,7 +1365,7 @@
                                 <h2 id="onboarding_title">Onboarding new patient</h2>
                             </div>
                             <div class="form-group">
-                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(); return false;"/>
+                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="onboarding_fullname" name="fullname"  placeholder="Full Name"/>

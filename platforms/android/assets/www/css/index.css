@@ -245,6 +245,14 @@ input[type=number]{
 #signup_page .ui-content{
     background-color:  rgba(166, 181, 184,1) !important;
 }
+
+.signup_details_listview
+{
+    overflow-y: auto !important;
+    height:100%;
+}
+
+
 #signup_detail_page1 .ui-header, #signup_detail_page2 .ui-header, #signup_detail_page3 .ui-header{
     background-color: #f2f2f2 !important;
 }
@@ -386,14 +394,14 @@ input[type=number]{
     max-width: 480px;
     height: 80vh;
 }
-.onboarding_avatar_lg{
+.signup_avatar_lg{
     height: 25vh !important;
     width: 25vh !important;
     max-width: 400px;
     max-height: 400px;
     margin: 15px auto;
 }
-.onboarding_avatar_mini {
+.signup_avatar_mini {
     margin: 3vh auto 1vh auto;
     width: 10vh !important;
     height: 10vh !important;
