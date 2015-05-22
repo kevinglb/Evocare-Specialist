@@ -164,7 +164,7 @@
                     </div>
                     
                     <div class="from-group">
-                        <a href="#signup_detail_page1" data-transition="fade"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                        <a href="#signup_detail_page1" data-transition="slide"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
                     </div>
                     <div class="below_content">
                         <a href="#login_page" data-transition="slidedown">Aready a member? log in now</a>
@@ -2295,6 +2295,7 @@ function detectInnerSlide1(){
         $('.slogen h4').text('Two quick things');
         $('#signup_detail_page2 .signup_btn').show();
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
         $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
         if($('.dob').text()!="MM - DD - Year"){
             $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
@@ -2304,7 +2305,10 @@ function detectInnerSlide1(){
         $('.slogen h4').text('One quick things');
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .signup_btn').attr('data-transition', 'slide');
         $('#signup_detail_page2 .skip_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .skip_btn').attr('data-transition', 'slide');
+
     }
 }
 
