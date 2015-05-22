@@ -145,7 +145,6 @@
         </div> -->
 
         <div id="signup_page" data-role="page">
-            <div data-role="header" class="ui-header"></div>
             <div class="ui-content">
                 <div class="text-center container logo_container">
                     <img style="width:50%" src="img/login-logo.png"/>
@@ -166,7 +165,7 @@
                         <label>You agree to our Terms and Privacy Policy</label>
                     </div>
                     
-                    <div class="from-group">
+                    <div class="from-group" style="margin-top:15vh;">
                         <a href="#signup_detail_page1" data-transition="slide"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
                     </div>
                     <div class="below_content">
@@ -181,8 +180,8 @@
         <!-- signup detail page for user to fill info -->
         <div id="signup_detail_page1" class="text-center" data-role="page">
             <div class="ui-content">
-                            <div class="text-center container">
-                                <img style="width:50%;margin:15px 0;" src="img/login-logo.png"/>
+                            <div class="text-center logo_container container">
+                                <img style="width:50%" src="img/login-logo.png"/>
                             </div>
 
                                 <div class="container form_container">
@@ -212,18 +211,25 @@
         <div id="signup_detail_page2" data-role="page">
             
             <div class="ui-content text-center">
-            <div class="container form_container">
-                <div class="row">
+                <div class="container thumbs_container">
                     <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                    <div class="row">
                         <span class="welcome"></span>
-                </div>
-                <!-- procedure bar -->   
-                <div class="row">
-                    <div class="slogen">
-                        <h3>Three quick things</h3>
-                        <label>Tell doctors a little more so they can personalize their answers</label>
                     </div>
-       
+                    <div class="progress" style="width:90%; margin:0 auto;">
+                        <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
+                            20% Completed
+                        </div>
+                    </div>
+                </div>
+
+                     
+                <div class="container form_container ">
+                    <div class="slogen">
+                            <h4>Three quick things</h4>
+                            <label>Tell doctors a little more so they can personalize their answers</label>
+                        </div>
+
                         <div id="signup_inner_slide" class="carousel slide inner_slide" data-ride="carousel" data-interval="false" data-wrap="false">
                             <div class="carousel-inner" data-role='listbox'>
                                 <div class="item active">
@@ -266,13 +272,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
                 
 
                     <div class="inner_carousel_controls" >
                         <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
-                    </div>
+                    
                     <div class="dots-row">
                             <span class="dot"></span>
                             <span class="dot active"></span>
@@ -289,6 +295,10 @@
                     </div>
                     </div>
                 </div>
+                </div>
+
+          
+
 
                 <div id="signup_detail_page3" data-role="page">
             
@@ -360,7 +370,6 @@
                     </div>
 
                 </div>
-
             </div>
 
              <div id="signup_detail_page4" data-role="page">
@@ -2251,11 +2260,12 @@ function setHeightofContent(){
     
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
-
+    $("#signup_page .ui-content").css('height','100vh');
     $("#signup_detail_page1 .ui-content").css('height','100vh');
     $("#signup_detail_page2 .ui-content").css('height', '100vh');
     $("#signup_detail_page3 .ui-content").css('height', '100vh');
     $("#signup_detail_page4 .ui-content").css('height', '100vh');
+
 }
 function addSymptom(){
     var index = $("#symptom_list>li").length+1;
@@ -2487,19 +2497,31 @@ function detectInnerSlide1(){
         $('.slogen h4').text('Three quick things');
         $('#signup_detail_page2 .signup_btn').hide();
         $('#signup_detail_page2 .back_btn').attr('disabled','disabled');
+
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '20%');
+        $('#signup_detail_page2 .progress .progress-bar').html('20%');
     }
     else if($('#signup_inner_slide .carousel-inner .item:nth-child(2)').hasClass('active')){
         $('.slogen h4').text('Two quick things');
+        
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '30%');
+        $('#signup_detail_page2 .progress .progress-bar').html('30%');
+
         $('#signup_detail_page2 .signup_btn').show();
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
-         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
         $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
+        
         if($('.dob').text()!="MM - DD - Year"){
             $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
         }
     }   
     else if($('#signup_inner_slide .carousel-inner .item:last').hasClass('active')){
         $('.slogen h4').text('One quick things');
+
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '40%');
+        $('#signup_detail_page2 .progress .progress-bar').html('40%');
+
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_detail_page3');
         $('#signup_detail_page2 .signup_btn').attr('data-transition', 'slide');
