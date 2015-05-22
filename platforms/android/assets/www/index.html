@@ -212,15 +212,19 @@
             
             <div class="ui-content text-center">
 
-                <div class="container thumbs_comtainer">
-                         <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
-                            <span class="welcome"></span>
-                <div class="precodure_bar">
-                    
-                </div>
+                <div class="container thumbs_container">
+                    <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                    <div class="row">
+                        <span class="welcome"></span>
+                    </div>
+                    <div class="progress" style="width:90%; margin:0 auto;">
+                        <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
+                            20% Completed
+                        </div>
+                    </div>
                 </div>
 
-                    <!-- procedure bar -->   
+                     
                 <div class="container form_container ">
                     <div class="slogen">
                             <h4>Three quick things</h4>
@@ -2136,6 +2140,7 @@ function setHeightofContent(){
     $("#signup_page .ui-content").css('height','100vh');
     $("#signup_detail_page1 .ui-content").css('height','100vh');
     $("#signup_detail_page2 .ui-content").css('height', '100vh');
+    $("#signup_detail_page3 .ui-content").css('height', '100vh');
     
 }
 function addSymptom(){
@@ -2368,19 +2373,31 @@ function detectInnerSlide1(){
         $('.slogen h4').text('Three quick things');
         $('#signup_detail_page2 .signup_btn').hide();
         $('#signup_detail_page2 .back_btn').attr('disabled','disabled');
+
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '20%');
+        $('#signup_detail_page2 .progress .progress-bar').html('20%');
     }
     else if($('#signup_inner_slide .carousel-inner .item:nth-child(2)').hasClass('active')){
         $('.slogen h4').text('Two quick things');
+        
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '30%');
+        $('#signup_detail_page2 .progress .progress-bar').html('30%');
+
         $('#signup_detail_page2 .signup_btn').show();
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
-         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
         $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
+        
         if($('.dob').text()!="MM - DD - Year"){
             $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
         }
     }   
     else if($('#signup_inner_slide .carousel-inner .item:last').hasClass('active')){
         $('.slogen h4').text('One quick things');
+
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '40%');
+        $('#signup_detail_page2 .progress .progress-bar').html('40%');
+
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_detail_page3');
         $('#signup_detail_page2 .signup_btn').attr('data-transition', 'slide');

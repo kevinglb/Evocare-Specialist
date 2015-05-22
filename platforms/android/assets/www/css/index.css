@@ -395,8 +395,8 @@ input[type=number]{
     height: 80vh;
 }
 .signup_avatar_lg{
-    height: 25vh !important;
-    width: 25vh !important;
+    height: 30vh !important;
+    width: 30vh !important;
     max-width: 400px;
     max-height: 400px;
     margin: 15px auto;
@@ -408,16 +408,16 @@ input[type=number]{
     max-width: 120px;
     max-height: 120px;
 }
-.precodure_bar{
-    height: 20px;
-    margin: 2vh auto;
-}
+.progress{
+    width: 90%;    
+    margin: 2vh auto 0 auto;
+} 
 #signup_detail_page1 .slide, #signup_detail_page2 .slide{
     height: 100%;
 }
 #signup_inner_slide {
-    min-height: 30vh;
-    max-height: 40vh !important;
+    
+    max-height: 30vh !important;
     max-width: 90%;
     margin: 0px auto 5vh auto;
     border-radius: 0 0 0.5em 0.5em;
@@ -426,7 +426,7 @@ input[type=number]{
 }
 .slogen {
     max-width: 90%;
-    margin: 1vh auto 0 auto;
+    margin: 5vh auto 0 auto;
     padding: 0.5em;
     border-radius: 0.5em 0.5em 0 0;
     background-color: #8FCDBE;
@@ -1214,10 +1214,10 @@ input[type=number]{
         padding:0 ;
     }
     .item .below_content .lg_text_left{
-    float: left;
-    font-size: 8vh;
-    line-height: 12vh;
-    font-weight: bold;
+        float: left;
+        font-size: 8vh;
+        line-height: 12vh;
+        font-weight: bold;
     }
     .item .below_content .sm_text_left{
         float: left;
@@ -1244,11 +1244,18 @@ input[type=number]{
         height: 14vh;
         margin: 4vh auto 2vh auto;
     }
-
+    .signup_avatar_lg{
+        width: 25vh;
+        height: 25vh;
+    }
     .form_container{
         width: 90%;
         max-width: 480px;
         height: 80vh;
+    }
+    #signup_inner_slide {
+        min-height: 30vh !important;
+        max-height: 40vh !important;
     }
     .inner_carousel_controls {
         height: 46px;
@@ -1257,6 +1264,11 @@ input[type=number]{
         line-height: 45px;
         font-size: 1.2em;
     }
+    .progress {
+        height: 18px;
+        border-radius: 9px;
+    }
+
 }
 .ui-panel{
     width: 90vw;
