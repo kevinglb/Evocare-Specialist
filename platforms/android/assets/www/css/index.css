@@ -1183,6 +1183,18 @@ input[type=number]{
         font-size: 8vh;
         line-height: 12vh;
     }
+
+    .logo_container{
+        height: 15vh;
+    }
+    .form_container{
+        width: 90%;
+        max-width: 480px;
+    }
+    .signup_btn{
+        line-height: 45px;
+        font-size: 1.2em;
+    }
 }
 .ui-panel{
     width: 90vw;

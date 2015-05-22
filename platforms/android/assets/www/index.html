@@ -147,12 +147,12 @@
         <div id="signup_page" data-role="page">
             <div data-role="header" class="ui-header"></div>
             <div class="ui-content">
-                <div class="text-center container">
+                <div class="text-center container logo_container">
                     <img style="width:50%" src="img/login-logo.png"/>
                 </div>
-                <div class="container">
+                <div class="container form_container">
                     <div class="row">
-                    <h3>Create a free, private account or login</h3>
+                    <h4>Create a free, private account or login</h4>
                     <div class="form-group">
                         <input id="signup_email" class="input-lg" type="email" placeholder="Your email"/>
                     </div>
@@ -2031,6 +2031,7 @@ function setHeightofContent(){
     console.log(contentCurrent);
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
+
     $("#signup_detail_page1 .ui-content").height(screen);
     $("#signup_detail_page2 .ui-content").height(screen);
     
