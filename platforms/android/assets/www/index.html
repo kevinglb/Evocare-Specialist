@@ -180,7 +180,6 @@
         </div>
         <!-- signup detail page for user to fill info -->
         <div id="signup_detail_page1" class="text-center" data-role="page">
-            <div date-role="header" class="ui-header"></div>
             <div class="ui-content">
                             <div class="text-center container">
                                 <img style="width:50%;margin:15px 0;" src="img/login-logo.png"/>
@@ -197,7 +196,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <a href="#signup_detail_page2" class="btn btn-block signup_btn " role="button">Continue</a>
+
+                                        <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
                                     </div>
                                     <div class="dots-row">
                                         <span class="dot active"></span>
@@ -210,7 +210,7 @@
         </div>
 
         <div id="signup_detail_page2" data-role="page">
-             <div date-role="header" class="ui-header"></div>
+            
             <div class="ui-content text-center">
     <div class="container form_container">
                 <div class="row">
@@ -230,12 +230,12 @@
                                 <h3>Gender</h3>
                                 <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
-                                        <a href="#" onClick="setupSignUpPage2()">
+                                        <a href="#signup_inner_slide" data-slide="next" >
                                             <i class="fa fa-4x fa-male"></i>
                                         </a>  
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#" onClick="setupSignUpPage2()">
+                                        <a href="#signup_inner_slide" data-slide="next">
                                             <i class="fa fa-4x fa-female"></i>
                                         </a> 
                                     </div>
@@ -2124,12 +2124,12 @@ function setHeightofContent(){
     
     var header = $(".ui-page .ui-header").outerHeight();
     var  contentCurrent = screen - header;
-    console.log(contentCurrent);
+    
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
 
-     $("#signup_detail_page3 .ui-content").css('height','100%');
-    // $("#signup_detail_page2 .ui-content").height(screen);
+    $("#signup_detail_page1 .ui-content").css('height','100vh');
+    $("#signup_detail_page2 .ui-content").css('height', '100vh');
     
 }
 function addSymptom(){
