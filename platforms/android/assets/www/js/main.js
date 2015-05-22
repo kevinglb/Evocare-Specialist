@@ -777,6 +777,8 @@ function onAvatarSuccess(imageURI)
 
   if(avatar_page == "signup_avatar")
   {
+    // display the selected image
+    $('.signup_avatar_lg').attr('src', imageURI);
     $('.signup_avatar_mini').attr('src', imageURI);
   }
 }
