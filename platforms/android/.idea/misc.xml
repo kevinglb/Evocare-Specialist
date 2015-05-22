@@ -13,11 +13,17 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+=======
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+>>>>>>> fa2a5e72af50a4d73d35c82ce6c8949caf96c409
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+<<<<<<< HEAD
+=======
   </component>
   <component name="masterDetails">
     <states>
@@ -34,5 +40,6 @@
         </settings>
       </state>
     </states>
+>>>>>>> fa2a5e72af50a4d73d35c82ce6c8949caf96c409
   </component>
 </project>

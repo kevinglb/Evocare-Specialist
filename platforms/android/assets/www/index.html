@@ -147,12 +147,12 @@
         <div id="signup_page" data-role="page">
             <div data-role="header" class="ui-header"></div>
             <div class="ui-content">
-                <div class="text-center container">
+                <div class="text-center container logo_container">
                     <img style="width:50%" src="img/login-logo.png"/>
                 </div>
-                <div class="container">
+                <div class="container form_container">
                     <div class="row">
-                    <h3>Create a free, private account or login</h3>
+                    <h4>Create a free, private account or login</h4>
                     <div class="form-group">
                         <input id="signup_email" class="input-lg" type="email" placeholder="Your email"/>
                     </div>
@@ -165,11 +165,12 @@
                     <div class="row">
                         <label>You agree to our Terms and Privacy Policy</label>
                     </div>
-                    <div class="row">
-                        <label>Aready a member log in</label>
-                    </div>
+                    
                     <div class="from-group">
-                        <a href="#" onclick="signupPageCheck()" class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                        <a href="#signup_detail_page1" data-transition="slide"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                    </div>
+                    <div class="below_content">
+                        <a href="#login_page" data-transition="slidedown">Aready a member? log in now</a>
                     </div>
                 </div>
                 </div>
@@ -179,12 +180,13 @@
         </div>
         <!-- signup detail page for user to fill info -->
         <div id="signup_detail_page1" class="text-center" data-role="page">
+            <div date-role="header" class="ui-header"></div>
             <div class="ui-content">
                             <div class="text-center container">
                                 <img style="width:50%;margin:15px 0;" src="img/login-logo.png"/>
                             </div>
 
-                                <div class="container">
+                                <div class="container form_container">
                                     <h3>Compete your profile</h3>
                                     <h5>Only doctors can see this</h5>
                                     <div class="form-group">
@@ -195,9 +197,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <a onclick="signupPage1Check()" class="btn btn-block signup_btn " role="button">Continue</a>
+                                        <a href="#signup_detail_page2" class="btn btn-block signup_btn " role="button">Continue</a>
                                     </div>
-                                    <div class="row dots-row">
+                                    <div class="dots-row">
                                         <span class="dot active"></span>
                                         <span class="dot"></span>
                                     <span class="dot"></span>
@@ -208,8 +210,9 @@
         </div>
 
         <div id="signup_detail_page2" data-role="page">
-            
+             <div date-role="header" class="ui-header"></div>
             <div class="ui-content text-center">
+    <div class="container form_container">
                 <div class="row">
                     <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
                         <span class="welcome"></span>
@@ -220,9 +223,10 @@
                         <h3>Three quick things</h3>
                         <label>Tell doctors a little more so they can personalize their answers</label>
                     </div>
-                    <div id="signup_inner_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                        <div class="carousel-inner" data-role='listbox'>
-                            <div class="item active">
+       
+                        <div id="signup_inner_slide" class="carousel slide inner_slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                            <div class="carousel-inner" data-role='listbox'>
+                                <div class="item active">
                                 <h3>Gender</h3>
                                 <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
@@ -261,38 +265,47 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
+                </div>
                 
-                    <div class="carousel-controls" style="width:90%; margin:0 auto; height:58px;">
-                 
-                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none"  onClick='setupSignUpPage2()'>Continue</a>
+
+                    <div class="inner_carousel_controls" >
+                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
                     </div>
-                    <div class="row dots-row">
+                    <div class="dots-row">
                             <span class="dot"></span>
                             <span class="dot active"></span>
                             <span class="dot"></span>
+                            <div class="clear"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-offset-2">
+                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>Back</a>
                         </div>
+                        <div class="col-xs-4">
+                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
 
                 <div id="signup_detail_page3" data-role="page">
             
-                    <div class="ui-content text-center">
-                        <div class="row">
+                    <div class="ui-content text-center" style="height: 100vh">
+                        <div class="row" style="35%">
                             <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
                             <span class="welcome"></span>
                         
                         <!-- procedure bar -->   
                     
-                        <div class="slogen">
-                             <h3>For a more personalized experience</h3>
-                            <label>Follow three or more topics of interest</label>
+                            <div class="slogen">
+                                <h3>For a more personalized experience</h3>
+                                <label>Follow three or more topics of interest</label>
+                            </div>
                         </div>
-                    </div>
 
-                        <div class="row" style="height:65vh">
+                        <div class="row" style="height: 50%">
                             <div class="signup_details_listview">
                                 <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
@@ -333,24 +346,26 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
+                        
+                    <div class="row" style="height: 10%">
                             <div class="carousel-controls" style="width:90%; margin:0 auto; height:58px;">
                                 <a href="#" class="signup_btn btn-block btn" role="button">Continue</a>
                             </div>
                      </div>
 
-                    <div class="row dots-row">
+                    <div class=" dots-row" style="height: 5%">
                             <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot active"></span>
-                        </div>
                     </div>
+
                 </div>
+
             </div>
-        </div>
-        <!-- signup detail page -->
+              
+        
+
+        <!-- signup detail pages -->
 
         <!-- signup page -->
         <!-- main page -->
@@ -899,7 +914,6 @@
                             </div>                     
                            <div class="item container">
                                 <div class="row">
-
                                     <div class="form-group">
                                         <label for="triage_note">Edit your note:</label>
                                         <textarea  name="triage_note" id="triage_note"></textarea>
@@ -2036,46 +2050,52 @@
                         console.log("year: " +selectYear);
                     }
                 })
-                 var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-                //calendar initialization
-                $("#calendar").jqmCalendar({
-                    events: [{
-            "title": "Meet PM",
-            "type" : "personal",
-            "begin": new Date(y,m, 27 ),
-            "end": new Date(y, m, 28)
+                    var date = new Date();
+                    var d = date.getDate();
+                    var m = date.getMonth();
+                    var y = date.getFullYear();
+                    //calendar initialization
+                    $("#calendar").jqmCalendar({
+                            events: [{
+                                "title": "Meet PM",
+                                "type" : "personal",
+                                "begin": new Date(y,m, 27 ),
+                                "end": new Date(y, m, 28)
             
-        }, 
-        {
-            "title": "gym",
-            "type" : "fitness",
-            "begin": new Date(y,m, 22 ),
-            "end": new Date(y, m, 28)
+                        }, 
+                        {
+                                "title": "gym",
+                                "type" : "fitness",
+                                "begin": new Date(y,m, 22 ),
+                                "end": new Date(y, m, 28)
             
-        },{
-            "title": "Dinner",
-            "type": "personal",
-            "begin": new Date(y, m, d+3,1,10,0,0),
-            "end": new Date(y, m, d + 4,15,15,0,0)
+                        },{
+                                "title": "Dinner",
+                                "type": "personal",
+                                "begin": new Date(y, m, d+3,1,10,0,0),
+                                "end": new Date(y, m, d + 4,15,15,0,0)
             
-        }, {
-            "title": "Lunch with Friends",
-            "type": "public",
-            "begin": new Date(y, m, d + 6),
-            "end": new Date(y, m, d + 7)
+                        }, {
+                                "title": "Lunch with Friends",
+                                "type": "public",
+                                "begin": new Date(y, m, d + 6),
+                                "end": new Date(y, m, d + 7)
             
-        }, 
-                ],
+                        }, 
+                        ],
                     months : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                     startOfWeek : 0
                     }); 
+
+                    
         });
 </script>
 
 <script type="text/javascript">
+
+$("#signup_inner_slide").bind('slid.bs.carousel',function(){
+    detectInnerSlide1();
+});
 
 function addNewTag()
 {
@@ -2107,8 +2127,9 @@ function setHeightofContent(){
     console.log(contentCurrent);
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
-    $("#signup_detail_page1 .ui-content").height(screen);
-    $("#signup_detail_page2 .ui-content").height(screen);
+
+     $("#signup_detail_page3 .ui-content").css('height','100%');
+    // $("#signup_detail_page2 .ui-content").height(screen);
     
 }
 function addSymptom(){
@@ -2334,6 +2355,36 @@ function setupSignUpPage2(){
 
     }, 400);
 }
+
+function detectInnerSlide1(){
+    $('#signup_detail_page2 .signup_btn').attr('disabled', 'disabled');
+    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
+        $('.slogen h4').text('Three quick things');
+        $('#signup_detail_page2 .signup_btn').hide();
+        $('#signup_detail_page2 .back_btn').attr('disabled','disabled');
+    }
+    else if($('#signup_inner_slide .carousel-inner .item:nth-child(2)').hasClass('active')){
+        $('.slogen h4').text('Two quick things');
+        $('#signup_detail_page2 .signup_btn').show();
+        $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+         $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
+        $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
+        if($('.dob').text()!="MM - DD - Year"){
+            $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
+        }
+    }   
+    else if($('#signup_inner_slide .carousel-inner .item:last').hasClass('active')){
+        $('.slogen h4').text('One quick things');
+        $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .signup_btn').attr('data-transition', 'slide');
+        $('#signup_detail_page2 .skip_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .skip_btn').attr('data-transition', 'slide');
+
+    }
+}
+
+
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
