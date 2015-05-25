@@ -413,8 +413,8 @@ function showPercentDonut(element_id, percent)
 function createNewTriage()
 {
 
-  var on_treatment = $('#on_treatment').children().children('label').attr('class').split(' ').pop();
-  if(on_treatment == "ui-radio-on")
+  var on_treatment = $('#on_treatment').children().children('label');
+  if(on_treatment.hasClass("ui-radio-on"))
   {
     on_treatment = false;
   }
@@ -442,8 +442,8 @@ function createNewTriage()
 
   var pain_grade = $("#nci_grade").val();
 
-  var history_pain = $('#history_record').children().children('label').attr('class').split(' ').pop();
-  if(history_pain == "ui-radio-on")
+  var history_pain = $('#history_record').children().children('label');
+  if(history_pain.hasClass("ui-radio-on"))
   {
     on_treatment = false;
   }
@@ -520,8 +520,8 @@ function onBoardingSave()
   var onboard_country = $('#country_selector').val();
 
 
-  var onboard_medical_card = $('#onboarding_medical_card').children().children('label').attr('class').split(' ').pop();
-  if(onboard_medical_card == "ui-radio-on")
+  var onboard_medical_card = $('#onboarding_medical_card').children().children('label');
+  if(onboard_medical_card.hasClass("ui-radio-on"))
   {
     onboard_medical_card = false;
   }
@@ -559,8 +559,8 @@ function onBoardingSave()
   var onboard_pharmacy_address = $('#onboarding__pharmacy_address').val();
   var onboard_pharmacy_phone = $('#onboarding__pharmacy_phoneNo').val();
 
-  var onboard_diabetes= $('#onboarding_diabetes').children().children('label').attr('class').split(' ').pop();
-  if(onboard_diabetes == "ui-radio-on")
+  var onboard_diabetes= $('#onboarding_diabetes').children().children('label');
+  if(onboard_diabetes.hasClass("ui-radio-on"))
   {
     onboard_diabetes = false;
   }
@@ -569,8 +569,8 @@ function onBoardingSave()
     onboard_diabetes = true;
   }
 
-  var onboard_blood_pressure= $('#onboarding_blood_pressure').children().children('label').attr('class').split(' ').pop();
-  if(onboard_blood_pressure == "ui-radio-on")
+  var onboard_blood_pressure= $('#onboarding_blood_pressure').children().children('label');
+  if(onboard_blood_pressure.hasClass("ui-radio-on"))
   {
     onboard_blood_pressure = false;
   }
@@ -579,8 +579,8 @@ function onBoardingSave()
     onboard_blood_pressure = true;
   }
 
-  var onboard_heart_disease= $('#onboarding_heart_disease').children().children('label').attr('class').split(' ').pop();
-  if(onboard_heart_disease == "ui-radio-on")
+  var onboard_heart_disease= $('#onboarding_heart_disease').children().children('label');
+  if(onboard_heart_disease.hasClass("ui-radio-on"))
   {
     onboard_heart_disease = false;
   }
@@ -589,8 +589,8 @@ function onBoardingSave()
     onboard_heart_disease = true;
   }
 
-  var onboard_asthma= $('#onboarding_asthma').children().children('label').attr('class').split(' ').pop();
-  if(onboard_asthma == "ui-radio-on")
+  var onboard_asthma= $('#onboarding_asthma').children().children('label');
+  if(onboard_asthma.hasClass("ui-radio-on"))
   {
     onboard_asthma = false;
   }
@@ -599,8 +599,8 @@ function onBoardingSave()
     onboard_asthma = true;
   }
 
-  var onboard_epilepsy= $('#onboarding_epilepsy').children().children('label').attr('class').split(' ').pop();
-  if(onboard_epilepsy == "ui-radio-on")
+  var onboard_epilepsy= $('#onboarding_epilepsy').children().children('label');
+  if(onboard_epilepsy.hasClass("ui-radio-on"))
   {
     onboard_epilepsy = false;
   }
@@ -609,8 +609,8 @@ function onBoardingSave()
     onboard_epilepsy = true;
   }
 
-  var onboard_cancer= $('#onboarding_cancer').children().children('label').attr('class').split(' ').pop();
-  if(onboard_cancer == "ui-radio-on")
+  var onboard_cancer= $('#onboarding_cancer').children().children('label');
+  if(onboard_cancer.hasClass("ui-radio-on"))
   {
     onboard_cancer = false;
   }
