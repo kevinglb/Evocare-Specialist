@@ -245,7 +245,9 @@ input[type=number]{
 #signup_page .ui-content{
     background-color:  rgba(166, 181, 184,1) !important;
 }
-
+.signup_page .ui-content{
+    background-color:#FFF;
+}
 .signup_details_listview
 {
     overflow-y: auto !important;
@@ -436,11 +438,17 @@ input[type=number]{
     margin: 5vh auto 0 auto;
     padding: 0.5em;
     border-radius: 0.5em 0.5em 0 0;
-    background-color: #8FCDBE;
+    background-color: #D3FCF5;
     border: 1px solid #A0B2B7;
     border-bottom: none;
 }
-
+.slogen h4{
+    color:#1FD9B9;
+}
+#signup_detail_page3 .slogen , #signup_detail_page4 .slogen{
+    border-radius: 0.5em;
+    border: 1px solid #A0B2B7;
+}
 #signup_inner_slide .carousel-inner{
     height: 100% !important;
     overflow: hidden;
@@ -1262,7 +1270,7 @@ input[type=number]{
     }
     #signup_inner_slide {
         min-height: 30vh !important;
-        max-height: 40vh !important;
+        
     }
     .inner_carousel_controls {
         height: 46px;

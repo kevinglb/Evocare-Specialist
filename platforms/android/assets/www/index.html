@@ -144,7 +144,7 @@
             </div>
         </div> -->
 
-        <div id="signup_page" data-role="page">
+        <div id="signup_page" data-role="page" class="signup_page">
             <div class="ui-content">
                 <div class="text-center container logo_container">
                     <img style="width:50%" src="img/login-logo.png"/>
@@ -178,7 +178,7 @@
             </div>
         </div>
         <!-- signup detail page for user to fill info -->
-        <div id="signup_detail_page1" class="text-center" data-role="page">
+        <div id="signup_detail_page1" class="text-center" data-role="page"  class="signup_page">
             <div class="ui-content">
                             <div class="text-center logo_container container">
                                 <img style="width:50%" src="img/login-logo.png"/>
@@ -208,7 +208,7 @@
 
         </div>
 
-        <div id="signup_detail_page2" data-role="page">
+        <div id="signup_detail_page2" data-role="page" class="signup_page">
             
             <div class="ui-content text-center">
                 <div class="container thumbs_container">
@@ -300,17 +300,21 @@
           
 
 
-                <div id="signup_detail_page3" data-role="page">
+                <div id="signup_detail_page3" data-role="page" class="signup_page">
             
                     <div class="ui-content text-center">
-                        <div class="row" style="height: 35vh">
+                         <div class="container thumbs_container" style="height:35vh">
                             <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
                             <span class="welcome"></span>
                         
-                        <!-- procedure bar -->   
+                             <div class="progress" style="width:90%; margin:0 auto;">
+                                <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
+                            20% Completed
+                                </div>
+                            </div>  
                     
                             <div class="slogen">
-                                <h3>For a more personalized experience</h3>
+                                <h4>For a more personalized experience</h4>
                                 <label>Follow three or more topics of interest</label>
                             </div>
                         </div>
@@ -357,13 +361,13 @@
                             </div>
                         </div>
                         
-                    <div class="row" style="height: 10vh">
-                            <div class="carousel-controls" style="width:90%; margin:0 auto; height:58px;">
+                    <div class="row" style="width:90%;max-width:480px;margin: 2vh auto 0 auto;" >
+                            <div class="carousel-controls">
                                 <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
                             </div>
                      </div>
 
-                    <div class=" dots-row" style="height: 5vh">
+                    <div class=" dots-row" >
                             <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot active"></span>
@@ -372,11 +376,11 @@
                 </div>
             </div>
 
-             <div id="signup_detail_page4" data-role="page">
+             <div id="signup_detail_page4" data-role="page" class="signup_page">
                  <div class="ui-content text-center">
-                    <div class="row" style="height: 30vh">
+                     <div class="container thumbs_container" style="height:25vh">
                         <div class="slogen">
-                            <h3>Add Doctors to your Care-Team</h3>
+                            <h4>Add Doctors to your Care-Team</h4>
                             <label>to be able to video or text chat for advice & prescriptions</label>
                         </div>
                     </div>
@@ -483,13 +487,13 @@
                     </div>
                     </div>
 
-                    <div class="row" style="height: 10vh">
-                            <div class="carousel-controls" style="width:90%; margin:0 auto; height:58px;">
+                    <div class="row">
+                            <div class="carousel-controls" style="width:90%; max-width:480px;margin:0 auto; ">
                                 <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
                             </div>
                      </div>
 
-                    <div class="row" style="height: 5vh">
+                    <div class="row">
                         <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
                     </div>
 
