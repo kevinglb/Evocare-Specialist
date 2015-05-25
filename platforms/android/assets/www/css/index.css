@@ -386,7 +386,10 @@ input[type=number]{
 }
 
 /*signup detail page*/
-
+div#signup_input_group
+{
+    margin-top: 10vh;
+}
 .logo_container{
     height: 14vh;
     margin: 4vh auto 2vh auto;
@@ -1259,13 +1262,15 @@ input[type=number]{
         height: 14vh;
         margin: 4vh auto 2vh auto;
     }
+    div#signup_input_group{
+    margin-top: 0vh;
+    }
     .signup_avatar_lg{
         width: 25vh;
         height: 25vh;
     }
     .form_container{
-        width: 90%;
-        max-width: 480px;
+        width:100%;
         height: 80vh;
     }
     #signup_inner_slide {
@@ -1275,6 +1280,14 @@ input[type=number]{
     .inner_carousel_controls {
         height: 46px;
     }
+    .slogen{
+        padding: 0;
+        padding-bottom: 0.5em;
+        margin-top: 2vh;
+    }
+    #signup_detail_page3 .slogen{
+        padding: 0;
+    }
     .signup_btn{
         line-height: 45px;
         font-size: 1.2em;
@@ -1283,6 +1296,19 @@ input[type=number]{
         height: 18px;
         border-radius: 9px;
     }
+    .ui-input-text, .ui-input-search
+    {
+        margin:0;
+    }
+    html .ui-filterable+.ui-listview, html .ui-filterable.ui-listview
+    {
+        margin-top: 0;
+    }
+    .ui-listview>.ui-li-static
+    {
+        padding:0;
+    }
+
 
 }
 .ui-panel{
