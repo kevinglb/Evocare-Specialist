@@ -46,9 +46,7 @@
 
         
         <div id="login_page" data-role="page">
-            <!-- header -->
-            <div date-role="header" class="ui-header" position="fixed">
-            </div>
+            
             <!-- header -->
             <!-- content -->
             <div role="main" class="ui-content">
@@ -147,34 +145,34 @@
         <div id="signup_page" data-role="page" class="signup_page">
             <div class="ui-content">
                 <div class="text-center container logo_container">
-                    <img style="width:50%" src="img/login-logo.png"/>
+                    <img src="img/login-logo.png"/>
                 </div>
                 <div class="container form_container">
                     <div id="signup_input_group" class="row">
-                        <div class="form-group has-feedback left-feedback no-label">
+                        <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
                             <input id="signup_email" class="input-lg" type="email" placeholder="youremail@email.com">
-                                <span class="icon-user form-control-feedback"></span>
+                                <span class="icon-user-w form-control-feedback"></span>
                             </input>
                         </div>
                         
-                        <div class="form-group has-feedback left-feedback no-label">
+                        <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
                             <input id="signup_password" class="input-lg" type="password" placeholder="Password">
-                                <span class="icon-locker form-control-feedback"></span>
+                                <span class="icon-locker-w form-control-feedback"></span>
                             </input>
                         </div>
                         
-                        <div class="form-group has-feedback left-feedback no-label">
+                        <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
                             <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password">
-                                <span class="icon-locker form-control-feedback"></span>
+                                <span class="icon-locker-w form-control-feedback"></span>
                             </input>
                         </div>
                         
                         <div class="form-group" style="margin-top:12vh;">
-                            <p>Aready a member?</p>
+                            <p class="ui-link light-font"> Aready a member?</p>
                         </div>
                         
                         <div class="form-group">
-                            <a href="#login_page" data-transition="slidedown">Login now</a>
+                            <a class="light-font" href="#login_page" data-transition="slidedown">Login now</a>
                         </div>
                     
                     </div>
@@ -188,14 +186,14 @@
         <div id="signup_detail_page1" class="text-center" data-role="page"  class="signup_page">
             <div class="ui-content">
                             <div class="text-center logo_container container">
-                                <img style="width:50%" src="img/login-logo.png"/>
+                                <img src="img/login-logo.png"/>
                             </div>
 
                                 <div class="container form_container">
-                                    <div class="form-group">
+                                    <div class="form-group bottom-border">
                                         <input id="signup_firstname" class="input-lg" type="text" placeholder="First Name"/>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group bottom-border">
                                         <input id="signup_lastname" class="input-lg" type="text" placeholder="Last name"/>
                                     </div>
                                     <div class="form-group">
@@ -256,8 +254,8 @@
                             <div class="item">
                                 <h3>Date of Birth</h3>
                                 <div class="row">
-                                    <a href="#" >
-                                        <img src="img/Calendar.svg" style="height:10vh">
+                                    <a href="#">
+                                        <img class="icon-calendar" src="img/Calendar.svg" style="height:10vh">
                                     </a> 
                                 </div>
                                 <div class="row">
@@ -1516,13 +1514,13 @@
                             <div class="form-group">
                                 <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_fullname" name="fullname"  placeholder="Full Name"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_birthday" name="birthday" class="datepicker_input" placeholder="Date of Birth"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_address" name="address" placeholder="Address"/>
                             </div>
                             <div id="onboarding_gender" class="form-group">
@@ -1535,14 +1533,14 @@
                                     <label for="onboarding_female" class="light-font">Female</label>
                                 </fieldset>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                  <input type="email" id="onboarding_email" name="email" placeholder="Email Address"/>
                             </div>
                            
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_home_number" name="contact_number"  placeholder="Home Phone Number"/>
                             </div>
-                             <div class="form-group">
+                             <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_mobile_number" name="mobile_number" placeholder="Mobile Phone Number"/>
                             </div>
                             
@@ -1555,30 +1553,30 @@
                                     <input type="text" id="country_selector_code" name="country_selector_code" data-countrycodeinput="1" readonly="readonly" placeholder="Selected country code will appear here" />
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_occupation" name="occupation" placeholder="Occupation"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_pps" name="pps"  placeholder="PPS number"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>Next of Kin 1</label>
                                 <input type="text" id="onboarding_kin1_fullname" name="kin1_fullname"  placeholder="Name"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_kin1_address" name="kin1_address"  placeholder="Address"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_kin1_phone" name="kin1_phone"  placeholder="Phone number"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>Next of Kin 2</label>
                                 <input type="text" id="onboarding_kin2_fullname" name="kin2_fullname"  placeholder="Name"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_kin2_address" name="kin2_address"  placeholder="Address"/>
                             </div>
-                             <div class="form-group">
+                             <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_kin2_phone" name="kin1_phone"  placeholder="Phone number"/>
                             </div>
                             <div class="form-group">
@@ -1618,20 +1616,20 @@
                                 </fieldset>                   
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_does_takeing" id="onboarding_does_takeing" placeholder="List of Medications & doses currently taking"/>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_allergies_history" id="onboarding_allergies_history" placeholder="Do you have any allergies e.g. food or medication?"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_problem_period" id="onboarding_problem_period"  placeholder="How long has it been a problem?"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_religious" id="onboarding_religious" placeholder="Religious beliefs"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>GP</label>
                                  
                                 <input name="onboarding_gp_full_name" id="onboarding_gp_full_name" placeholder="Name"/>
@@ -1641,7 +1639,7 @@
                                   
                                 <input type="number" name="onboarding_gp_phoneNo" id="onboarding_gp_phoneNo"  placeholder="Phone number"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>Preferred pharmacy</label>
                                  
                                 <input name="onboarding__pharmacy_name" id="onboarding__pharmacy_name"  placeholder="Name"/>
@@ -2185,7 +2183,7 @@
                     dateOrder: 'dd M yy',
                     dateFormat: 'dd-M-yy'
                 });
-                $('.fa-calendar').mobiscroll().date({
+                $('.icon-calendar').mobiscroll().date({
                     theme: 'android-holo-light',
                     mode : 'scroller',
                     display: 'modal',
@@ -2282,6 +2280,7 @@ function setHeightofContent(){
     
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
+    $("#login_page .ui-content").css('height', '100vh');
     $("#signup_page .ui-content").css('height','100vh');
     $("#signup_detail_page1 .ui-content").css('height','100vh');
     $("#signup_detail_page2 .ui-content").css('height', '100vh');
