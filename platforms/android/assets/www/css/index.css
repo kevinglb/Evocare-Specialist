@@ -284,6 +284,7 @@ input[type=number]{
 }
 #login_content .login_header img{
     width: 60%;
+    margin-top: 5%;
 }
 .below_content {
     margin-top: 5vh;
@@ -339,6 +340,7 @@ input[type=number]{
 #signup_page .ui-link{
     color:#FFF;
     text-decoration: none;
+
 }
 #login_submit{
     background-color: rgba(154, 175, 176, 1);
@@ -380,7 +382,7 @@ input[type=number]{
 
 .signup_btn{
     background-color: rgba(189, 201, 205, 1);
-    color: rgba(44, 118, 108, 1) !important;
+    color: #495559 !important;
     font-family: "Bendons-Medium";
     line-height: 58px;
     font-size: 1.5em;
@@ -394,6 +396,28 @@ input[type=number]{
     width:100%;
 }
 
+.bottom-border .ui-input-text{
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #BBC4C7;
+    font-family: "Bendons-Light";
+    color: #495559;
+}
+.bottom-border.color-w .ui-input-text{
+    color: #fff;
+    border-color: #fff;
+}
+
+.bottom-border.color-w .ui-input-text input::-webkit-input-placeholder{
+    color: #fff;
+}
+.bottom-border.color-w .ui-input-text input::-moz-placeholder{
+    color: #fff;
+}
+.bottom-border .icon{
+    color: #fff;
+}   
 .signup_btn[disabled]{
     color:#495559 !important;
 }
@@ -406,6 +430,10 @@ div#signup_input_group
 .logo_container{
     height: 14vh;
     margin: 12vh auto 2vh auto;
+}
+.logo_container img {
+    width: 60%;
+    margin-top: 5%;
 }
 .thumbs_container{
     width: 90%;
@@ -1459,8 +1487,14 @@ div#signup_input_group
 .icon-user{
     background-image: url("../icon/icon-user-bg.png");
 }
+.icon-user-w{
+    background-image: url("../icon/icon-user-w.svg");
+}
 .icon-locker{
-    background-image: url("../icon/icon-locker-bg.png");
+    background-image: url("../icon/icon-locker.png");
+}
+.icon-locker-w{
+    background-image: url("../icon/icon-locker-w.svg");
 }
 div#onborading_content
 {
@@ -1473,26 +1507,6 @@ div#onborading_content
 }
 #onborading_content .form-control{
     box-shadow: none;
-}
-#onborading_content .form-group .ui-input-text{
-    background: transparent !important;
-    border: none;
-    border-bottom: 1px solid #BBC4C7;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-#onborading_content .form-group .ui-input-text input{
-    border: none;
-    color: #495559;
-}
-
-#onborading_content .ui-input-text input::moz-placeholder{
-    color: #495559;
-}
-
-#onborading_content .ui-input-text input:webkit-placeholder{
-    color: #495559;
 }
 
 img#onboarding_avatar 
