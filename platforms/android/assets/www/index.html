@@ -294,7 +294,7 @@
                         </div>
                     </div>
                     </div>
-                       <div class="signup_continue_btn" >
+                    <div class="signup_continue_btn" >
                         <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
                 </div>
@@ -325,56 +325,63 @@
                             <div class="signup_details_listview">
                                 <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img src="img/live_healthier.svg"/> Living Healthier</h4>
+                                        <h4><img src="img/live_healthier.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#">Condor</a></li>
+                                            <li><a href="#">Eagle</a></li>
+                                            <li><a href="#">Sparrow</a></li>
                                         </ul>
                                     </li>
 
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img src="img/pregnancy.svg"/> Parenting and Pregnancy</h4>
+                                        <h4><img src="img/pregnancy.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#">Condor</a></li>
+                                            <li><a href="#">Eagle</a></li>
+                                            <li><a href="#">Sparrow</a></li>
                                         </ul>
                                     </li>
 
                                        <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img src="img/growing.svg"/> Growing Older</h4>
+                                        <h4><img src="img/growing.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#">Condor</a></li>
+                                            <li><a href="#">Eagle</a></li>
+                                            <li><a href="#">Sparrow</a></li>
                                         </ul>
                                     </li>
 
                                        <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/managing_condition.svg"/> Managing a Condition</h4>
+                                        <h4><img src="img/managing_condition.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#">Condor</a></li>
+                                            <li><a href="#">Eagle</a></li>
+                                            <li><a href="#">Sparrow</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        
-                    <div class="row" style="width:90%;max-width:480px;margin: 2vh auto 0 auto;" >
-                            <div class="carousel-controls">
-                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
-                            </div>
-                     </div>
 
-                    <div class=" dots-row" >
-                            <span class="dot"></span>
+                    <div class="container row">
+                        <div class="col-xs-4">
+                            <a href="#signup_detail_page2" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>< Back</a>
+                        </div>
+                        <div class="col-xs-4 dots-row">
                             <span class="dot"></span>
                             <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#signup_detail_page4" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                        </div>
                     </div>
-
+                        
+                    
+                    <div class="signup_continue_btn" >
+                        <a href="#signup_detail_page4" class="signup_btn btn-block btn"  role="button">Continue</a>
+                     </div>
                 </div>
             </div>
 

@@ -256,10 +256,19 @@ input[type=number]{
 
 #signup_personal_listview img
 {
-    height:40px;
-    width:40px;
+    height: 40px;
+    width: 40px;
+}
+#signup_personal_listview a
+{
+    background-color: transparent;
+    color: #576266;
 }
 
+.listview_content
+{
+    margin-left: 4vh;
+}
 
 #signup_detail_page1 .ui-header, #signup_detail_page2 .ui-header, #signup_detail_page3 .ui-header{
     background-color: #f2f2f2 !important;
@@ -1293,8 +1302,8 @@ div#signup_input_group
     }
     #signup_personal_listview img
     {
-        height:30px;
-        width:30px;
+        height:20px;
+        width:20px;
     }
     .inner_carousel_controls {
         height: 46px;
