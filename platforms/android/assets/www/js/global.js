@@ -1,4 +1,3 @@
-
 // set up global URLs  
 var login_url = "http://clinic.evocare.co/api/authenticate";
 var register_url = "http://clinic.evocare.co/api/register";

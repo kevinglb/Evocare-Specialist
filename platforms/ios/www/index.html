@@ -1,41 +1,2563 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <!-- css & font libraries  -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+
+        <!-- mobiscroll css -->
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.animation.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.icons.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.frame.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.frame.android.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.frame.android-holo.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.scroller.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.scroller.android-holo.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mobiscroll.android-holo-light.css"/>
+        <link rel="stylesheet" type="text/css" href="css/countrySelect.min.css"/>
+        <!-- jqm calendar css -->
+        <link rel="stylesheet" type="text/css" href="css/jw-jqm-cal.css"/>
+         <!-- main css -->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+
+        <!-- javascript libraries -->
+        <script type="text/javascript" src="plugins/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="plugins/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="plugins/bootstrap.min.js"></script>
+        <script type="text/javascript" src="plugins/d3.min.js"></script>
+        <script type="text/javascript" src="plugins/countrySelect.min.js"></script>
+        
+        <!-- date pikcer on mobile device trail version -->
+        <!-- <script type="text/javascript" src="plugins/mobiscroll.custom-2.15.1.min.js" ></script> -->
+        
+        <title>Evocare</title>
+
+        
     </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+    <body onload="setHeightofContent()">
+        <!-- log in page -->
+
+        
+        <div id="login_page" data-role="page">
+            <!-- header -->
+            <div date-role="header" class="ui-header" position="fixed">
+            </div>
+            <!-- header -->
+            <!-- content -->
+            <div role="main" class="ui-content">
+                <div id="login_content" class="container">
+                    <div class="login_header text-center">
+                        <img src="img/login-logo.png"/>
+                    </div>
+                    <div class="row">
+                        <!-- login form -->
+                        <form id="login_form" role="form">
+                            <div class="form-group has-feedback left-feedback no-label">
+                                <input type="text" id="login_username" name="username" class="form-control " placeholder="youremail@mail.com">
+                                    <span class="icon-user form-control-feedback"></span></input>
+                            </div>
+                            <div class="form-group has-feedback left-feedback no-label">
+                                <input type="password" id="login_password" name="password" class="form-control " placeholder="password">
+                                <span class="icon-locker form-control-feedback"></span></input>
+                            </div>
+
+                            <div class="form-group">
+                                <a id="login_submit" value="Log in" name="login_btn" class="btn btn-lg btn-perspective btn-block">LOG IN</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="below_content">
+                        <div class="row text-center">
+                            <a href="#">Forgot username or password?</a>
+                        </div>
+
+                        <div class="row text-center">
+                            <a href="#signup_page"  data-transition="slideup">Register now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+        <!-- log in page end -->
+        <!-- signn up page -->
+       <!--  <div  id="signup_page" data-role="page">
+            <div data-role="header">
+            </div>
+            <div data-role="main" class="ui-content">
+                <div id="signup_content">
+                    <div class="row">
+       
+                        <form id="signup_form" role="form">
+                            <div class="form-group">
+                                <input type="text" id="signup_fullname" name="fullname" class="form-control  " placeholder="Full Name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="signup_email" name="email" class="form-control  " placeholder="Email Address"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="signup_password" name="password" class="form-control  " placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="signup_password_confirm" name="password_confirm" class="form-control  " placeholder="Confirm Password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="signup_birthday" name="birthday" class="form-control   datepicker_input" placeholder="Date of Birth"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="signup_contact_number" name="contact_number" class="form-control  " placeholder="Contact Number"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="signup_hospital" name="hospital" class="form-control  " placeholder="Hospital" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="signup_job_title" name="job_title" class="form-control  " placeholder="Current Job Title" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="signup_registration_number" name="registration_number" class="form-control  " placeholder="ABA registration number" />
+                            </div>
+                            <div class="form-group">
+                                <select name="signup_medical_insurance" id="signup_medical_insurance" data-native-menu="false">
+                                    <option value="1">Do you have medical indemnity insurance?</option>
+                                    <option value="true">YES</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <a type="submit" id="signup_submit" value="sign up" name="signup_btn" class="btn btn-lg btn-presepctive btn-block">REGISTER</a>
+                            </div>
+                        </form>
+                        <div class="below_content">
+                            <div class="row text-center">
+                                <a href="#login_page"  data-transition="slidedown">Do you have an account?</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
+
+        <div id="signup_page" data-role="page" class="signup_page">
+            <div class="ui-content">
+                <div class="text-center container logo_container">
+                    <img style="width:50%" src="img/login-logo.png"/>
+                </div>
+                <div class="container form_container">
+                    <div id="signup_input_group" class="row">
+                    <h4>Create a free, private account or login</h4>
+                    <div class="form-group">
+                        <input id="signup_email" class="input-lg" type="email" placeholder="Your email"/>
+                    </div>
+                    <div class="form-group">
+                        <input id="signup_password" class="input-lg" type="password" placeholder="Password"/>
+                    </div>
+                    <div class="form-group">
+                        <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password"/>
+                    </div>
+                    <div class="row">
+                        <label>You agree to our Terms and Privacy Policy</label>
+                    </div>
+                    
+                    <div class="from-group" style="margin-top:15vh;">
+                        <a href="#signup_detail_page1" data-transition="slide"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                    </div>
+                    <div class="below_content">
+                        <a href="#login_page" data-transition="slidedown">Aready a member? log in now</a>
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- signup detail page for user to fill info -->
+        <div id="signup_detail_page1" class="text-center" data-role="page"  class="signup_page">
+            <div class="ui-content">
+                            <div class="text-center logo_container container">
+                                <img style="width:50%" src="img/login-logo.png"/>
+                            </div>
+
+                                <div class="container form_container">
+                                    <h3>Compete your profile</h3>
+                                    <h5>Only doctors can see this</h5>
+                                    <div class="form-group">
+                                    <input id="signup_fullname" class="input-lg" type="text" placeholder="Your name"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
+                                    </div>
+                                    <div class="dots-row">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+        </div>
+
+        <div id="signup_detail_page2" data-role="page" class="signup_page">
+            
+            <div class="ui-content text-center">
+                <div class="container thumbs_container">
+                    <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                    <div class="row">
+                        <span class="welcome"></span>
+                    </div>
+                    <div class="progress" style="width:90%; margin:0 auto;">
+                        <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
+                            20% Completed
+                        </div>
+                    </div>
+                </div>
+
+                     
+                <div class="container form_container ">
+                    <div class="slogen">
+                            <h4>Three quick things</h4>
+                            <label>Tell doctors a little more so they can personalize their answers</label>
+                        </div>
+
+                        <div id="signup_inner_slide" class="carousel slide inner_slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                            <div class="carousel-inner" data-role='listbox'>
+                                <div class="item active">
+                                <h3>Gender</h3>
+                                <div id="signup_gender" class="row">
+                                    <div class="col-xs-6">
+                                        <a href="#signup_inner_slide" data-slide="next" >
+                                            <i class="fa fa-4x fa-male"></i>
+                                        </a>  
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="#signup_inner_slide" data-slide="next">
+                                            <i class="fa fa-4x fa-female"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h3>Date of Birth</h3>
+                                <div class="row">
+                                    <a href="#" >
+                                        <i class="fa fa-3x fa-calendar"></i>
+                                    </a> 
+                                </div>
+                                <div class="row">
+                                    <label class="dob">MM - DD - Year</label>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h3>Location</h3>
+                                <div class="row">
+                                    <a href="#">
+                                        <i class=" fa fa-3x fa-location-arrow"></i>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <label class="location_text">Use Current Location</label>
+                                    <label>Or Enter Manually</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+
+                    <div class="inner_carousel_controls" >
+                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
+                    </div>
+                    
+                    <div class="dots-row">
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <div class="clear"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-offset-2">
+                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>Back</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+          
+
+
+                <div id="signup_detail_page3" data-role="page" class="signup_page">
+            
+                    <div class="ui-content text-center">
+                         <div class="container thumbs_container" style="height:35vh">
+                            <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                            <span class="welcome"></span>
+                        
+                             <div class="progress" style="width:90%; margin:0 auto;">
+                                <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
+                            20% Completed
+                                </div>
+                            </div>  
+                    
+                            <div class="slogen">
+                                <h4>For a more personalized experience</h4>
+                                <label>Follow three or more topics of interest</label>
+                            </div>
+                        </div>
+
+                        <div class="row" style="height: 50vh">
+                            <div class="signup_details_listview">
+                                <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
+                                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Living Healthier</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Parenting and Pregnancy</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+
+                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Growing Older</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+
+                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Managing a Condition</h4>
+                                        <ul data-role="listview">
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    <div class="row" style="width:90%;max-width:480px;margin: 2vh auto 0 auto;" >
+                            <div class="carousel-controls">
+                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
+                            </div>
+                     </div>
+
+                    <div class=" dots-row" >
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                    </div>
+
+                </div>
+            </div>
+
+             <div id="signup_detail_page4" data-role="page" class="signup_page">
+                 <div class="ui-content text-center">
+                     <div class="container thumbs_container" style="height:25vh">
+                        <div class="slogen">
+                            <h4>Add Doctors to your Care-Team</h4>
+                            <label>to be able to video or text chat for advice & prescriptions</label>
+                        </div>
+                    </div>
+
+                    <div class="row" style="height: 55vh;">
+                        <div class="signup_doctor_listview">
+                            <ul data-role="listview"  data-filter="true" data-inset="false" data-filter-placeholder="Search name, specialty, or topic">
+                            <li class="doctor" data-icon="true">
+                                <div>
+                                    <div class="col-xs-2 col-md-1 patient_photo text-center">
+                                        <img style="height: 30px; width: 30px" class="img-circle" src="img/RedCross.png">
+                                    </div>
+                                    <div class="col-xs-6 col-md-7 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Dr.Jodi Ritsch</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="doctor_date">Family Medicine</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-4 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Add to Care-Team</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="doctor" data-icon="false">
+                                <div>
+                                    <div class="col-xs-2 col-md-1 patient_photo text-center">
+                                        <img style="height: 30px; width: 30px" class="img-circle" src="img/RedCross.png">
+                                    </div>
+                                    <div class="col-xs-6 col-md-7 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Dr.Jodi Ritsch</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="doctor_date">Family Medicine</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-4 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Add to Care-Team</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="doctor" data-icon="false">
+                                <div>
+                                    <div class="col-xs-2 col-md-1 patient_photo text-center">
+                                        <img style="height: 30px; width: 30px" class="img-circle" src="img/RedCross.png">
+                                    </div>
+                                    <div class="col-xs-6 col-md-7 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Dr.Jodi Ritsch</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="doctor_date">Family Medicine</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-4 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Add to Care-Team</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="doctor" data-icon="false">
+                                <div>
+                                    <div class="col-xs-2 col-md-1 patient_photo text-center">
+                                        <img style="height: 30px; width: 30px" class="img-circle" src="img/RedCross.png">
+                                    </div>
+                                    <div class="col-xs-6 col-md-7 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Dr.Jodi Ritsch</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="doctor_date">Family Medicine</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-4 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Add to Care-Team</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="doctor" data-icon="false">
+                                <div>
+                                    <div class="col-xs-2 col-md-1 patient_photo text-center">
+                                        <img style="height: 30px; width: 30px" class="img-circle" src="img/RedCross.png">
+                                    </div>
+                                    <div class="col-xs-6 col-md-7 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Dr.Jodi Ritsch</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="doctor_date">Family Medicine</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-4 doctor_info">
+                                        <div class="row">
+                                            <p class="doctor_name">Add to Care-Team</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="carousel-controls" style="width:90%; max-width:480px;margin:0 auto; ">
+                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
+                            </div>
+                     </div>
+
+                    <div class="row">
+                        <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
+                    </div>
+
+                 </div>
+             </div>
+              
+        
+
+        <!-- signup detail pages -->
+
+        <!-- signup page -->
+        <!-- main page -->
+        <div  id="main_page" data-role="page">
+            <!-- left menu -->
+            <div id="main_left_menu" class="right_menu" data-role="panel" data-position="left" data-display="push">
+                <h1>Left Menu</h1>
+            </div>
+
+            <!-- right menu -->
+            <div id="main_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
+                <h3>Right Menu</h3>
+                <ul data-role="listview">
+                    <li><a href="#">Edit patient details</a></li>
+                    <li><a href="#">Add virtual clinic record</a></li>
+                    <li><a href="#">carry out triage</a></li>
+                    <li><a href="#">manage patient checklist</a></li>
+                    <li><a href="#" style="position:fixed; bottom:0px;">Log out</a></li>
+                </ul>
+            </div> 
+            <!-- header -->
+            <div data-role="header"  class="ui-header" position="fixed">
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left"></i></a>
+                <a href="#main_right_menu" class="menu_btn"><i class="icon icon-bars"></i></a>
+            </div>
+            <!-- header -->
+            <!-- content -->
+            <div data-role="main" class="ui-content">
+               <div id="main_content" class="main_content">
+                <div class="row">
+                    <a href="#" id="virtual_clinic_page" data-transition="slide" onClick="loadPatientInfo(this.id)">
+                        <div class="row list_item">
+                            <div class="col-xs-3 vertical-middle text-center">
+                                <img class="main_page_logo" src="img/virtual-clinic-logo.png">
+                            </div>
+                            <div class="col-xs-9 vertical-middle">
+                                <p>VIRTUAL CLINIC</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                    <a href="#" id="patient_triage_page" onClick="loadPatientInfo(this.id)">
+                        <div class="row list_item">
+                            <div class="col-xs-3 text-center vertical-middle">
+                                <img class="main_page_logo" src="img/triage-logo.png">
+                            </div>
+                            <div class="col-xs-9 vertical-middle">
+                                <p>PATIENT TRIAGE</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                    <a href="#checklist_page" data-transition="slide">
+                        <div class="row list_item">
+                            <div class="col-xs-3 text-center vertical-middle">
+                                <img class="main_page_logo" src="img/checklist-logo.png">
+                            </div>
+                            <div class="col-xs-9 vertical-middle">
+                                <p>PATIENT CHECKLIST</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+
+                    <a href="#" id="consultant_page" data-transition="slide" onClick="loadPatientInfo(this.id)">
+
+                        <div class="row list_item">
+                            <div class="col-xs-3 text-center vertical-middle">
+                                <img class="main_page_logo" src="img/consultant-logo.png">
+                            </div>
+                            <div class="col-xs-9 vertical-middle">
+                                <p>CONSULTANT ON CALL</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                    <a href="#schedule_page" data-transition="slide">
+                        <div class="row list_item">
+                            <div class="col-xs-3 text-center vertical-middle">
+                                <img class="main_page_logo" src="img/scheduler-logo.png">
+                            </div>
+                            <div class="col-xs-9 vertical-middle">
+                                <p>SCHEDULER</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                    <a id="patients_page" href="#" onClick="loadPatientInfo(this.id)" data-transition="slide">
+                        <div class="row list_item">
+                           <div class="col-xs-3 text-center vertical-middle">
+                                <img class="main_page_logo" src="img/patient-logo.png">
+                            </div>
+                            <div class="col-xs-9 vertical-middle">
+                                <p>PATIENTS</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+               </div>
+            </div>    
+            <!-- content -->  
+        </div>
+        <!-- main page end -->
+
+        <!-- patient list page -->
+        <div id="patientlist_page" data-role="page">
+            <!-- patient list menu -->
+            
+            <div id="patientlist_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
+                <div data-role="header">
+                    <a href="#"><i class="icon icon-bars-g"></i></a>
+                    <a href="#"><i class="icon icon-dots-g"></i></a>
+                </div>
+                <div data-role="main" class="ui-content">
+                <div class="patient_info">
+                    <div class="col-xs-2 vertical-middle">
+                        <img  class="img-circle img-responsive">
+                    </div>
+                    <div class="col-xs-10 vertical-middle">
+                        <div class="row">
+                            <span class="sm-size patient_name md-size"></span> 
+                            <span class="sm-size light-font birth_date"></span>
+                        </div>
+                        <div class="row">
+                            <span class="sm-size light-font disease_issue"></span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <ul id="patientlist_menu_list" data-role="listview">
+                    <li data-icon="false">
+                        <a href="#">
+                            <div>
+                                <div class="col-xs-1">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Edit patient details
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li data-icon="false">
+                        <a href="#">
+                            <div>
+                                <div class="col-xs-1">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Add virtual clinic record
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li data-icon="false">
+                        <a href="#">
+                            <div>
+                                <div class="col-xs-1">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    carry out triage
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li data-icon="false">
+                        <a href="#">
+                            <div>
+                                <div class="col-xs-1">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    manage patient checklist
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="ui-footer">
+                    
+                        <div class="col-xs-6">
+                            user name
+                        </div>
+                        <div class="col-xs-6">
+                           log out
+                        </div>
+                </div>
+            </div>
+            </div> 
+            <!-- header -->
+            <div data-role="header" class="ui-header">
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <h1>Patient list</h1>
+                <div class="ui-btn-right multi-icons">
+                <!-- <a href="#"><i class="icon icon-filter icon-right"></i></a> -->
+                    
+                    <a href="#patientlist_menu" data-transition="slide"><i class="icon icon-dots"></i></a>
+                    <a id="onboarding_btn" href="#onborading_page" data-transition="slide"><i class="icon icon-add-patient icon-right"></i></a>
+                    <a href="#"><i class="icon icon-filter"></i></a>
+                </div>
+            </div>
+            <!-- content -->
+            <div data-role="main" class="ui-content">
+                <div class="container">
+                    <div id="patient_list">
+                        <ul id="patient_list_view" data-role="listview"  data-filter="true" data-inset="true" data-filter-placeholder="">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- patient list page -->
+        <div id="profile_page" data-role="page">
+            <div data-role="header">
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+            </div>
+            <!-- content -->
+            <div data-role="main" class="ui-content">
+            </div>
+        </div>
+        <!-- virtual clinic page -->
+        <div id="vc_page" data-role="page">
+            <!-- menu -->
+            <div id="vc_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay"> 
+            </div>
+            <!-- header-->
+            <div data-role="header" class="ui-header" position="fixed">
+                <a href="#" onclick="resetVCPage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <h1>virtual clinic</h1>
+                <a href="#vc_right_menu"><i class="icon icon-bars"></i></a>
+            </div>
+            <!-- header -->
+            <!-- content -->
+            <div data-role="main" class="ui-content">
+                <div id="vc_info"></div>
+                <div id="vc_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <form id="vc_form" role="form">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item container active">
+                                 <div class="row">
+                                    <h3 class="md-font">Virtual Clinic Trend</h3>
+                                </div>
+                                <div class="row">
+                                    <div id="vc_pie_chart" class="pie_chart text-center"></div>
+                                </div>
+                                <div class="row below_content">
+                                    <div class="col-xs-5">
+                                        <span class="patient_contacts lg_text_left "></span>
+                                        <span class="sm_text_left">Patient <br>Contacts</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <i class="icon icon-arrow-left-g icon-reverse"></i>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <span class="sm_text_right regular-text">Clinic<br> visit</span>
+                                        <span  class=" clinic_visit lg_text_right"></span> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <ul id="vc_timeline" class="timeline">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <div class="form-group ">
+                                        <p class="md-font">On treatment in Unit?</p>
+                                        <div class="switch_group">
+                                            <fieldset id="vc_on_treatment" class="switch" onload="setupSwitch(this)">
+                                                <input id="vc_treatment_no" name="vc_treatment_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                                <label for="vc_treatment_no">No</label>
+
+                                                <input id="vc_treatment_yes" name="vc_treatment_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                                <label for="vc_treatment_yes">Yes</label>
+    
+                                                <span class="switch-button"></span>
+                                            </fieldset>
+                                        </div>
+                                    </div>                                 
+                                    <div class="form-group">
+                                        <label for="vc_treatment_name" class="md-font">Name of the treatment</label>
+                                        <input type="text" id="vc_treatment_name" name="vc_treatment_name" class="underline-input"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vc_treatement_date" class="md-font">Date of last treatment</label>
+                                        <input  id="vc_treatment_last_date" class="datepicker_input" name="vc_treatment_date" class="underline-input"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vc_blood_date" class="md-font">Last bloods done</label>
+                                        <input type="text" id="vc_blood_last_date" name="vc_blood_date" class="datepicker_input" class="underline-input"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vc_symptom" class="md-font">Symptom</label>
+                                        <input type="text" id="vc_treatment_symptom" name="vc_symptom" class="underline-input"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <h3 class="md-font">Symptoms</h3>
+                                    <div class="symptom_chooselist">
+                                        <input name="vc_symptom_1" id="vc_symptom_1" value="Breathlessness" type="checkbox">
+                                        <label for="vc_symptom_1">Breathlessness</label>
+                                     
+                                        <input name="vc_symptom_2" id="vc_symptom_2" value="Pain" type="checkbox">
+                                        <label for="vc_symptom_2">Pain</label>
+                                     
+                                        <input name="vc_symptom_3" id="vc_symptom_3" value="Symptom 3" type="checkbox">
+                                        <label for="vc_symptom_3">Symptom 3</label>
+                                     
+                                        <input name="vc_symptom_4" id="vc_symptom_4" value="Symptom 4" type="checkbox">
+                                        <label for="vc_symptom_4">Symptom 4</label>
+    
+                                        <input name="vc_symptom_5" id="vc_symptom_5" value="Symptom 5" type="checkbox">
+                                        <label for="vc_symptom_5">Symptom 5</label>
+
+                                        <input name="vc_symptom_6" id="vc_symptom_6" value="Symptom 6" type="checkbox">
+                                        <label for="vc_symptom_6">Symptom 6</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <h3>Pain</h3>
+                                    <div class="form-group grade_slider_group">
+                                        <p>Grade 1-4 NCI</p>
+                                        <input name="vc_slider" id="vc_nci_grade" data-highlight="true" min="0" max="4" value="0" type="range" onChange="SliderChange(this)">
+                                        <label for="vc_slider" disabled="disabled"></label>
+                                        <span class="nci_percent">0%</span>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <p>History of Pain:</p>
+                                        <div class="switch_group">
+                                            <fieldset id="history_record" class="switch" onload="setupSwitch(this)">
+                                                <input id="vc_history_no" name="vc_history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                                <label for="vc_history_no">No</label>
+
+                                                <input id="vc_history_yes" name="vc_history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                                <label for="vc_history_yes">Yes</label>
+    
+                                                <span class="switch-button"></span>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div id="pain_character" class="form-group">
+                                        <p>Character of Pain</p>
+                                        <fieldset>
+                                            <input name="radio-choice-v-2" id="radio-choice-v-2a" value="dull" checked="checked" type="radio">
+                                            <label for="radio-choice-v-2a" class="light-font">Dull</label>
+
+                                            <input name="radio-choice-v-2" id="radio-choice-v-2b" value="sharp" type="radio">
+                                            <label for="radio-choice-v-2b"  class="light-font">Sharp</label>
+
+                                            <input name="radio-choice-v-2" id="radio-choice-v-2c" value="Stabbing" type="radio">
+                                            <label for="radio-choice-v-2c" class="light-font">Stabbing</label>
+
+                                            <input name="radio-choice-v-2" id="radio-choice-v-2d" value="Ache" type="radio">
+                                            <label for="radio-choice-v-2d" class="light-font">Ache</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="item container">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="vc_note">Edit your note:</label>
+                                        <textarea  name="vc_note" id="vc_note"></textarea>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+
+                         <div class="carousel_controls">
+                            <div class="back_btn">
+                                <a class="left carousel-control" href="#vc_slide" role="button" data-slide="prev" 
+                                onClick="detectTriageCarousel()" disabled="disabled">Back</a>
+                                <!-- <a class="carousel-control add_symptom" onClick="addSymptom()" role="button" style="display:none">+Symptom</a> -->
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control" href="#vc_slide" role="button" data-slide="next" onClick="detectTriageCarousel()">Continue</a>
+                                <a class="carousel-control save_note" role="button" style="display:none;">Save</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- content -->
+        </div>
+        <!-- triage page -->
+        <div id="triage_page" data-role="page">
+            <!-- right menu -->
+            <div id="triage_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
+                <ul data-role="listview">
+                </ul>
+            </div>
+            <!-- right menu -->
+            <!-- header -->
+            <div data-role="header" class="ui-header" position="fixed">
+                <a href="#" onclick="resetTriagePage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <h1>Triage Manager</h1>
+                <a href="#triage_right_menu" class="menu_btn"><i class="icon icon-dots"></i></a>
+            </div>
+            <!-- header -->
+            <!-- content -->
+            <div role="main" class="ui-content">
+                <div id="triage_info">
+                </div>
+                <!-- caoursel -->
+                <div id="triage_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+
+                    <!-- wrapper for slides -->
+                    <form id="triage_form" role="form">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active container">
+                                <div class="row">
+                                    <h3 class="md-font">Triage Trend</h3>
+                                </div>
+                                <div class="row">
+                                    <div id="triage_pie_chart" class="pie_chart text-center"></div>
+                                </div>
+                                <div class="row below_content">
+                                    <div class="col-xs-5">
+                                        <span id="patient_contacts" class="lg_text_left "></span>
+                                        <span class="sm_text_left">Patient <br>Contacts</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <i class="icon icon-arrow-left-g icon-reverse"></i>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <span class="sm_text_right regular-text">Clinic<br> visit</span>
+                                        <span id="clinic_visit" class="lg_text_right"></span> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <ul id="triage_timeline" class="timeline">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <div class="form-group ">
+                                        <p class="md-font">On treatment in Unit?</p>
+                                        <div class="switch_group">
+                                            <fieldset id="on_treatment" class="switch" onload="setupSwitch(this)">
+                                                <input id="treatment_no" name="treatment_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                                <label for="treatment_no">No</label>
+
+                                                <input id="treatment_yes" name="treatment_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                                <label for="treatment_yes">Yes</label>
+    
+                                                <span class="switch-button"></span>
+                                            </fieldset>
+                                        </div>
+                                    </div>                                 
+                                    <div class="form-group">
+                                        <label for="treatment_name" class="md-font">Name of the treatment</label>
+                                        <input type="text" id="treatment_name" name="treatment_name" class="underline-input"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="treatement_date" class="md-font">Date of last treatment</label>
+                                        <input  id="treatment_last_date" class="datepicker_input" name="treatment_date" class="underline-input"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="blood_date" class="md-font">Last bloods done</label>
+                                        <input type="text" id="blood_last_date" name="blood_date" class="datepicker_input" class="underline-input"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="symptom" class="md-font">Symptom</label>
+                                        <input type="text" id="treatment_symptom" name="symptom" class="underline-input"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item container">
+                                <div class="row">
+                                    <h3 class="md-font">Symptoms</h3>
+                                    <div class="symptom_chooselist">
+                                        <input name="symptom_1" id="symptom_1" value="Breathlessness" type="checkbox">
+                                        <label for="symptom_1">Breathlessness</label>
+                                     
+                                        <input name="symptom_2" id="symptom_2" value="Pain" type="checkbox">
+                                        <label for="symptom_2">Pain</label>
+                                     
+                                        <input name="symptom_3" id="symptom_3" value="Symptom 3" type="checkbox">
+                                        <label for="symptom_3">Symptom 3</label>
+                                     
+                                        <input name="symptom_4" id="symptom_4" value="Symptom 4" type="checkbox">
+                                        <label for="symptom_4">Symptom 4</label>
+    
+                                        <input name="symptom_5" id="symptom_5" value="Symptom 5" type="checkbox">
+                                        <label for="symptom_5">Symptom 5</label>
+
+                                        <input name="symptom_6" id="symptom_6" value="Symptom 6" type="checkbox">
+                                        <label for="symptom_6">Symptom 6</label>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="item container">
+                                <div class="row">
+                                    <h3>Pain</h3>
+                                    <div class="form-group grade_slider_group">
+                                        <p>Grade 1-4 NCI</p>
+                                        <input name="slider" id="nci_grade" data-highlight="true" min="0" max="4" value="0" type="range" onChange="SliderChange(this)">
+                                        <label for="slider" disabled="disabled"></label>
+                                        <span class="nci_percent">0%</span>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <p>History of Pain:</p>
+                                        <div class="switch_group">
+                                            <fieldset id="history_record" class="switch" onload="setupSwitch(this)">
+                                                <input id="history_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                                <label for="history_no">No</label>
+
+                                                <input id="history_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                                <label for="history_yes">Yes</label>
+    
+                                                <span class="switch-button"></span>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div id="pain_character" class="form-group">
+                                        <p>Character of Pain</p>
+                                        <fieldset>
+                                            <input name="radio-choice-2" id="radio-choice-2a" value="dull" checked="checked" type="radio">
+                                            <label for="radio-choice-2a" class="light-font">Dull</label>
+
+                                            <input name="radio-choice-2" id="radio-choice-2b" value="sharp" type="radio">
+                                            <label for="radio-choice-2b"  class="light-font">Sharp</label>
+
+                                            <input name="radio-choice-2" id="radio-choice-2c" value="Stabbing" type="radio">
+                                            <label for="radio-choice-2c" class="light-font">Stabbing</label>
+
+                                            <input name="radio-choice-2" id="radio-choice-2d" value="Ache" type="radio">
+                                            <label for="radio-choice-2d" class="light-font">Ache</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>                     
+                           <div class="item container">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="triage_note">Edit your note:</label>
+                                        <textarea  name="triage_note" id="triage_note"></textarea>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                        <!-- carousel inner -->
+                        <!-- controls -->
+                        <div class="carousel_controls">
+                            <div class="back_btn">
+                                <a class="left carousel-control" href="#triage_slide" role="button" data-slide="prev" 
+                                onClick="detectTriageCarousel()" disabled="disabled">Back</a>
+                                <!-- <a class="carousel-control add_symptom" onClick="addSymptom()" role="button" style="display:none">+Symptom</a> -->
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control" href="#triage_slide" role="button" data-slide="next" onClick="detectTriageCarousel()">Continue</a>
+                                <a class="carousel-control save_note" role="button" onClick="createNewTriage()" style="display:none;">Save</a>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- triage form -->    
+                </div> 
+                <!-- triage slide -->
+            </div>
+            <!-- content -->
+        </div>
+
+        <!-- consultant page -->
+        <div id="consultant_page" data-role="page">
+            <!-- header -->
+            <div id="consultant_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
+            </div>
+            <div data-role="header" class="ui-header">
+               <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <h1>Consultant</h1>
+                <a href="#consultant_right_menu"><i class="icon icon-bars"></i></a>
+            </div>
+            <!-- header -->
+            <!-- content-->
+            <div data-role="main" class="ui-content">
+                <div id="consultant_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item container active">
+
+                        </div>
+                        <div class="item container">
+                            <div class="patient_info">
+                            </div>
+                            <div class="row">
+                                <h3 class="md-font">Assign</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_controls">
+                            <div class="back_btn">
+                                <a class="left carousel-control" href="#consultant_slide" role="button" data-slide="prev"  disabled="disabled">Back</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control" href="#consultant_slide" role="button" data-slide="next">Continue</a>
+                               
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- consultant page -->
+        <!-- scheduler page -->
+        <div id="schedule_page" data-role="page">
+            <!-- header -->
+            <div id="schedule_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
+            </div>
+            <div data-role="header" class="ui-header">  
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" data-role="button"><i class="icon icon-arrow-left"></i></a>
+                <h1>Event Schedule</h1>
+                <a href="#schedule_right_menu"><i class="icon icon-bars"></i></a>
+            </div>
+            <!-- header -->
+            <!-- content -->
+            <div data-role="main" class="ui-content">
+                <div id="schedule_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item container active">
+                            <div class="row">
+                                <input type="text" placeholder="Title"></input>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <i class="fa fa-2x fa-clock-o"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    <div class="row">
+                                    <div class="col-xs-4 text-left">
+                                        <label for="flip-mini">All day</span>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                            <select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+                                                <option value="off"></option>
+                                                <option value="on"></option>
+                                            </select> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-left">
+                                        <span>Starts</span>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <label>27 Apr 2015 11:30</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-left">
+                                        <span>Ends</span>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <label>27 Apr 2015 12:30</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-left">
+                                        <span>Repeat</span>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <label>Never</label>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <i class="fa fa-2x fa-map-marker"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    <input type="text" placeholder="Add lcoation"></input>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <i class="fa fa-2x fa-bell-o"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    <p>Alert 30 minutes by e-mail</p>
+                                    <input type="text" placeholder="Travel time"></input>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <i class="fa fa-2x fa-users"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    <input type="text" placeholder="Invites"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div id="calendar">
+                            </div>
+                        </div>
+                        <div class="item container">
+                            <div class="row">
+                                <input type="text" placeholder="Event Type"></input>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-5 text-center">
+                                    <label class="start_time">Start</label>
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    <i class='fa fa-angle-right'></i>
+                                </div>
+                                <div class="col-xs-5 text-center">
+                                    <label class="end_time">End</label>
+                                </div>
+                            </div>
+                            <div  style="background:#FFF;  padding:1em 0; margin-left:-15px; margin-right:-15px;">
+                                <div class="row">
+                                    <div class="col-xs-6 text-center">
+                                        <img src="img/RedCross.png" class="img-circle"/>
+                                    </div>
+                                    <div class="col-xs-6 text-center">
+                                     <img src="img/RedCross.png" class="img-circle"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 text-center">
+                                        <label>Select Patient</label>
+                                    </div>
+                                    <div class="col-xs-6 text-center">
+                                        <label>Assign HCP</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-xs-2 text-center">
+                                    <i class="fa fa-2x fa-file-o"></i>
+                                </div>
+                                <div class="col-xs-10 text-left">
+                                    <label>Add Note</label>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-xs-2 text-center">
+                                    <i class="fa fa-2x fa-bell-o"></i>
+                                </div>
+                                <div class="col-xs-10 text-left">
+                                    <label>Add Alert</label>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-xs-2 text-center">
+                                    <i class="fa fa-2x fa-file"></i>
+                                </div>
+                                <div class="col-xs-10 text-left">
+                                    <label>Add Checklist</label>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-xs-2 text-center">
+                                    <i class="fa fa-2x fa-map-marker"></i>
+                                </div>
+                                <div class="col-xs-10 text-left">
+                                    <label>Add Location</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="item container">
+                            <div class="patient_info">
+                            </div>
+                            <div class="row">
+                                <h3 class="md-font">Filter</h3>
+                                <div class="row">
+                                    <label>Appointment Confirmation</label>
+                                    <div class="col-xs-6">
+                                        <input name="app_confirm" id="app_confirm1" value="" type="checkbox">
+                                        <label for="app_confirm1">Unconfirmed</label>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input name="app_confirm2" id="app_confirm2" value="" type="checkbox">
+                                        <label for="app_confirm2">Confirmed</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label>Checklists</label>
+                                    <div class="col-xs-6">
+                                        <input name="check_confirm" id="check_confirm1" value="" type="checkbox">
+                                        <label for="check_confirm1">Unconfirmed</label>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input name="check_confirm2" id="check_confirm2" value="" type="checkbox">
+                                        <label for="check_confirm2">Confirmed</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label>Patient</label>
+                                    <div class="col-xs-6">
+                                        <input name="patient_q" id="patient_q1" value=""  type="radio">
+                                        <label for="patient_q1" >Queued</label>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input name="patient_q" id="patient_q2" value=""  type="radio">
+                                        <label for="patient_q2" >Scheduled</label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="item container">
+                            <div class="row">
+                                <h3 class="md-font">Filter</h3>
+                                <div class="row">
+                                    <input name="filter_1" id="filter_1" value="" type="checkbox">
+                                    <label for="filter_1">Chemotherapy</label>
+                                     
+                                    <input name="filter_2" id="filter_2" value="" type="checkbox">
+                                    <label for="filter_2">Lab Test</label>
+                                     
+                                    <input name="filter_3" id="filter_3" value="" type="checkbox">
+                                    <label for="filter_3">Virtual Clinic</label>
+                                     
+                                    <input name="filter_4" id="filter_4" value="" type="checkbox">
+                                    <label for="filter_4">Clinic Visit</label>
+    
+                                    <input name="filter_5" id="filter_5" value="" type="checkbox">
+                                    <label for="filter_5">Surgery</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item container">
+                            <div class="patient_info">
+                                <div class="col-xs-2 vertical-middle">
+                                    <img  class="img-circle img-responsive">
+                                </div>
+                                <div class="col-xs-10 vertical-middle">
+                                    <div class="row">
+                                        <span class="sm-size patient_name md-size"></span> 
+                                        <span class="sm-size light-font birth_date"></span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="sm-size light-font disease_issue"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul id="schedule_timeline" class="timeline">
+                                <li class="patient_schedule">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <span class="time">10:00</span></br>
+                                            <span class="date">Today</span>
+                                            <div>
+                                                <i class="fa fa-2x fa-file-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 text-center round-img">
+                                            <i class="fa fa-3x fa-file-o"></i>
+                                        </div>
+                                        <div class="col-xs-4 schedule_info">
+                                            <span class="checklist">Virtual Clinic</span>
+                                            <span class="hcp_name">A.Jenkins</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="patient_schedule">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <span class="time">10:00</span></br>
+                                            <span class="date">Today</span>
+                                            <div>
+                                                <i class="fa fa-2x fa-file-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 text-center round-img">
+                                            <i class="fa fa-3x fa-file-o"></i>
+                                        </div>
+                                        <div class="col-xs-4 schedule_info">
+                                            <span class="checklist">Virtual Clinic</span>
+                                            <span class="hcp_name">A.Jenkins</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="patient_schedule">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <span class="time">10:00</span></br>
+                                            <span class="date">Today</span>
+                                            <div>
+                                                <i class="fa fa-2x fa-file-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 text-center round-img">
+                                            <i class="fa fa-3x fa-file-o"></i>
+                                        </div>
+                                        <div class="col-xs-4 schedule_info">
+                                            <span class="checklist">Virtual Clinic</span>
+                                            <span class="hcp_name">A.Jenkins</span>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="carousel_controls">
+                            <div class="back_btn">
+                                <a class="left carousel-control" href="#schedule_slide" role="button" data-slide="prev">Back</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control" href="#schedule_slide" role="button" data-slide="next" >Continue</a>
+                                <!-- <a class="carousel-control save_note" role="button" onClick="createNewTriage()" style="display:none;">Save</a> -->
+                            </div>
+                        </div>
+                </div>
+
+                
+
+                <!-- <div class="individual_content" style="display:none;">
+                    <div class="container">
+                        <ul class="timeline">
+                            <li>
+                                <div class="col-xs-4 time text-center">
+                                    <p>10:00 today</p>
+                                     <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-4 name text-center">
+                                    <p>Stephen moriiessy</p>
+                                    <img sr
+                                    c="img/RedCross.png" class="img-circle"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-4 time text-center">
+                                    <p>14:00 tomorrow</p>
+                                     <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-4 name text-center">
+                                    <p>Mary Berry</p>
+                                    <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-4 time text-center">
+                                    <p>8:00 29th APR</p>
+                                     <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-4 name text-center">
+                                    <p>Stephen moriiessy</p>
+                                    <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-4 time text-center">
+                                    <p>10:00 today</p>
+                                     <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-4 name text-center">
+                                    <p>Stephen moriiessy</p>
+                                    <img src="img/RedCross.png" class="img-circle"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+            <!-- content -->
+        </div>
+        <!-- event schedule page -->
+        <!-- onborading page -->
+        <div id="onborading_page" data-role="page">
+            <div data-role="header" class="ui-header">
+                <a href="#" data-rel="back" onclick="resetOnBoardingPage()" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left"></i></a>
+                <h1>PATIENTS</h1>
+                <a href="#"></a>
+            </div>
+            <!-- content-->
+            <div data-role="main" class="ui-content">
+                <div id="onborading_content" class="container" sytle="display:none;">
+                    
+                        <!-- onboarding form -->
+                        <form id ="onboarding_form" role="form">
+                            <div class="form-group">
+                                <h2 id="onboarding_title">Onboarding new patient</h2>
+                            </div>
+                            <div class="form-group">
+                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_fullname" name="fullname"  placeholder="Full Name"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_birthday" name="birthday" class="datepicker_input" placeholder="Date of Birth"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_address" name="address" placeholder="Address"/>
+                            </div>
+                            <div id="onboarding_gender" class="form-group">
+                                <p>Gender</p>
+                                <fieldset>
+                                    <input name="onboarding_gender" id="onboarding_male" value="male" checked="checked" type="radio">
+                                    <label for="onboarding_male" class="light-font">Male</label>
+                                    
+                                    <input name="onboarding_gender" id="onboarding_female" value="female" type="radio">
+                                    <label for="onboarding_female" class="light-font">Female</label>
+                                </fieldset>
+                            </div>
+                            <div class="form-group">
+                                 <input type="email" id="onboarding_email" name="email" placeholder="Email Address"/>
+                            </div>
+                           
+                            <div class="form-group">
+                                <input type="number" id="onboarding_home_number" name="contact_number"  placeholder="Home Phone Number"/>
+                            </div>
+                             <div class="form-group">
+                                <input type="number" id="onboarding_mobile_number" name="mobile_number" placeholder="Mobile Phone Number"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Nationality</label>
+                                <div class="form-item">
+                                    <input id="country_selector" type="text">
+                                </div>
+                                <div class="form-item" style="display:none;">
+                                    <input type="text" id="country_selector_code" name="country_selector_code" data-countrycodeinput="1" readonly="readonly" placeholder="Selected country code will appear here" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_occupation" name="occupation" placeholder="Occupation"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_pps" name="pps"  placeholder="PPS number"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Next of Kin 1</label>
+                                <input type="text" id="onboarding_kin1_fullname" name="kin1_fullname"  placeholder="Name"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_kin1_address" name="kin1_address"  placeholder="Address"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="onboarding_kin1_phone" name="kin1_phone"  placeholder="Phone number"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Next of Kin 2</label>
+                                <input type="text" id="onboarding_kin2_fullname" name="kin2_fullname"  placeholder="Name"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="onboarding_kin2_address" name="kin2_address"  placeholder="Address"/>
+                            </div>
+                             <div class="form-group">
+                                <input type="number" id="onboarding_kin2_phone" name="kin1_phone"  placeholder="Phone number"/>
+                            </div>
+                            <div class="form-group">
+                                <p>Do you have a medical card?</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_medical_card" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_medical_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_medical_no">No</label>
+
+                                        <input id="onboarding_medical_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_medical_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div id="onboarding_insurance" class="form-group">
+                                <p>Do you have private health insurance?</p>
+                                <fieldset>
+                                    <input name="onboarding_insurance" id="no_insurance" value="no_insurance" checked="checked" type="radio">
+                                    <label for="no_insurance" class="light-font">No</label>
+
+                                    <input name="onboarding_insurance" id="vhi" value="vhi" checked="checked" type="radio">
+                                    <label for="vhi" class="light-font">VHI</label>
+                                    
+                                    <input name="onboarding_insurance" id="aviva" value="aviva" type="radio">
+                                    <label for="aviva" class="light-font">Aviva</label>
+
+                                    <input name="onboarding_insurance" id="laya" value="laya" type="radio">
+                                    <label for="laya" class="light-font">Laya</label>
+
+                                    <input name="onboarding_insurance" id="glo" value="glo" type="radio">
+                                    <label for="glo" class="light-font">Glo Health</label>
+
+                                    <input name="onboarding_insurance" id="other" value="other" type="radio">
+                                    <label for="other" class="light-font">Other</label>
+                                </fieldset>                   
+                            </div>
+                            
+                            <div class="form-group">
+                                <input name="onboarding_does_takeing" id="onboarding_does_takeing" placeholder="List of Medications & doses currently taking"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input name="onboarding_allergies_history" id="onboarding_allergies_history" placeholder="Do you have any allergies e.g. food or medication?"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="onboarding_problem_period" id="onboarding_problem_period"  placeholder="How long has it been a problem?"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="onboarding_religious" id="onboarding_religious" placeholder="Religious beliefs"/>
+                            </div>
+                            <div class="form-group">
+                                <label>GP</label>
+                                 
+                                <input name="onboarding_gp_full_name" id="onboarding_gp_full_name" placeholder="Name"/>
+                                  
+                                <input name="onboarding_gp_address" id="onboarding_gp_address"  placeholder
+                                  ="Address">
+                                  
+                                <input type="number" name="onboarding_gp_phoneNo" id="onboarding_gp_phoneNo"  placeholder="Phone number"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred pharmacy</label>
+                                 
+                                <input name="onboarding__pharmacy_name" id="onboarding__pharmacy_name"  placeholder="Name"/>
+                                  
+                                <input name="onboarding__pharmacy_address" id="onboarding__pharmacy_address"  placeholder
+                                  ="Address">
+                                  
+                                <input type="number" name="onboarding__pharmacy_phoneNo" id="onboarding__pharmacy_phoneNo" class="  " placeholder="Phone number"/>
+                            </div>
+                            <div id="onboarding_family_history" class="form-group">
+                                <label>Family History</label>
+                                <p>Do any of your close family members (parents, brothers, sisters, grandparents, uncles or aunts) have any of the following?</p>
+                                
+                                <p>Diabetes</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_diabetes" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_diabetes_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_diabetes_no">No</label>
+
+                                        <input id="onboarding_diabetes_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_diabetes_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>
+
+                                <p>High Blood Pressure</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_blood_pressure" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_blood_pressure_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_blood_pressure_no">No</label>
+
+                                        <input id="onboarding_blood_pressure_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_blood_pressure_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>
+
+                                <p>Heart Disease</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_heart_disease" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_heart_disease_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_heart_disease_no">No</label>
+
+                                        <input id="onboarding_heart_disease_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_heart_disease_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>
+
+                                <p>Asthma</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_asthma" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_asthma_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_asthma_no">No</label>
+
+                                        <input id="onboarding_asthma_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_asthma_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>
+
+                                <p>Epilepsy</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_epilepsy" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_epilepsy_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_epilepsy_no">No</label>
+
+                                        <input id="onboarding_epilepsy_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_epilepsy_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>
+
+                                <p>Cancer</p>
+                                <div class="switch_group">
+                                    <fieldset id="onboarding_cancer" class="switch" onload="setupSwitch(this)">
+                                        <input id="onboarding_cancer_no" name="history_switch" value="no" type="radio" checked="checked" onClick="SwitchToggle('no',this)">
+                                        <label for="onboarding_cancer_no">No</label>
+
+                                        <input id="onboarding_cancer_yes" name="history_switch" value="yes" type="radio" onClick="SwitchToggle('yes',this)">    
+                                        <label for="onboarding_cancer_yes">Yes</label>
+    
+                                        <span class="switch-button"></span>
+                                    </fieldset>
+                                </div>                               
+                                </div>
+                            </div>
+                            <div class="carousel_controls">
+                                <div class="back_btn">
+                                    <a class="left carousel-control" role="button" data-slide="prev" 
+                                    onClick="onBoardingBack()" disabled="disabled">Back</a>
+                                </div>
+                                <div class="continue_btn">
+                                    <a class="right carousel-control" role="button" data-slide="next" onClick="onBoardingSave()">Save</a>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <!-- content -->
+        </div>
+        <!-- checklist page -->
+        <div id="checklist_page" data-role="page">
+            <!-- right menu -->
+            <div id="checklist_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
+                <h3>Right Menu</h3>
+                <ul data-role="listview">
+                    <li><a href="#">Edit patient details</a></li>
+                    <li><a href="#">Add virtual clinic record</a></li>
+                    <li><a href="#">carry out triage</a></li>
+                    <li><a href="#">manage patient checklist</a></li>
+                    <li><a href="#" style="position:fixed; bottom:0px;">Log out</a></li>
+                </ul>
+            </div>
+            <!-- header -->
+            <div data-role="header" position="fixed" class="ui-header">
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon icon-arrow-left"></i></a>
+                <h1>Checklist</h1>
+                <a href="#" class="ui-btn ui-corner-all"><i class="icon icon-dots"></i></a>
+            </div>
+            <!-- header -->
+            <!-- content -->
+            <div data-role="main" class="ui-content">
+               <div id="checklist_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <!-- wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">  
+                        <div class="item active container">
+                            <div class="row">
+                                <h3>Create Checklist</h3>
+                                <ul id="checklist_listview_create" data-role="listview">
+                                    <li>
+                                        <div class="col-xs-10">
+                                            <input type="text" id="checklist_name_create" name="checklist name" placeholder="Checcklist name">
+                                        </div>
+                                        <div class="col-xs-2 ">
+                                            <a href="#" class="close_link text-center" ><i class="fa fa-2x fa-close"></i></a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <div class="col-xs-10">
+                                            <input type="text" id="checklist_category_create" name="category" placeholder="Category">
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <a href="#" class="close_link text-center" ><i class="fa fa-2x fa-close"></i></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-xs-10">
+                                            <input type="text" id="checklist_tag1_create" name="tag1" placeholder="Optional tag">
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <a href="#" class="close_link text-center" onClick="removeTag(this)" ><i class="fa fa-2x fa-close"></i></a>
+                                        </div>
+                                        </li>
+                                
+                                    <li>
+                                        <div class="col-xs-10">
+                                            <input type="text" id="checklist_tag2_create" name="tag2" placeholder="Optional tag">
+                                        </div>
+                                         <div class="col-xs-2">
+                                            <a href="#" class="close_link text-center" onClick="removeTag(this)"><i class="fa fa-2x fa-close"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="row" >
+                                    <a onclick="addNewTag()" class="add_link"><i class="fa fa-plus-circle"> </i>ADD TAG</a>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="item container">
+                            
+                                <div class="row">
+                                    <h3>Checklist Name</h3>
+                                    <ul id="checklist_listview_item" data-role="listview">
+                                        <h3 class="text-center">ITEM 1</h3>
+                                        <li>
+                                            <div class="col-xs-10">
+                                                    <input type="text" id="item1_task" name"item" placeholder="Item/Task">
+                                            </div>
+                                             <div class="col-xs-2">
+                                                    <a href="#" class="close_link" ><i class="fa fa-2x fa-close"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="col-xs-10">
+                                                    <input type="text" id="item1_respon" name"respon" placeholder="Responsible entity">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                    <a href="#" class="close_link" ><i class="fa fa-2x fa-close"></i></a>
+                                            </div>
+                                           
+                                        </li>
+                                    </ul>
+                                    <div class="row" >
+                                        <a class="add_link" onclick="addNewNote()"><i class="fa fa-plus-circle"></i> ADD NOTE</a>
+                                    </div>
+                                </div>
+                        </div> 
+                        <div class="item container">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <h3>Checklist Info</h3>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="#" onClick="showEditBtn()" class="btn" id="editbtn">Edit</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="row">
+                                <ul data-role="listview" id="checklist_list">
+                                    <li data-icon="false">
+                                        <div>
+                                            <div class="col-xs-10">
+                                                <p>Checklist name 1</p>    
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#"  onClick="goEditChecklist()"><i class="fa fa-2x fa-edit"></i></a>
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#"><i class="fa fa-2x fa-trash-o"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-icon="false">
+                                        <div>
+                                            <div class="col-xs-10">
+                                                <p>Checklist name 2</p>    
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#"  onClick="goEditChecklist()"><i class="fa fa-2x fa-edit"></i></a>
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#"><i class="fa fa-2x fa-trash-o"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-icon="false">
+                                        <div>
+                                            <div class="col-xs-10">
+                                                <p>Checklist name 3</p>    
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#" onClick="goEditChecklist()"><i class="fa fa-2x fa-edit"></i></a>
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#"><i class="fa fa-2x fa-trash-o"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-icon="false">
+                                        <div>
+                                            <div class="col-xs-10">
+                                                <p>Checklist name 4</p>    
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#" onClick="goEditChecklist()"><i class="fa fa-2x fa-edit"></i></a>
+                                            </div>
+                                            <div class="col-xs-1 checklist_edit_btn" style="display:none">
+                                                <a href="#"><i class="fa fa-2x fa-trash-o"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item container" id="checklist_edit_content">
+                            <div class="row" style="margin-top:2vh;">
+                                <h3 class="md-font">Checklist Name</h3>
+                                <p>Oncology</p>
+                            </div>
+                            <div class="row" style="margin-top:5vh;">
+                                <p>Completed by T-2 Days</p>
+                            </div>
+                            <div class="row" style="margin-top:5vh;">
+                                <h3 class="md-font">Patient Items</h3>
+                                <input type="text" value="Stop taking pre meds 24hr prior.."></input>
+                            </div>
+                            <div class="row">
+                                <h3 class="md-font" style="margin-top:5vh;">System Items</h3>
+                                <label>Order Blood Test</label>
+                                <input type="text" value="Blood Test Department"></input>
+                            </div>
+
+                            <!-- <a href="#assign_popup" data-rel="popup" data-position-to="window" class="btn">Assign</a> -->
+                            <div data-role="popup" data-overlay-theme="b" id="assign_popup" >
+                                <h1>Assign Checklist Name to</h1>
+                                <div class="row">
+                                    <fieldset>
+                                        <input name="assign_option" id="assign_patient" value="patient"  type="radio">
+                                        <label for="assign_patient" class="light-font">Patient</label>
+
+                                        <input name="assign_option" id="assign_group" value="group" type="radio">
+                                        <label for="assign_group"  class="light-font">Group</label>
+
+                                        <input name="assign_option" id="assign_event" value="event" type="radio">
+                                        <label for="assign_event" class="light-font">Event</label>
+                                    </fieldset>
+                                </div>
+                                 <div class=" popup-btns">
+                                        <a href="#" class="btn" data-rel="back">Cancel</a>
+                                        <a href="#" class="btn" data-rel="back" onClick="gotoAssign()">Continue</a>
+                                        <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item container" id="checklist_assign_content">
+                            <div class="row">
+                                <h3>Assign Checklist Name to</h3>
+                                <ul data-role="listview" class="list">
+                                </li>
+                            </div>
+                        </div>
+                        <!-- <div class="item container">
+                            <div class="row">
+                                <h3>Assign Checklist Name to</h3>
+                                <ul data-role="listview" id="group_list" class="list">
+                                    <li data-iconn="false" class="group">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <div class="row group_name">
+                                                    <p>Stage 3 treatment</p>
+                                                </div>
+                                                <div class="row goup_info light-font">
+                                                    <p>patient(S) 35</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-iconn="false" class="group">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <div class="row group_name">
+                                                    <p>Remission</p>
+                                                </div>
+                                                <div class="row goup_info light-font">
+                                                    <p>patient(S) 7</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-iconn="false" class="group">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <div class="row group_name">
+                                                    <p>Title</p>
+                                                </div>
+                                                <div class="row goup_info light-font">
+                                                    <p>patient(S) 9</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-iconn="false" class="group">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <div class="row group_name">
+                                                    <p>Title</p>
+                                                </div>
+                                                <div class="row goup_info light-font">
+                                                    <p>patient(S) 23</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item container">
+                            <div class="row">
+                                <h3>Assign Checklist Name to</h3>
+                                <ul data-role="listview" id="event_list" class="list">
+                                    <li data-iconn="false" class="event">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8 event_name">
+                                                <p>Chemotherapy</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li data-iconn="false" class="event">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8 event_name">
+                                                <p>Event Title</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li data-iconn="false" class="event">
+                                        <div>
+                                            <div class="col-xs-4 text-center">
+                                                <img src=""></img>
+                                            </div>
+                                            <div class="col-xs-8 event_name">
+                                                <p>Event Title</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        <div class="item container">
+                             <div class="row">
+                                    <h3 class="md-font">First Chemotherapy</h3>
+                                    <div class="symptom_chooselist">
+                                        <input name="chemotherapy_1" id="chemotherapy_1" value="" type="checkbox">
+                                        <label for="chemotherapy_1">Bring current medications</label>
+                                     
+                                        <input name="chemotherapy_2" id="chemotherapy_2" value="" type="checkbox">
+                                        <label for="chemotherapy_2">checklist item 2</label>
+                                     
+                                        <input name="chemotherapy_3" id="chemotherapy_3" value="" type="checkbox">
+                                        <label for="chemotherapy_3">checklist item 3</label>
+                                     
+                                        <input name="chemotherapy_4" id="chemotherapy_4" value="" type="checkbox">
+                                        <label for="chemotherapy_4">checklist item 4</label>
+    
+                                        <input name="chemotherapy_5" id="chemotherapy_5" value="" type="checkbox">
+                                        <label for="chemotherapy_5">checklist item 5</label>
+
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="item container">
+                            <div class="patient_info">
+                                <div class="col-xs-2 vertical-middle">
+                                    <img  class="img-circle img-responsive">
+                                </div>
+                                <div class="col-xs-10 vertical-middle">
+                                    <div class="row">
+                                        <span class="sm-size patient_name md-size"></span> 
+                                        <span class="sm-size light-font birth_date"></span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="sm-size light-font disease_issue"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="md-font">Link Checklist Name to Upcoming Event</h3>
+                            <ul data-role="listview">
+                                <li>
+                                    <div class="col-xs-8">
+                                        <input name="" id="upcoming_event1" value="" type="checkbox">
+                                        <label for="upcoming_event1">Virtual Clinic</label>
+                                    </div>
+                                    <div class="col-xs-4 upcoming_date">
+                                        <p>30 APR 2015</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-8">
+                                        <input name="" id="upcoming_event2" value="" type="checkbox">
+                                        <label for="upcoming_event2">Clinic Visit</label>
+                                    </div>
+                                    <div class="col-xs-4 upcoming_date">
+                                        <p>21 MAY 2015</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-8">
+                                        <input name="" id="upcoming_event3" value="" type="checkbox">
+                                        <label for="upcoming_event3">Check Up</label>
+                                    </div>
+                                    <div class="col-xs-4 upcoming_date">
+                                        <p>4 JUN 2015</p>
+                                    </div>
+                            
+                                </li>
+                            </ul>
+                            <div class="row">
+                                 <a onclick="" class="add_link"><i class="fa fa-plus-circle"> </i>ADD EVENT</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                              <!-- controls -->
+                        <div class="carousel_controls">
+                            <div class="back_btn">
+                                <a class="left carousel-control" href="#checklist_slide" role="button" data-slide="prev" onClick="detectChecklistCarousel()">Back</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control" href="#checklist_slide" role="button" data-slide="next" onClick="detectChecklistCarousel()">Continue</a>
+                                <a href="#assign_popup" data-rel="popup" data-position-to="window" class="assign_btn carousel-control" style="display:none;">Assign</a>
+                                <a href="#" class="save_btn carousel-control" style="display:none;" onClick="" >Save</a>
+                            </div>
+                        </div>
+                </div>
+                <!-- content end -->
+            </div>
+            <!-- checlist page end -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="plugins/com.phonegap.plugins.sqlite/www/SQLitePlugin.js"></script>
+
+    <!-- calendar js -->
+
+    <script type="text/javascript" src="plugins/jw-jqm-cal.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.appframework.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.core.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.frame.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.scroller.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.util.datetime.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.datetimebase.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.datetime.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.select.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.listbase.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.image.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.treelist.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.frame.android.js"></script>
+    <script type="text/javascript" src="plugins/mobiscroll.frame.android-holo.js"></script>
+
+
+<script>
+        $(function () {
+                // Date picker initialization
+                $('.datepicker_input').mobiscroll().date({
+                    theme: 'android-holo-light',
+                    mode : 'scroller',
+                    display: 'modal',
+                    dateOrder: 'dd M yy',
+                    dateFormat: 'dd-M-yy'
+                });
+                $('.fa-calendar').mobiscroll().date({
+                    theme: 'android-holo-light',
+                    mode : 'scroller',
+                    display: 'modal',
+                    dateOrder: 'dd M yy',
+                    dateFormat: 'dd-M-yy',
+                    onSelect: function(valueText,inst){
+                        var dateArray = inst.getVal().toString().split(" ");
+                        console.log(date.toString().split(" "));
+
+                        var selectMonth = dateArray[1];
+                        var selectDate = dateArray[2];
+                        var selectYear = dateArray[3];
+                        $('label.dob').text(selectMonth+" - "+ selectDate+" - "+selectYear);
+                        $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
+                        console.log("mongth: "+selectMonth);
+                        console.log("date: " +selectDate);
+                        console.log("year: " +selectYear);
+                    }
+                })
+                    var date = new Date();
+                    var d = date.getDate();
+                    var m = date.getMonth();
+                    var y = date.getFullYear();
+                    //calendar initialization
+                    $("#calendar").jqmCalendar({
+                            events: [{
+                                "title": "Meet PM",
+                                "type" : "personal",
+                                "begin": new Date(y,m, 27 ),
+                                "end": new Date(y, m, 28)
+            
+                        }, 
+                        {
+                                "title": "gym",
+                                "type" : "fitness",
+                                "begin": new Date(y,m, 22 ),
+                                "end": new Date(y, m, 28)
+            
+                        },{
+                                "title": "Dinner",
+                                "type": "personal",
+                                "begin": new Date(y, m, d+3,1,10,0,0),
+                                "end": new Date(y, m, d + 4,15,15,0,0)
+            
+                        }, {
+                                "title": "Lunch with Friends",
+                                "type": "public",
+                                "begin": new Date(y, m, d + 6),
+                                "end": new Date(y, m, d + 7)
+            
+                        }, 
+                        ],
+                    months : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    startOfWeek : 0
+                    }); 
+
+                    
+        });
+</script>
+
+<script type="text/javascript">
+
+$("#signup_inner_slide").bind('slid.bs.carousel',function(){
+    detectInnerSlide1();
+});
+
+function addNewTag()
+{
+    var index = $("#checklist_listview_create>li").length-1;
+    $('#checklist_listview_create').append('<li> <div class="col-xs-10"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="checklist_tag' + index + '" name="tag' + index + '" placeholder="Optional tag"></div></div><div class="col-xs-2"><a href="#" class="close_link text-center" onClick="removeTag(this)"><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
+    //var last_li = $("#checklist_listview_create li:last-child").offset().top;
+}
+
+function removeTag(element){
+    // var id = $(el).parent('div').parent('li').attr('id');
+    // console.log(id);
+    var target = $(element).parent('div').parent('li');
+    target.remove();
+}
+
+function addNewNote()
+{
+    $('#checklist_listview_item').append(' <li><h4 style="text-align:center">ITEM' + item_id + '</h4><div class="col-xs-9"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="item' + item_id + '_task" name"item" placeholder="Item/Task"></div></div> <div class="col-xs-2 col-xs-offset-1"><a href="#" class="close_link" ><i class="fa fa-2x fa-close"></i></a></div><div class="col-xs-9"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="item' + item_id + '"_respon" name="resopn" placeholder="Responsible entity"></div></div><div class="col-xs-2 col-xs-offset-1"><a href="#" class="close_link" ><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
+    item_id ++;
+}
+
+
+//set up the height of ui-content once the page is loaded
+function setHeightofContent(){
+    var screen = $.mobile.getScreenHeight();
+    
+    var header = $(".ui-page .ui-header").outerHeight();
+    var  contentCurrent = screen - header;
+    
+    //var content = screen - header  - contentCurrent;
+    $(".ui-content").height(contentCurrent);
+    $("#signup_page .ui-content").css('height','100vh');
+    $("#signup_detail_page1 .ui-content").css('height','100vh');
+    $("#signup_detail_page2 .ui-content").css('height', '100vh');
+    $("#signup_detail_page3 .ui-content").css('height', '100vh');
+    $("#signup_detail_page4 .ui-content").css('height', '100vh');
+
+}
+function addSymptom(){
+    var index = $("#symptom_list>li").length+1;
+    //console.log(index);
+    $("#symptom_list").append('<li><div class="col-xs-9"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="symptom_'+ index+ '"'+' placeholder="Symptom"></input></div></div><div class="col-xs-2 col-xs-offset-1"><a href="#" class="close_link" onClick="removeSymptom(this)"><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
+}
+function removeSymptom(element){
+    // var id = $(el).parent('div').parent('li').attr('id');
+    // console.log(id);
+    var target = $(element).parent('div').parent('li');
+    target.remove();
+}
+
+function detectChecklistCarousel(){
+   setTimeout(function(){
+        if($('#checklist_slide .carousel-inner .item:first').hasClass('active')){  
+                $('#checklist_slide .carousel_controls .left').attr('disabled',true);
+
+
+            }
+        else if($('#checklist_slide .carousel-inner .item:last-child').hasClass('active')) {
+                $('#checklist_slide .carousel_controls .right').hide();
+                $('#checklist_slide .carousel_controls .save_btn').show();
+              
+            }
+        else if($('#checklist_slide .carousel-inner .item:nth-child(4)').hasClass('active')){
+                $('#checklist_slide .carousel_controls .right').hide();
+                $('#checklist_slide .carousel_controls .save_btn').hide();
+                $('#checklist_slide .carousel_controls .assign_btn').show();
+            }
+        else{
+            $('#checklist_slide .carousel_controls .assign_btn').hide();
+            $('#checklist_slide .carousel_controls .save_btn').hide();
+            $('#checklist_slide .carousel_controls .right').show();
+            $('#checklist_slide .carousel_controls .back_btn .left').attr('disabled',false);
+        }
+    },500);
+}
+//detect the current slide of the carousel and show/hide the buttons
+function detectTriageCarousel(){
+    setTimeout(function(){
+        if($('#triage_slide .carousel-inner .item:first').hasClass('active')){  
+                $('#triage_slide .carousel_controls .left').attr('disabled',true);
+                console.log("the 1st item");
+            }
+        else if($('#triage_slide .carousel-inner .item:last-child').hasClass('active')) {
+                $('#triage_slide .carousel_controls .right').hide();
+                // $('.carousel_controls .left').hide();
+                $('#triage_slide .carousel_controls .save_note').show();
+                // $('.carousel_controls .add_symptom').show();
+                console.log("the last item");
+            }
+        else if($('#triage_slide .carousel-inner .item:nth-last-child(2)').hasClass('active')){
+                $('#triage_slide .carousel_controls .right').text("Add Note");
+                $('#triage_slide .carousel_controls .save_note').hide();
+                $('#triage_slide .carousel_controls .right').show();
+            }
+        else{
+            $('#triage_slide .carousel_controls .right').text("Continue");
+            $('#triage_slide .carousel_controls .back_btn .left').attr('disabled',false);
+            $('#triage_slide .carousel_controls .save_note').hide();
+            $('#triage_slide .carousel_controls .right').show();
+            console.log("the rest items");
+        }
+    },500);
+}
+function ScheduleContentSwitch(target)
+{
+    if(target == "individual"){
+        console.log("clinic");
+        $(".clinic_content").hide();
+        $(".individual_content").show();
+        // $(".individual_content .container .timeline").append('<li><div class="col-xs-4 time text-center"><p>10:00 today</p><img src="img/RedCross.png" class="img-circle"/></div><div class="col-xs-4 col-xs-offset-4 name text-center"><p>Stephen moriiessy</p><img src="img/RedCross.png" class="img-circle"/></div></li>');
+    }
+    else if(target == "clinic"){
+        console.log("individual");
+        $(".individual_content").hide();
+        $(".clinic_content").show();
+    }
+}
+function SliderChange(element){
+    //alert("slider change");
+    var grade = $(element).val();
+    if(grade < 2 ){
+        $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("orange red").addClass('green');
+        //$(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("orange red").addClass('green');
+    }
+    else if (grade == 2){
+        $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("green red").addClass('orange');
+       // $(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("green red").addClass('orange');
+    }
+    else if(grade > 2){
+        $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("green orange").addClass('red');
+        //$(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("orange green").addClass('red');
+    }
+    $('.grade_slider_group .nci_percent').text(grade/4*100+"%");
+}
+
+function setupSwitch(element){
+    console.log('load success');
+    var first = $element.first('.ui-radio');
+    var switch_btn = $element.last();
+    if(first.children(label).hasClass('ui-radio-on')){
+        switch_btn.removeClass('toggle');
+    }
+    else if(first.children(label).hasClass('ui-radio-off')){
+        switch_btn.addClass('toggle');
+    }
+}
+/*toggle on the switch button*/
+function SwitchToggle(status,element){
+    var target = $(element).parent().parent().children('.switch-button');
+    if(status=="no"){
+        target.removeClass('toggle');
+    }
+    else if(status=="yes"){
+        target.addClass('toggle');
+    }
+}
+
+function showEditBtn(){
+    if($(".checklist_edit_btn").is(':visible')){
+        $(".checklist_edit_btn").hide();
+        $("#editbtn").text('Edit');
+    }
+    else{
+        $(".checklist_edit_btn").show();
+        $("#editbtn").text("Done");
+        
+    }
+}
+
+function goEditChecklist(){
+
+    //load the selected checklist info and jump to the next edit page
+
+    $("#checklist_slide").carousel('next');
+    $("#editbtn").click();
+    $('#checklist_slide .carousel_controls .right').hide();
+    $('#checklist_slide .carousel_controls .assign_btn').show();
+}
+
+function gotoAssign(){
+    var target = $('#assign_popup .row').children('fieldset');
+    var target_item;
+    if(target.children('.ui-radio').first().children('label').hasClass('ui-radio-on')){
+        target_item = "patient";
+    }
+    else if(target.children('.ui-radio:nth-child(2)').children('label').hasClass('ui-radio-on')){
+        target_item = "group";
+    }
+    else if(target.children('.ui-radio').last().children('label').hasClass('ui-radio-on')){
+        target_item = "event";
+    }
+    //hide assign btn 
+    $('#checklist_slide .carousel_controls .assign_btn').hide();
+    $('#checklist_slide .carousel_controls .right').show();
+
+    loadAssignContent(target_item);
+
+    $("#checklist_slide").carousel('next');
+    
+
+
+}
+function loadAssignContent(target_item){
+
+    if(target_item == "group"){
+        $("#checklist_assign_content .row ul").empty();
+        $("#checklist_assign_content .row ul").append('<li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Stage 3 treatment</p></div><div class="row goup_info light-font"><p>patient(S) 35</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Remission</p></div><div class="row goup_info light-font"><p>patient(S) 7</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Title</p></div><div class="row goup_info light-font"><p>patient(S) 9</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Title</p></div><div class="row goup_info light-font"><p>patient(S) 23</p></div></div></div></li>').listview('refresh');
+    }
+    else if(target_item == "event"){
+        $("#checklist_assign_content .row ul").empty();
+        $("#checklist_assign_content .row ul").append('<li data-iconn="false" class="event"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8 event_name"><p>Chemotherapy</p></div></div></li><li data-iconn="false" class="event"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8 event_name"><p>Event Title</p></div></div></li><li data-iconn="false" class="event"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8 event_name"><p>Event Title</p></div></div></li>').listview('refresh');
+
+    }
+    else if(target_item == "patient"){
+        getPatientList("assign_content_list");
+    }
+}
+$(function(){
+var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    
+    $("#calendar").jqmCalendar({
+        events: [{
+            "summary": "Meet PM",
+            "begin": new Date(y,m, 27 ),
+            "end": new Date(y, m, 28)
+            
+        }, {
+            "summary": "Dinner",
+            "begin": new Date(y, m, d + 3),
+            "end": new Date(y, m, d + 4)
+            
+        }, {
+            "summary": "Lunch with Friends",
+            "begin": new Date(y, m, d + 6),
+            "end": new Date(y, m, d + 7)
+            
+        }, 
+                ],
+                 months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+ 
+        startOfWeek: 0
+        
+    });
+});
+
+function setupSignUpPage2(){
+    $("#signup_inner_slide").carousel('next');
+    $("#signup_detail_page2 .signup_btn").attr('disabled','disabled');
+    setTimeout(function(){
+    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
+       $('#signup_detail_page2 .signup_btn').hide(); 
+    }
+    else {
+       $('#signup_detail_page2 .signup_btn').show(); 
+    }   
+
+    }, 400);
+}
+
+function detectInnerSlide1(){
+    $('#signup_detail_page2 .signup_btn').attr('disabled', 'disabled');
+    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
+        $('.slogen h4').text('Three quick things');
+        $('#signup_detail_page2 .signup_btn').hide();
+        $('#signup_detail_page2 .back_btn').attr('disabled','disabled');
+
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '20%');
+        $('#signup_detail_page2 .progress .progress-bar').html('20%');
+    }
+    else if($('#signup_inner_slide .carousel-inner .item:nth-child(2)').hasClass('active')){
+        $('.slogen h4').text('Two quick things');
+        
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '30%');
+        $('#signup_detail_page2 .progress .progress-bar').html('30%');
+
+        $('#signup_detail_page2 .signup_btn').show();
+        $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
+        $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
+        
+        if($('.dob').text()!="MM - DD - Year"){
+            $('#signup_detail_page2 .signup_btn').removeAttr('disabled');
+        }
+    }   
+    else if($('#signup_inner_slide .carousel-inner .item:last').hasClass('active')){
+        $('.slogen h4').text('One quick things');
+
+        $('#signup_detail_page2 .progress .progress-bar').css('width', '40%');
+        $('#signup_detail_page2 .progress .progress-bar').html('40%');
+
+        $('#signup_detail_page2 .back_btn').removeAttr('disabled');
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .signup_btn').attr('data-transition', 'slide');
+        $('#signup_detail_page2 .skip_btn').attr('href', '#signup_detail_page3');
+        $('#signup_detail_page2 .skip_btn').attr('data-transition', 'slide');
+
+    }
+}
+
+
+$("#country_selector").countrySelect({
+                //defaultCountry: "jp",
+                //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+                preferredCountries: ['ie', 'cn', 'us']
+            });
+
+
+
+</script>
+        
+        <script type="text/javascript" src="js/global.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>

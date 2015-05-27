@@ -151,30 +151,37 @@
                 </div>
                 <div class="container form_container">
                     <div id="signup_input_group" class="row">
-                    <h4>Create a free, private account or login</h4>
-                    <div class="form-group">
-                        <input id="signup_email" class="input-lg" type="email" placeholder="Your email"/>
-                    </div>
-                    <div class="form-group">
-                        <input id="signup_password" class="input-lg" type="password" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password"/>
-                    </div>
-                    <div class="row">
-                        <label>You agree to our Terms and Privacy Policy</label>
-                    </div>
+                        <div class="form-group has-feedback left-feedback no-label">
+                            <input id="signup_email" class="input-lg" type="email" placeholder="youremail@email.com">
+                                <span class="icon-user form-control-feedback"></span>
+                            </input>
+                        </div>
+                        
+                        <div class="form-group has-feedback left-feedback no-label">
+                            <input id="signup_password" class="input-lg" type="password" placeholder="Password">
+                                <span class="icon-locker form-control-feedback"></span>
+                            </input>
+                        </div>
+                        
+                        <div class="form-group has-feedback left-feedback no-label">
+                            <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password">
+                                <span class="icon-locker form-control-feedback"></span>
+                            </input>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top:12vh;">
+                            <p>Aready a member?</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <a href="#login_page" data-transition="slidedown">Login now</a>
+                        </div>
                     
-                    <div class="from-group" style="margin-top:15vh;">
-                        <a href="#signup_detail_page1" data-transition="slide"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
-                    </div>
-                    <div class="below_content">
-                        <a href="#login_page" data-transition="slidedown">Aready a member? log in now</a>
                     </div>
                 </div>
+                <div class="signup_continue_btn">
+                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" data-role="button" >Continue</a> 
                 </div>
-
-
             </div>
         </div>
         <!-- signup detail page for user to fill info -->
@@ -185,26 +192,26 @@
                             </div>
 
                                 <div class="container form_container">
-                                    <h3>Compete your profile</h3>
-                                    <h5>Only doctors can see this</h5>
                                     <div class="form-group">
-                                    <input id="signup_fullname" class="input-lg" type="text" placeholder="Your name"/>
+                                        <input id="signup_firstname" class="input-lg" type="text" placeholder="First Name"/>
                                     </div>
                                     <div class="form-group">
-                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
+                                        <input id="signup_lastname" class="input-lg" type="text" placeholder="Last name"/>
                                     </div>
-
                                     <div class="form-group">
-
-                                        <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
+                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
                                     </div>
                                     <div class="dots-row">
                                         <span class="dot active"></span>
                                         <span class="dot"></span>
                                     <span class="dot"></span>
                                     </div>
+
                                 </div>
                             </div>
+            <div class="signup_continue_btn">
+                <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
+            </div>
 
         </div>
 
@@ -212,7 +219,7 @@
             
             <div class="ui-content text-center">
                 <div class="container thumbs_container">
-                    <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                    <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.svg"/>
                     <div class="row">
                         <span class="welcome"></span>
                     </div>
@@ -225,8 +232,7 @@
 
                      
                 <div class="container form_container ">
-                    <div class="slogen">
-                            <h4>Three quick things</h4>
+                        <div>
                             <label>Tell doctors a little more so they can personalize their answers</label>
                         </div>
 
@@ -237,12 +243,12 @@
                                 <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
                                         <a href="#signup_inner_slide" data-slide="next" >
-                                            <i class="fa fa-4x fa-male"></i>
+                                            <img src="img/male.svg" style="height:20vh"/>
                                         </a>  
                                     </div>
                                     <div class="col-xs-6">
                                         <a href="#signup_inner_slide" data-slide="next">
-                                            <i class="fa fa-4x fa-female"></i>
+                                            <img src="img/female.svg" style="height:20vh"/>
                                         </a> 
                                     </div>
                                 </div>
@@ -251,7 +257,7 @@
                                 <h3>Date of Birth</h3>
                                 <div class="row">
                                     <a href="#" >
-                                        <i class="fa fa-3x fa-calendar"></i>
+                                        <img src="img/Calendar.svg" style="height:10vh">
                                     </a> 
                                 </div>
                                 <div class="row">
@@ -262,7 +268,7 @@
                                 <h3>Location</h3>
                                 <div class="row">
                                     <a href="#">
-                                        <i class=" fa fa-3x fa-location-arrow"></i>
+                                        <img src="img/location.svg" style="height:10vh"/>
                                     </a>
                                 </div>
                                 <div class="row">
@@ -272,27 +278,24 @@
                             </div>
                         </div>
                     </div>
-                
-                
-
-                    <div class="inner_carousel_controls" >
-                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
-                    </div>
                     
-                    <div class="dots-row">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>< Back</a>
+                        </div>
+                        <div class="col-xs-4 dots-row">
                             <span class="dot"></span>
                             <span class="dot active"></span>
                             <span class="dot"></span>
                             <div class="clear"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-xs-offset-2">
-                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>Back</a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
+                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
                         </div>
                     </div>
+                    </div>
+                       <div class="signup_continue_btn" >
+                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
                 </div>
                 </div>
@@ -303,58 +306,57 @@
                 <div id="signup_detail_page3" data-role="page" class="signup_page">
             
                     <div class="ui-content text-center">
-                         <div class="container thumbs_container" style="height:35vh">
-                            <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                         <div class="container thumbs_container" style="height:30vh">
+                            <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.svg"/>
                             <span class="welcome"></span>
                         
                              <div class="progress" style="width:90%; margin:0 auto;">
                                 <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
-                            20% Completed
+                            30% Completed
                                 </div>
-                            </div>  
-                    
-                            <div class="slogen">
-                                <h4>For a more personalized experience</h4>
-                                <label>Follow three or more topics of interest</label>
-                            </div>
+                            </div> 
                         </div>
 
-                        <div class="row" style="height: 50vh">
+                        <div style="height: 10vh">
+                            <p>Follow three or more topics of interest</p> 
+                        </div>
+
+                        <div class="container row" style="height: 45vh">
                             <div class="signup_details_listview">
                                 <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Living Healthier</h4>
+                                        <h4><img src="img/live_healthier.svg"/> Living Healthier</h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
                                         </ul>
                                     </li>
 
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Parenting and Pregnancy</h4>
+                                        <h4><img src="img/pregnancy.svg"/> Parenting and Pregnancy</h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
                                         </ul>
                                     </li>
 
                                        <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Growing Older</h4>
+                                        <h4><img src="img/growing.svg"/> Growing Older</h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
                                         </ul>
                                     </li>
 
                                        <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Managing a Condition</h4>
+                                        <h4><img style="height:20px; width:20px" src="img/managing_condition.svg"/> Managing a Condition</h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
+                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -1505,7 +1507,7 @@
                                 <h2 id="onboarding_title">Onboarding new patient</h2>
                             </div>
                             <div class="form-group">
-                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
+                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="onboarding_fullname" name="fullname"  placeholder="Full Name"/>

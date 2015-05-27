@@ -1,4 +1,4 @@
-cordova.define("org.apache.cordova.camera.CameraPopoverHandle", function(require, exports, module) { /*
+cordova.define("org.apache.cordova.file.androidFileSystem", function(require, exports, module) { /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,18 +19,17 @@ cordova.define("org.apache.cordova.camera.CameraPopoverHandle", function(require
  *
 */
 
-var exec = require('cordova/exec');
+FILESYSTEM_PROTOCOL = "cdvfile";
 
-/**
- * A handle to an image picker popover.
- */
-var CameraPopoverHandle = function() {
-    this.setPosition = function(popoverOptions) {
-        var args = [ popoverOptions ];
-        exec(null, null, "Camera", "repositionPopover", args);
-    };
+module.exports = {
+    __format__: function(fullPath) {
+        if (this.name === 'content') {
+            return 'content:/' + fullPath;
+        }
+        var path = ('/'+this.name+(fullPath[0]==='/'?'':'/')+encodeURI(fullPath)).replace('//','/');
+        return FILESYSTEM_PROTOCOL + '://localhost' + path;
+    }
 };
 
-module.exports = CameraPopoverHandle;
 
 });

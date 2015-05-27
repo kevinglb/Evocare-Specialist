@@ -228,7 +228,7 @@ input[type=number]{
 }
 /*login page css*/
 .form-group {
-    margin: 15px 0px;
+    margin: 20px 0px;
 }
 #login_page {
     height: 100%;
@@ -252,6 +252,12 @@ input[type=number]{
 {
     overflow-y: auto !important;
     height:50vh;
+}
+
+#signup_personal_listview img
+{
+    height:40px;
+    width:40px;
 }
 
 
@@ -381,6 +387,13 @@ input[type=number]{
     padding: 0;
 }
 
+.signup_continue_btn
+{
+    position: fixed;
+    bottom:0;
+    width:100%;
+}
+
 .signup_btn[disabled]{
     color:#495559 !important;
 }
@@ -392,13 +405,13 @@ div#signup_input_group
 }
 .logo_container{
     height: 14vh;
-    margin: 4vh auto 2vh auto;
+    margin: 12vh auto 2vh auto;
 }
 .thumbs_container{
     width: 90%;
     margin: 0 auto;
     max-width: 480px;
-    height: 20vh;
+    height: 35vh;
 }
 .form_container{
     width: 90%;
@@ -414,7 +427,7 @@ div#signup_input_group
     margin: 15px auto;
 }
 .signup_avatar_mini {
-    margin: 3vh auto 1vh auto;
+    margin: 5vh auto 1vh auto;
     width: 10vh !important;
     height: 10vh !important;
     max-width: 120px;
@@ -422,7 +435,7 @@ div#signup_input_group
 }
 .progress{
     width: 90%;    
-    margin: 2vh auto 0 auto;
+    margin: 5vh auto 0 auto !important;
 } 
 #signup_detail_page1 .slide, #signup_detail_page2 .slide{
     height: 100%;
@@ -432,9 +445,9 @@ div#signup_input_group
     max-height: 30vh !important;
     max-width: 90%;
     margin: 0px auto 5vh auto;
-    border-radius: 0 0 0.5em 0.5em;
+/*    border-radius: 0 0 0.5em 0.5em;
     border: 1px solid #A0B2B7;
-    border-top: none;
+    border-top: none;*/
 }
 .slogen {
     max-width: 90%;
@@ -468,12 +481,13 @@ div#signup_input_group
 }
 .dots-row{
     max-width: 96px;
-    margin: 2vh auto 0 auto;
+    margin: 0 auto;
+    padding: 10px 0;        
 }
 #signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn{
-    margin-top: 2vh;
+  /*  margin-top: 2vh;*/
     color: #495559;
-    border: 1px solid #A0B2B7;
+    /*border: 1px solid #A0B2B7;*/
 }
 
 #signup_detail_page2 .back_btn{
@@ -1263,11 +1277,11 @@ div#signup_input_group
         margin: 4vh auto 2vh auto;
     }
     div#signup_input_group{
-    margin-top: 0vh;
+    margin-top: 10vh;
     }
     .signup_avatar_lg{
-        width: 25vh;
-        height: 25vh;
+        width: 25vh !important;
+        height: 25vh !important;
     }
     .form_container{
         width:100%;
@@ -1276,6 +1290,11 @@ div#signup_input_group
     #signup_inner_slide {
         min-height: 30vh !important;
         
+    }
+    #signup_personal_listview img
+    {
+        height:30px;
+        width:30px;
     }
     .inner_carousel_controls {
         height: 46px;
@@ -1295,6 +1314,10 @@ div#signup_input_group
     .progress {
         height: 18px;
         border-radius: 9px;
+    }
+    .progress-bar-success
+    {
+        background-color:#8FCDBE !important;
     }
     .ui-input-text, .ui-input-search
     {
