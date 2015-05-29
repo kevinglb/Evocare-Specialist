@@ -259,6 +259,11 @@ input[type=number]{
     height: 40px;
     width: 40px;
 }
+span.listview_selection 
+{
+    margin-left: 4vh;
+    padding-left: 40px;
+}
 #signup_personal_listview a
 {
     background-color: transparent;
@@ -391,7 +396,8 @@ input[type=number]{
 
 .signup_btn{
     background-color: rgba(189, 201, 205, 1);
-    color: #495559 !important;
+    color: #FFF !important;
+    text-transform: uppercase;
     font-family: "Bendons-Medium";
     line-height: 58px;
     font-size: 1.5em;
@@ -437,12 +443,12 @@ div#signup_input_group
     margin-top: 10vh;
 }
 .logo_container{
-    height: 14vh;
+    height: 15vh;
     margin: 12vh auto 2vh auto;
 }
 .logo_container img {
     width: 60%;
-    margin-top: 5%;
+    
 }
 .thumbs_container{
     width: 90%;
@@ -521,7 +527,8 @@ div#signup_input_group
     margin: 0 auto;
     padding: 10px 0;        
 }
-#signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn{
+#signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn,
+#signup_detail_page3 .back_btn, #signup_detail_page3 .skip_btn {
   /*  margin-top: 2vh;*/
     color: #495559;
     /*border: 1px solid #A0B2B7;*/
@@ -1313,6 +1320,10 @@ div#signup_input_group
         height: 14vh;
         margin: 4vh auto 2vh auto;
     }
+    .logo_container img {
+       width: 60%;
+        margin-top: 5%;
+    }
     div#signup_input_group{
     margin-top: 10vh;
     }
@@ -1332,6 +1343,10 @@ div#signup_input_group
     {
         height:20px;
         width:20px;
+    }
+    span.listview_selection 
+    {
+        padding-left: 20px;
     }
     .inner_carousel_controls {
         height: 46px;
