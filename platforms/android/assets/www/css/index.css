@@ -96,8 +96,14 @@ a {
 input[type=number]{
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
+    text-align: right;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 .row
 {
     margin-right: 15px;
@@ -255,10 +261,24 @@ input[type=number]{
 
 #signup_personal_listview img
 {
-    height:40px;
-    width:40px;
+    height: 40px;
+    width: 40px;
+}
+span.listview_selection 
+{
+    margin-left: 4vh;
+    padding-left: 40px;
+}
+#signup_personal_listview a
+{
+    background-color: transparent;
+    color: #576266;
 }
 
+.listview_content
+{
+    margin-left: 4vh;
+}
 
 #signup_detail_page1 .ui-header, #signup_detail_page2 .ui-header, #signup_detail_page3 .ui-header{
     background-color: #f2f2f2 !important;
@@ -381,7 +401,8 @@ input[type=number]{
 
 .signup_btn{
     background-color: rgba(189, 201, 205, 1);
-    color: #495559 !important;
+    color: #FFF !important;
+    text-transform: uppercase;
     font-family: "Bendons-Medium";
     line-height: 58px;
     font-size: 1.5em;
@@ -428,12 +449,12 @@ div#signup_input_group
     margin-top: 10vh;
 }
 .logo_container{
-    height: 14vh;
+    height: 15vh;
     margin: 12vh auto 2vh auto;
 }
 .logo_container img {
     width: 60%;
-    margin-top: 5%;
+    
 }
 .thumbs_container{
     width: 90%;
@@ -512,7 +533,8 @@ div#signup_input_group
     margin: 0 auto;
     padding: 10px 0;        
 }
-#signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn{
+#signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn,
+#signup_detail_page3 .back_btn, #signup_detail_page3 .skip_btn {
   /*  margin-top: 2vh;*/
     color: #495559;
     /*border: 1px solid #A0B2B7;*/
@@ -1239,7 +1261,7 @@ div#signup_input_group
 
 @media screen and (max-width: 480px){
     body{
-        font-size: 16px;
+        font-size: 14px;
     }
     .row{
         margin: 0 auto;
@@ -1304,6 +1326,10 @@ div#signup_input_group
         height: 14vh;
         margin: 4vh auto 2vh auto;
     }
+    .logo_container img {
+       width: 60%;
+        margin-top: 5%;
+    }
     div#signup_input_group{
     margin-top: 10vh;
     }
@@ -1321,8 +1347,12 @@ div#signup_input_group
     }
     #signup_personal_listview img
     {
-        height:30px;
-        width:30px;
+        height:20px;
+        width:20px;
+    }
+    span.listview_selection 
+    {
+        padding-left: 20px;
     }
     .inner_carousel_controls {
         height: 46px;
@@ -1446,10 +1476,7 @@ div#signup_input_group
 /*icons setting*/
 
 .icon{
-    height: 100%;
-    width: 100%;
-    display: block;
-    margin-top: 2px;
+    display: inline-block;
     background-position: center center;
     background-size: cover;
 }
@@ -1458,43 +1485,89 @@ div#signup_input_group
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
-    height: 48px;
+}
+.header-icon{
+    height: 90%;
+    width: 90%;
+    margin: 2px auto;
+}
+.icon-1x {
+    height: 1em;
+    width: 1em;
+}
+.icon-2x {
+    height: 2em;
+    width: 2em;
+}
+
+.icon-3x{
+
+}
+.icon-add {
+    background-image: url("../icon/icon-add.svg");
 }
 .icon-arrow-left{
-    background-image: url("../icon/icon-arrow-left.png");
+    background-image: url("../icon/icon-arrow-left-w.svg");
 }
 .icon-arrow-left-g{
-    background-image: url("../icon/icon-arrow-left-g.png");
+    background-image: url("../icon/icon-arrow-left-g.svg");
 }
 .icon-add-patient{
-    background-image: url("../icon/icon-add-patient.png");
+    background-image: url("../icon/icon-add-patient.svg");
 }
 .icon-bars{
-    background-image: url("../icon/icon-bars-w.png");
+    background-image: url("../icon/icon-bars-w.svg");
 }
 .icon-bars-g{
-    background-image: url("../icon/icon-bars-g.png");
+    background-image: url("../icon/icon-bars-g.svg");
 }
 .icon-dots{
-    background-image: url("../icon/icon-dots-w.png");
+    background-image: url("../icon/icon-dots-w.svg");
 }
 .icon-dots-g{
-    background-image: url("../icon/icon-dots-g.png");
+    background-image: url("../icon/icon-dots-g.svg");
 }
 .icon-filter{
-    background-image: url("../icon/icon-filter.png");
+    background-image: url("../icon/icon-filter-w.svg");
 }
 .icon-user{
-    background-image: url("../icon/icon-user-bg.png");
-}
-.icon-user-w{
     background-image: url("../icon/icon-user-w.svg");
 }
 .icon-locker{
-    background-image: url("../icon/icon-locker.png");
-}
-.icon-locker-w{
     background-image: url("../icon/icon-locker-w.svg");
+}
+.icon-clock-light{
+    background-image: url('../icon/icon-clock-light.svg'); 
+}
+.icon-location-g{
+     background-image: url('../icon/icon-location-g.svg'); 
+}
+.icon-ring {
+     background-image: url('../icon/icon-ring.svg'); 
+}
+.icon-group{
+     background-image: url('../icon/icon-group.svg'); 
+}
+.icon-note{
+     background-image: url('../icon/icon-note.svg'); 
+}
+.icon-checklist{
+     background-image: url('../icon/icon-checklist.svg'); 
+}
+.icon-attach{
+    background-image: url('../icon/icon-attach.svg'); 
+}
+.icon-print{
+    background-image: url('../icon/icon-print.svg'); 
+}
+.icon-delete{
+    background-image: url('../icon/icon-delete.svg'); 
+}
+.icon-edit{
+    background-image: url('../icon/icon-edit.svg'); 
+}
+.icon-trash{
+    background-image: url('../icon/icon-trash.svg'); 
 }
 div#onborading_content
 {
@@ -1515,3 +1588,60 @@ img#onboarding_avatar
     height: 120px;
 }
 
+
+/*prescription page*/
+#prescription_page .ui-content{
+    overflow-y:auto;
+}
+#prescription_page .ui-content .container{
+    margin-bottom: 50px;
+}
+#prescription_list .prescription_item{
+    padding:10px 5px !important;
+    margin: 10px 0;
+    border: 1px solid #A0B2B7 !important;
+    border-radius: 0.5em;
+}
+#prescription_list .prescription_item .ui-input-text{
+    box-shadow: none;
+}
+#prescription_list .prescription_item .ui-state-disabled{
+    background-color: #f2f2f2;
+    opacity: 1;
+}
+.auto-filled label, .manual-filled label{
+    display: inline-block;
+    margin-bottom: 0;
+    line-height: 35px;
+}
+.auto-filled .ui-input-text, .manual-filled .ui-input-text, .manual-filled .ui-select{
+    display: inline-block;
+    float: right;
+}
+.auto-filled .ui-input-text{
+    max-width: 50% !important;
+}
+.manual-filled .row{
+    padding: 10px 0;
+}
+.manual-filled .ui-input-text, .manual-filled .ui-select{
+    width: 100%;
+    float: right;
+}
+.manual-filled .ui-select{
+    margin:0;
+    width: 100%;
+}
+.manual-filled .ui-select .ui-btn{
+    padding:0.4em;
+}
+.manual-filled .times{
+    line-height: 35px;
+}
+.prescription_item .prescription_btns{
+    padding-top: 10px;
+}
+.prescription_item .prescription_btns a{
+    width: 100%;
+    border: 1px solid #A0B2B7 !important;
+}

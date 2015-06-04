@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 <div class="signup_continue_btn">
-                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" data-role="button" >Continue</a> 
+                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" style="color:black !important" role="button" >Continue</a> 
                 </div>
             </div>
         </div>
@@ -281,18 +281,20 @@
                         <div class="col-xs-4">
                             <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>< Back</a>
                         </div>
-                        <div class="col-xs-4 dots-row">
-                            <span class="dot"></span>
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <div class="clear"></div>
+                        <div class="col-xs-4">
+                            <div class="dots-row">
+                                <span class="dot"></span>
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <div class="clear"></div>
+                            </div>
                         </div>
                         <div class="col-xs-4">
                             <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
                         </div>
                     </div>
                     </div>
-                       <div class="signup_continue_btn" >
+                    <div class="signup_continue_btn" >
                         <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
                 </div>
@@ -315,70 +317,82 @@
                             </div> 
                         </div>
 
-                        <div style="height: 10vh">
+                        <div>
                             <p>Follow three or more topics of interest</p> 
                         </div>
 
                         <div class="container row" style="height: 45vh">
                             <div class="signup_details_listview">
                                 <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
+                                    
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img src="img/live_healthier.svg"/> Living Healthier</h4>
+                                        <h4><img src="img/live_healthier.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
 
-                                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img src="img/pregnancy.svg"/> Parenting and Pregnancy</h4>
+                                      <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/growing.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
 
-                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img src="img/growing.svg"/> Growing Older</h4>
+                                      <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/managing_condition.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
 
-                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/managing_condition.svg"/> Managing a Condition</h4>
+                                      <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/pregnancy.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
+
+                                   
                                 </ul>
                             </div>
                         </div>
-                        
-                    <div class="row" style="width:90%;max-width:480px;margin: 2vh auto 0 auto;" >
-                            <div class="carousel-controls">
-                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
+
+                    <div class="container row" style="margin-top: 5vh">
+                        <div class="col-xs-4">
+                            <a href="#signup_detail_page2" role="button" class="btn back_btn" data-slide="prev" onClick="">< Back</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="dots-row">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot active"></span>
+                                <div class="clear"></div>
                             </div>
-                     </div>
-
-                    <div class=" dots-row" >
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot active"></span>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#signup_detail_page4" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                        </div>
                     </div>
-
+                        
+                    
+                    <div class="signup_continue_btn" >
+                        <a href="#signup_detail_page4" class="signup_btn btn-block btn"  role="button">Continue</a>
+                     </div>
                 </div>
             </div>
 
              <div id="signup_detail_page4" data-role="page" class="signup_page">
                  <div class="ui-content text-center">
-                     <div class="container thumbs_container" style="height:25vh">
+                     <div class="container thumbs_container" style="height:20vh">
                         <div class="slogen">
                             <h4>Add Doctors to your Care-Team</h4>
                             <label>to be able to video or text chat for advice & prescriptions</label>
@@ -495,18 +509,28 @@
                         </ul>
                     </div>
                     </div>
-
-                    <div class="row">
-                            <div class="carousel-controls" style="width:90%; max-width:480px;margin:0 auto; ">
-                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
+                               <div class="container row" style="margin-top: 5vh">
+                        <div class="col-xs-4">
+                            <a href="#signup_detail_page3" role="button" class="btn back_btn" data-slide="prev" onClick="">< Back</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="dots-row">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot active"></span>
+                                <div class="clear"></div>
                             </div>
-                     </div>
-
-                    <div class="row">
-                        <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                        </div>
                     </div>
-
                  </div>
+                        
+                    
+                    <div class="signup_continue_btn" >
+                        <a href="#" class="signup_btn btn-block btn"  role="button">Continue</a>
+                     </div>
              </div>
               
         
@@ -534,8 +558,8 @@
             </div> 
             <!-- header -->
             <div data-role="header"  class="ui-header" position="fixed">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left"></i></a>
-                <a href="#main_right_menu" class="menu_btn"><i class="icon icon-bars"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse"><i class="icon header-icon icon-arrow-left"></i></a>
+                <a href="#main_right_menu" class="menu_btn"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -623,8 +647,8 @@
             
             <div id="patientlist_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
                 <div data-role="header">
-                    <a href="#"><i class="icon icon-bars-g"></i></a>
-                    <a href="#"><i class="icon icon-dots-g"></i></a>
+                    <a href="#"><i class="icon header-icon icon-bars-g"></i></a>
+                    <a href="#"><i class="icon header-icon icon-dots-g"></i></a>
                 </div>
                 <div data-role="main" class="ui-content">
                 <div class="patient_info">
@@ -705,14 +729,14 @@
             </div> 
             <!-- header -->
             <div data-role="header" class="ui-header">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Patient list</h1>
                 <div class="ui-btn-right multi-icons">
                 <!-- <a href="#"><i class="icon icon-filter icon-right"></i></a> -->
                     
-                    <a href="#patientlist_menu" data-transition="slide"><i class="icon icon-dots"></i></a>
-                    <a id="onboarding_btn" href="#onborading_page" data-transition="slide"><i class="icon icon-add-patient icon-right"></i></a>
-                    <a href="#"><i class="icon icon-filter"></i></a>
+                    <a href="#patientlist_menu" data-transition="slide"><i class="icon header-icon icon-dots"></i></a>
+                    <a id="onboarding_btn" href="#onborading_page" data-transition="slide"><i class="icon header-icon icon-add-patient icon-right"></i></a>
+                    <!-- <a href="#"><i class="icon header-icon icon-filter"></i></a> -->
                 </div>
             </div>
             <!-- content -->
@@ -741,9 +765,9 @@
             </div>
             <!-- header-->
             <div data-role="header" class="ui-header" position="fixed">
-                <a href="#" onclick="resetVCPage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" onclick="resetVCPage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>virtual clinic</h1>
-                <a href="#vc_right_menu"><i class="icon icon-bars"></i></a>
+                <a href="#vc_right_menu"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -916,9 +940,9 @@
             <!-- right menu -->
             <!-- header -->
             <div data-role="header" class="ui-header" position="fixed">
-                <a href="#" onclick="resetTriagePage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" onclick="resetTriagePage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Triage Manager</h1>
-                <a href="#triage_right_menu" class="menu_btn"><i class="icon icon-dots"></i></a>
+                <a href="#triage_right_menu" class="menu_btn"><i class="icon header-icon icon-dots"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -1094,9 +1118,9 @@
             <div id="consultant_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
             </div>
             <div data-role="header" class="ui-header">
-               <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+               <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Consultant</h1>
-                <a href="#consultant_right_menu"><i class="icon icon-bars"></i></a>
+                <a href="#consultant_right_menu"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content-->
@@ -1134,9 +1158,9 @@
             <div id="schedule_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
             </div>
             <div data-role="header" class="ui-header">  
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" data-role="button"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" data-role="button"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Event Schedule</h1>
-                <a href="#schedule_right_menu"><i class="icon icon-bars"></i></a>
+                <a href="#schedule_right_menu"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -1491,7 +1515,7 @@
         <!-- onborading page -->
         <div id="onborading_page" data-role="page">
             <div data-role="header" class="ui-header">
-                <a href="#" data-rel="back" onclick="resetOnBoardingPage()" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" onclick="resetOnBoardingPage()" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left header-icon"></i></a>
                 <h1>PATIENTS</h1>
                 <a href="#"></a>
             </div>
@@ -1754,9 +1778,9 @@
             </div>
             <!-- header -->
             <div data-role="header" position="fixed" class="ui-header">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Checklist</h1>
-                <a href="#" class="ui-btn ui-corner-all"><i class="icon icon-dots"></i></a>
+                <a href="#" class="ui-btn ui-corner-all"><i class="icon header-icon icon-dots"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -1949,7 +1973,7 @@
                             <div class="row">
                                 <h3>Assign Checklist Name to</h3>
                                 <ul data-role="listview" class="list">
-                                </li>
+                                </ul>
                             </div>
                         </div>
                         <!-- <div class="item container">
@@ -2144,7 +2168,108 @@
                 </div>
                 <!-- content end -->
             </div>
+        </div>
+
+
             <!-- checlist page end -->
+            <!-- prescription_page -->
+            <div id="prescription_page" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Prescription</h1>
+                    <a href="#" data-role="button" class="ui-corner" onClick="" disabled>Done</a>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div class='container'>
+                        <form class="form-inline">
+                        <ul id="prescription_list" data-role="listview">
+                            
+                            <li class="prescription_item" id="prescription_item_1">
+                                <div class="row">
+                                    <input type='text' class="medicine_name"></input>
+                                </div>
+                                <div class=" auto-filled">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <label for="medicine-1-dosage">Dosage</label>
+                                            <input id='medicine-1-dosage' class="medicine_dosage" disabled></input>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label for="medicine-1-strength">Strength</label>
+                                            <input type="text" id='medicine-1-strength' class="medicine_strength" disabled></input>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label for="medicine-1-type">Type</label>
+                                            <input type="text" id='medicine-1-type' class="medicine_type" disabled></input>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label for="medicine-1-quantity">Quantity</label>
+                                            <input type="text" id='medicine-1-quantity' class="medicine_quantity" disabled></input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="manual-filled">
+                                    <div class="row">
+                                        <label class="col-xs-3">Frequency</label>
+                                        <div class="col-xs-3">
+                                            <input type="number" id='medicine-1-frequency' class="medicine_frequency"></input>
+                                        </div>
+                                        <span class="col-xs-3 times">time(s) / </span>
+                                        <div class="col-xs-3">
+                                            <select id="medicine-1-frequency-type" class="medicine_frequency_type" data-icon="false">
+                                                <option value="day">Hour</option>
+                                                <option value="day">Day</option>
+                                                <option value="week">Week</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-xs-3">Duration</label>
+                                        <div class="col-xs-5">
+                                            <input type="number" id='medicine-1-duration' class="medicine_duration"></input>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <select id="medicine-1-duration-type" class="medicine_duration_type" data-icon="false">
+                                                <option value="day">Hour(s)</option>
+                                                <option value="day">Day(s)</option>
+                                                <option value="week">Week(s)</option>
+                                                <option value="month">Month(s)</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row prescription_btns">
+                                    <div class="col-xs-6">
+                                        <a role="button" class="btn edit_btn" onClick="editPrescription(this)">Edit</a>
+                                        <a role="button" class="btn delete_btn" onClick="deletePrescription(this)" style="display:none;">Delete</a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a role="button" class="btn save_btn" onClick="savePrescription(this)">Save</a>
+                                    </div>
+                                </div>
+                            </li>
+                    
+                        </ul>
+                    </form>
+                        <div class="row text-right" style="padding-top:10px;">
+                            <a  onClick="addPrescription()"><i class="icon icon-2x icon-add"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- prescription_page end-->
+            <!-- addprescription_page -->
+            <div id="addPerscription_page" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Prescription</h1>
+                </div>
+                <div data-role="main" class="ui-content">
+
+                </div>
+            </div>
+            <!-- addprescription_page end -->
     <script type="text/javascript" src="cordova.js"></script>
     <script src="plugins/com.phonegap.plugins.sqlite/www/SQLitePlugin.js"></script>
 
@@ -2545,6 +2670,49 @@ function detectInnerSlide1(){
     }
 }
 
+function addPrescription(){
+    var index = $("#prescription_list>li").length +1;
+    console.log(index);
+    $("#prescription_list").append('<li class="prescription_item" id="prescription_item_'+index+'"><div class="row"><input type="text" class="medicine_name"></input></div><div class="row auto-filled"><div class="col-xs-6"><label for="medicine-'+index+'-dosage">Dosage</label><input id="medicine-'+index+'-dosage" class="medicine_dosage" disabled></input></div><div class="col-xs-6"><label for="medicine-'+index+'-strength">Strength</label><input type="text" id="medicine-'+index+'-strength" class="medicine_strength" disabled></input></div><div class="col-xs-6"><label for="medicine-'+index+'"-type">Type</label><input type="text" id="medicine-'+index+'-type" class="medicine_type" disabled></input></div><div class="col-xs-6"><label for="medicine-'+index+'-quantity">Quantity</label><input type="text" id="medicine-'+index+'-quantity" class="medicine_quantity" disabled></input></div></div><div class="row manual-filled"><div class="row"><label class="col-xs-3">Frequency</label><div class="col-xs-3"><input type="number" id="medicine-'+index+'-frequency" class="medicine_frequency"></input></div><span class="col-xs-3 times">time(s) / </span><div class="col-xs-3"><select id="medicine-'+index+'-frequency-type" class="medicine_frequency_type" data-icon="false"><option value="day">Hour</option><option value="day">Day</option><option value="week">Week</option></select></div></div><div class="row"><label class="col-xs-3">Duration</label><div class="col-xs-5"><input type="number" id="medicine-'+index+'-duration" class="medicine_duration"></input></div><div class="col-xs-4"><select id="medicine-1-duration-type" class="medicine_duration_type" data-icon="false"><option value="day">Hour(s)</option><option value="day">Day(s)</option><option value="week">Week(s)</option><option value="month">Month(s)</option></select></div></div></div><div class="row prescription_btns"> <div class="col-xs-6"><a role="button" class="btn edit_btn" onClick="editPrescription(this)">Edit</a><a role="button" class="btn delete_btn" onClick="deletePrescription(this)" style="display:none;">Delete</a></div><div class="col-xs-6"><a role="button" class="btn save_btn" onClick="savePrescription(this)">Save</a></div></div></li>').trigger('create').listview('refresh');
+        //$("#prescription_list").listview('refresh');
+    var height = ($(".prescription_item").height()+10)*index;
+    console.log(height);
+    $("#prescription_page .ui-content").animate({
+        scrollTop: height
+    },800);
+}
+
+function savePrescription(element){
+    var prescription_item_id = $(element).parent('div').parent('.prescription_btns').parent('li').attr('id');
+
+    //$('#prescription_item_1 .medicine_name').attr('disabled','disabled');
+    $('#'+prescription_item_id).find('.ui-input-text').addClass('ui-state-disabled');
+    //var div = $(element).parent('div').parent('.prescription_btns');
+    var edit_btn = $(element).parent('div').parent('.prescription_btns').children('div').children('.edit_btn');
+    var delete_btn = $(element).parent('div').parent('.prescription_btns').children('div').children('.delete_btn');
+    delete_btn.hide();
+    edit_btn.show();
+    $(element).attr('disabled', 'disabled');
+   // div.hide();
+}
+function editPrescription(element){
+    var prescription_item_id = $(element).parent('div').parent('.prescription_btns').parent('li').attr('id');
+    $('#'+prescription_item_id + ' .medicine_name').parent('.ui-input-text').removeClass('ui-state-disabled');
+    $('#'+prescription_item_id+' .medicine_frequency').parent('.ui-input-text').removeClass('ui-state-disabled');
+    $('#'+prescription_item_id+' .medicine_duration').parent('.ui-input-text').removeClass('ui-state-disabled');
+
+    var delete_btn = $(element).parent('div').children('.delete_btn');
+    var save_btn = $(element).parent('div').parent('.prescription_btns').children('div').children('.save_btn');
+    $(element).hide();
+    delete_btn.show();
+    save_btn.removeAttr('disabled');
+}
+
+function deletePrescription(element){
+    var target = $(element).parent('div').parent('.prescription_btns').parent('li');
+    console.log(target);
+    $(target).remove();
+}
 
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
