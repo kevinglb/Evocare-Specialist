@@ -2253,7 +2253,7 @@
                                             <span class="col-xs-6">day</span>
                                         </div>
                                         <div class="row">
-                                            <a href="#">
+                                            <a href="#" style="#495559">
                                                 <div class="col-xs-2">
                                                     <i class="icon icon-2x icon-note"></i>
                                                 </div>
@@ -2280,7 +2280,7 @@
                                         <a><i class="icon icon-2x icon-location-g"></i></a>
                                     </div>
                                     <div class="row">
-                                        <a href="">
+                                        <a href="＃" style="color:#495559">
                                             <div class="col-xs-2">
                                                 <i class="icon icon-2x icon-print"></i>
                                             </div>
@@ -2288,7 +2288,7 @@
                                                 <label style="line-height:2em;">Print</label>
                                             </div>
                                         </a>
-                                        <a href="">
+                                        <a href="＃" style="color:#495559">
                                             <div class="col-xs-2">
                                                 <i class="icon icon-2x icon-email"></i>
                                             </div>
@@ -2882,9 +2882,9 @@ function detectPresctiptionSlide(){
                 // $('.carousel_controls .add_symptom').show();
         console.log("the 2nd item");
     }
-    else if($('#prescription_slide .carousel-inner .item:last').hasClass('active')){
-        
-        $('#prescription_slide .carousel_controls .save_nbtn').hide();
+    else if($('#prescription_slide .carousel-inner .item:last-child').hasClass('active')){
+        console.log("last item");
+        $('#prescription_slide .carousel_controls .save_btn').hide();
         $('#prescription_slide .carousel_controls .right').show();
     }
 }
