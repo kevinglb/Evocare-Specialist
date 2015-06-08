@@ -2180,78 +2180,128 @@
                 <div data-role="header" class="ui-header">
                     <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                     <h1>Prescription</h1>
-                    <a href="#" data-role="button" class="ui-corner" onClick="">Done</a>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
                 </div>
                 <div data-role="main" class="ui-content">
                     <div class="patient_detail">
                     </div>
                     <div class="clear"></div>
-                    <div class='container'>
-                        <form class="form-inline">
-                        <ul id="prescription_list" data-role="listview">
+                    <div id="prescription_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <form>
+                        <div class="carousel-inner" data-role='listbox'>
                             
-                            <li class="prescription_item" id="prescription_item_1">
-                                <div class="row">
-                                    <!-- <input type='text' class="medicine_name"></input> --> 
-                                    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Find a medicine" class="medicine_name"></ul>
-                                </div>
-                                <div class="row">
-                                    <select class="medicinine_selector" data-icon="false">
-                                    </select>
-                                </div>
-                                <div class="auto-filled">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <label for="medicine-1-dosage">Dosage</label>
-                                            <input id='medicine-1-dosage' class="medicine_dosage" disabled></input>
+                                <div class="container item active">
+                                    <h3>Create a prescription</h3>
+                                    <div class="row bottom-border" style='margin-bottom:30px;'>
+                                            <!-- <input type='text' class="medicine_name"></input> --> 
+                                        <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" id="search_medicine_input" class="medicine_name"></ul>
+                                    </div>
+                                    <div class="row bottom-border">
+                                        <select class="medicinine_selector" data-icon="false"></select>
                                         </div>
-                                         <!-- <div class="col-xs-6">
-                                            <label for="medicine-1-strength">Strength</label>
-                                            <input type="text" id='medicine-1-strength' class="medicine_strength" disabled></input>
-                                        </div> -->
-                                         <!-- <div class="col-xs-6">
-                                            <label for="medicine-1-quantity">Quantity</label>
-                                            <input type="text" id='medicine-1-quantity' class="medicine_quantity" disabled></input>
-                                        </div> -->
-                                        <div class="col-xs-6">
-                                            <label for="medicine-1-type">Type</label>
-                                            <input type="text" id='medicine-1-type' class="medicine_type" disabled></input>
+                                  
+                                </div>
+                                <div class="container item">
+                                    <h3>Drug name</h3>
+                                    <div class="auto-filled">
+                                        <div class="row">
+                                            <label class="col-xs-12">Dosage</label>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id='medicine-dosage' class="medicine_dosage" disabled></input>
+                                            </div>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id='medicine-dosage-unit' class="medicine_dosage_unit" disabled></input>
+                                            </div>
                                         </div>
-                                        
+                                                                       
+                                        <div class="col-xs-4"></div>
+                                    </div>
+
+                                    <div class="manual-filled">
+                                        <div class="row">
+                                            <label class="col-xs-12">Frequency</label>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input type="number" id='medicine-frequency' class="medicine_frequency"></input>
+                                            </div>
+                                            
+                                            <div class="col-xs-8 bottom-border">
+                                                <select id="medicine-frequency-type" class="medicine_frequency_type bottom-border" data-icon="false" >
+                                                    <option value="day">times per hour</option>
+                                                    <option value="day">times per day</option>
+                                                    <option value="week">times per week</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 bottom-border">
+                                                <input type="text" class='medicine_start_date datepicker_input' placeholder="select start date"></input>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row">
+                                            <span class="col-xs-2">Every</span>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input type="number"></input>
+                                            </div>
+                                            <span class="col-xs-6">day</span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-xs-2">For</span>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input type="number"></input>
+                                            </div>
+                                            <span class="col-xs-6">day</span>
+                                        </div>
+                                        <div class="row">
+                                            <a href="#">
+                                                <div class="col-xs-2">
+                                                    <i class="icon icon-2x icon-note"></i>
+                                                </div>
+                                                <div class="col-xs-10" style="line-height:2em">
+                                                    Add Note
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="manual-filled">
-                                    <div class="row">
-                                        <label class="col-xs-3">Frequency</label>
-                                        <div class="col-xs-3">
-                                            <input type="number" id='medicine-1-frequency' class="medicine_frequency"></input>
-                                        </div>
-                                        <span class="col-xs-3 times">time(s) / </span>
-                                        <div class="col-xs-3">
-                                            <select id="medicine-1-frequency-type" class="medicine_frequency_type" data-icon="false" >
-                                                <option value="day">Hour</option>
-                                                <option value="day">Day</option>
-                                                <option value="week">Week</option>
-                                            </select>
-                                        </div>
+                                <div class="container item prescription_detail">
+                                    <h3>Prescription detials</h3>
+                                    <div class="row prescription_detail-date">
+                                        <label>Date: 05 Jun 2015</label>
+                                    </div>
+                                    <div class="row prescription_detail_doctor">
+                                        <label>Doctor: Name Lastname</label>
+                                    </div>
+                                    <div class="row prescription_detail_drug">
+                                        <label>Pills: </br></label>
+                                    </div>
+                                    <div class="row prescription_detail_pharmacy">
+                                        <label>Healthwave Pharmacy</label>
+                                        <a><i class="icon icon-2x icon-location-g"></i></a>
                                     </div>
                                     <div class="row">
-                                        <label class="col-xs-3">Duration</label>
-                                        <div class="col-xs-5">
-                                            <input type="number" id='medicine-1-duration' class="medicine_duration"></input>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <select id="medicine-1-duration-type" class="medicine_duration_type" data-icon="false" >
-                                                <option value="day">Hour(s)</option>
-                                                <option value="day">Day(s)</option>
-                                                <option value="week">Week(s)</option>
-                                                <option value="month">Month(s)</option>
-                                            </select>
-                                        </div>
+                                        <a href="">
+                                            <div class="col-xs-2">
+                                                <i class="icon icon-2x icon-print"></i>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label style="line-height:2em;">Print</label>
+                                            </div>
+                                        </a>
+                                        <a href="">
+                                            <div class="col-xs-2">
+                                                <i class="icon icon-2x icon-email"></i>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label style="line-height:2em;">E-mail</label>
+                                            </div>
+                                        </a>
 
                                     </div>
+
+
                                 </div>
-                                <div class="row prescription_btns">
+                                <!-- <div class="row prescription_btns">
                                     <div class="col-xs-6">
                                         <a role="button" class="btn edit_btn" onClick="editPrescription(this)">Edit</a>
                                         <a role="button" class="btn delete_btn" onClick="deletePrescription(this)" style="display:none;">Delete</a>
@@ -2259,20 +2309,31 @@
                                     <div class="col-xs-6">
                                         <a role="button" class="btn save_btn" onClick="savePrescription(this)">Save</a>
                                     </div>
-                                </div>
-                            </li>
+                                </div> -->   
+                            
+                            </div><!-- caousel inner-->
+                        </form>
+                        <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control" href="#prescription_slide" role="button" data-slide="prev">Back</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control" href="#prescription_slide" role="button" data-slide="next">Continue</a>
+                                <a class="carousel-control save_btn" href="#prescription_slide" role="button" data-slide="next" style="display:none;">Save</a>
+                            </div>
+                    </div>
+                    </div>
                     
-                        </ul>
-                    </form>
-                        <div class="row text-right" style="padding-top:10px;">
+                        <!-- <div class="row text-right" style="padding-top:10px;">
                             <a onClick="addPrescription()"><i class="icon icon-2x icon-add"></i></a>
                         </div>
                         <div class="row">
                             <h4>Allocated pharmacy</h4>
-                        </div>
-                    </div>
+                            <a href="geo:53.33196,6.92583">View on Google Maps</a>
+                        </div> -->
                 </div>
             </div>
+            
             <!-- prescription_page end-->
     <script type="text/javascript" src="cordova.js"></script>
     <script src="plugins/com.phonegap.plugins.sqlite/www/SQLitePlugin.js"></script>
@@ -2361,31 +2422,33 @@
                     months : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                     startOfWeek : 0
                     }); 
-
-                $( "ul .medicine_name" ).on( "filterablebeforefilter", function ( e, data ) {
+    
+                //autocomplete the search input for medicine name
+                $( "#search_medicine_input" ).on( "filterablebeforefilter", function ( e, data ) {
                         var $ul = $( this ),
                             $input = $( data.input ),
                             value = $input.val(),
                             html = "";
                             $ul.html( "" );
-                            if(!value || value.length < 3){
-                                disablePrescription();
+                            console.log('search on');
+                            if(!value || value.length <3){
+                                console.log('<3');
+                                $ul.html( "" );
                             }
                             if ( value && value.length > 2 ) {
+                                console.log('>2')
                                 $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
                                 $ul.listview( "refresh" );
                                 $.ajax({
                                     url: "http://clinic.evocare.co/api/autocomplete_medication_terms",
                                     dataType: "json",
                                     type: "POST",
-                                    
                                     data: {
                                         key: api_key,
                                         q: $input.val()
                                     }
                                 })
                                 .then( function ( response ) {
-
                                     $.each( response.terms, function ( i, val ) {
                                         html += "<li>" + val + "</li>";
                                     });
@@ -2400,7 +2463,7 @@
                             
                             $input.val(text);
                             $ul.html('').listview('refresh');
-                            activePrescription();
+                            //activePrescription();
                         });
                 });
 
@@ -2443,6 +2506,10 @@ $("#signup_inner_slide").bind('slid.bs.carousel',function(){
     detectInnerSlide1();
 });
 
+$("#prescription_slide").bind('slid.bs.carousel',function(){
+    detectPresctiptionSlide();
+});
+
 function addNewTag()
 {
     var index = $("#checklist_listview_create>li").length-1;
@@ -2468,7 +2535,7 @@ function addNewNote()
 function setHeightofContent(){
     var screen = $.mobile.getScreenHeight();
     
-    var header = $(".ui-page .ui-header").outerHeight();
+    var header = $(".ui-page .ui-header").outerHeight() || 56;
     var  contentCurrent = screen - header;
     
     //var content = screen - header  - contentCurrent;
@@ -2799,6 +2866,29 @@ function activePrescription(){
     $("#prescription_page .prescription_item .manual-filled").find(".ui-input-text").removeClass('ui-state-disabled');
     $("#prescription_page .prescription_item").find(".ui-select .ui-btn").removeClass('ui-state-disabled');
 }
+
+function detectPresctiptionSlide(){
+    if($('#prescription_slide .carousel-inner .item:first').hasClass('active')){  
+        $('#prescription_slide .carousel_controls .left').attr('disabled',true);
+         $('#prescription_slide .carousel_controls .save_btn').hide();
+        $('#prescription_slide .carousel_controls .right').show();
+        console.log("the 1st item");
+    }
+    else if($('#prescription_slide .carousel-inner .item:nth-child(2)').hasClass('active')) {
+
+        $('#prescription_slide .carousel_controls .right').hide();
+                // $('.carousel_controls .left').hide();
+        $('#prescription_slide .carousel_controls .save_btn').show();
+                // $('.carousel_controls .add_symptom').show();
+        console.log("the 2nd item");
+    }
+    else if($('#prescription_slide .carousel-inner .item:last').hasClass('active')){
+        
+        $('#prescription_slide .carousel_controls .save_nbtn').hide();
+        $('#prescription_slide .carousel_controls .right').show();
+    }
+}
+        
 
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",

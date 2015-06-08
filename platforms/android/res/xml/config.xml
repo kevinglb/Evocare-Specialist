@@ -11,6 +11,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+     <access origin="geo:*" launch-external="yes" />
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
@@ -24,4 +25,6 @@
     <feature name="FileTransfer">
         <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
     </feature>
+
+   
 </widget>

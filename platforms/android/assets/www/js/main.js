@@ -823,12 +823,46 @@ function setUpPrescriptionPage(patient_id){
     // set up patient info on triage page header
     var output = '<div class="col-xs-3 vertical-middle"><img src="' +single_patient.avatar + '" class="img-circle img-responsive"></div><div class="col-xs-9 vertical-middle"><div class="row"><div class="col-xs-6 patient_name md-size">' + single_patient.full_name + '</div><div class="col-xs-1 light-font gender">'+single_patient.gender.substring(0,1)+'</div><div class="col-xs-5 light-font birth_date">' + single_patient.date_of_birth + '</div></div><div class="row"><div class="col-xs-12 light-font disease_issue">' + single_patient.condition + '</div></div></div>';
     $('#prescription_page .patient_detail').first().html(output);
-
+    $.ajax(
+    {
+        url : getpharmacy_url,
+        type: "POST",
+        data : {key:api_key,patient:patient_id},
+        dataType: 'json',
+        success: function(response)
+        {
+          if(response.status == "1")
+          {
+            
+            console.log(JSON.stringify(response.pharmacy));
+            var latitude = response.pharmacy.latitude;
+            var longitude = response.pharmacy.longitude;
+            var address_array = response.pharmacy.address.split(' ');
+            var location_string = "geo: "+latitude+','+longitude;
+            var q = '?q='+address_array[0];
+            for(var i = 1;i<address_array.length;i++){
+              q=q+'+'+address_array[i];
+            }
+            
+            $('.prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
+          }
+          else
+          {
+            alert(response.message);
+          }
+        },
+        error: function (error)
+        {
+          alert("Sorry, some errors occurred. Please try again later");
+        }
+    });
     $.mobile.changePage("#prescription_page", 
     {
       transition: "slide",
       reverse: false,
       changeHash: true
     });
-    disablePrescription();
+
+
+    //disablePrescription();
 }
