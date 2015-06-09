@@ -549,7 +549,7 @@ div#signup_input_group
     border-radius: 6px;
     background-color: #A0B2B7;
     float: left;
-    margin: 0 10px;
+    margin: 0 9px;
     position: relative;
 
 }
@@ -558,7 +558,7 @@ div#signup_input_group
 }
 /*slide settting*/
 .ui-content .slide{
-    height: 80vh;
+    height: 100%;
 }
 .ui-content .slide form{
     height: 100%;
@@ -586,6 +586,20 @@ div#signup_input_group
 }
 .carousel_controls .back_btn .carousel-control, .continue_btn .carousel-control{
     width: 50%;
+    background-color: #A0B2B7;
+    color: #FFFFFF;
+    line-height: 60px;
+    z-index: 10;
+    opacity: 1;
+    text-shadow:none;
+}
+
+.carousel_controls .full_width_btn{
+    width: 100% !important;
+    height: 100%;
+}
+.carousel_controls .full_width_btn .carousel-control{
+    width: 100%;
     background-color: #A0B2B7;
     color: #FFFFFF;
     line-height: 60px;
@@ -1295,7 +1309,7 @@ div#signup_input_group
         font-size: 14px;
     }
     .carousel-inner{
-        height: 65vh;
+        /*height: 65vh;*/
     }
     .item .below_content div {
         padding:0 ;
@@ -1361,6 +1375,12 @@ div#signup_input_group
     }
     .inner_carousel_controls {
         height: 46px;
+    }
+    .carousel_controls{
+        height: 48px;
+    }
+    .carousel_controls .full_width_btn .carousel-control, .carousel_controls .continue_btn .carousel-control, .carousel_controls .back_btn .carousel-control{
+        line-height: 48px;
     }
     .slogen{
         padding: 0;
@@ -1577,6 +1597,9 @@ div#signup_input_group
 .icon-email{
     background-image: url('../icon/icon-email.svg'); 
 }
+.icon-drug{
+    background-image: url('../icon/icon-drug.svg'); 
+}
 div#onborading_content
 {
   overflow-y: auto;
@@ -1602,13 +1625,29 @@ img#onboarding_avatar
     overflow-y:auto;
 }
 
+#previous_prescription_list{
+    list-style-type: none;
+    margin: 0 -15px 15px -15px;
+    padding: 0;
+    display: none;
+}
 
-
+#previous_prescription_list li{
+    width: 100%;
+    background-color: #e3e3e3;
+    padding: 10px;
+}
+#previous_prescription_list li p{
+    margin-bottom: 0;
+    font-family: "Bendons-Light";
+    font-size: 15px;
+    color: #495559 !important;
+}
 #search_medicine_input{
-    position: absolute;
+    /*position: absolute;*/
 
     width: 100%;
-    max-height: 50vh;
+    max-height: 55vh;
     background-color: #fff;
     z-index: 10;
     overflow-y: auto; 
@@ -1616,9 +1655,9 @@ img#onboarding_avatar
 
 #search_medicine_input li {
     padding: 0.5em 0 !important;
-    border-bottom: 1px solod #A0B2B7;
+    border-bottom: 1px solid #A0B2B7;
 
-    margin-left: 10px !important;
+    padding-left: 10px !important;
 }
 
 #prescription_list .prescription_item .ui-input-text{
@@ -1682,5 +1721,6 @@ img#onboarding_avatar
     margin-right: 10px;
 }
 .prescription_detail_pharmacy .icon{
-    height: 2em;
+    height: 1.6em;
+    width: 1.6em
 }

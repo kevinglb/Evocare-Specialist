@@ -820,9 +820,11 @@ function setUpPrescriptionPage(patient_id){
     // get single patient info by id
     var single_patient = getSinglePatientInfo(patient_id);
 
-    // set up patient info on triage page header
+    // set up patient info on prescription page header
     var output = '<div class="col-xs-3 vertical-middle"><img src="' +single_patient.avatar + '" class="img-circle img-responsive"></div><div class="col-xs-9 vertical-middle"><div class="row"><div class="col-xs-6 patient_name md-size">' + single_patient.full_name + '</div><div class="col-xs-1 light-font gender">'+single_patient.gender.substring(0,1)+'</div><div class="col-xs-5 light-font birth_date">' + single_patient.date_of_birth + '</div></div><div class="row"><div class="col-xs-12 light-font disease_issue">' + single_patient.condition + '</div></div></div>';
     $('#prescription_page .patient_detail').first().html(output);
+    $('#prescription_page .patient_detail').height($('#prescription_page .patient_detail').height());
+    
     $.ajax(
     {
         url : getpharmacy_url,
@@ -843,7 +845,7 @@ function setUpPrescriptionPage(patient_id){
             for(var i = 1;i<address_array.length;i++){
               q=q+'+'+address_array[i];
             }
-            
+            $('.prescription_detail .prescription_detail_pharmacy label').text("Pharmacy: "+response.pharmacy.name);
             $('.prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
           }
           else
@@ -863,6 +865,7 @@ function setUpPrescriptionPage(patient_id){
       changeHash: true
     });
 
+    
 
-    //disablePrescription();
+    disablePrescription();
 }

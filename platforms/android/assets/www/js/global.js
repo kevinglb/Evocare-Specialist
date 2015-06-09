@@ -97,3 +97,9 @@ function resetVCPage()
   $('#vc_blood_last_date').val('');
 }
 
+function resetPrescriptionPage(){
+  $('#prescription_form').trigger('reset');
+  $('#prescription_slide .carousel-inner .item').removeClass('active')
+  $('#prescription_slide .carousel-inner .item:first').addClass('active');
+  $('#prescription_slide .carousel-inner .medicine_start_date').val('');
+}

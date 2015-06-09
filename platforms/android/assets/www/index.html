@@ -2187,17 +2187,37 @@
                     </div>
                     <div class="clear"></div>
                     <div id="prescription_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                        <form>
+                        <form id='#prescription_form'>
                         <div class="carousel-inner" data-role='listbox'>
                             
                                 <div class="container item active">
+                                    <ul id="previous_prescription_list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="row">
+                                                    <div class="col-xs-4 text-center">
+                                                        <i class="icon icon-2x icon-drug"></i>
+                                                    </div>
+                                                    <div class="col-xs-8">
+                                                        <div class="row">
+                                                            <p>Drug 1 Name</p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p>Previously selected</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                     <h3>Create a prescription</h3>
                                     <div class="row bottom-border" style='margin-bottom:30px;'>
                                             <!-- <input type='text' class="medicine_name"></input> --> 
                                         <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" id="search_medicine_input" class="medicine_name"></ul>
                                     </div>
                                     <div class="row bottom-border">
-                                        <select class="medicinine_selector" data-icon="false"></select>
+                                        <select id="search_medicinine_selector" data-icon="false"></select>
                                         </div>
                                   
                                 </div>
@@ -2207,10 +2227,10 @@
                                         <div class="row">
                                             <label class="col-xs-12">Dosage</label>
                                             <div class="col-xs-4 bottom-border">
-                                                <input id='medicine-dosage' class="medicine_dosage" disabled></input>
+                                                <input id='medicine-dosage' class="medicine_dosage" ></input>
                                             </div>
                                             <div class="col-xs-4 bottom-border">
-                                                <input id='medicine-dosage-unit' class="medicine_dosage_unit" disabled></input>
+                                                <input id='medicine-dosage-unit' class="medicine_dosage_unit"></input>
                                             </div>
                                         </div>
                                                                        
@@ -2276,7 +2296,7 @@
                                         <label>Pills: </br></label>
                                     </div>
                                     <div class="row prescription_detail_pharmacy">
-                                        <label>Healthwave Pharmacy</label>
+                                        <label></label>
                                         <a><i class="icon icon-2x icon-location-g"></i></a>
                                     </div>
                                     <div class="row">
@@ -2314,10 +2334,14 @@
                             </div><!-- caousel inner-->
                         </form>
                         <div class="carousel_controls">
-                        <div class="back_btn">
+                            <div class="full_width_btn">
+                                <a class="right carousel-control" href="#prescription_slide" role="button" data-slide="next">Next</a>
+                                <a class="update carousel-control" href="#prescription_slide" role="button" data-slide="next" style="display:none">Update</a>
+                            </div>
+                            <div class="back_btn" style="display:none">
                                 <a class="left carousel-control" href="#prescription_slide" role="button" data-slide="prev">Back</a>
                             </div>
-                            <div class="continue_btn">
+                            <div class="continue_btn" style="display:none">
                                 <a class="right carousel-control" href="#prescription_slide" role="button" data-slide="next">Continue</a>
                                 <a class="carousel-control save_btn" href="#prescription_slide" role="button" data-slide="next" style="display:none;">Save</a>
                             </div>
@@ -2425,6 +2449,10 @@
     
                 //autocomplete the search input for medicine name
                 $( "#search_medicine_input" ).on( "filterablebeforefilter", function ( e, data ) {
+                        var height = $('#prescription_page .patient_detail').height();
+                        $("#prescription_page .ui-content").animate({
+                            scrollTop: height
+                        },500);
                         var $ul = $( this ),
                             $input = $( data.input ),
                             value = $input.val(),
@@ -2434,6 +2462,7 @@
                             if(!value || value.length <3){
                                 console.log('<3');
                                 $ul.html( "" );
+                                disablePrescription();
                             }
                             if ( value && value.length > 2 ) {
                                 console.log('>2')
@@ -2463,7 +2492,11 @@
                             
                             $input.val(text);
                             $ul.html('').listview('refresh');
-                            //activePrescription();
+                            $("#prescription_page .ui-content").animate({
+                                scrollTop: 0
+                            },500);
+                            activePrescription();
+
                         });
                 });
 
@@ -2498,9 +2531,15 @@
     // });
                     
         });
-</script>
 
-<script type="text/javascript">
+//detect the keyboard and hide control buttons when keyboard shows
+document.addEventListener("showkeyboard", function(){ 
+    $('.carousel_controls').hide();
+}, false);
+
+document.addEventListener("hidekeyboard", function(){ 
+    $('.carousel_controls').show();
+}, false);
 
 $("#signup_inner_slide").bind('slid.bs.carousel',function(){
     detectInnerSlide1();
@@ -2857,29 +2896,30 @@ function deletePrescription(element){
 }
 
 function disablePrescription(){
-    $("#prescription_page .prescription_item").find(".ui-input-text").addClass('ui-state-disabled');
-    $("#prescription_page .prescription_item").find(".ui-select .ui-btn").addClass('ui-state-disabled');
-       
+    $("#prescription_page .carousel-inner").find(".ui-input-text").addClass('ui-state-disabled');
+    $("#prescription_page .carousel-inner").find(".ui-select .ui-btn").addClass('ui-state-disabled');
 }
 
 function activePrescription(){
-    $("#prescription_page .prescription_item .manual-filled").find(".ui-input-text").removeClass('ui-state-disabled');
-    $("#prescription_page .prescription_item").find(".ui-select .ui-btn").removeClass('ui-state-disabled');
+    $("#prescription_page .carousel-inner .manual-filled").find(".ui-input-text").removeClass('ui-state-disabled');
+    $("#prescription_page .carousel-inner").find(".ui-select .ui-btn").removeClass('ui-state-disabled');
 }
 
 function detectPresctiptionSlide(){
     if($('#prescription_slide .carousel-inner .item:first').hasClass('active')){  
-        $('#prescription_slide .carousel_controls .left').attr('disabled',true);
-         $('#prescription_slide .carousel_controls .save_btn').hide();
-        $('#prescription_slide .carousel_controls .right').show();
+        
+        $('#prescription_slide .carousel_controls .back_btn').hide();
+        $('#prescription_slide .carousel_controls .continue_btn').hide();
+        $('#prescription_slide .carousel_controls .full_width_btn').show();
+        $('#prescription_slide .carousel_controls .full_width_btn .right').show();
         console.log("the 1st item");
     }
     else if($('#prescription_slide .carousel-inner .item:nth-child(2)').hasClass('active')) {
-
+        $('#prescription_slide .carousel_controls .full_width_btn').hide();
+        $('#prescription_slide .carousel_controls .back_btn').show();
+        $('#prescription_slide .carousel_controls .continue_btn').show();
         $('#prescription_slide .carousel_controls .right').hide();
-                // $('.carousel_controls .left').hide();
         $('#prescription_slide .carousel_controls .save_btn').show();
-                // $('.carousel_controls .add_symptom').show();
         console.log("the 2nd item");
     }
     else if($('#prescription_slide .carousel-inner .item:last-child').hasClass('active')){
