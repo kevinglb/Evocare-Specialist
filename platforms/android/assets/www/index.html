@@ -2213,11 +2213,13 @@
                                     </ul>
                                     <h3>Create a prescription</h3>
                                     <div class="row bottom-border" style='margin-bottom:30px;'>
-                                            <!-- <input type='text' class="medicine_name"></input> --> 
-                                        <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" id="search_medicine_input" class="medicine_name"></ul>
+                                            <!-- <input type='text' class="medicine_name"></input> -->
+                                        <label>Name:</label> 
+                                        <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" ></ul>
                                     </div>
-                                    <div class="row bottom-border">
-                                        <select id="search_medicinine_selector" data-icon="false"></select>
+                                    <div class="row bottom-border" style='margin-bottom:30px;'>
+                                        <label>Strength:</label> 
+                                        <ul id="search_medicinine_strength" class="medicine_search_input" data-role="listview" data-icon="false" data-inset="true" data-filter="true" data-filter-placeholder="Select the strength" ></ul>
                                         </div>
                                   
                                 </div>
@@ -2448,7 +2450,7 @@
                     }); 
     
                 //autocomplete the search input for medicine name
-                $( "#search_medicine_input" ).on( "filterablebeforefilter", function ( e, data ) {
+                $( "#search_medicine_name" ).on( "filterablebeforefilter", function ( e, data ) {
                         var height = $('#prescription_page .patient_detail').height();
                         $("#prescription_page .ui-content").animate({
                             scrollTop: height
@@ -2465,7 +2467,9 @@
                                 disablePrescription();
                             }
                             if ( value && value.length > 2 ) {
-                                console.log('>2')
+                                console.log('>2');
+                                //console($ul);
+
                                 $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
                                 $ul.listview( "refresh" );
                                 $.ajax({
@@ -2492,13 +2496,18 @@
                             
                             $input.val(text);
                             $ul.html('').listview('refresh');
-                            $("#prescription_page .ui-content").animate({
-                                scrollTop: 0
-                            },500);
+                            // $("#prescription_page .ui-content").animate({
+                            //     scrollTop: 0
+                            // },500);
                             activePrescription();
+                            loadMedicineStrength(text)
+                            
 
                         });
+                    
                 });
+
+                
 
     //             $( ".medicine_name" ).autocomplete({
     //   source: function( request, response ) {
@@ -2548,7 +2557,46 @@ $("#signup_inner_slide").bind('slid.bs.carousel',function(){
 $("#prescription_slide").bind('slid.bs.carousel',function(){
     detectPresctiptionSlide();
 });
+function loadMedicineStrength(text){
+                            var $strength_ul = $( "#search_medicinine_strength" );
+                            var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
+                            var content = '';
+                            $strength_ul.html('').listview('refresh');
+                            $strength_input.val('');
+                            $strength_ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
+                            $strength_ul.listview( "refresh" );
+                                $.ajax({
+                                    url: "http://clinic.evocare.co/api/get_strength",
+                                    dataType: "json",
+                                    type: "POST",
+                                    data: {
+                                        key: api_key,
+                                        q: text
+                                    }
+                                })
+                                .then( function ( response ) {
+                                    console.log(JSON.stringify(response.options));
+                                    console.log(response.options.length);
+                                    for(var i = 0;i<response.options.length;i++) {
+                                        content += "<li id='"+response.options[i].rxcui+"'>" + response.options[i].display + "</li>";
+                                    }
+                                    $strength_ul.html(content);
+                                    $strength_ul.listview( "refresh" );
+                                    $strength_ul.trigger( "updatelayout");
+                                });
+                                $strength_ul.on('click','li',function(event){
 
+                                    var strength = $(this).html();
+                                    console.log('selected strength:'+strength);
+                                    var content = '';
+                                    $strength_input.val(strength);
+                                    $strength_ul.html('').listview('refresh');
+                                    $("#prescription_page .ui-content").animate({
+                                        scrollTop: 0
+                                    },500);
+                                    activePrescription();
+                                });
+                            }
 function addNewTag()
 {
     var index = $("#checklist_listview_create>li").length-1;
@@ -2767,7 +2815,7 @@ function loadAssignContent(target_item){
     }
 }
 $(function(){
-var date = new Date();
+    var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();

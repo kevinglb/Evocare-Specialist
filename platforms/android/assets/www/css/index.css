@@ -634,6 +634,7 @@ div#signup_input_group
     background: #FFF;
 }
 
+
 #triage_info div img{
     margin: 0 auto;
 }
@@ -1278,145 +1279,6 @@ div#signup_input_group
     line-height: 1.2em;
 }
 
-@media screen and (max-width: 480px){
-    body{
-        font-size: 16px;
-    }
-    .row{
-        margin: 0 auto;
-    }
-    .patient_photo{
-        padding-top: 0;
-        padding-right: 0;
-        padding-bottom: 0;
-    }
-    .patient_photo img{
-        width: 100%;
-        height: auto;
-    }
-    .patient_info{
-        padding-top: 0.5em;
-    }
-
-    .patient .patient_info p{
-        margin: 0 0 5px 0;
-        font-size: 1em;
-        line-height: 1.2em;
-    }
-
-    #triage_info div:last-child *{
-        padding: 0;
-        font-size: 14px;
-    }
-    .carousel-inner{
-        /*height: 65vh;*/
-    }
-    .item .below_content div {
-        padding:0 ;
-    }
-    .item .below_content .lg_text_left{
-        float: left;
-        font-size: 8vh;
-        line-height: 12vh;
-        font-weight: bold;
-    }
-    .item .below_content .sm_text_left{
-        float: left;
-        text-align: left;
-        font-size: 2.5vh;
-        line-height: 5vh;
-        margin-left: 10px;
-    }
-
-    .item .below_content .sm_text_right{
-        float: right;
-        text-align: left;
-        font-size: 2.5vh;
-        line-height: 5vh;
-        padding-right: 10px; 
-    }
-    .item .below_content .lg_text_right{
-        float: right;
-        font-size: 8vh;
-        line-height: 12vh;
-    }
-
-    .logo_container{
-        height: 14vh;
-        margin: 4vh auto 2vh auto;
-    }
-    .logo_container img {
-       width: 60%;
-        margin-top: 5%;
-    }
-    div#signup_input_group{
-    margin-top: 10vh;
-    }
-    .signup_avatar_lg{
-        width: 25vh !important;
-        height: 25vh !important;
-    }
-    .form_container{
-        width:100%;
-        height: 80vh;
-    }
-    #signup_inner_slide {
-        min-height: 30vh !important;
-        
-    }
-    #signup_personal_listview img
-    {
-        height:20px;
-        width:20px;
-    }
-    span.listview_selection 
-    {
-        padding-left: 20px;
-    }
-    .inner_carousel_controls {
-        height: 46px;
-    }
-    .carousel_controls{
-        height: 48px;
-    }
-    .carousel_controls .full_width_btn .carousel-control, .carousel_controls .continue_btn .carousel-control, .carousel_controls .back_btn .carousel-control{
-        line-height: 48px;
-    }
-    .slogen{
-        padding: 0;
-        padding-bottom: 0.5em;
-        margin-top: 2vh;
-    }
-    #signup_detail_page3 .slogen{
-        padding: 0;
-    }
-    .signup_btn{
-        line-height: 45px;
-        font-size: 1.2em;
-    }
-    .progress {
-        height: 18px;
-        border-radius: 9px;
-    }
-    .progress-bar-success
-    {
-        background-color:#8FCDBE !important;
-    }
-    .ui-input-text, .ui-input-search
-    {
-        margin:0;
-    }
-    html .ui-filterable+.ui-listview, html .ui-filterable.ui-listview
-    {
-        margin-top: 0;
-    }
-    .ui-listview>.ui-li-static
-    {
-        padding:0;
-    }
-
-
-}
 .ui-panel{
     width: 90vw;
     max-width: 1080px;
@@ -1643,7 +1505,7 @@ img#onboarding_avatar
     font-size: 15px;
     color: #495559 !important;
 }
-#search_medicine_input{
+ul.medicine_search_input{
     /*position: absolute;*/
 
     width: 100%;
@@ -1653,7 +1515,7 @@ img#onboarding_avatar
     overflow-y: auto; 
 }
 
-#search_medicine_input li {
+ul.medicine_search_input li {
     padding: 0.5em 0 !important;
     border-bottom: 1px solid #A0B2B7;
 
@@ -1723,4 +1585,179 @@ img#onboarding_avatar
 .prescription_detail_pharmacy .icon{
     height: 1.6em;
     width: 1.6em
+}
+
+
+@media screen and (max-width: 480px){
+    body{
+        font-size: 16px;
+    }
+    .row{
+        margin: 0 auto;
+    }
+    .ui-page .ui-header {
+        height: 45px;
+    }
+    .ui-page .ui-header .ui-title {
+        line-height: 18px;
+        font-size: 18px;
+        margin-left: 60px;
+        padding: 14px 0;
+    }
+    .ui-header .ui-btn-left{
+        margin-left: 0;
+    }
+    .ui-header .ui-btn-right{
+        margin-right: 0;
+    }
+    .ui-header .ui-btn-left, .ui-header .ui-btn-right{
+        margin-top: 0;
+    }
+    .header-icon{
+        width: 30px;
+        height: 30px;
+        margin-top: 5px auto;
+    }
+    .patient_photo{
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+    .patient_photo img{
+        width: 100%;
+        height: auto;
+    }
+    .patient_info{
+        padding-top: 0.5em;
+    }
+    .patient_detail{
+    height: 15vh;
+    background: #FFF;
+    font-size: 14px;
+    }
+    .patient_detail div{
+        padding: 0 5px;
+    }
+    .patient_detail img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .patient .patient_info p{
+        margin: 0 0 5px 0;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    #triage_info div:last-child *{
+        padding: 0;
+        font-size: 14px;
+    }
+    .carousel-inner{
+        /*height: 65vh;*/
+    }
+    .item .below_content div {
+        padding:3px;
+    }
+    .item .below_content .lg_text_left{
+        float: left;
+        font-size: 8vh;
+        line-height: 12vh;
+        font-weight: bold;
+    }
+    .item .below_content .sm_text_left{
+        float: left;
+        text-align: left;
+        font-size: 2.5vh;
+        line-height: 5vh;
+        margin-left: 10px;
+    }
+
+    .item .below_content .sm_text_right{
+        float: right;
+        text-align: left;
+        font-size: 2.5vh;
+        line-height: 5vh;
+        padding-right: 10px; 
+    }
+    .item .below_content .lg_text_right{
+        float: right;
+        font-size: 8vh;
+        line-height: 12vh;
+    }
+
+    .logo_container{
+        height: 14vh;
+        margin: 4vh auto 2vh auto;
+    }
+    .logo_container img {
+       width: 60%;
+        margin-top: 5%;
+    }
+    div#signup_input_group{
+    margin-top: 10vh;
+    }
+    .signup_avatar_lg{
+        width: 25vh !important;
+        height: 25vh !important;
+    }
+    .form_container{
+        width:100%;
+        height: 80vh;
+    }
+    #signup_inner_slide {
+        min-height: 30vh !important;
+        
+    }
+    #signup_personal_listview img
+    {
+        height:20px;
+        width:20px;
+    }
+    span.listview_selection 
+    {
+        padding-left: 20px;
+    }
+    .inner_carousel_controls {
+        height: 46px;
+    }
+    .carousel_controls{
+        height: 48px;
+    }
+    .carousel_controls .full_width_btn .carousel-control, .carousel_controls .continue_btn .carousel-control, .carousel_controls .back_btn .carousel-control{
+        line-height: 48px;
+    }
+    .slogen{
+        padding: 0;
+        padding-bottom: 0.5em;
+        margin-top: 2vh;
+    }
+    #signup_detail_page3 .slogen{
+        padding: 0;
+    }
+    .signup_btn{
+        line-height: 45px;
+        font-size: 1.2em;
+    }
+    .progress {
+        height: 18px;
+        border-radius: 9px;
+    }
+    .progress-bar-success
+    {
+        background-color:#8FCDBE !important;
+    }
+    .ui-input-text, .ui-input-search
+    {
+        margin:0;
+    }
+    html .ui-filterable+.ui-listview, html .ui-filterable.ui-listview
+    {
+        margin-top: 0;
+    }
+    .ui-listview>.ui-li-static
+    {
+        padding:0;
+    }
+
+
 }
