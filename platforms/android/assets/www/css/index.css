@@ -1457,7 +1457,7 @@ div#signup_input_group
     background-image: url('../icon/icon-trash.svg'); 
 }
 .icon-email{
-    background-image: url('../icon/icon-email.svg'); 
+    background-image: url('../icon/icon-email-g.svg'); 
 }
 .icon-drug{
     background-image: url('../icon/icon-drug.svg'); 
@@ -1487,23 +1487,30 @@ img#onboarding_avatar
     overflow-y:auto;
 }
 
-#previous_prescription_list{
+#prescription_list{
     list-style-type: none;
-    margin: 0 -15px 15px -15px;
-    padding: 0;
-    display: none;
+    margin: 0 -15px;
+    padding: 0;   
+    margin-bottom: 60px;
 }
-
-#previous_prescription_list li{
+#prescription_list li{
     width: 100%;
-    background-color: #e3e3e3;
+    background-color: #e3e3e3 !important;
     padding: 10px;
+    border-bottom:1px solid #A0B2B7 !important; 
 }
-#previous_prescription_list li p{
-    margin-bottom: 0;
+#prescription_list li:last-child{
+    border-bottom: none;
+}
+#prescription_list li p{
+    margin: 0 !important;
     font-family: "Bendons-Light";
     font-size: 15px;
     color: #495559 !important;
+}
+#prescription_list li .icon{
+    width: 2.6em;
+    height: 2.6em;
 }
 ul.medicine_search_input{
     /*position: absolute;*/
@@ -1522,13 +1529,13 @@ ul.medicine_search_input li {
     padding-left: 10px !important;
 }
 
-#prescription_list .prescription_item .ui-input-text{
+/*#prescription_list .prescription_item .ui-input-text{
     box-shadow: none;
 }
 #prescription_list .prescription_item .ui-state-disabled{
     background-color: #f2f2f2;
     opacity: 1;
-}
+}*/
 .prescription_item .prescription_btns{
     padding-top: 10px;
 }
@@ -1569,12 +1576,14 @@ ul.medicine_search_input li {
     margin: 0;
 }
 
+.prescription_detail{
+    margin-bottom: 60px;
+}
 .prescription_detail .row{
     margin-bottom: 10px;
 }
 .prescription_detail_pharmacy{
     line-height: 2em;
-
 }
 .prescription_detail_pharmacy label{
     display: inline-block;
@@ -1591,6 +1600,9 @@ ul.medicine_search_input li {
 @media screen and (max-width: 480px){
     body{
         font-size: 16px;
+    }
+    h3{
+        font-size: 20px;
     }
     .row{
         margin: 0 auto;
@@ -1611,7 +1623,7 @@ ul.medicine_search_input li {
         margin-right: 0;
     }
     .ui-header .ui-btn-left, .ui-header .ui-btn-right{
-        margin-top: 0;
+        margin-top: 3px;
     }
     .header-icon{
         width: 30px;
@@ -1725,6 +1737,7 @@ ul.medicine_search_input li {
     }
     .carousel_controls .full_width_btn .carousel-control, .carousel_controls .continue_btn .carousel-control, .carousel_controls .back_btn .carousel-control{
         line-height: 48px;
+        padding: 0;
     }
     .slogen{
         padding: 0;

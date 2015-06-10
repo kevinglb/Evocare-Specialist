@@ -9,6 +9,9 @@ var getpharmacy_url= "http://clinic.evocare.co/api/get_patient_pharmacy";
 
 var api_key = "";
 
+
+var medicine_id;
+var prescription_array = new Array();
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady()
@@ -47,6 +50,12 @@ function onDeviceReady()
        {
         resetOnBoardingPage();
         getPatientList("patients_page"); 
+       }
+       if($.mobile.activePage.is('#prescription_page'))
+       {
+        console.log('reset prescription page');
+        navigator.app.backHistory();
+        setTimeout(function(){resetPrescriptionPage('full');},500);
        }
        else 
        {
@@ -97,9 +106,20 @@ function resetVCPage()
   $('#vc_blood_last_date').val('');
 }
 
-function resetPrescriptionPage(){
+function resetPrescriptionPage(part){
+
   $('#prescription_form').trigger('reset');
-  $('#prescription_slide .carousel-inner .item').removeClass('active')
-  $('#prescription_slide .carousel-inner .item:first').addClass('active');
+  $("#prescription_slide .carousel_controls .full_width_btn .right").attr('disabled','disabled');
+  $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val('');
+  $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val('');
   $('#prescription_slide .carousel-inner .medicine_start_date').val('');
+  $('#prescription_slide').carousel(0);
+
+  if(typeof(part) === "string"){
+    prescription_array= new Array() ;
+    $("#prescription_list").html('').listview('refresh');
+    $(".prescription_detail .prescription_detail_drug").html('');
+
+  }
+  
 }

@@ -2187,35 +2187,15 @@
                     </div>
                     <div class="clear"></div>
                     <div id="prescription_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                        <form id='#prescription_form'>
+                        <form id='prescription_form' role="form">
                         <div class="carousel-inner" data-role='listbox'>
                             
                                 <div class="container item active">
-                                    <ul id="previous_prescription_list">
-                                        <li>
-                                            <a href="#">
-                                                <div class="row">
-                                                    <div class="col-xs-4 text-center">
-                                                        <i class="icon icon-2x icon-drug"></i>
-                                                    </div>
-                                                    <div class="col-xs-8">
-                                                        <div class="row">
-                                                            <p>Drug 1 Name</p>
-                                                        </div>
-                                                        <div class="row">
-                                                            <p>Previously selected</p>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
                                     <h3>Create a prescription</h3>
                                     <div class="row bottom-border" style='margin-bottom:30px;'>
                                             <!-- <input type='text' class="medicine_name"></input> -->
                                         <label>Name:</label> 
-                                        <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" ></ul>
+                                        <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" disabled></ul>
                                     </div>
                                     <div class="row bottom-border" style='margin-bottom:30px;'>
                                         <label>Strength:</label> 
@@ -2224,7 +2204,7 @@
                                   
                                 </div>
                                 <div class="container item">
-                                    <h3>Drug name</h3>
+                                    <h3 class="drug_name"></h3>
                                     <div class="auto-filled">
                                         <div class="row">
                                             <label class="col-xs-12">Dosage</label>
@@ -2248,9 +2228,9 @@
                                             
                                             <div class="col-xs-8 bottom-border">
                                                 <select id="medicine-frequency-type" class="medicine_frequency_type bottom-border" data-icon="false" >
-                                                    <option value="day">times per hour</option>
-                                                    <option value="day">times per day</option>
-                                                    <option value="week">times per week</option>
+                                                    <option value="times per hour">times per hour</option>
+                                                    <option value="times per day">times per day</option>
+                                                    <option value="times per week">times per week</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -2263,14 +2243,14 @@
                                         <div class="row">
                                             <span class="col-xs-2">Every</span>
                                             <div class="col-xs-4 bottom-border">
-                                                <input type="number"></input>
+                                                <input id="medicine-daily-frequency"type="number"></input>
                                             </div>
                                             <span class="col-xs-6">day</span>
                                         </div>
                                         <div class="row">
                                             <span class="col-xs-2">For</span>
                                             <div class="col-xs-4 bottom-border">
-                                                <input type="number"></input>
+                                                <input id="medicine-duration" type="number"></input>
                                             </div>
                                             <span class="col-xs-6">day</span>
                                         </div>
@@ -2286,16 +2266,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="item">
+                                    <ul id="prescription_list" data-role="listview">
+                                    </ul>
+                                </div>
                                 <div class="container item prescription_detail">
                                     <h3>Prescription detials</h3>
-                                    <div class="row prescription_detail-date">
-                                        <label>Date: 05 Jun 2015</label>
+                                    <div class="row prescription_detail_date">
+                                        <label></label>
                                     </div>
                                     <div class="row prescription_detail_doctor">
                                         <label>Doctor: Name Lastname</label>
                                     </div>
                                     <div class="row prescription_detail_drug">
-                                        <label>Pills: </br></label>
                                     </div>
                                     <div class="row prescription_detail_pharmacy">
                                         <label></label>
@@ -2337,15 +2320,16 @@
                         </form>
                         <div class="carousel_controls">
                             <div class="full_width_btn">
-                                <a class="right carousel-control" href="#prescription_slide" role="button" data-slide="next">Next</a>
-                                <a class="update carousel-control" href="#prescription_slide" role="button" data-slide="next" style="display:none">Update</a>
+                                <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="autofillDrug()" disabled>Next</a>
+                                <a class="update carousel-control btn" href="#prescription_slide" role="button"  style="display:none" onClick="resetPrescriptionPage()">Update</a>
                             </div>
                             <div class="back_btn" style="display:none">
-                                <a class="left carousel-control" href="#prescription_slide" role="button" data-slide="prev">Back</a>
+                                <a class="left carousel-control btn" href="#prescription_slide" role="button" data-slide="prev">Back</a>
+                                <a class="add_btn carousel-control btn" href="#prescription_slide" role="button" onClick="resetPrescriptionPage()" style="display:none">Add Drug</a>
                             </div>
                             <div class="continue_btn" style="display:none">
-                                <a class="right carousel-control" href="#prescription_slide" role="button" data-slide="next">Continue</a>
-                                <a class="carousel-control save_btn" href="#prescription_slide" role="button" data-slide="next" style="display:none;">Save</a>
+                                <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="compeletePrescription()">Compelte</a>
+                                <a class="carousel-control save_btn btn" href="#prescription_slide" role="button" data-slide="next" style="display:none;" onClick="saveDrug()">Save</a>
                             </div>
                     </div>
                     </div>
@@ -2460,14 +2444,14 @@
                             value = $input.val(),
                             html = "";
                             $ul.html( "" );
-                            console.log('search on');
+                            //console.log('search on');
                             if(!value || value.length <3){
-                                console.log('<3');
+                                //console.log('<3');
                                 $ul.html( "" );
                                 disablePrescription();
                             }
                             if ( value && value.length > 2 ) {
-                                console.log('>2');
+                                //console.log('>2');
                                 //console($ul);
 
                                 $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
@@ -2499,7 +2483,6 @@
                             // $("#prescription_page .ui-content").animate({
                             //     scrollTop: 0
                             // },500);
-                            activePrescription();
                             loadMedicineStrength(text)
                             
 
@@ -2557,46 +2540,71 @@ $("#signup_inner_slide").bind('slid.bs.carousel',function(){
 $("#prescription_slide").bind('slid.bs.carousel',function(){
     detectPresctiptionSlide();
 });
-function loadMedicineStrength(text){
-                            var $strength_ul = $( "#search_medicinine_strength" );
-                            var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
-                            var content = '';
-                            $strength_ul.html('').listview('refresh');
-                            $strength_input.val('');
-                            $strength_ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
-                            $strength_ul.listview( "refresh" );
-                                $.ajax({
-                                    url: "http://clinic.evocare.co/api/get_strength",
-                                    dataType: "json",
-                                    type: "POST",
-                                    data: {
-                                        key: api_key,
-                                        q: text
-                                    }
-                                })
-                                .then( function ( response ) {
-                                    console.log(JSON.stringify(response.options));
-                                    console.log(response.options.length);
-                                    for(var i = 0;i<response.options.length;i++) {
-                                        content += "<li id='"+response.options[i].rxcui+"'>" + response.options[i].display + "</li>";
-                                    }
-                                    $strength_ul.html(content);
-                                    $strength_ul.listview( "refresh" );
-                                    $strength_ul.trigger( "updatelayout");
-                                });
-                                $strength_ul.on('click','li',function(event){
 
-                                    var strength = $(this).html();
-                                    console.log('selected strength:'+strength);
-                                    var content = '';
-                                    $strength_input.val(strength);
-                                    $strength_ul.html('').listview('refresh');
-                                    $("#prescription_page .ui-content").animate({
-                                        scrollTop: 0
-                                    },500);
-                                    activePrescription();
-                                });
-                            }
+//load medicine strength list parameter'medicine' is the value of medicine name input 
+function loadMedicineStrength(medicine){
+    var $strength_ul = $( "#search_medicinine_strength" );
+    var $name_input = $("#search_medicinine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+    var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
+    var height = $('#prescription_page .patient_detail').height();
+                        
+    var content = '';
+    $strength_ul.html('').listview('refresh');
+    $strength_input.val('');
+    $strength_ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
+    $strength_ul.listview( "refresh" );
+    $.ajax({
+        url: "http://clinic.evocare.co/api/get_strength",
+        dataType: "json",
+        type: "POST",
+        data: {key: api_key, q: medicine}
+    })
+    .then( function ( response ) {
+        //console.log(JSON.stringify(response.options));
+        //console.log(response.options.length);
+        for(var i = 0;i<response.options.length;i++) {
+            content += "<li id='"+response.options[i].rxcui+"'>" + response.options[i].display + "</li>";
+        }
+        $strength_ul.html(content).listview( "refresh" ).trigger( "updatelayout");
+    });
+                                
+    //when list item is selected
+    $strength_ul.on('click','li',function(event){
+
+        var strength = $(this).html();
+        medicine_id = $(this).attr('id');
+        //console.log(medicine_id);
+        //console.log('selected strength:'+strength);
+        
+        $strength_input.val(strength);
+        $strength_ul.html('').listview('refresh');
+        $("#prescription_page .ui-content").animate({
+            scrollTop: 0
+        },500);
+
+        $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+    });
+
+    $strength_input.bind('focus', function(event){
+        var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+
+        console.log('medicine_name:'+ medicine_name.val());
+        $("#prescription_page .ui-content").animate({
+                            scrollTop: height
+                        },500);
+        loadMedicineStrength(medicine_name.val());
+        
+   
+        if($name_input.val() && $strength_input.val()){
+            $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+        }
+        else{
+            $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled');
+        }
+    });
+
+    
+}
 function addNewTag()
 {
     var index = $("#checklist_listview_create>li").length-1;
@@ -2899,50 +2907,6 @@ function detectInnerSlide1(){
     }
 }
 
-function addPrescription(){
-    var index = $("#prescription_list>li").length +1;
-    console.log(index);
-    $("#prescription_list").append('<li class="prescription_item" id="prescription_item_'+index+'"><div class="row"><input type="text" class="medicine_name"></input></div><div class="row auto-filled"><div class="col-xs-6"><label for="medicine-'+index+'-strength">Strength</label><input id="medicine-'+index+'-strength" class="medicine_strength" disabled></input></div><div class="col-xs-6"><label for="medicine-'+index+'-quantity">Quantity</label><input type="text" id="medicine-'+index+'-quantity" class="medicine_quantity" disabled></input></div><div class="col-xs-6"><label for="medicine-'+index+'"-type">Type</label><input type="text" id="medicine-'+index+'-type" class="medicine_type" disabled></input></div><div class="col-xs-6"><label for="medicine-'+index+'-dosage">Dosage</label><input type="text" id="medicine-'+index+'-dosage" class="medicine_dosage" disabled></input></div></div><div class="row manual-filled"><div class="row"><label class="col-xs-3">Frequency</label><div class="col-xs-3"><input type="number" id="medicine-'+index+'-frequency" class="medicine_frequency"></input></div><span class="col-xs-3 times">time(s) / </span><div class="col-xs-3"><select id="medicine-'+index+'-frequency-type" class="medicine_frequency_type" data-icon="false"><option value="day">Hour</option><option value="day">Day</option><option value="week">Week</option></select></div></div><div class="row"><label class="col-xs-3">Duration</label><div class="col-xs-5"><input type="number" id="medicine-'+index+'-duration" class="medicine_duration"></input></div><div class="col-xs-4"><select id="medicine-1-duration-type" class="medicine_duration_type" data-icon="false"><option value="day">Hour(s)</option><option value="day">Day(s)</option><option value="week">Week(s)</option><option value="month">Month(s)</option></select></div></div></div><div class="row prescription_btns"> <div class="col-xs-6"><a role="button" class="btn edit_btn" onClick="editPrescription(this)">Edit</a><a role="button" class="btn delete_btn" onClick="deletePrescription(this)" style="display:none;">Delete</a></div><div class="col-xs-6"><a role="button" class="btn save_btn" onClick="savePrescription(this)">Save</a></div></div></li>').trigger('create').listview('refresh');
-        //$("#prescription_list").listview('refresh');
-    var height = ($(".prescription_item").height()+10)*index;
-    console.log(height);
-    $("#prescription_page .ui-content").animate({
-        scrollTop: height
-    },800);
-}
-
-function savePrescription(element){
-    var prescription_item_id = $(element).parent('div').parent('.prescription_btns').parent('li').attr('id');
-
-    //$('#prescription_item_1 .medicine_name').attr('disabled','disabled');
-    $('#'+prescription_item_id).find('.ui-input-text').addClass('ui-state-disabled');
-    //var div = $(element).parent('div').parent('.prescription_btns');
-    var edit_btn = $(element).parent('div').parent('.prescription_btns').children('div').children('.edit_btn');
-    var delete_btn = $(element).parent('div').parent('.prescription_btns').children('div').children('.delete_btn');
-    delete_btn.hide();
-    edit_btn.show();
-    $(element).attr('disabled', 'disabled');
-   // div.hide();
-}
-function editPrescription(element){
-    var prescription_item_id = $(element).parent('div').parent('.prescription_btns').parent('li').attr('id');
-    $('#'+prescription_item_id + ' .medicine_name').parent('.ui-input-text').removeClass('ui-state-disabled');
-    $('#'+prescription_item_id+' .medicine_frequency').parent('.ui-input-text').removeClass('ui-state-disabled');
-    $('#'+prescription_item_id+' .medicine_duration').parent('.ui-input-text').removeClass('ui-state-disabled');
-
-    var delete_btn = $(element).parent('div').children('.delete_btn');
-    var save_btn = $(element).parent('div').parent('.prescription_btns').children('div').children('.save_btn');
-    $(element).hide();
-    delete_btn.show();
-    save_btn.removeAttr('disabled');
-}
-
-function deletePrescription(element){
-    var target = $(element).parent('div').parent('.prescription_btns').parent('li');
-    console.log(target);
-    $(target).remove();
-}
-
 function disablePrescription(){
     $("#prescription_page .carousel-inner").find(".ui-input-text").addClass('ui-state-disabled');
     $("#prescription_page .carousel-inner").find(".ui-select .ui-btn").addClass('ui-state-disabled');
@@ -2959,6 +2923,7 @@ function detectPresctiptionSlide(){
         $('#prescription_slide .carousel_controls .back_btn').hide();
         $('#prescription_slide .carousel_controls .continue_btn').hide();
         $('#prescription_slide .carousel_controls .full_width_btn').show();
+        $('#prescription_slide .carousel_controls .update').hide();
         $('#prescription_slide .carousel_controls .full_width_btn .right').show();
         console.log("the 1st item");
     }
@@ -2967,22 +2932,96 @@ function detectPresctiptionSlide(){
         $('#prescription_slide .carousel_controls .back_btn').show();
         $('#prescription_slide .carousel_controls .continue_btn').show();
         $('#prescription_slide .carousel_controls .right').hide();
+        $('#prescription_slide .carousel_controls .add_btn').hide();
+        $('#prescription_slide .carousel_controls .left').show();
         $('#prescription_slide .carousel_controls .save_btn').show();
         console.log("the 2nd item");
     }
+    else if($('#prescription_slide .carousel-inner .item:nth-child(3)').hasClass('active')) {
+        $('#prescription_slide .carousel_controls .full_width_btn').hide();
+        $('#prescription_slide .carousel_controls .back_btn').show();
+        $('#prescription_slide .carousel_controls .continue_btn').show();
+        $('#prescription_slide .carousel_controls .left').hide();
+        $('#prescription_slide .carousel_controls .save_btn').hide();
+        $('#prescription_slide .carousel_controls .add_btn').show();
+        $('#prescription_slide .carousel_controls .right').show();
+
+        console.log("the 3rd item");
+    }
     else if($('#prescription_slide .carousel-inner .item:last-child').hasClass('active')){
         console.log("last item");
-        $('#prescription_slide .carousel_controls .save_btn').hide();
-        $('#prescription_slide .carousel_controls .right').show();
+        $('#prescription_slide .carousel_controls .back_btn').hide();
+        $('#prescription_slide .carousel_controls .continue_btn').hide();
+        $('#prescription_slide .carousel_controls .full_width_btn').show();
+        $('#prescription_slide .carousel_controls .update').show();
     }
 }
-        
+
+
+function detectSearchInput(){
+    var $name_input = $("#search_medicinine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+    var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
+
+    if($name_input.val() && $strength_input.val()){
+        $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+    }
+    else{
+        $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled')
+    }
+}
+function autofillDrug(){
+    var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val();
+    var medicine_strength = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val();
+    $("#prescription_slide .drug_name").text(medicine_name+" "+medicine_strength);
+    //fake data so far
+    $('#medicine-dosage').val('100');
+    $("#medicine-dosage-unit").val('mg');
+    
+    activePrescription();
+}
+
+function saveDrug(){
+    var drug = {}; 
+    var dosage = $('#medicine-dosage').val();
+    var dosage_unit = $('#medicine-dosage-unit').val();
+    var frequency = $('#medicine-frequency').val();
+    var frequency_type = $('#medicine-frequency-type').val();
+    var start_date = $('.medicine_start_date').val();
+    var medicine_daily_frequency = $('#medicine-daily-frequency').val();
+    var duration = $('#medicine-duration').val();
+    drug.id = medicine_id;
+    drug.name = $(".drug_name").html();
+    drug.dosage = dosage + " " +dosage_unit;
+    drug.frequency = frequency+" "+frequency_type;
+    drug.start_time = start_date;
+    drug.duration = 'every '+medicine_daily_frequency+' day, for '+ duration+' day';
+    console.log(drug);
+    prescription_array.push(drug);
+    addtoPrescriptionList(drug);
+    //should push new drug brief info into the next prescription list and also push related data in to prescription_array
+}
+
+function addtoPrescriptionList(drug){
+    $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p>'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
+}
+
+function compeletePrescription(){
+    var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    var current_date = new Date();
+    $(".prescription_detail .prescription_detail_date label").text(current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
+    $(".prescription_detail .prescription_detail_drug").html('');
+    for(var i =0;i<prescription_array.length;i++){
+        $(".prescription_detail .prescription_detail_drug").append('<label>'+prescription_array[i].name+':'+'</label><label>'+prescription_array[i].frequency+', '+prescription_array[i].duration+'.</label>');
+    }
+    console.log(JSON.stringify(prescription_array));
+
+}
 
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
                 preferredCountries: ['ie', 'cn', 'us']
-            });
+});
 
 
 
