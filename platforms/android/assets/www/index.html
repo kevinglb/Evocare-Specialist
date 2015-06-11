@@ -2321,7 +2321,7 @@
                         <div class="carousel_controls">
                             <div class="full_width_btn">
                                 <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="autofillDrug()" disabled>Next</a>
-                                <a class="update carousel-control btn" href="#prescription_slide" role="button"  style="display:none" onClick="resetPrescriptionPage()">Update</a>
+                                <a class="update carousel-control btn" href="#prescription_slide" role="button"  style="display:none" onClick="uploadPrescription()">Update</a>
                             </div>
                             <div class="back_btn" style="display:none">
                                 <a class="left carousel-control btn" href="#prescription_slide" role="button" data-slide="prev">Back</a>
@@ -2969,6 +2969,7 @@ function detectSearchInput(){
         $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled')
     }
 }
+
 function autofillDrug(){
     var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val();
     var medicine_strength = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val();
@@ -3015,6 +3016,11 @@ function compeletePrescription(){
     }
     console.log(JSON.stringify(prescription_array));
 
+}
+//completePrescription just show all info at the front end while uploadPrescription will upload prescription_array to the server through API call
+
+function uploadPrescription(){
+    resetPrescriptionPage('full');
 }
 
 $("#country_selector").countrySelect({

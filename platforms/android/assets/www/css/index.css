@@ -1497,11 +1497,9 @@ img#onboarding_avatar
     width: 100%;
     background-color: #e3e3e3 !important;
     padding: 10px;
-    border-bottom:1px solid #A0B2B7 !important; 
+    border-top:1px solid #A0B2B7 !important; 
 }
-#prescription_list li:last-child{
-    border-bottom: none;
-}
+
 #prescription_list li p{
     margin: 0 !important;
     font-family: "Bendons-Light";
