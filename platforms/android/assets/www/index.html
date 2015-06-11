@@ -2447,15 +2447,11 @@
                             //console.log('search on');
                             if(!value || value.length <3){
                                 //console.log('<3');
-                                $ul.html( "" );
+                                $ul.html( "" ).listview('refresh');
                                 disablePrescription();
                             }
                             if ( value && value.length > 2 ) {
-                                //console.log('>2');
-                                //console($ul);
-
-                                $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
-                                $ul.listview( "refresh" );
+                                $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" ).listview( "refresh" );
                                 $.ajax({
                                     url: "http://clinic.evocare.co/api/autocomplete_medication_terms",
                                     dataType: "json",
@@ -2469,12 +2465,10 @@
                                     $.each( response.terms, function ( i, val ) {
                                         html += "<li>" + val + "</li>";
                                     });
-                                    $ul.html( html );
-                                    $ul.listview( "refresh" );
-                                    $ul.trigger( "updatelayout");
+                                    $ul.html( html ).listview( "refresh" ).trigger( "updatelayout");
                                 });
                             }
-                        
+                        //when a medicine name is selected
                         $ul.on('click','li',function(event){
                             var text = $(this).html();
                             
@@ -2484,44 +2478,9 @@
                             //     scrollTop: 0
                             // },500);
                             loadMedicineStrength(text)
-                            
-
                         });
                     
                 });
-
-                
-
-    //             $( ".medicine_name" ).autocomplete({
-    //   source: function( request, response ) {
-    //     $.ajax({
-    //       url: "http://clinic.evocare.co/api/autocomplete_medication_terms",
-    //       dataType: "json",
-    //       crossDomain: true,
-    //       type:"POST",
-    //       data: {
-    //         key: api_key,
-    //         q: request.term
-    //       },
-    //       success: function( data ) {
-    //         response( data );
-    //       }
-    //     });
-    //   },
-    //   minLength: 3,
-    //   select: function( event, ui ) {
-    //     log( ui.item ?
-    //       "Selected: " + ui.item.label :
-    //       "Nothing selected, input was " + this.value);
-    //   },
-    //   open: function() {
-    //     $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-    //   },
-    //   close: function() {
-    //     $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-    //   }
-    // });
-                    
         });
 
 //detect the keyboard and hide control buttons when keyboard shows
@@ -2585,6 +2544,7 @@ function loadMedicineStrength(medicine){
         $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
     });
 
+    //when the medicine_strength input is focused the strength list will be loaded again
     $strength_input.bind('focus', function(event){
         var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input');
 
@@ -2602,19 +2562,15 @@ function loadMedicineStrength(medicine){
             $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled');
         }
     });
-
-    
 }
+
 function addNewTag()
 {
     var index = $("#checklist_listview_create>li").length-1;
     $('#checklist_listview_create').append('<li> <div class="col-xs-10"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="checklist_tag' + index + '" name="tag' + index + '" placeholder="Optional tag"></div></div><div class="col-xs-2"><a href="#" class="close_link text-center" onClick="removeTag(this)"><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
-    //var last_li = $("#checklist_listview_create li:last-child").offset().top;
 }
 
 function removeTag(element){
-    // var id = $(el).parent('div').parent('li').attr('id');
-    // console.log(id);
     var target = $(element).parent('div').parent('li');
     target.remove();
 }
@@ -2626,13 +2582,12 @@ function addNewNote()
 }
 
 
-//set up the height of ui-content once the page is loaded
+//set up the height of ui-content once the app is running
 function setHeightofContent(){
     var screen = $.mobile.getScreenHeight();
     
     var header = $(".ui-page .ui-header").outerHeight() || 56;
     var  contentCurrent = screen - header;
-    
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
     $("#login_page .ui-content").css('height', '100vh');
@@ -2641,16 +2596,15 @@ function setHeightofContent(){
     $("#signup_detail_page2 .ui-content").css('height', '100vh');
     $("#signup_detail_page3 .ui-content").css('height', '100vh');
     $("#signup_detail_page4 .ui-content").css('height', '100vh');
-
 }
+
 function addSymptom(){
     var index = $("#symptom_list>li").length+1;
     //console.log(index);
     $("#symptom_list").append('<li><div class="col-xs-9"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="symptom_'+ index+ '"'+' placeholder="Symptom"></input></div></div><div class="col-xs-2 col-xs-offset-1"><a href="#" class="close_link" onClick="removeSymptom(this)"><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
 }
+
 function removeSymptom(element){
-    // var id = $(el).parent('div').parent('li').attr('id');
-    // console.log(id);
     var target = $(element).parent('div').parent('li');
     target.remove();
 }
@@ -2659,13 +2613,10 @@ function detectChecklistCarousel(){
    setTimeout(function(){
         if($('#checklist_slide .carousel-inner .item:first').hasClass('active')){  
                 $('#checklist_slide .carousel_controls .left').attr('disabled',true);
-
-
             }
         else if($('#checklist_slide .carousel-inner .item:last-child').hasClass('active')) {
                 $('#checklist_slide .carousel_controls .right').hide();
                 $('#checklist_slide .carousel_controls .save_btn').show();
-              
             }
         else if($('#checklist_slide .carousel-inner .item:nth-child(4)').hasClass('active')){
                 $('#checklist_slide .carousel_controls .right').hide();
@@ -2708,34 +2659,19 @@ function detectTriageCarousel(){
         }
     },500);
 }
-function ScheduleContentSwitch(target)
-{
-    if(target == "individual"){
-        console.log("clinic");
-        $(".clinic_content").hide();
-        $(".individual_content").show();
-        // $(".individual_content .container .timeline").append('<li><div class="col-xs-4 time text-center"><p>10:00 today</p><img src="img/RedCross.png" class="img-circle"/></div><div class="col-xs-4 col-xs-offset-4 name text-center"><p>Stephen moriiessy</p><img src="img/RedCross.png" class="img-circle"/></div></li>');
-    }
-    else if(target == "clinic"){
-        console.log("individual");
-        $(".individual_content").hide();
-        $(".clinic_content").show();
-    }
-}
+
+
 function SliderChange(element){
     //alert("slider change");
     var grade = $(element).val();
     if(grade < 2 ){
         $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("orange red").addClass('green');
-        //$(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("orange red").addClass('green');
     }
     else if (grade == 2){
         $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("green red").addClass('orange');
-       // $(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("green red").addClass('orange');
     }
     else if(grade > 2){
         $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("green orange").addClass('red');
-        //$(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("orange green").addClass('red');
     }
     $('.grade_slider_group .nci_percent').text(grade/4*100+"%");
 }
@@ -2775,9 +2711,7 @@ function showEditBtn(){
 }
 
 function goEditChecklist(){
-
     //load the selected checklist info and jump to the next edit page
-
     $("#checklist_slide").carousel('next');
     $("#editbtn").click();
     $('#checklist_slide .carousel_controls .right').hide();
@@ -2801,14 +2735,10 @@ function gotoAssign(){
     $('#checklist_slide .carousel_controls .right').show();
 
     loadAssignContent(target_item);
-
     $("#checklist_slide").carousel('next');
-    
-
-
 }
-function loadAssignContent(target_item){
 
+function loadAssignContent(target_item){
     if(target_item == "group"){
         $("#checklist_assign_content .row ul").empty();
         $("#checklist_assign_content .row ul").append('<li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Stage 3 treatment</p></div><div class="row goup_info light-font"><p>patient(S) 35</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Remission</p></div><div class="row goup_info light-font"><p>patient(S) 7</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Title</p></div><div class="row goup_info light-font"><p>patient(S) 9</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Title</p></div><div class="row goup_info light-font"><p>patient(S) 23</p></div></div></div></li>').listview('refresh');
@@ -2822,36 +2752,6 @@ function loadAssignContent(target_item){
         getPatientList("assign_content_list");
     }
 }
-$(function(){
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-    
-    $("#calendar").jqmCalendar({
-        events: [{
-            "summary": "Meet PM",
-            "begin": new Date(y,m, 27 ),
-            "end": new Date(y, m, 28)
-            
-        }, {
-            "summary": "Dinner",
-            "begin": new Date(y, m, d + 3),
-            "end": new Date(y, m, d + 4)
-            
-        }, {
-            "summary": "Lunch with Friends",
-            "begin": new Date(y, m, d + 6),
-            "end": new Date(y, m, d + 7)
-            
-        }, 
-                ],
-                 months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
- 
-        startOfWeek: 0
-        
-    });
-});
 
 function setupSignUpPage2(){
     $("#signup_inner_slide").carousel('next');
@@ -2957,7 +2857,7 @@ function detectPresctiptionSlide(){
     }
 }
 
-
+//active 'next'button when both medicine_name and medicine_strength inputs are not empty
 function detectSearchInput(){
     var $name_input = $("#search_medicinine_name").parent('.row').children('form').children('.ui-input-search').children('input');
     var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
@@ -2970,6 +2870,7 @@ function detectSearchInput(){
     }
 }
 
+//fill the name and dosage of the selected drug 
 function autofillDrug(){
     var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val();
     var medicine_strength = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val();
@@ -2981,6 +2882,8 @@ function autofillDrug(){
     activePrescription();
 }
 
+
+//push new drug object into prescription_array 
 function saveDrug(){
     var drug = {}; 
     var dosage = $('#medicine-dosage').val();
@@ -3002,10 +2905,12 @@ function saveDrug(){
     //should push new drug brief info into the next prescription list and also push related data in to prescription_array
 }
 
+//add drug brief info into #prescription_list
 function addtoPrescriptionList(drug){
     $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p>'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
 }
 
+//show summary info of the whole prescription
 function compeletePrescription(){
     var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
     var current_date = new Date();
@@ -3017,7 +2922,7 @@ function compeletePrescription(){
     console.log(JSON.stringify(prescription_array));
 
 }
-//completePrescription just show all info at the front end while uploadPrescription will upload prescription_array to the server through API call
+//upload prescription_array to the server through API call
 
 function uploadPrescription(){
     resetPrescriptionPage('full');
@@ -3028,9 +2933,6 @@ $("#country_selector").countrySelect({
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
                 preferredCountries: ['ie', 'cn', 'us']
 });
-
-
-
 </script>
         
         <script type="text/javascript" src="js/global.js"></script>
