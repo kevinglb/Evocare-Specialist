@@ -912,7 +912,7 @@ function uploadPrescription(){
     {
       transition: "slide",
       reverse: false,
-      changeHash: true
+      changeHash: false
     });
     resetPrescriptionPage('full');
     disablePrescription();
