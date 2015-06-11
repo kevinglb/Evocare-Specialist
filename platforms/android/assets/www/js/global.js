@@ -6,12 +6,28 @@ var patientTriageHistory_url = "http://clinic.evocare.co/api/patient_triage_hist
 var crateNewTriage_url = "http://clinic.evocare.co/api/create_triage";
 var onboard_url = "http://clinic.evocare.co/api/onboard_patient"
 var getpharmacy_url= "http://clinic.evocare.co/api/get_patient_pharmacy";
-
+var medicinename_url = "http://clinic.evocare.co/api/autocomplete_medication_terms";
+var medicinestrength_url = "http://clinic.evocare.co/api/get_strength";
+var uploadprescription_url = "http://clinic.evocare.co/api/save_prescription";
 var api_key = "";
 
-
 var medicine_id;
-var prescription_array = new Array();
+var prescription_array = {
+                          drug:[],
+                          dose:[],
+                          dose_frequency:[],
+                          dose_period_type:[],
+                          dose_period_type:[],
+                          dose_period_multiplier:[],
+                          on_period_type:[],
+                          on_period_multiplier:[],
+                          off_period_type:[],
+                          off_period_multiplier:[],
+                          start_date:[],
+                          end_date:[]
+                        };
+var pharmacy;
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady()
@@ -107,16 +123,31 @@ function resetVCPage()
 }
 
 function resetPrescriptionPage(part){
-
+  prescription_array = {
+                          drug:[],
+                          dose:[],
+                          dose_frequency:[],
+                          dose_period_type:[],
+                          dose_period_type:[],
+                          dose_period_multiplier:[],
+                          on_period_type:[],
+                          on_period_multiplier:[],
+                          off_period_type:[],
+                          off_period_multiplier:[],
+                          start_date:[],
+                          end_date:[]
+                        };
+                        
   $('#prescription_form').trigger('reset');
   $("#prescription_slide .carousel_controls .full_width_btn .right").attr('disabled','disabled');
   $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val('');
   $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val('');
-  $('#prescription_slide .carousel-inner .medicine_start_date').val('');
+  $('#start-date').val('');
+  $('#end-date').val('');
   $('#prescription_slide').carousel(0);
 
   if(typeof(part) === "string"){
-    prescription_array= new Array() ;
+    
     $("#prescription_list").html('').listview('refresh');
     $(".prescription_detail .prescription_detail_drug").html('');
 

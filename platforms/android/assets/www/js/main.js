@@ -824,7 +824,7 @@ function setUpPrescriptionPage(patient_id){
     var output = '<div class="col-xs-3 vertical-middle"><img src="' +single_patient.avatar + '" class="img-circle img-responsive"></div><div class="col-xs-9 vertical-middle"><div class="row"><div class="col-xs-6 patient_name md-size">' + single_patient.full_name + '</div><div class="col-xs-1 light-font gender">'+single_patient.gender.substring(0,1)+'</div><div class="col-xs-5 light-font birth_date">' + single_patient.date_of_birth + '</div></div><div class="row"><div class="col-xs-12 light-font disease_issue">' + single_patient.condition + '</div></div></div>';
     $('#prescription_page .patient_detail').first().html(output);
     $('#prescription_page .patient_detail').height($('#prescription_page .patient_detail').height());
-    
+    $('#prescription_page .patient_detail').attr("id",patient_id);
     $.ajax(
     {
         url : getpharmacy_url,
@@ -847,6 +847,8 @@ function setUpPrescriptionPage(patient_id){
             }
             $('.prescription_detail .prescription_detail_pharmacy label').text("Pharmacy: "+response.pharmacy.name);
             $('.prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
+            pharmacy = response.pharmacy;
+            console.log(JSON.stringify(pharmacy));
           }
           else
           {
@@ -867,5 +869,51 @@ function setUpPrescriptionPage(patient_id){
 
     
 
+    disablePrescription();
+}
+
+//upload prescription_array to the server through API call
+function uploadPrescription(){
+  var patient_id = $('#prescription_page .patient_detail').attr("id");
+  var key_array = { key:api_key,
+                    patient: patient_id,
+                    pharmacy_full_name: pharmacy.name,
+                    pharmacy_address: pharmacy.address,
+                    pharmacy_telephone: pharmacy.telephone,
+                    drug: prescription_array.drug,
+                    dose: prescription_array.dose,
+                    dose_frequency: prescription_array.dose_frequency,
+                    dose_period_type: prescription_array.dose_period_type,
+                    dose_period_multiplier: prescription_array.dose_period_multiplier,
+                    on_period_type: prescription_array.on_period_type,
+                    on_period_multiplier: prescription_array.on_period_multiplier,
+                    off_period_type: prescription_array.off_period_type,
+                    off_period_multiplier: prescription_array.off_period_multiplier,
+                    start_date: prescription_array.start_date,
+                    end_date: prescription_array.end_date
+                  }
+  console.log(JSON.stringify(key_array));
+  $.ajax(
+    {
+        url :uploadprescription_url,
+        type: "POST",
+        data : key_array,
+        dataType: 'json',
+        success: function(response)
+        {
+            alert("Prescription is updated")
+        },
+        error: function (error)
+        {
+          alert("Sorry, some errors occurred. Please try again later");
+        }
+    });
+    $.mobile.changePage("#patientlist_page", 
+    {
+      transition: "slide",
+      reverse: false,
+      changeHash: true
+    });
+    resetPrescriptionPage('full');
     disablePrescription();
 }
