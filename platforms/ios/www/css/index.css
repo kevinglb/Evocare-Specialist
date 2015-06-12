@@ -34,7 +34,6 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -97,8 +96,14 @@ a {
 input[type=number]{
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
+    text-align: right;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 .row
 {
     margin-right: 15px;
@@ -228,7 +233,7 @@ input[type=number]{
 }
 /*login page css*/
 .form-group {
-    margin: 15px 0px;
+    margin: 20px 0px;
 }
 #login_page {
     height: 100%;
@@ -254,6 +259,26 @@ input[type=number]{
     height:50vh;
 }
 
+#signup_personal_listview img
+{
+    height: 40px;
+    width: 40px;
+}
+span.listview_selection 
+{
+    margin-left: 4vh;
+    padding-left: 40px;
+}
+#signup_personal_listview a
+{
+    background-color: transparent;
+    color: #576266;
+}
+
+.listview_content
+{
+    margin-left: 4vh;
+}
 
 #signup_detail_page1 .ui-header, #signup_detail_page2 .ui-header, #signup_detail_page3 .ui-header{
     background-color: #f2f2f2 !important;
@@ -278,6 +303,7 @@ input[type=number]{
 }
 #login_content .login_header img{
     width: 60%;
+    margin-top: 5%;
 }
 .below_content {
     margin-top: 5vh;
@@ -333,6 +359,7 @@ input[type=number]{
 #signup_page .ui-link{
     color:#FFF;
     text-decoration: none;
+
 }
 #login_submit{
     background-color: rgba(154, 175, 176, 1);
@@ -374,13 +401,44 @@ input[type=number]{
 
 .signup_btn{
     background-color: rgba(189, 201, 205, 1);
-    color: rgba(44, 118, 108, 1) !important;
+    color: #FFF !important;
+    text-transform: uppercase;
     font-family: "Bendons-Medium";
     line-height: 58px;
     font-size: 1.5em;
     padding: 0;
 }
 
+.signup_continue_btn
+{
+
+    position: fixed;
+    bottom:0;
+    width:100%;
+}   
+
+.bottom-border .ui-input-text{
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #BBC4C7;
+    font-family: "Bendons-Light";
+    color: #495559;
+}
+.bottom-border.color-w .ui-input-text{
+    color: #fff;
+    border-color: #fff;
+}
+
+.bottom-border.color-w .ui-input-text input::-webkit-input-placeholder{
+    color: #fff;
+}
+.bottom-border.color-w .ui-input-text input::-moz-placeholder{
+    color: #fff;
+}
+.bottom-border .icon{
+    color: #fff;
+}   
 .signup_btn[disabled]{
     color:#495559 !important;
 }
@@ -391,14 +449,18 @@ div#signup_input_group
     margin-top: 10vh;
 }
 .logo_container{
-    height: 14vh;
-    margin: 4vh auto 2vh auto;
+    height: 15vh;
+    margin: 12vh auto 2vh auto;
+}
+.logo_container img {
+    width: 60%;
+    
 }
 .thumbs_container{
     width: 90%;
     margin: 0 auto;
     max-width: 480px;
-    height: 20vh;
+    height: 35vh;
 }
 .form_container{
     width: 90%;
@@ -414,7 +476,7 @@ div#signup_input_group
     margin: 15px auto;
 }
 .signup_avatar_mini {
-    margin: 3vh auto 1vh auto;
+    margin: 5vh auto 1vh auto;
     width: 10vh !important;
     height: 10vh !important;
     max-width: 120px;
@@ -422,7 +484,7 @@ div#signup_input_group
 }
 .progress{
     width: 90%;    
-    margin: 2vh auto 0 auto;
+    margin: 5vh auto 0 auto !important;
 } 
 #signup_detail_page1 .slide, #signup_detail_page2 .slide{
     height: 100%;
@@ -432,9 +494,9 @@ div#signup_input_group
     max-height: 30vh !important;
     max-width: 90%;
     margin: 0px auto 5vh auto;
-    border-radius: 0 0 0.5em 0.5em;
+/*    border-radius: 0 0 0.5em 0.5em;
     border: 1px solid #A0B2B7;
-    border-top: none;
+    border-top: none;*/
 }
 .slogen {
     max-width: 90%;
@@ -468,12 +530,14 @@ div#signup_input_group
 }
 .dots-row{
     max-width: 96px;
-    margin: 2vh auto 0 auto;
+    margin: 0 auto;
+    padding: 10px 0;        
 }
-#signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn{
-    margin-top: 2vh;
+#signup_detail_page2 .back_btn, #signup_detail_page2 .skip_btn,
+#signup_detail_page3 .back_btn, #signup_detail_page3 .skip_btn {
+  /*  margin-top: 2vh;*/
     color: #495559;
-    border: 1px solid #A0B2B7;
+    /*border: 1px solid #A0B2B7;*/
 }
 
 #signup_detail_page2 .back_btn{
@@ -485,7 +549,7 @@ div#signup_input_group
     border-radius: 6px;
     background-color: #A0B2B7;
     float: left;
-    margin: 0 10px;
+    margin: 0 9px;
     position: relative;
 
 }
@@ -494,7 +558,7 @@ div#signup_input_group
 }
 /*slide settting*/
 .ui-content .slide{
-    height: 80vh;
+    height: 100%;
 }
 .ui-content .slide form{
     height: 100%;
@@ -530,6 +594,20 @@ div#signup_input_group
     text-shadow:none;
 }
 
+.carousel_controls .full_width_btn{
+    width: 100% !important;
+    height: 100%;
+}
+.carousel_controls .full_width_btn .carousel-control{
+    width: 100%;
+    background-color: #A0B2B7;
+    color: #FFFFFF;
+    line-height: 60px;
+    z-index: 10;
+    opacity: 1;
+    text-shadow:none;
+}
+
 .carousel_controls .save_note, .carousel_controls .assign_btn, .carousel_controls .save_btn{
     left: auto;
 }
@@ -550,6 +628,12 @@ div#signup_input_group
     height: 15vh;
     background: #FFF;
 }
+
+.patient_detail{
+    height: 15vh;
+    background: #FFF;
+}
+
 
 #triage_info div img{
     margin: 0 auto;
@@ -991,7 +1075,9 @@ div#signup_input_group
 .vertical-middle{
     position: relative;
     top: 50%;
-     transform: translateY(-50%);
+    transform: translateY(-50%);
+    -ms-transfrom: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 .main_content .list_item p{
     padding: 0;
@@ -1096,14 +1182,16 @@ div#signup_input_group
 }
 
 #patientlist_page .ui-content{
-    overflow-y : auto !important;
+    overflow-y : scroll !important;
+    -webkit-overflow-scrolling: touch;
 }
 #patient_list{
     padding: 15px 0px;
 }
 
 #patient_list_view{
-    overflow-y: auto; 
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
     box-shadow: none;
 }
 
@@ -1195,122 +1283,6 @@ div#signup_input_group
     line-height: 1.2em;
 }
 
-@media screen and (max-width: 480px){
-    body{
-        font-size: 16px;
-    }
-    .row{
-        margin: 0 auto;
-    }
-    .patient_photo{
-        padding-top: 0;
-        padding-right: 0;
-        padding-bottom: 0;
-    }
-    .patient_photo img{
-        width: 100%;
-        height: auto;
-    }
-    .patient_info{
-        padding-top: 0.5em;
-    }
-
-    .patient .patient_info p{
-        margin: 0 0 5px 0;
-        font-size: 1em;
-        line-height: 1.2em;
-    }
-
-    #triage_info div:last-child *{
-        padding: 0;
-        font-size: 14px;
-    }
-    .carousel-inner{
-        height: 65vh;
-    }
-    .item .below_content div {
-        padding:0 ;
-    }
-    .item .below_content .lg_text_left{
-        float: left;
-        font-size: 8vh;
-        line-height: 12vh;
-        font-weight: bold;
-    }
-    .item .below_content .sm_text_left{
-        float: left;
-        text-align: left;
-        font-size: 2.5vh;
-        line-height: 5vh;
-        margin-left: 10px;
-    }
-
-    .item .below_content .sm_text_right{
-        float: right;
-        text-align: left;
-        font-size: 2.5vh;
-        line-height: 5vh;
-        padding-right: 10px; 
-    }
-    .item .below_content .lg_text_right{
-        float: right;
-        font-size: 8vh;
-        line-height: 12vh;
-    }
-
-    .logo_container{
-        height: 14vh;
-        margin: 4vh auto 2vh auto;
-    }
-    div#signup_input_group{
-    margin-top: 0vh;
-    }
-    .signup_avatar_lg{
-        width: 25vh;
-        height: 25vh;
-    }
-    .form_container{
-        width:100%;
-        height: 80vh;
-    }
-    #signup_inner_slide {
-        min-height: 30vh !important;
-        
-    }
-    .inner_carousel_controls {
-        height: 46px;
-    }
-    .slogen{
-        padding: 0;
-        padding-bottom: 0.5em;
-        margin-top: 2vh;
-    }
-    #signup_detail_page3 .slogen{
-        padding: 0;
-    }
-    .signup_btn{
-        line-height: 45px;
-        font-size: 1.2em;
-    }
-    .progress {
-        height: 18px;
-        border-radius: 9px;
-    }
-    .ui-input-text, .ui-input-search
-    {
-        margin:0;
-    }
-    html .ui-filterable+.ui-listview, html .ui-filterable.ui-listview
-    {
-        margin-top: 0;
-    }
-    .ui-listview>.ui-li-static
-    {
-        padding:0;
-    }
-
-
-}
 .ui-panel{
     width: 90vw;
     max-width: 1080px;
@@ -1328,6 +1300,9 @@ div#signup_input_group
     text-align: center;
 }
 /*font color on datepicker*/
+.datepicker_input{
+    text-transform: uppercase;
+}
 .dwb0, .dwb1{
     color: #FFF !important;
 }
@@ -1395,10 +1370,7 @@ div#signup_input_group
 /*icons setting*/
 
 .icon{
-    height: 100%;
-    width: 100%;
-    display: block;
-    margin-top: 2px;
+    display: inline-block;
     background-position: center center;
     background-size: cover;
 }
@@ -1407,37 +1379,95 @@ div#signup_input_group
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
-    height: 48px;
+}
+.header-icon{
+    height: 90%;
+    width: 90%;
+    margin: 2px auto;
+}
+.icon-1x {
+    height: 1em;
+    width: 1em;
+}
+.icon-2x {
+    height: 2em;
+    width: 2em;
+}
+
+.icon-3x{
+
+}
+.icon-add {
+    background-image: url("../icon/icon-add.svg");
 }
 .icon-arrow-left{
-    background-image: url("../icon/icon-arrow-left.png");
+    background-image: url("../icon/icon-arrow-left-w.svg");
 }
 .icon-arrow-left-g{
-    background-image: url("../icon/icon-arrow-left-g.png");
+    background-image: url("../icon/icon-arrow-left-g.svg");
 }
 .icon-add-patient{
-    background-image: url("../icon/icon-add-patient.png");
+    background-image: url("../icon/icon-add-patient.svg");
 }
 .icon-bars{
-    background-image: url("../icon/icon-bars-w.png");
+    background-image: url("../icon/icon-bars-w.svg");
 }
 .icon-bars-g{
-    background-image: url("../icon/icon-bars-g.png");
+    background-image: url("../icon/icon-bars-g.svg");
 }
 .icon-dots{
-    background-image: url("../icon/icon-dots-w.png");
+    background-image: url("../icon/icon-dots-w.svg");
 }
 .icon-dots-g{
-    background-image: url("../icon/icon-dots-g.png");
+    background-image: url("../icon/icon-dots-g.svg");
 }
 .icon-filter{
-    background-image: url("../icon/icon-filter.png");
+    background-image: url("../icon/icon-filter-w.svg");
 }
 .icon-user{
-    background-image: url("../icon/icon-user-bg.png");
+    background-image: url("../icon/icon-user-w.svg");
 }
 .icon-locker{
-    background-image: url("../icon/icon-locker-bg.png");
+    background-image: url("../icon/icon-locker-w.svg");
+}
+.icon-clock-light{
+    background-image: url('../icon/icon-clock-light.svg'); 
+}
+.icon-location-g{
+     background-image: url('../icon/icon-location-g.svg'); 
+}
+.icon-ring {
+     background-image: url('../icon/icon-ring.svg'); 
+}
+.icon-group{
+     background-image: url('../icon/icon-group.svg'); 
+}
+.icon-note{
+     background-image: url('../icon/icon-note.svg'); 
+}
+.icon-checklist{
+     background-image: url('../icon/icon-checklist.svg'); 
+}
+.icon-attach{
+    background-image: url('../icon/icon-attach.svg'); 
+}
+.icon-print{
+    background-image: url('../icon/icon-print.svg'); 
+}
+.icon-delete{
+    background-image: url('../icon/icon-delete.svg'); 
+}
+.icon-edit{
+    background-image: url('../icon/icon-edit.svg'); 
+}
+.icon-trash{
+    background-image: url('../icon/icon-trash.svg'); 
+}
+.icon-email{
+    background-image: url('../icon/icon-email-g.svg'); 
+}
+.icon-drug{
+    background-image: url('../icon/icon-drug.svg'); 
 }
 div#onborading_content
 {
@@ -1451,26 +1481,6 @@ div#onborading_content
 #onborading_content .form-control{
     box-shadow: none;
 }
-#onborading_content .form-group .ui-input-text{
-    background: transparent !important;
-    border: none;
-    border-bottom: 1px solid #BBC4C7;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-#onborading_content .form-group .ui-input-text input{
-    border: none;
-    color: #495559;
-}
-
-#onborading_content .ui-input-text input::moz-placeholder{
-    color: #495559;
-}
-
-#onborading_content .ui-input-text input:webkit-placeholder{
-    color: #495559;
-}
 
 img#onboarding_avatar 
 {
@@ -1478,3 +1488,304 @@ img#onboarding_avatar
     height: 120px;
 }
 
+
+/*prescription page*/
+#prescription_page .ui-content{
+    overflow-y:auto;
+}
+
+#prescription_list{
+    list-style-type: none;
+    margin: 0 -15px;
+    padding: 0;   
+    margin-bottom: 60px;
+}
+#prescription_list li{
+    width: 100%;
+    background-color: #e3e3e3 !important;
+    padding: 10px;
+    border-top:1px solid #A0B2B7 !important; 
+}
+
+#prescription_list li p{
+    margin: 0 !important;
+    font-family: "Bendons-Light";
+    font-size: 15px;
+    color: #495559 !important;
+}
+#prescription_list li .icon{
+    width: 2.6em;
+    height: 2.6em;
+}
+ul.medicine_search_input{
+    /*position: absolute;*/
+
+    width: 100%;
+    max-height: 55vh;
+    background-color: #fff;
+    z-index: 10;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
+}
+
+ul.medicine_search_input li {
+    padding: 0.5em 0 !important;
+    border-bottom: 1px solid #A0B2B7;
+
+    padding-left: 10px !important;
+}
+
+/*#prescription_list .prescription_item .ui-input-text{
+    box-shadow: none;
+}
+#prescription_list .prescription_item .ui-state-disabled{
+    background-color: #f2f2f2;
+    opacity: 1;
+}*/
+.prescription_item .prescription_btns{
+    padding-top: 10px;
+}
+.prescription_item .prescription_btns a{
+    width: 100%;
+    border: 1px solid #A0B2B7 !important;
+}
+
+.auto-filled .row, .manual-filled .row{
+    margin-bottom: 10px;
+}
+.manual-filled span{
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+.bottom-border .ui-input-search{
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #BBC4C7;
+    font-family: "Bendons-Light";
+    color: #495559;
+}
+.bottom-border .ui-select .ui-btn{
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #BBC4C7;
+    font-family: "Bendons-Light";
+    color: #495559;
+}
+
+.bottom-border .ui-select select{
+    border: none;
+}
+.manual-filled .ui-select{
+    margin: 0;
+}
+
+.prescription_detail{
+    margin-bottom: 60px;
+}
+.prescription_detail .row{
+    margin-bottom: 10px;
+}
+.prescription_detail_pharmacy{
+    line-height: 2em;
+}
+.prescription_detail_pharmacy label{
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+.prescription_detail_pharmacy .icon{
+    height: 1.6em;
+    width: 1.6em
+}
+
+
+@media screen and (max-width: 480px){
+    body{
+        font-size: 16px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    .row{
+        margin: 0 auto;
+    }
+    .ui-page .ui-header {
+        height: 45px;
+    }
+    .ui-page .ui-header .ui-title {
+        line-height: 18px;
+        font-size: 18px;
+        margin-left: 60px;
+        padding: 14px 0;
+    }
+    .ui-header .ui-btn-left{
+        margin-left: 0;
+    }
+    .ui-header .ui-btn-right{
+        margin-right: 0;
+    }
+    .ui-header .ui-btn-left, .ui-header .ui-btn-right{
+        margin-top: 3px;
+    }
+    .header-icon{
+        width: 30px;
+        height: 30px;
+        margin-top: 5px auto;
+    }
+    .patient_photo{
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+    .patient_photo img{
+        width: 100%;
+        height: auto;
+    }
+    .patient_info{
+        padding-top: 0.5em;
+    }
+    .patient_detail{
+    height: 15vh;
+    background: #FFF;
+    font-size: 14px;
+    }
+    .patient_detail div{
+        padding: 0 5px;
+    }
+    .patient_detail img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .patient .patient_info p{
+        margin: 0 0 5px 0;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    #triage_info div:last-child *{
+        padding: 0;
+        font-size: 14px;
+    }
+    .carousel-inner{
+        /*height: 65vh;*/
+    }
+    .item .below_content div {
+        padding:3px;
+    }
+    .item .below_content .lg_text_left{
+        float: left;
+        font-size: 8vh;
+        line-height: 12vh;
+        font-weight: bold;
+    }
+    .item .below_content .sm_text_left{
+        float: left;
+        text-align: left;
+        font-size: 2.5vh;
+        line-height: 5vh;
+        margin-left: 10px;
+    }
+
+    .item .below_content .sm_text_right{
+        float: right;
+        text-align: left;
+        font-size: 2.5vh;
+        line-height: 5vh;
+        padding-right: 10px; 
+    }
+    .item .below_content .lg_text_right{
+        float: right;
+        font-size: 8vh;
+        line-height: 12vh;
+    }
+
+    .logo_container{
+        height: 14vh;
+        margin: 4vh auto 2vh auto;
+    }
+    .logo_container img {
+       width: 60%;
+        margin-top: 5%;
+    }
+    div#signup_input_group{
+        margin-top: 10vh;
+    }
+    .signup_avatar_lg{
+        width: 25vh !important;
+        height: 25vh !important;
+    }
+    .form_container{
+        width:100%;
+        height: 80vh;
+    }
+    #signup_inner_slide {
+        min-height: 30vh !important;
+        
+    }
+    #signup_personal_listview img
+    {
+        height:20px;
+        width:20px;
+    }
+    span.listview_selection 
+    {
+        padding-left: 20px;
+    }
+    .inner_carousel_controls {
+        height: 46px;
+    }
+    .carousel_controls{
+        height: 48px;
+    }
+    .carousel_controls .full_width_btn .carousel-control, .carousel_controls .continue_btn .carousel-control, .carousel_controls .back_btn .carousel-control{
+        line-height: 48px;
+        padding: 0;
+    }
+    .slogen{
+        padding: 0;
+        padding-bottom: 0.5em;
+        margin-top: 2vh;
+    }
+    #signup_detail_page3 .slogen{
+        padding: 0;
+    }
+    .signup_btn{
+        line-height: 45px;
+        font-size: 1.2em;
+    }
+    .progress {
+        height: 18px;
+        border-radius: 9px;
+    }
+    .progress-bar-success
+    {
+        background-color:#8FCDBE !important;
+    }
+    .ui-input-text, .ui-input-search
+    {
+        margin:0;
+    }
+    html .ui-filterable+.ui-listview, html .ui-filterable.ui-listview
+    {
+        margin-top: 0;
+    }
+    .ui-listview>.ui-li-static
+    {
+        padding:0;
+    }
+    div[class^="col-xs-"]{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    span[class^="col-xs-"]{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
+}

@@ -120,6 +120,24 @@ function getPatientList(page_id)
               $("#checklist_assign_content .row ul").append(output).listview('refresh');
 
             }
+            if(page_id == "prescription_page")
+            {
+              $.each(response.patients, function(index, value)
+              {
+                output += '<li class="patient" data-icon="false"><div id="' + value.id + '" onClick="setUpPrescriptionPage(this.id)"><div class="col-xs-4 col-md-3 patient_photo text-center"><img class="img-circle" src="' + value.avatar + '"></div><div class="col-xs-8 col-md-9 patient_info"><div class="row"><p class="patient_name">' + value.full_name + '</p></div><div class="row"><p class="patient_date">' + value.gender.substring(0,1).toUpperCase() + ' . ' + value.date_of_birth + '</p></div><div class="row"><p class="patient_issue">' +value.condition + '</p></div></div></div></li>';
+              });
+
+              $('#patient_list').children('ul').empty();
+              $('#patient_list').children('ul').append(output).listview().listview('refresh');
+
+              // navigate to patientlist page after updating
+              $.mobile.changePage("#patientlist_page", 
+              {
+                transition: "slide",
+                reverse: false,
+                changeHash: true
+              });
+            }
     			}
     			else
     			{
@@ -796,4 +814,106 @@ function deletePictureFromCache( imageURI )
   }, null);
 }
 
+function setUpPrescriptionPage(patient_id){
+  global_patient_id = patient_id;
 
+    // get single patient info by id
+    var single_patient = getSinglePatientInfo(patient_id);
+
+    // set up patient info on prescription page header
+    var output = '<div class="col-xs-3 vertical-middle"><img src="' +single_patient.avatar + '" class="img-circle img-responsive"></div><div class="col-xs-9 vertical-middle"><div class="row"><div class="col-xs-6 patient_name md-size">' + single_patient.full_name + '</div><div class="col-xs-1 light-font gender">'+single_patient.gender.substring(0,1)+'</div><div class="col-xs-5 light-font birth_date">' + single_patient.date_of_birth + '</div></div><div class="row"><div class="col-xs-12 light-font disease_issue">' + single_patient.condition + '</div></div></div>';
+    $('#prescription_page .patient_detail').first().html(output);
+    $('#prescription_page .patient_detail').height($('#prescription_page .patient_detail').height());
+    $('#prescription_page .patient_detail').attr("id",patient_id);
+    $.ajax(
+    {
+        url : getpharmacy_url,
+        type: "POST",
+        data : {key:api_key,patient:patient_id},
+        dataType: 'json',
+        success: function(response)
+        {
+          if(response.status == "1")
+          {
+            
+            console.log(JSON.stringify(response.pharmacy));
+            var latitude = response.pharmacy.latitude;
+            var longitude = response.pharmacy.longitude;
+            var address_array = response.pharmacy.address.split(' ');
+            var location_string = "geo: "+latitude+','+longitude;
+            var q = '?q='+address_array[0];
+            for(var i = 1;i<address_array.length;i++){
+              q=q+'+'+address_array[i];
+            }
+            $('.prescription_detail .prescription_detail_pharmacy label').text("Pharmacy: "+response.pharmacy.name);
+            $('.prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
+            pharmacy = response.pharmacy;
+            console.log(JSON.stringify(pharmacy));
+          }
+          else
+          {
+            alert(response.message);
+          }
+        },
+        error: function (error)
+        {
+          alert("Sorry, some errors occurred. Please try again later");
+        }
+    });
+    $.mobile.changePage("#prescription_page", 
+    {
+      transition: "slide",
+      reverse: false,
+      changeHash: true
+    });
+
+    
+
+    disablePrescription();
+}
+
+//upload prescription_array to the server through API call
+function uploadPrescription(){
+  var patient_id = $('#prescription_page .patient_detail').attr("id");
+  var key_array = { key:api_key,
+                    patient: patient_id,
+                    pharmacy_full_name: pharmacy.name,
+                    pharmacy_address: pharmacy.address,
+                    pharmacy_telephone: pharmacy.telephone,
+                    drug: prescription_array.drug,
+                    dose: prescription_array.dose,
+                    dose_frequency: prescription_array.dose_frequency,
+                    dose_period_type: prescription_array.dose_period_type,
+                    dose_period_multiplier: prescription_array.dose_period_multiplier,
+                    on_period_type: prescription_array.on_period_type,
+                    on_period_multiplier: prescription_array.on_period_multiplier,
+                    off_period_type: prescription_array.off_period_type,
+                    off_period_multiplier: prescription_array.off_period_multiplier,
+                    start_date: prescription_array.start_date,
+                    end_date: prescription_array.end_date
+                  }
+  console.log(JSON.stringify(key_array));
+  $.ajax(
+    {
+        url :uploadprescription_url,
+        type: "POST",
+        data : key_array,
+        dataType: 'json',
+        success: function(response)
+        {
+            alert("Prescription is updated")
+        },
+        error: function (error)
+        {
+          alert("Sorry, some errors occurred. Please try again later");
+        }
+    });
+    $.mobile.changePage("#patientlist_page", 
+    {
+      transition: "slide",
+      reverse: false,
+      changeHash: false
+    });
+    resetPrescriptionPage('full');
+    disablePrescription();
+}

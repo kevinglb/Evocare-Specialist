@@ -2397,8 +2397,13 @@ function addNewNote()
 //set up the height of ui-content once the app is running
 function setHeightofContent(){
     var screen = $.mobile.getScreenHeight();
-    
-    var header = $(".ui-page .ui-header").outerHeight() || 56;
+    var header;
+    if($(window).width() <= 480){
+        header = $(".ui-page .ui-header").outerHeight() || 45;
+    }
+    else{
+        header = $(".ui-page .ui-header").outerHeight() || 56;
+    }
     var  contentCurrent = screen - header;
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);

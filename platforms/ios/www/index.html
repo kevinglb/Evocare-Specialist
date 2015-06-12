@@ -9,6 +9,7 @@
 
         <!-- css & font libraries  -->
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 
@@ -29,27 +30,17 @@
 
         <!-- javascript libraries -->
         <script type="text/javascript" src="plugins/jquery-1.11.2.min.js"></script>
+        <!-- <script type="text/javascript" src="plugins/jquery-ui.min.js"></script> -->
         <script type="text/javascript" src="plugins/jquery.mobile-1.4.5.min.js"></script>
+        
         <script type="text/javascript" src="plugins/bootstrap.min.js"></script>
         <script type="text/javascript" src="plugins/d3.min.js"></script>
         <script type="text/javascript" src="plugins/countrySelect.min.js"></script>
-        
-        <!-- date pikcer on mobile device trail version -->
-        <!-- <script type="text/javascript" src="plugins/mobiscroll.custom-2.15.1.min.js" ></script> -->
-        
         <title>Evocare</title>
-
-        
     </head>
     <body onload="setHeightofContent()">
         <!-- log in page -->
-
-        
         <div id="login_page" data-role="page">
-            <!-- header -->
-            <div date-role="header" class="ui-header" position="fixed">
-            </div>
-            <!-- header -->
             <!-- content -->
             <div role="main" class="ui-content">
                 <div id="login_content" class="container">
@@ -143,76 +134,75 @@
                 </div>
             </div>
         </div> -->
-
         <div id="signup_page" data-role="page" class="signup_page">
             <div class="ui-content">
                 <div class="text-center container logo_container">
-                    <img style="width:50%" src="img/login-logo.png"/>
+                    <img src="img/login-logo.png"/>
                 </div>
                 <div class="container form_container">
                     <div id="signup_input_group" class="row">
-                    <h4>Create a free, private account or login</h4>
-                    <div class="form-group">
-                        <input id="signup_email" class="input-lg" type="email" placeholder="Your email"/>
-                    </div>
-                    <div class="form-group">
-                        <input id="signup_password" class="input-lg" type="password" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password"/>
-                    </div>
-                    <div class="row">
-                        <label>You agree to our Terms and Privacy Policy</label>
-                    </div>
-                    
-                    <div class="from-group" style="margin-top:15vh;">
-                        <a href="#signup_detail_page1" data-transition="slide"  class="btn btn-block signup_btn" data-role="button" >Continue</a> 
-                    </div>
-                    <div class="below_content">
-                        <a href="#login_page" data-transition="slidedown">Aready a member? log in now</a>
+                        <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
+                            <input id="signup_email" class="input-lg" type="email" placeholder="youremail@email.com">
+                                <span class="icon-user-w form-control-feedback"></span>
+                            </input>
+                        </div>
+                        <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
+                            <input id="signup_password" class="input-lg" type="password" placeholder="Password">
+                                <span class="icon-locker-w form-control-feedback"></span>
+                            </input>
+                        </div>
+                        <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
+                            <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password">
+                                <span class="icon-locker-w form-control-feedback"></span>
+                            </input>
+                        </div>
+                        <div class="form-group" style="margin-top:12vh;">
+                            <p class="ui-link light-font"> Aready a member?</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <a class="light-font" href="#login_page" data-transition="slidedown">Login now</a>
+                        </div>
                     </div>
                 </div>
+                <div class="signup_continue_btn">
+                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" style="color:black !important" role="button" >Continue</a> 
                 </div>
-
-
             </div>
         </div>
         <!-- signup detail page for user to fill info -->
         <div id="signup_detail_page1" class="text-center" data-role="page"  class="signup_page">
             <div class="ui-content">
                             <div class="text-center logo_container container">
-                                <img style="width:50%" src="img/login-logo.png"/>
+                                <img src="img/login-logo.png"/>
                             </div>
 
                                 <div class="container form_container">
-                                    <h3>Compete your profile</h3>
-                                    <h5>Only doctors can see this</h5>
-                                    <div class="form-group">
-                                    <input id="signup_fullname" class="input-lg" type="text" placeholder="Your name"/>
+                                    <div class="form-group bottom-border">
+                                        <input id="signup_firstname" class="input-lg" type="text" placeholder="First Name"/>
+                                    </div>
+                                    <div class="form-group bottom-border">
+                                        <input id="signup_lastname" class="input-lg" type="text" placeholder="Last name"/>
                                     </div>
                                     <div class="form-group">
-                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
+                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
                                     </div>
                                     <div class="dots-row">
                                         <span class="dot active"></span>
                                         <span class="dot"></span>
                                     <span class="dot"></span>
                                     </div>
+
                                 </div>
                             </div>
-
+            <div class="signup_continue_btn">
+                <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
+            </div>
         </div>
-
         <div id="signup_detail_page2" data-role="page" class="signup_page">
-            
             <div class="ui-content text-center">
                 <div class="container thumbs_container">
-                    <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
+                    <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.svg"/>
                     <div class="row">
                         <span class="welcome"></span>
                     </div>
@@ -222,14 +212,10 @@
                         </div>
                     </div>
                 </div>
-
-                     
                 <div class="container form_container ">
-                    <div class="slogen">
-                            <h4>Three quick things</h4>
+                        <div>
                             <label>Tell doctors a little more so they can personalize their answers</label>
                         </div>
-
                         <div id="signup_inner_slide" class="carousel slide inner_slide" data-ride="carousel" data-interval="false" data-wrap="false">
                             <div class="carousel-inner" data-role='listbox'>
                                 <div class="item active">
@@ -237,12 +223,12 @@
                                 <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
                                         <a href="#signup_inner_slide" data-slide="next" >
-                                            <i class="fa fa-4x fa-male"></i>
+                                            <img src="img/male.svg" style="height:20vh"/>
                                         </a>  
                                     </div>
                                     <div class="col-xs-6">
                                         <a href="#signup_inner_slide" data-slide="next">
-                                            <i class="fa fa-4x fa-female"></i>
+                                            <img src="img/female.svg" style="height:20vh"/>
                                         </a> 
                                     </div>
                                 </div>
@@ -250,8 +236,8 @@
                             <div class="item">
                                 <h3>Date of Birth</h3>
                                 <div class="row">
-                                    <a href="#" >
-                                        <i class="fa fa-3x fa-calendar"></i>
+                                    <a href="#">
+                                        <img class="icon-calendar" src="img/Calendar.svg" style="height:10vh">
                                     </a> 
                                 </div>
                                 <div class="row">
@@ -262,7 +248,7 @@
                                 <h3>Location</h3>
                                 <div class="row">
                                     <a href="#">
-                                        <i class=" fa fa-3x fa-location-arrow"></i>
+                                        <img src="img/location.svg" style="height:10vh"/>
                                     </a>
                                 </div>
                                 <div class="row">
@@ -272,119 +258,110 @@
                             </div>
                         </div>
                     </div>
-                
-                
-
-                    <div class="inner_carousel_controls" >
-                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
-                    </div>
-                    
-                    <div class="dots-row">
-                            <span class="dot"></span>
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <div class="clear"></div>
-                    </div>
                     <div class="row">
-                        <div class="col-xs-4 col-xs-offset-2">
-                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>Back</a>
+                        <div class="col-xs-4">
+                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>< Back</a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-          
-
-
-                <div id="signup_detail_page3" data-role="page" class="signup_page">
-            
-                    <div class="ui-content text-center">
-                         <div class="container thumbs_container" style="height:35vh">
-                            <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.png"/>
-                            <span class="welcome"></span>
-                        
-                             <div class="progress" style="width:90%; margin:0 auto;">
-                                <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
-                            20% Completed
-                                </div>
-                            </div>  
-                    
-                            <div class="slogen">
-                                <h4>For a more personalized experience</h4>
-                                <label>Follow three or more topics of interest</label>
+                            <div class="dots-row">
+                                <span class="dot"></span>
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <div class="clear"></div>
                             </div>
                         </div>
-
-                        <div class="row" style="height: 50vh">
+                        <div class="col-xs-4">
+                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="signup_continue_btn" >
+                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
+                    </div>
+                </div>
+                </div>
+                <div id="signup_detail_page3" data-role="page" class="signup_page">
+                    <div class="ui-content text-center">
+                         <div class="container thumbs_container" style="height:30vh">
+                            <img class="signup_avatar_mini img-circle" src="img/ChooseAvatar.svg"/>
+                            <span class="welcome"></span>
+                             <div class="progress" style="width:90%; margin:0 auto;">
+                                <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
+                            30% Completed
+                                </div>
+                            </div> 
+                        </div>
+                        <div>
+                            <p>Follow three or more topics of interest</p> 
+                        </div>
+                        <div class="container row" style="height: 45vh">
                             <div class="signup_details_listview">
                                 <ul id="signup_personal_listview" data-role="listview" data-filter="true" data-filter-placeholder="Find a topic(e.g: Lost weight)" data-insert="false">
                                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Living Healthier</h4>
+                                        <h4><img src="img/live_healthier.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
-
-                                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Parenting and Pregnancy</h4>
+                                      <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/growing.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
-
-                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Growing Older</h4>
+                                      <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/managing_condition.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
-
-                                       <li data-role="collapsible" data-iconpos="right" data-inset="false">
-                                        <h4><img style="height:20px; width:20px" src="img/RedCross.png"/> Managing a Condition</h4>
+                                      <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                                        <h4><img src="img/pregnancy.svg"/><span class="listview_content">Living Healthier</span></h4>
                                         <ul data-role="listview">
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Condor</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Eagle</a></li>
-                                            <li><a href="#"><img style="height:20px; width:20px" src="img/RedCross.png"/>Sparrow</a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
+                                            <li><a href="#"><span class="listview_selection">Condor</span></a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        
-                    <div class="row" style="width:90%;max-width:480px;margin: 2vh auto 0 auto;" >
-                            <div class="carousel-controls">
-                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
+                        <div class="container row" style="margin-top: 5vh">
+                            <div class="col-xs-4">
+                                <a href="#signup_detail_page2" role="button" class="btn back_btn" data-slide="prev" onClick="">< Back</a>
                             </div>
+                            <div class="col-xs-4">
+                                <div class="dots-row">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot active"></span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#signup_detail_page4" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                            </div>
+                        </div>
+                    <div class="signup_continue_btn" >
+                        <a href="#signup_detail_page4" class="signup_btn btn-block btn"  role="button">Continue</a>
                      </div>
-
-                    <div class=" dots-row" >
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot active"></span>
-                    </div>
-
                 </div>
             </div>
 
              <div id="signup_detail_page4" data-role="page" class="signup_page">
                  <div class="ui-content text-center">
-                     <div class="container thumbs_container" style="height:25vh">
+                     <div class="container thumbs_container" style="height:20vh">
                         <div class="slogen">
                             <h4>Add Doctors to your Care-Team</h4>
                             <label>to be able to video or text chat for advice & prescriptions</label>
                         </div>
                     </div>
-
                     <div class="row" style="height: 55vh;">
                         <div class="signup_doctor_listview">
                             <ul data-role="listview"  data-filter="true" data-inset="false" data-filter-placeholder="Search name, specialty, or topic">
@@ -408,7 +385,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="doctor" data-icon="false">
                                 <div>
                                     <div class="col-xs-2 col-md-1 patient_photo text-center">
@@ -429,7 +405,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="doctor" data-icon="false">
                                 <div>
                                     <div class="col-xs-2 col-md-1 patient_photo text-center">
@@ -450,7 +425,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="doctor" data-icon="false">
                                 <div>
                                     <div class="col-xs-2 col-md-1 patient_photo text-center">
@@ -471,7 +445,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="doctor" data-icon="false">
                                 <div>
                                     <div class="col-xs-2 col-md-1 patient_photo text-center">
@@ -495,32 +468,34 @@
                         </ul>
                     </div>
                     </div>
-
-                    <div class="row">
-                            <div class="carousel-controls" style="width:90%; max-width:480px;margin:0 auto; ">
-                                <a href="#signup_detail_page4" class="signup_btn btn-block btn" role="button">Continue</a>
+                               <div class="container row" style="margin-top: 5vh">
+                        <div class="col-xs-4">
+                            <a href="#signup_detail_page3" role="button" class="btn back_btn" data-slide="prev" onClick="">< Back</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="dots-row">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot active"></span>
+                                <div class="clear"></div>
                             </div>
-                     </div>
-
-                    <div class="row">
-                        <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                        </div>
                     </div>
-
                  </div>
+                    <div class="signup_continue_btn" >
+                        <a href="#" class="signup_btn btn-block btn"  role="button">Continue</a>
+                     </div>
              </div>
-              
-        
-
         <!-- signup detail pages -->
-
-        <!-- signup page -->
         <!-- main page -->
         <div  id="main_page" data-role="page">
             <!-- left menu -->
             <div id="main_left_menu" class="right_menu" data-role="panel" data-position="left" data-display="push">
                 <h1>Left Menu</h1>
             </div>
-
             <!-- right menu -->
             <div id="main_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
                 <h3>Right Menu</h3>
@@ -534,8 +509,8 @@
             </div> 
             <!-- header -->
             <div data-role="header"  class="ui-header" position="fixed">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left"></i></a>
-                <a href="#main_right_menu" class="menu_btn"><i class="icon icon-bars"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse"><i class="icon header-icon icon-arrow-left"></i></a>
+                <a href="#main_right_menu" class="menu_btn"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -599,13 +574,13 @@
                         </div>
                         <div class="clear"></div>
                     </a>
-                    <a id="patients_page" href="#" onClick="loadPatientInfo(this.id)" data-transition="slide">
+                    <a href="#" id="prescription_page"  onClick="loadPatientInfo(this.id)" >
                         <div class="row list_item">
                            <div class="col-xs-3 text-center vertical-middle">
-                                <img class="main_page_logo" src="img/patient-logo.png">
+                                <img class="main_page_logo" src="img/checklist-logo.png">
                             </div>
                             <div class="col-xs-9 vertical-middle">
-                                <p>PATIENTS</p>
+                                <p>PRESCRIPTION</p>
                             </div>
                         </div>
                         <div class="clear"></div>
@@ -616,15 +591,13 @@
             <!-- content -->  
         </div>
         <!-- main page end -->
-
         <!-- patient list page -->
         <div id="patientlist_page" data-role="page">
             <!-- patient list menu -->
-            
             <div id="patientlist_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
                 <div data-role="header">
-                    <a href="#"><i class="icon icon-bars-g"></i></a>
-                    <a href="#"><i class="icon icon-dots-g"></i></a>
+                    <a href="#"><i class="icon header-icon icon-bars-g"></i></a>
+                    <a href="#"><i class="icon header-icon icon-dots-g"></i></a>
                 </div>
                 <div data-role="main" class="ui-content">
                 <div class="patient_info">
@@ -692,8 +665,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="ui-footer">
-                    
+                <div class="ui-footer">s
                         <div class="col-xs-6">
                             user name
                         </div>
@@ -705,14 +677,13 @@
             </div> 
             <!-- header -->
             <div data-role="header" class="ui-header">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Patient list</h1>
                 <div class="ui-btn-right multi-icons">
-                <!-- <a href="#"><i class="icon icon-filter icon-right"></i></a> -->
-                    
-                    <a href="#patientlist_menu" data-transition="slide"><i class="icon icon-dots"></i></a>
-                    <a id="onboarding_btn" href="#onborading_page" data-transition="slide"><i class="icon icon-add-patient icon-right"></i></a>
-                    <a href="#"><i class="icon icon-filter"></i></a>
+                <!-- <a href="#"><i class="icon icon-filter icon-right"></i></a> --> 
+                    <a href="#patientlist_menu" data-transition="slide"><i class="icon header-icon icon-dots"></i></a>
+                    <a id="onboarding_btn" href="#onborading_page" data-transition="slide"><i class="icon header-icon icon-add-patient icon-right"></i></a>
+                    <!-- <a href="#"><i class="icon header-icon icon-filter"></i></a> -->
                 </div>
             </div>
             <!-- content -->
@@ -741,9 +712,9 @@
             </div>
             <!-- header-->
             <div data-role="header" class="ui-header" position="fixed">
-                <a href="#" onclick="resetVCPage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" onclick="resetVCPage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>virtual clinic</h1>
-                <a href="#vc_right_menu"><i class="icon icon-bars"></i></a>
+                <a href="#vc_right_menu"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -900,7 +871,6 @@
                                 <a class="carousel-control save_note" role="button" style="display:none;">Save</a>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -916,9 +886,9 @@
             <!-- right menu -->
             <!-- header -->
             <div data-role="header" class="ui-header" position="fixed">
-                <a href="#" onclick="resetTriagePage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" onclick="resetTriagePage()" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Triage Manager</h1>
-                <a href="#triage_right_menu" class="menu_btn"><i class="icon icon-dots"></i></a>
+                <a href="#triage_right_menu" class="menu_btn"><i class="icon header-icon icon-dots"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -1087,16 +1057,15 @@
             </div>
             <!-- content -->
         </div>
-
         <!-- consultant page -->
         <div id="consultant_page" data-role="page">
             <!-- header -->
             <div id="consultant_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
             </div>
             <div data-role="header" class="ui-header">
-               <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon icon-arrow-left"></i></a>
+               <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Consultant</h1>
-                <a href="#consultant_right_menu"><i class="icon icon-bars"></i></a>
+                <a href="#consultant_right_menu"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
             <!-- content-->
@@ -1104,14 +1073,12 @@
                 <div id="consultant_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
                     <div class="carousel-inner" role="listbox">
                         <div class="item container active">
-
                         </div>
                         <div class="item container">
                             <div class="patient_info">
                             </div>
                             <div class="row">
                                 <h3 class="md-font">Assign</h3>
-
                             </div>
                         </div>
                     </div>
@@ -1121,7 +1088,6 @@
                             </div>
                             <div class="continue_btn">
                                 <a class="right carousel-control" href="#consultant_slide" role="button" data-slide="next">Continue</a>
-                               
                             </div>
                         </div>
                 </div>
@@ -1134,11 +1100,10 @@
             <div id="schedule_right_menu" class="right_menu" data-role="panel" data-position="right" data-display="overlay">
             </div>
             <div data-role="header" class="ui-header">  
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" data-role="button"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" data-role="button"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Event Schedule</h1>
-                <a href="#schedule_right_menu"><i class="icon icon-bars"></i></a>
+                <a href="#schedule_right_menu"><i class="icon header-icon icon-bars"></i></a>
             </div>
-            <!-- header -->
             <!-- content -->
             <div data-role="main" class="ui-content">
                 <div id="schedule_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -1322,10 +1287,8 @@
                                     <div class="col-xs-6">
                                         <input name="patient_q" id="patient_q2" value=""  type="radio">
                                         <label for="patient_q2" >Scheduled</label>
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="item container">
@@ -1334,7 +1297,7 @@
                                 <div class="row">
                                     <input name="filter_1" id="filter_1" value="" type="checkbox">
                                     <label for="filter_1">Chemotherapy</label>
-                                     
+
                                     <input name="filter_2" id="filter_2" value="" type="checkbox">
                                     <label for="filter_2">Lab Test</label>
                                      
@@ -1434,64 +1397,14 @@
                             </div>
                         </div>
                 </div>
-
-                
-
-                <!-- <div class="individual_content" style="display:none;">
-                    <div class="container">
-                        <ul class="timeline">
-                            <li>
-                                <div class="col-xs-4 time text-center">
-                                    <p>10:00 today</p>
-                                     <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                                <div class="col-xs-4 col-xs-offset-4 name text-center">
-                                    <p>Stephen moriiessy</p>
-                                    <img sr
-                                    c="img/RedCross.png" class="img-circle"/>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col-xs-4 time text-center">
-                                    <p>14:00 tomorrow</p>
-                                     <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                                <div class="col-xs-4 col-xs-offset-4 name text-center">
-                                    <p>Mary Berry</p>
-                                    <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col-xs-4 time text-center">
-                                    <p>8:00 29th APR</p>
-                                     <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                                <div class="col-xs-4 col-xs-offset-4 name text-center">
-                                    <p>Stephen moriiessy</p>
-                                    <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col-xs-4 time text-center">
-                                    <p>10:00 today</p>
-                                     <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                                <div class="col-xs-4 col-xs-offset-4 name text-center">
-                                    <p>Stephen moriiessy</p>
-                                    <img src="img/RedCross.png" class="img-circle"/>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
             <!-- content -->
         </div>
-        <!-- event schedule page -->
+        <!-- scheduler page -->
         <!-- onborading page -->
         <div id="onborading_page" data-role="page">
             <div data-role="header" class="ui-header">
-                <a href="#" data-rel="back" onclick="resetOnBoardingPage()" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" onclick="resetOnBoardingPage()" data-transition="slide" data-direction="reverse"><i class="icon icon-arrow-left header-icon"></i></a>
                 <h1>PATIENTS</h1>
                 <a href="#"></a>
             </div>
@@ -1505,15 +1418,15 @@
                                 <h2 id="onboarding_title">Onboarding new patient</h2>
                             </div>
                             <div class="form-group">
-                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.png" onclick="selectAvatar(this.id); return false;"/>
+                                <img type="file" id="onboarding_avatar" class="img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_fullname" name="fullname"  placeholder="Full Name"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_birthday" name="birthday" class="datepicker_input" placeholder="Date of Birth"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_address" name="address" placeholder="Address"/>
                             </div>
                             <div id="onboarding_gender" class="form-group">
@@ -1526,14 +1439,14 @@
                                     <label for="onboarding_female" class="light-font">Female</label>
                                 </fieldset>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                  <input type="email" id="onboarding_email" name="email" placeholder="Email Address"/>
                             </div>
                            
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_home_number" name="contact_number"  placeholder="Home Phone Number"/>
                             </div>
-                             <div class="form-group">
+                             <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_mobile_number" name="mobile_number" placeholder="Mobile Phone Number"/>
                             </div>
                             
@@ -1546,30 +1459,30 @@
                                     <input type="text" id="country_selector_code" name="country_selector_code" data-countrycodeinput="1" readonly="readonly" placeholder="Selected country code will appear here" />
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_occupation" name="occupation" placeholder="Occupation"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_pps" name="pps"  placeholder="PPS number"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>Next of Kin 1</label>
                                 <input type="text" id="onboarding_kin1_fullname" name="kin1_fullname"  placeholder="Name"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_kin1_address" name="kin1_address"  placeholder="Address"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_kin1_phone" name="kin1_phone"  placeholder="Phone number"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>Next of Kin 2</label>
                                 <input type="text" id="onboarding_kin2_fullname" name="kin2_fullname"  placeholder="Name"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input type="text" id="onboarding_kin2_address" name="kin2_address"  placeholder="Address"/>
                             </div>
-                             <div class="form-group">
+                             <div class="form-group bottom-border">
                                 <input type="number" id="onboarding_kin2_phone" name="kin1_phone"  placeholder="Phone number"/>
                             </div>
                             <div class="form-group">
@@ -1609,20 +1522,20 @@
                                 </fieldset>                   
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_does_takeing" id="onboarding_does_takeing" placeholder="List of Medications & doses currently taking"/>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_allergies_history" id="onboarding_allergies_history" placeholder="Do you have any allergies e.g. food or medication?"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_problem_period" id="onboarding_problem_period"  placeholder="How long has it been a problem?"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <input name="onboarding_religious" id="onboarding_religious" placeholder="Religious beliefs"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>GP</label>
                                  
                                 <input name="onboarding_gp_full_name" id="onboarding_gp_full_name" placeholder="Name"/>
@@ -1632,7 +1545,7 @@
                                   
                                 <input type="number" name="onboarding_gp_phoneNo" id="onboarding_gp_phoneNo"  placeholder="Phone number"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group bottom-border">
                                 <label>Preferred pharmacy</label>
                                  
                                 <input name="onboarding__pharmacy_name" id="onboarding__pharmacy_name"  placeholder="Name"/>
@@ -1754,9 +1667,9 @@
             </div>
             <!-- header -->
             <div data-role="header" position="fixed" class="ui-header">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Checklist</h1>
-                <a href="#" class="ui-btn ui-corner-all"><i class="icon icon-dots"></i></a>
+                <a href="#" class="ui-btn ui-corner-all"><i class="icon header-icon icon-dots"></i></a>
             </div>
             <!-- header -->
             <!-- content -->
@@ -1949,113 +1862,9 @@
                             <div class="row">
                                 <h3>Assign Checklist Name to</h3>
                                 <ul data-role="listview" class="list">
-                                </li>
-                            </div>
-                        </div>
-                        <!-- <div class="item container">
-                            <div class="row">
-                                <h3>Assign Checklist Name to</h3>
-                                <ul data-role="listview" id="group_list" class="list">
-                                    <li data-iconn="false" class="group">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <div class="row group_name">
-                                                    <p>Stage 3 treatment</p>
-                                                </div>
-                                                <div class="row goup_info light-font">
-                                                    <p>patient(S) 35</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li data-iconn="false" class="group">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <div class="row group_name">
-                                                    <p>Remission</p>
-                                                </div>
-                                                <div class="row goup_info light-font">
-                                                    <p>patient(S) 7</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li data-iconn="false" class="group">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <div class="row group_name">
-                                                    <p>Title</p>
-                                                </div>
-                                                <div class="row goup_info light-font">
-                                                    <p>patient(S) 9</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li data-iconn="false" class="group">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <div class="row group_name">
-                                                    <p>Title</p>
-                                                </div>
-                                                <div class="row goup_info light-font">
-                                                    <p>patient(S) 23</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="item container">
-                            <div class="row">
-                                <h3>Assign Checklist Name to</h3>
-                                <ul data-role="listview" id="event_list" class="list">
-                                    <li data-iconn="false" class="event">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8 event_name">
-                                                <p>Chemotherapy</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li data-iconn="false" class="event">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8 event_name">
-                                                <p>Event Title</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                     <li data-iconn="false" class="event">
-                                        <div>
-                                            <div class="col-xs-4 text-center">
-                                                <img src=""></img>
-                                            </div>
-                                            <div class="col-xs-8 event_name">
-                                                <p>Event Title</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> -->
                         <div class="item container">
                              <div class="row">
                                     <h3 class="md-font">First Chemotherapy</h3>
@@ -2144,12 +1953,211 @@
                 </div>
                 <!-- content end -->
             </div>
+        </div>
+
+
             <!-- checlist page end -->
+            <!-- prescription_page -->
+            <div id="prescription_page" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Prescription</h1>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div class="patient_detail">
+                    </div>
+                    <div class="clear"></div>
+                    <div id="prescription_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <form id='prescription_form' role="form">
+                        <div class="carousel-inner" data-role='listbox'>
+                            
+                                <div class="container item active">
+                                    <h3>Create a prescription</h3>
+                                    <div class="row bottom-border" style='margin-bottom:30px;'>
+                                        <label>Name:</label> 
+                                        <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" disabled></ul>
+                                    </div>
+                                    <div class="row bottom-border" style='margin-bottom:30px;'>
+                                        <label>Strength:</label> 
+                                        <ul id="search_medicinine_strength" class="medicine_search_input" data-role="listview" data-icon="false" data-inset="true" data-filter="true" data-filter-placeholder="Select the strength" ></ul>
+                                        </div>
+                                </div>
+                                <div class="container item">
+                                    <h4 class="drug_name"></h4>
+                                    <h4 class="drug_strength"></h4>
+                                    <!-- <div class="auto-filled">
+                                        <div class="row">
+                                            <label>Dosage</label>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id='medicine-dosage' class="medicine_dosage" ></input>
+                                            </div>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id='medicine-dosage-unit' class="medicine_dosage_unit"></input>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>                       
+                                        
+                                    </div> -->
+
+                                    <div class="manual-filled">
+                                        <div class="row">
+                                            <label>Dosage</label>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id='dose' type="number"></input>
+                                            </div>
+                                            <span class="col-xs-4" id="dosage-unit">
+                                            </span>
+                                            <div class="col-xs-4"></div>
+                                        </div>        
+                                        <div class="row">
+                                            <label>Frequency</label>
+                                            <div class="col-xs-3 bottom-border">
+                                                <input type="number" id='dose-frequency' class="dose_frequency"></input>
+                                            </div>
+                                            <span class="col-xs-3">time(s) every</span>
+                                            <div class="col-xs-3 bottom-border">
+                                                <input type="number" id='dose-period-multiplier' class="dose_period_multiplier"></input>
+                                            </div>
+                                            <div class="col-xs-3 bottom-border">
+                                                <select id="dose-period-type" class="dose-period-type bottom-border" data-icon="false" >
+                                                    <option value="Hourly">Hour(s)</option>
+                                                    <option value="Daily">Day(s)</option>
+                                                    <option value="Weekly">Week(s)</option>
+                                                    <option value="Monthly">Month(s)</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-xs-2">for</span>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input type="number" id="on-period-multiplier"></input>
+                                            </div>
+                                            <div class="col-xs-4 bottom-border">
+                                                <select id="on-period-type" class="bottom-border" data-icon="false" >
+                                                    <option value="Hourly">Hour(s)</option>
+                                                    <option value="Daily">Day(s)</option>
+                                                    <option value="Weekly">Week(s)</option>
+                                                    <option value="Monthly">Month(s)</option>
+                                                </select>
+                                            </div>
+                                            <span class="col-xs-2">on</span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-xs-2">\</span>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input type="number" id="off-period-multiplier"></input>
+                                            </div>
+                                            <div class="col-xs-4 bottom-border">
+                                                <select id="off-period-type" class="bottom-border" data-icon="false" >
+                                                    <option value="Hourly">Hour(s)</option>
+                                                    <option value="Daily">Day(s)</option>
+                                                    <option value="Weekly">Week(s)</option>
+                                                    <option value="Monthly">Month(s)</option>
+                                                </select>
+                                            </div>
+                                            <span class="col-xs-2">off</span>
+                                        </div>
+                                        <!-- <div class="row">
+                                            <span class="col-xs-2">Every</span>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id="medicine-daily-frequency"type="number"></input>
+                                            </div>
+                                            <span class="col-xs-6">day</span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-xs-2">For</span>
+                                            <div class="col-xs-4 bottom-border">
+                                                <input id="medicine-duration" type="number"></input>
+                                            </div>
+                                            <span class="col-xs-6">day</span>
+                                        </div> -->
+                                        <div class="row">
+                                            <span class="col-xs-4">Start Date:</span>
+                                            <div class="col-xs-8 bottom-border">
+                                                <input type="text" id="start-date" class='datepicker_input' placeholder="select start date"></input>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-xs-4">End Date:</span>
+                                            <div class="col-xs-8 bottom-border">
+                                                <input type="text" id="end-date" class=' datepicker_input' placeholder="select end date"></input>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <a href="#" style="color:#495559">
+                                                <div class="col-xs-2">
+                                                    <i class="icon icon-2x icon-note"></i>
+                                                </div>
+                                                <div class="col-xs-10" style="line-height:2em">
+                                                    Add Note
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <ul id="prescription_list" data-role="listview">
+                                    </ul>
+                                </div>
+                                <div class="container item prescription_detail">
+                                    <h3>Prescription detials</h3>
+                                    <div class="row prescription_detail_date">
+                                        <label></label>
+                                    </div>
+                                    <div class="row prescription_detail_doctor">
+                                        <label>Doctor: Name Lastname</label>
+                                    </div>
+                                    <div class="row prescription_detail_drug">
+                                    </div>
+                                    <div class="row prescription_detail_pharmacy">
+                                        <label></label>
+                                        <a><i class="icon icon-2x icon-location-g"></i></a>
+                                    </div>
+                                    <div class="row">
+                                        <a href="＃" style="color:#495559">
+                                            <div class="col-xs-2">
+                                                <i class="icon icon-2x icon-print"></i>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label style="line-height:2em;">Print</label>
+                                            </div>
+                                        </a>
+                                        <a href="＃" style="color:#495559">
+                                            <div class="col-xs-2">
+                                                <i class="icon icon-2x icon-email"></i>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label style="line-height:2em;">E-mail</label>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- caousel inner-->
+                        </form>
+                        <div class="carousel_controls">
+                            <div class="full_width_btn">
+                                <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="autofillDrug()" disabled>Next</a>
+                                <a class="update carousel-control btn" href="#prescription_slide" role="button"  style="display:none" onClick="uploadPrescription()">Update</a>
+                            </div>
+                            <div class="back_btn" style="display:none">
+                                <a class="left carousel-control btn" href="#prescription_slide" role="button" data-slide="prev">Back</a>
+                                <a class="add_btn carousel-control btn" href="#prescription_slide" role="button" onClick="resetPrescriptionPage()" style="display:none">Add Drug</a>
+                            </div>
+                            <div class="continue_btn" style="display:none">
+                                <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="completePrescription()">Complete</a>
+                                <a class="carousel-control save_btn btn" href="#prescription_slide" role="button" data-slide="next" style="display:none;" onClick="saveDrug()">Save</a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- prescription_page end-->
     <script type="text/javascript" src="cordova.js"></script>
     <script src="plugins/com.phonegap.plugins.sqlite/www/SQLitePlugin.js"></script>
-
     <!-- calendar js -->
-
     <script type="text/javascript" src="plugins/jw-jqm-cal.js"></script>
     <script type="text/javascript" src="plugins/mobiscroll.appframework.js"></script>
     <script type="text/javascript" src="plugins/mobiscroll.core.js"></script>
@@ -2165,8 +2173,12 @@
     <script type="text/javascript" src="plugins/mobiscroll.frame.android.js"></script>
     <script type="text/javascript" src="plugins/mobiscroll.frame.android-holo.js"></script>
 
-
+    <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
 <script>
+
         $(function () {
                 // Date picker initialization
                 $('.datepicker_input').mobiscroll().date({
@@ -2176,7 +2188,7 @@
                     dateOrder: 'dd M yy',
                     dateFormat: 'dd-M-yy'
                 });
-                $('.fa-calendar').mobiscroll().date({
+                $('.icon-calendar').mobiscroll().date({
                     theme: 'android-holo-light',
                     mode : 'scroller',
                     display: 'modal',
@@ -2232,27 +2244,145 @@
                     months : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                     startOfWeek : 0
                     }); 
-
+    
+                //autocomplete the search input for medicine name
+                $( "#search_medicine_name" ).on( "filterablebeforefilter", function ( e, data ) {
+                        var height = $('#prescription_page .patient_detail').height();
+                        $("#prescription_page .ui-content").animate({
+                            scrollTop: height
+                        },500);
+                        var $ul = $( this ),
+                            $input = $( data.input ),
+                            value = $input.val(),
+                            html = "";
+                            $ul.html( "" );
+                            //console.log('search on');
+                            if(!value || value.length <3){
+                                //console.log('<3');
+                                $ul.html( "" ).listview('refresh');
+                                disablePrescription();
+                            }
+                            if ( value && value.length > 2 ) {
+                                $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" ).listview( "refresh" );
+                                $.ajax({
+                                    url: medicinename_url,
+                                    dataType: "json",
+                                    type: "POST",
+                                    data: {
+                                        key: api_key,
+                                        q: $input.val()
+                                    }
+                                })
+                                .then( function ( response ) {
+                                    $.each( response.terms, function ( i, val ) {
+                                        html += "<li>" + val + "</li>";
+                                    });
+                                    $ul.html( html ).listview( "refresh" ).trigger( "updatelayout");
+                                });
+                            }
+                        //when a medicine name is selected
+                        $ul.on('click','li',function(event){
+                            var text = $(this).html();
+                            
+                            $input.val(text);
+                            $ul.html('').listview('refresh');
+                            // $("#prescription_page .ui-content").animate({
+                            //     scrollTop: 0
+                            // },500);
+                            loadMedicineStrength(text)
+                        });
                     
+                });
         });
-</script>
 
-<script type="text/javascript">
+//detect the keyboard and hide control buttons when keyboard shows
+document.addEventListener("showkeyboard", function(){ 
+    $('.carousel_controls').hide();
+}, false);
+
+document.addEventListener("hidekeyboard", function(){ 
+    $('.carousel_controls').show();
+}, false);
 
 $("#signup_inner_slide").bind('slid.bs.carousel',function(){
     detectInnerSlide1();
 });
 
+$("#prescription_slide").bind('slid.bs.carousel',function(){
+    detectPresctiptionSlide();
+});
+
+//load medicine strength list parameter'medicine' is the value of medicine name input 
+function loadMedicineStrength(medicine){
+    var $strength_ul = $( "#search_medicinine_strength" );
+    var $name_input = $("#search_medicinine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+    var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
+    var height = $('#prescription_page .patient_detail').height();
+                        
+    var content = '';
+    $strength_ul.html('').listview('refresh');
+    $strength_input.val('');
+    $strength_ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
+    $strength_ul.listview( "refresh" );
+    $.ajax({
+        url: medicinestrength_url,
+        dataType: "json",
+        type: "POST",
+        data: {key: api_key, q: medicine}
+    })
+    .then( function ( response ) {
+        //console.log(JSON.stringify(response.options));
+        //console.log(response.options.length);
+        for(var i = 0;i<response.options.length;i++) {
+            content += "<li id='"+response.options[i].rxcui+"'>" + response.options[i].display + "</li>";
+        }
+        $strength_ul.html(content).listview( "refresh" ).trigger( "updatelayout");
+    });
+                                
+    //when list item is selected
+    $strength_ul.on('click','li',function(event){
+
+        var strength = $(this).html();
+        medicine_id = $(this).attr('id');
+        //console.log(medicine_id);
+        //console.log('selected strength:'+strength);
+        
+        $strength_input.val(strength);
+        $strength_ul.html('').listview('refresh');
+        $("#prescription_page .ui-content").animate({
+            scrollTop: 0
+        },500);
+
+        $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+    });
+
+    //when the medicine_strength input is focused the strength list will be loaded again
+    $strength_input.bind('focus', function(event){
+        var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+
+        console.log('medicine_name:'+ medicine_name.val());
+        $("#prescription_page .ui-content").animate({
+                            scrollTop: height
+                        },500);
+        loadMedicineStrength(medicine_name.val());
+        
+   
+        if($name_input.val() && $strength_input.val()){
+            $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+        }
+        else{
+            $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled');
+        }
+    });
+}
+
 function addNewTag()
 {
     var index = $("#checklist_listview_create>li").length-1;
     $('#checklist_listview_create').append('<li> <div class="col-xs-10"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="checklist_tag' + index + '" name="tag' + index + '" placeholder="Optional tag"></div></div><div class="col-xs-2"><a href="#" class="close_link text-center" onClick="removeTag(this)"><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
-    //var last_li = $("#checklist_listview_create li:last-child").offset().top;
 }
 
 function removeTag(element){
-    // var id = $(el).parent('div').parent('li').attr('id');
-    // console.log(id);
     var target = $(element).parent('div').parent('li');
     target.remove();
 }
@@ -2264,30 +2394,35 @@ function addNewNote()
 }
 
 
-//set up the height of ui-content once the page is loaded
+//set up the height of ui-content once the app is running
 function setHeightofContent(){
     var screen = $.mobile.getScreenHeight();
     
-    var header = $(".ui-page .ui-header").outerHeight();
+    var header;
+    if($(window).width() <= 480){
+        header = $(".ui-page .ui-header").outerHeight() || 45;
+    }
+    else{
+        header = $(".ui-page .ui-header").outerHeight() || 56;
+    }
     var  contentCurrent = screen - header;
-    
     //var content = screen - header  - contentCurrent;
     $(".ui-content").height(contentCurrent);
+    $("#login_page .ui-content").css('height', '100vh');
     $("#signup_page .ui-content").css('height','100vh');
     $("#signup_detail_page1 .ui-content").css('height','100vh');
     $("#signup_detail_page2 .ui-content").css('height', '100vh');
     $("#signup_detail_page3 .ui-content").css('height', '100vh');
     $("#signup_detail_page4 .ui-content").css('height', '100vh');
-
 }
+
 function addSymptom(){
     var index = $("#symptom_list>li").length+1;
     //console.log(index);
     $("#symptom_list").append('<li><div class="col-xs-9"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="symptom_'+ index+ '"'+' placeholder="Symptom"></input></div></div><div class="col-xs-2 col-xs-offset-1"><a href="#" class="close_link" onClick="removeSymptom(this)"><i class="fa fa-2x fa-close"></i></a></div></li>').listview('refresh');
 }
+
 function removeSymptom(element){
-    // var id = $(el).parent('div').parent('li').attr('id');
-    // console.log(id);
     var target = $(element).parent('div').parent('li');
     target.remove();
 }
@@ -2296,13 +2431,10 @@ function detectChecklistCarousel(){
    setTimeout(function(){
         if($('#checklist_slide .carousel-inner .item:first').hasClass('active')){  
                 $('#checklist_slide .carousel_controls .left').attr('disabled',true);
-
-
             }
         else if($('#checklist_slide .carousel-inner .item:last-child').hasClass('active')) {
                 $('#checklist_slide .carousel_controls .right').hide();
                 $('#checklist_slide .carousel_controls .save_btn').show();
-              
             }
         else if($('#checklist_slide .carousel-inner .item:nth-child(4)').hasClass('active')){
                 $('#checklist_slide .carousel_controls .right').hide();
@@ -2345,34 +2477,19 @@ function detectTriageCarousel(){
         }
     },500);
 }
-function ScheduleContentSwitch(target)
-{
-    if(target == "individual"){
-        console.log("clinic");
-        $(".clinic_content").hide();
-        $(".individual_content").show();
-        // $(".individual_content .container .timeline").append('<li><div class="col-xs-4 time text-center"><p>10:00 today</p><img src="img/RedCross.png" class="img-circle"/></div><div class="col-xs-4 col-xs-offset-4 name text-center"><p>Stephen moriiessy</p><img src="img/RedCross.png" class="img-circle"/></div></li>');
-    }
-    else if(target == "clinic"){
-        console.log("individual");
-        $(".individual_content").hide();
-        $(".clinic_content").show();
-    }
-}
+
+
 function SliderChange(element){
     //alert("slider change");
     var grade = $(element).val();
     if(grade < 2 ){
         $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("orange red").addClass('green');
-        //$(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("orange red").addClass('green');
     }
     else if (grade == 2){
         $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("green red").addClass('orange');
-       // $(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("green red").addClass('orange');
     }
     else if(grade > 2){
         $(".grade_slider_group .ui-slider-track .ui-btn-active").removeClass("green orange").addClass('red');
-        //$(".grade_slider_group .ui-slider-track .ui-btn.ui-slider-handle").removeClass("orange green").addClass('red');
     }
     $('.grade_slider_group .nci_percent').text(grade/4*100+"%");
 }
@@ -2412,9 +2529,7 @@ function showEditBtn(){
 }
 
 function goEditChecklist(){
-
     //load the selected checklist info and jump to the next edit page
-
     $("#checklist_slide").carousel('next');
     $("#editbtn").click();
     $('#checklist_slide .carousel_controls .right').hide();
@@ -2438,14 +2553,10 @@ function gotoAssign(){
     $('#checklist_slide .carousel_controls .right').show();
 
     loadAssignContent(target_item);
-
     $("#checklist_slide").carousel('next');
-    
-
-
 }
-function loadAssignContent(target_item){
 
+function loadAssignContent(target_item){
     if(target_item == "group"){
         $("#checklist_assign_content .row ul").empty();
         $("#checklist_assign_content .row ul").append('<li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Stage 3 treatment</p></div><div class="row goup_info light-font"><p>patient(S) 35</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Remission</p></div><div class="row goup_info light-font"><p>patient(S) 7</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Title</p></div><div class="row goup_info light-font"><p>patient(S) 9</p></div></div></div></li><li data-icon="false" class="group"><div><div class="col-xs-4 text-center"><img src=""></img></div><div class="col-xs-8"><div class="row group_name"><p>Title</p></div><div class="row goup_info light-font"><p>patient(S) 23</p></div></div></div></li>').listview('refresh');
@@ -2459,36 +2570,6 @@ function loadAssignContent(target_item){
         getPatientList("assign_content_list");
     }
 }
-$(function(){
-var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-    
-    $("#calendar").jqmCalendar({
-        events: [{
-            "summary": "Meet PM",
-            "begin": new Date(y,m, 27 ),
-            "end": new Date(y, m, 28)
-            
-        }, {
-            "summary": "Dinner",
-            "begin": new Date(y, m, d + 3),
-            "end": new Date(y, m, d + 4)
-            
-        }, {
-            "summary": "Lunch with Friends",
-            "begin": new Date(y, m, d + 6),
-            "end": new Date(y, m, d + 7)
-            
-        }, 
-                ],
-                 months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
- 
-        startOfWeek: 0
-        
-    });
-});
 
 function setupSignUpPage2(){
     $("#signup_inner_slide").carousel('next');
@@ -2544,20 +2625,163 @@ function detectInnerSlide1(){
     }
 }
 
+function disablePrescription(){
+    $("#prescription_page .carousel-inner").find(".ui-input-text").addClass('ui-state-disabled');
+    $("#prescription_page .carousel-inner").find(".ui-select .ui-btn").addClass('ui-state-disabled');
+}
+
+function activePrescription(){
+    $("#prescription_page .carousel-inner .manual-filled").find(".ui-input-text").removeClass('ui-state-disabled');
+    $("#prescription_page .carousel-inner").find(".ui-select .ui-btn").removeClass('ui-state-disabled');
+}
+
+function detectPresctiptionSlide(){
+    if($('#prescription_slide .carousel-inner .item:first').hasClass('active')){  
+        
+        $('#prescription_slide .carousel_controls .back_btn').hide();
+        $('#prescription_slide .carousel_controls .continue_btn').hide();
+        $('#prescription_slide .carousel_controls .full_width_btn').show();
+        $('#prescription_slide .carousel_controls .update').hide();
+        $('#prescription_slide .carousel_controls .full_width_btn .right').show();
+        console.log("the 1st item");
+    }
+    else if($('#prescription_slide .carousel-inner .item:nth-child(2)').hasClass('active')) {
+        $('#prescription_slide .carousel_controls .full_width_btn').hide();
+        $('#prescription_slide .carousel_controls .back_btn').show();
+        $('#prescription_slide .carousel_controls .continue_btn').show();
+        $('#prescription_slide .carousel_controls .right').hide();
+        $('#prescription_slide .carousel_controls .add_btn').hide();
+        $('#prescription_slide .carousel_controls .left').show();
+        $('#prescription_slide .carousel_controls .save_btn').show();
+        console.log("the 2nd item");
+    }
+    else if($('#prescription_slide .carousel-inner .item:nth-child(3)').hasClass('active')) {
+        $('#prescription_slide .carousel_controls .full_width_btn').hide();
+        $('#prescription_slide .carousel_controls .back_btn').show();
+        $('#prescription_slide .carousel_controls .continue_btn').show();
+        $('#prescription_slide .carousel_controls .left').hide();
+        $('#prescription_slide .carousel_controls .save_btn').hide();
+        $('#prescription_slide .carousel_controls .add_btn').show();
+        $('#prescription_slide .carousel_controls .right').show();
+
+        console.log("the 3rd item");
+    }
+    else if($('#prescription_slide .carousel-inner .item:last-child').hasClass('active')){
+        console.log("last item");
+        $('#prescription_slide .carousel_controls .back_btn').hide();
+        $('#prescription_slide .carousel_controls .continue_btn').hide();
+        $('#prescription_slide .carousel_controls .full_width_btn').show();
+        $('#prescription_slide .carousel_controls .update').show();
+    }
+}
+
+//active 'next'button when both medicine_name and medicine_strength inputs are not empty
+function detectSearchInput(){
+    var $name_input = $("#search_medicinine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+    var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
+
+    if($name_input.val() && $strength_input.val()){
+        $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+    }
+    else{
+        $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled')
+    }
+}
+
+//fill the name and dosage of the selected drug 
+function autofillDrug(){
+    var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val();
+    var medicine_strength = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val();
+    $("#prescription_slide .drug_name").text(medicine_name);
+    $("#prescription_slide .drug_strength").text(medicine_strength);
+    //fake data so far
+    //$('#dose').val('100');
+    //$("#dose-unit").text('Mg');
+    $("#dose-frequency").val('1');
+    $('#dose-period-multiplier').val('1');
+    $("#dose-period-type").val('Daily').change();
+    $("#on-period-multiplier").val('0');
+    $("#on-period-type").val('Weekly').change();
+    $("#off-period-multiplier").val('0');
+    $("#off-period-type").val('Weekly').change();
+    var current_date = new Date();
+    var month= ["JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    $("#start-date").val(current_date.getDate()+"-"+month[current_date.getMonth()]+"-"+current_date.getFullYear());
+    
+    activePrescription();
+}
+
+function changePeriodType(){
+    var period_type = $("#dose-period-type").val();
+    $('#on-period-type').val(period_type).change();
+    $('#off-period-type').val(period_type).change();
+}
+//push new drug object into prescription_array 
+function saveDrug(){
+    var drug = {};
+    drug.id = medicine_id;
+    drug.name = $(".drug_name").html();
+    drug.dose = $('#dose').val();
+    drug.dose_frequency = $('#dose-frequency').val();
+    drug.dose_period_type = $("#dose-period-type").val();
+    drug.dose_period_multiplier = $("#dose-period-multiplier").val();
+    drug.on_period_type = $("#on-period-type").val();
+    drug.on_period_multiplier = $("#on-period-multiplier").val();
+    drug.off_period_type = $("#off-period-type").val();
+    drug.off_period_multiplier = $("#off-period-multiplier").val();
+    drug.start_date = $("#start-date").val();
+    drug.end_date = $("#end-date").val();
+    if(drug.end_date ==""){
+        drug.end_date = drug.start_date;
+    }
+    console.log(drug);
+    //push into prescription_array
+    addtoPrescriptionArray(drug);
+    addtoPrescriptionList(drug);
+}
+function addtoPrescriptionArray(drug){
+    prescription_array.drug.push(drug.id);
+    prescription_array.dose.push(drug.dose);
+    prescription_array.dose_frequency.push(drug.dose_frequency);
+    prescription_array.dose_period_type.push(drug.dose_period_type);
+    prescription_array.on_period_type.push(drug.on_period_type);
+    prescription_array.on_period_multiplier.push(drug.on_period_multiplier);
+    prescription_array.off_period_type.push(drug.off_period_type);
+    prescription_array.off_period_multiplier.push(drug.off_period_multiplier);
+    prescription_array.start_date.push(drug.start_date);
+    prescription_array.end_date.push(drug.end_date);
+    
+    console.log(JSON.stringify(prescription_array));
+}
+//add drug brief info into #prescription_list
+function addtoPrescriptionList(drug){
+    //add to ul named prescription_list
+    $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p>'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
+    //add to prescription detail
+    $(".prescription_detail .prescription_detail_drug").append('<label>'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
+}
+
+//show summary info of the whole prescription
+function completePrescription(){
+    var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    var current_date = new Date();
+    $(".prescription_detail .prescription_detail_date label").text(current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
+    //$(".prescription_detail .prescription_detail_drug").html('');
+    // for(var i =0;i<prescription_array.length;i++){
+    //     $(".prescription_detail .prescription_detail_drug").append('<label>'+prescription_array[i].name+':'+'</label><label>'+prescription_array[i].frequency+', '+prescription_array[i].duration+'.</label>');
+    // }
+    //console.log(JSON.stringify(prescription_array));
+}
+
 
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
                 preferredCountries: ['ie', 'cn', 'us']
-            });
-
-
-
+});
 </script>
         
-        <script type="text/javascript" src="js/global.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        
+        
 </body>
 </html>

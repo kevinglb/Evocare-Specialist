@@ -1075,7 +1075,9 @@ div#signup_input_group
 .vertical-middle{
     position: relative;
     top: 50%;
-     transform: translateY(-50%);
+    transform: translateY(-50%);
+    -ms-transfrom: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 .main_content .list_item p{
     padding: 0;

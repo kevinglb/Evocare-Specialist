@@ -6,7 +6,13 @@ module.exports = [
         "merges": [
             "navigator.notification"
         ]
-
+    },
+    {
+        "file": "plugins/org.apache.cordova.dialogs/www/android/notification.js",
+        "id": "org.apache.cordova.dialogs.notification_android",
+        "merges": [
+            "navigator.notification"
+        ]
     },
     {
         "file": "plugins/org.apache.cordova.camera/www/CameraConstants.js",
@@ -30,7 +36,7 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.camera/www/ios/CameraPopoverHandle.js",
+        "file": "plugins/org.apache.cordova.camera/www/CameraPopoverHandle.js",
         "id": "org.apache.cordova.camera.CameraPopoverHandle",
         "clobbers": [
             "CameraPopoverHandle"
@@ -177,8 +183,8 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.file/www/ios/FileSystem.js",
-        "id": "org.apache.cordova.file.iosFileSystem",
+        "file": "plugins/org.apache.cordova.file/www/android/FileSystem.js",
+        "id": "org.apache.cordova.file.androidFileSystem",
         "merges": [
             "FileSystem"
         ]
@@ -201,7 +207,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-
     "org.apache.cordova.dialogs": "0.3.0",
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.file-transfer": "0.5.0",
