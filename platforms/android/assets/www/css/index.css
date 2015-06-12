@@ -1296,6 +1296,9 @@ div#signup_input_group
     text-align: center;
 }
 /*font color on datepicker*/
+.datepicker_input{
+    text-transform: uppercase;
+}
 .dwb0, .dwb1{
     color: #FFF !important;
 }

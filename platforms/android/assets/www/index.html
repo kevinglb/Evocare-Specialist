@@ -1984,7 +1984,8 @@
                                         </div>
                                 </div>
                                 <div class="container item">
-                                    <h3 class="drug_name"></h3>
+                                    <h4 class="drug_name"></h4>
+                                    <h4 class="drug_strength"></h4>
                                     <!-- <div class="auto-filled">
                                         <div class="row">
                                             <label>Dosage</label>
@@ -2014,12 +2015,12 @@
                                             <div class="col-xs-3 bottom-border">
                                                 <input type="number" id='dose-frequency' class="dose_frequency"></input>
                                             </div>
-                                            <span class="col-xs-3">time(s)</span>
+                                            <span class="col-xs-3">time(s) every</span>
                                             <div class="col-xs-3 bottom-border">
                                                 <input type="number" id='dose-period-multiplier' class="dose_period_multiplier"></input>
                                             </div>
                                             <div class="col-xs-3 bottom-border">
-                                                <select id="dose-period-type" class="dose-period-type bottom-border" data-icon="false" onchange="changePeriodType()">
+                                                <select id="dose-period-type" class="dose-period-type bottom-border" data-icon="false" >
                                                     <option value="Hourly">Hour(s)</option>
                                                     <option value="Daily">Day(s)</option>
                                                     <option value="Weekly">Week(s)</option>
@@ -2044,7 +2045,7 @@
                                             <span class="col-xs-2">on</span>
                                         </div>
                                         <div class="row">
-                                            <span class="col-xs-2">for</span>
+                                            <span class="col-xs-2">\</span>
                                             <div class="col-xs-4 bottom-border">
                                                 <input type="number" id="off-period-multiplier"></input>
                                             </div>
@@ -2145,7 +2146,7 @@
                                 <a class="add_btn carousel-control btn" href="#prescription_slide" role="button" onClick="resetPrescriptionPage()" style="display:none">Add Drug</a>
                             </div>
                             <div class="continue_btn" style="display:none">
-                                <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="compeletePrescription()">Compelte</a>
+                                <a class="right carousel-control btn" href="#prescription_slide" role="button" data-slide="next" onClick="completePrescription()">Complete</a>
                                 <a class="carousel-control save_btn btn" href="#prescription_slide" role="button" data-slide="next" style="display:none;" onClick="saveDrug()">Save</a>
                             </div>
                     </div>
@@ -2685,10 +2686,21 @@ function detectSearchInput(){
 function autofillDrug(){
     var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input').val();
     var medicine_strength = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input').val();
-    $("#prescription_slide .drug_name").text(medicine_name+" "+medicine_strength);
+    $("#prescription_slide .drug_name").text(medicine_name);
+    $("#prescription_slide .drug_strength").text(medicine_strength);
     //fake data so far
-    $('#dose').val('100');
-    $("#dose-unit").text('Mg');
+    //$('#dose').val('100');
+    //$("#dose-unit").text('Mg');
+    $("#dose-frequency").val('1');
+    $('#dose-period-multiplier').val('1');
+    $("#dose-period-type").val('Daily').change();
+    $("#on-period-multiplier").val('0');
+    $("#on-period-type").val('Weekly').change();
+    $("#off-period-multiplier").val('0');
+    $("#off-period-type").val('Weekly').change();
+    var current_date = new Date();
+    var month= ["JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    $("#start-date").val(current_date.getDate()+"-"+month[current_date.getMonth()]+"-"+current_date.getFullYear());
     
     activePrescription();
 }
@@ -2697,7 +2709,6 @@ function changePeriodType(){
     var period_type = $("#dose-period-type").val();
     $('#on-period-type').val(period_type).change();
     $('#off-period-type').val(period_type).change();
-    
 }
 //push new drug object into prescription_array 
 function saveDrug(){
@@ -2745,7 +2756,7 @@ function addtoPrescriptionList(drug){
 }
 
 //show summary info of the whole prescription
-function compeletePrescription(){
+function completePrescription(){
     var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
     var current_date = new Date();
     $(".prescription_detail .prescription_detail_date label").text(current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
