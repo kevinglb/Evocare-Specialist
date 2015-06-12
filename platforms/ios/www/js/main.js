@@ -840,13 +840,12 @@ function setUpPrescriptionPage(patient_id){
             var latitude = response.pharmacy.latitude;
             var longitude = response.pharmacy.longitude;
             var address_array = response.pharmacy.address.split(' ');
-            var location_string = "geo: "+latitude+','+longitude;
-            var q = '?q='+address_array[0];
-            for(var i = 1;i<address_array.length;i++){
-              q=q+'+'+address_array[i];
-            }
+            
+            var q = 'q='+latitude+','+longitude;
+            
+
             $('.prescription_detail .prescription_detail_pharmacy label').text("Pharmacy: "+response.pharmacy.name);
-            $('.prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
+            $('.prescription_detail .prescription_detail_pharmacy a').attr("href", "maps://maps.apple.com/?"+q);
             pharmacy = response.pharmacy;
             console.log(JSON.stringify(pharmacy));
           }
