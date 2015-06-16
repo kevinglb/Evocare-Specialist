@@ -142,20 +142,21 @@
                 <div class="container form_container">
                     <div id="signup_input_group" class="row">
                         <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
-                            <input id="signup_email" class="input-lg" type="email" placeholder="youremail@email.com">
-                                <span class="icon-user-w form-control-feedback"></span>
+                            <input id="signup_email" class="input-lg form-control" type="email" placeholder="youremail@email.com">
+                                <span class="icon-user form-control-feedback"></span>
                             </input>
                         </div>
                         <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
-                            <input id="signup_password" class="input-lg" type="password" placeholder="Password">
-                                <span class="icon-locker-w form-control-feedback"></span>
+                            <input id="signup_password" class="input-lg form-control" type="password" placeholder="Password">
+                                <span class="icon-locker form-control-feedback"></span>
                             </input>
                         </div>
                         <div class="form-group has-feedback left-feedback no-label bottom-border color-w">
-                            <input id="signup_password_confirm"  class="input-lg" type="password" placeholder="Confirm Password">
-                                <span class="icon-locker-w form-control-feedback"></span>
+                            <input id="signup_password_confirm"  class="input-lg form-control" type="password" placeholder="Confirm Password">
+                                <span class="icon-locker form-control-feedback"></span>
                             </input>
                         </div>
+                        
                         <div class="form-group" style="margin-top:12vh;">
                             <p class="ui-link light-font"> Aready a member?</p>
                         </div>
@@ -166,7 +167,7 @@
                     </div>
                 </div>
                 <div class="signup_continue_btn">
-                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" style="color:black !important" role="button" >Continue</a> 
+                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" style="color:black !important" role="button">Continue</a> 
                 </div>
             </div>
         </div>
@@ -178,11 +179,11 @@
                             </div>
 
                                 <div class="container form_container">
-                                    <div class="form-group bottom-border">
-                                        <input id="signup_firstname" class="input-lg" type="text" placeholder="First Name"/>
+                                    <div class="form-group bottom-border color-g">
+                                        <input id="signup_firstname" type="text" placeholder="First Name"/>
                                     </div>
-                                    <div class="form-group bottom-border">
-                                        <input id="signup_lastname" class="input-lg" type="text" placeholder="Last name"/>
+                                    <div class="form-group bottom-border color-g">
+                                        <input id="signup_lastname"  type="text" placeholder="Last name"/>
                                     </div>
                                     <div class="form-group">
                                         <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
@@ -222,14 +223,14 @@
                                 <h3>Gender</h3>
                                 <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
-                                        <a href="#signup_inner_slide" data-slide="next" >
-                                            <img src="img/male.svg" style="height:20vh"/>
-                                        </a>  
+                                        <!-- <a href="#signup_inner_slide" data-slide="next"> -->
+                                            <img src="img/male.svg" style="height:20vh" onClick="selectGender(this)"/>
+                                        <!-- </a>  -->
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#signup_inner_slide" data-slide="next">
-                                            <img src="img/female.svg" style="height:20vh"/>
-                                        </a> 
+                                        <!-- <a href="#signup_inner_slide" data-slide="next"> -->
+                                            <img src="img/female.svg" style="height:20vh" onClick="selectGender(this)"/>
+                                        <!-- </a>  -->
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +261,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
-                            <a href="#signup_inner_slide" role="button" class="btn back_btn" data-slide="prev" onClick="" disabled>< Back</a>
+                            <a href="#signup_detail_page1" data-transition="slide" data-direction="reverse" role="button" class="btn back_btn" data-slide="prev"><i class="icon-reverse icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i> Back</a>
                         </div>
                         <div class="col-xs-4">
                             <div class="dots-row">
@@ -271,12 +272,12 @@
                             </div>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#signup_inner_slide" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                            <a href="#signup_inner_slide" data-slide="next" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip <i class="icon icon-1x icon-angle-right-g"style="vertical-align:middle;"></i></a>
                         </div>
                     </div>
                     </div>
                     <div class="signup_continue_btn" >
-                        <a href="#signup_detail_page3" class="signup_btn btn-block btn"  role="button" style="display:none" disabled onClick='setupSignUpPage2()'>Continue</a>
+                        <a href="#signup_inner_slide" class="signup_btn btn-block btn"  role="button" disabled onClick='setupSignUpPage2()'>Continue</a>
                     </div>
                 </div>
                 </div>
@@ -334,7 +335,7 @@
                         </div>
                         <div class="container row" style="margin-top: 5vh">
                             <div class="col-xs-4">
-                                <a href="#signup_detail_page2" role="button" class="btn back_btn" data-slide="prev" onClick="">< Back</a>
+                                <a href="#signup_detail_page2" role="button" class="btn back_btn" data-slide="prev" data-transition="slide" data-direction="reverse" onClick=""><i class="icon-reverse icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i> Back</a>
                             </div>
                             <div class="col-xs-4">
                                 <div class="dots-row">
@@ -345,7 +346,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-4">
-                                <a href="#signup_detail_page4" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                                <a href="#signup_detail_page4" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip <i class="icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i></a>
                             </div>
                         </div>
                     <div class="signup_continue_btn" >
@@ -470,7 +471,7 @@
                     </div>
                                <div class="container row" style="margin-top: 5vh">
                         <div class="col-xs-4">
-                            <a href="#signup_detail_page3" role="button" class="btn back_btn" data-slide="prev" onClick="">< Back</a>
+                            <a href="#signup_detail_page3" role="button" class="btn back_btn" data-slide="prev" onClick=""><i class="icon-reverse icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i> Back</a>
                         </div>
                         <div class="col-xs-4">
                             <div class="dots-row">
@@ -481,7 +482,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip ></a>
+                            <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip <i class="icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i></a>
                         </div>
                     </div>
                  </div>
@@ -1974,7 +1975,7 @@
                             
                                 <div class="container item active">
                                     <h3>Create a prescription</h3>
-                                    <div class="row bottom-border" style='margin-bottom:30px;'>
+                                    <div class="row bottom-border" style='margin:30px 0px;'>
                                         <label>Name:</label> 
                                         <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" disabled></ul>
                                     </div>
@@ -2090,8 +2091,8 @@
                                                 <div class="col-xs-2">
                                                     <i class="icon icon-2x icon-note"></i>
                                                 </div>
-                                                <div class="col-xs-10" style="line-height:2em">
-                                                    Add Note
+                                                <div class="col-xs-10 light-grey" style="line-height:2em">
+                                                    ADD NOTE
                                                 </div>
                                             </a>
                                         </div>
@@ -2121,7 +2122,7 @@
                                                 <i class="icon icon-2x icon-print"></i>
                                             </div>
                                             <div class="col-xs-4">
-                                                <label style="line-height:2em;">Print</label>
+                                                <label class="light-grey" style="line-height:2em;">Print</label>
                                             </div>
                                         </a>
                                         <a href="＃" style="color:#495559">
@@ -2129,7 +2130,7 @@
                                                 <i class="icon icon-2x icon-email"></i>
                                             </div>
                                             <div class="col-xs-4">
-                                                <label style="line-height:2em;">E-mail</label>
+                                                <label class="light-grey" style="line-height:2em;">E-mail</label>
                                             </div>
                                         </a>
                                     </div>
@@ -2572,6 +2573,7 @@ function loadAssignContent(target_item){
 
 function setupSignUpPage2(){
     $("#signup_inner_slide").carousel('next');
+
     $("#signup_detail_page2 .signup_btn").attr('disabled','disabled');
     setTimeout(function(){
     if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
@@ -2584,25 +2586,31 @@ function setupSignUpPage2(){
     }, 400);
 }
 
+function selectGender(element){
+    $('#signup_detail_page2 .signup_btn').removeAttr('disabled'); 
+}
+
 function detectInnerSlide1(){
     $('#signup_detail_page2 .signup_btn').attr('disabled', 'disabled');
-    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){  
+    if($('#signup_inner_slide .carousel-inner .item:first').hasClass('active')){
         $('.slogen h4').text('Three quick things');
-        $('#signup_detail_page2 .signup_btn').hide();
-        $('#signup_detail_page2 .back_btn').attr('disabled','disabled');
 
+        $('#signup_detail_page2 .back_btn').attr('href','#signup_detail_page1'); 
+        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
+        $('#signup_detail_page2 .signup_btn').attr('disabled', 'disabled');
         $('#signup_detail_page2 .progress .progress-bar').css('width', '20%');
         $('#signup_detail_page2 .progress .progress-bar').html('20%');
     }
     else if($('#signup_inner_slide .carousel-inner .item:nth-child(2)').hasClass('active')){
         $('.slogen h4').text('Two quick things');
-        
+
+        $('#signup_detail_page2 .back_btn').attr('href','#signup_inner_slide'); 
         $('#signup_detail_page2 .progress .progress-bar').css('width', '30%');
         $('#signup_detail_page2 .progress .progress-bar').html('30%');
 
-        $('#signup_detail_page2 .signup_btn').show();
+
         $('#signup_detail_page2 .back_btn').removeAttr('disabled');
-        $('#signup_detail_page2 .signup_btn').attr('href', '#signup_inner_slide');
+        
         $('#signup_detail_page2 .skip_btn').attr('href', '#signup_inner_slide');
         
         if($('.dob').text()!="MM - DD - Year"){
@@ -2611,7 +2619,7 @@ function detectInnerSlide1(){
     }   
     else if($('#signup_inner_slide .carousel-inner .item:last').hasClass('active')){
         $('.slogen h4').text('One quick things');
-
+        $('#signup_detail_page2 .back_btn').attr('href','#signup_inner_slide'); 
         $('#signup_detail_page2 .progress .progress-bar').css('width', '40%');
         $('#signup_detail_page2 .progress .progress-bar').html('40%');
 
@@ -2755,16 +2763,16 @@ function addtoPrescriptionArray(drug){
 //add drug brief info into #prescription_list
 function addtoPrescriptionList(drug){
     //add to ul named prescription_list
-    $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p>'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
+    $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p class="light-grey ">'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
     //add to prescription detail
-    $(".prescription_detail .prescription_detail_drug").append('<label>'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
+    $(".prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
 }
 
 //show summary info of the whole prescription
 function completePrescription(){
     var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
     var current_date = new Date();
-    $(".prescription_detail .prescription_detail_date label").text(current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
+    $(".prescription_detail .prescription_detail_date label").text("Date: "+current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
     //$(".prescription_detail .prescription_detail_drug").html('');
     // for(var i =0;i<prescription_array.length;i++){
     //     $(".prescription_detail .prescription_detail_drug").append('<label>'+prescription_array[i].name+':'+'</label><label>'+prescription_array[i].frequency+', '+prescription_array[i].duration+'.</label>');
