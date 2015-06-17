@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.Fathom.Evocare" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.Fathom.Evocare-Specialist" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <preference name="Fullscreen" value="false" />
     <preference name="Orientation" value="portrait" />
-    <name>EvocareApp</name>
+    <name>Evocare-Specialist</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

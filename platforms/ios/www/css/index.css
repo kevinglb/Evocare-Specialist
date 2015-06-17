@@ -93,6 +93,10 @@ a {
     text-decoration: none;
 }
 
+h3{
+    font-weight: bold;
+}
+
 input[type=number]{
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
@@ -132,6 +136,9 @@ input::-webkit-inner-spin-button {
 }
 .bold-font {
     font-family: "Bendons-Bold";
+}
+.light-grey{
+    color: #8CA0A7;
 }
 .event {
     border-radius:4px;
@@ -332,7 +339,7 @@ span.listview_selection
 }
 .has-feedback .form-control {
     padding-right:  0;
-    padding-left: 54px;
+    padding-left: 48px;
     height: 56px;
     line-height: 56px;
     font-size: 1.1em;
@@ -343,13 +350,12 @@ span.listview_selection
 }
 
 .form-control-feedback {
-
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     background-repeat: no-repeat;
     background-size: cover;
-    left: 14px;
-    top: 12px;
+    left: 12px;
+    top: 14px;
 }
 
 #login_page .ui-link{
@@ -387,10 +393,17 @@ span.listview_selection
     text-align: center;
 }
 #signup_page .ui-input-text input, #signup_detail_page1 .ui-input-text input, #signup_detail_page2 .ui-input-text input{
-    text-align: center;
+    
     border: none;
     box-shadow: none;
 } 
+#signup_detail_page1 .ui-input-text input{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+ #signup_detail_page2 .ui-input-text input{
+    text-align: center;;
+}
 
 #signup_form .ui-input-text input::-moz-placeholder{
     color: #FFF;
@@ -411,7 +424,6 @@ span.listview_selection
 
 .signup_continue_btn
 {
-
     position: fixed;
     bottom:0;
     width:100%;
@@ -422,14 +434,19 @@ span.listview_selection
     border-radius: 0;
     box-shadow: none;
     border-bottom: 1px solid #BBC4C7;
-    font-family: "Bendons-Light";
+    /*font-family: "Bendons-Light";*/
     color: #495559;
 }
 .bottom-border.color-w .ui-input-text{
     color: #fff;
     border-color: #fff;
 }
-
+.bottom-border.color-g .ui-input-text input::-webkit-input-placeholder{
+    color: #495559;
+}
+.bottom-border.color-g .ui-input-text input::-moz-placeholder{
+    color: #495559;
+}
 .bottom-border.color-w .ui-input-text input::-webkit-input-placeholder{
     color: #fff;
 }
@@ -1183,7 +1200,7 @@ div#signup_input_group
 
 #patientlist_page .ui-content{
     overflow-y : scroll !important;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch; 
 }
 #patient_list{
     padding: 15px 0px;
@@ -1205,13 +1222,9 @@ div#signup_input_group
 #patient_list .patient.selected{
     background-color: red!important;
 }
-.patient_info {
-    height: 15vh;
-    background: #FFF;
-}
+
 .patient_info .patient_name
 {
-    
     font-size: 1.2em !important;
     line-height: 1.2em;
 }
@@ -1406,6 +1419,9 @@ div#signup_input_group
 .icon-arrow-left-g{
     background-image: url("../icon/icon-arrow-left-g.svg");
 }
+.icon-angle-right-g{
+    background-image: url("../icon/icon-angle-right-g.svg");
+}
 .icon-add-patient{
     background-image: url("../icon/icon-add-patient.svg");
 }
@@ -1493,7 +1509,9 @@ img#onboarding_avatar
 #prescription_page .ui-content{
     overflow-y:auto;
 }
-
+h4.drug_name, h4.drug_strength {
+    font-weight: bold;
+}
 #prescription_list{
     list-style-type: none;
     margin: 0 -15px;
@@ -1525,7 +1543,7 @@ ul.medicine_search_input{
     background-color: #fff;
     z-index: 10;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch;  
 }
 
 ul.medicine_search_input li {
@@ -1589,6 +1607,7 @@ ul.medicine_search_input li {
 .prescription_detail .row{
     margin-bottom: 10px;
 }
+
 .prescription_detail_pharmacy{
     line-height: 2em;
 }
@@ -1610,6 +1629,7 @@ ul.medicine_search_input li {
     }
     h3{
         font-size: 20px;
+
     }
     .row{
         margin: 0 auto;
@@ -1647,7 +1667,7 @@ ul.medicine_search_input li {
         height: auto;
     }
     .patient_info{
-        padding-top: 0.5em;
+        padding-top: 0em;
     }
     .patient_detail{
     height: 15vh;
@@ -1661,8 +1681,20 @@ ul.medicine_search_input li {
         width: 80%;
         margin: 0 auto;
     }
+    #patient_list .patient {
+        padding: 10px 0;
+        margin: 10px 0;
+    }
     .patient .patient_info p{
-        margin: 0 0 5px 0;
+        margin: 0 0;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+    .patient_detail div{
+        padding: 0 5px;
+    }
+    .patient .patient_info p{
+        margin: 0 0 0 0;
         font-size: 1em;
         line-height: 1.2em;
     }
