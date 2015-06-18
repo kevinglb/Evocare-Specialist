@@ -93,7 +93,7 @@ a {
     text-decoration: none;
 }
 
-h3{
+h1,h2,h3,h4{
     font-weight: bold;
 }
 
@@ -201,14 +201,14 @@ input::-webkit-inner-spin-button {
 }
 
 .ui-header .ui-btn-left, .ui-header .ui-btn-right{
-    height: 40px;
-    line-height: 40px;
-    min-width: 40px;
+    height: 45px;
+    line-height: 45px;
+    min-width: 45px;
     top: 0;
     padding: 0;
     text-shadow:none;
     color:#FFF;
-    margin-top: 6px;
+    margin-top: 0px;
 }
 
 .ui-header .ui-btn-left{
@@ -224,9 +224,9 @@ input::-webkit-inner-spin-button {
 .ui-header .multi-icons a{
     min-width: 40px;
     width: 40px;
-    height: 40px;
+    height: 45px;
     float: right;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 .ui-header, .ui-footer {
     border: none;
@@ -270,6 +270,27 @@ input::-webkit-inner-spin-button {
 {
     height: 40px;
     width: 40px;
+}
+
+#signup_gender .male{
+    background-image: url('../img/male-outline.svg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block; 
+}
+#signup_gender .male.selected{
+    background-image: url('../img/male.svg');
+}
+#signup_gender .female{
+    width: 100%;
+    background-image: url('../img/female-outline.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block; 
+}
+#signup_gender .female.selected{
+    background-image: url('../img/female.svg');
 }
 span.listview_selection 
 {
@@ -1215,6 +1236,7 @@ div#signup_input_group
     margin:15px 0;
     line-height: 1em;
     font-size: 1em;
+    padding: 10px 0;
 
 }
 #patient_list .patient.selected{
@@ -1392,9 +1414,9 @@ div#signup_input_group
     -ms-transform: scaleX(-1);
 }
 .header-icon{
-    height: 90%;
-    width: 90%;
-    margin: 2px auto;
+    height: 24px;
+    width: 24px;
+    margin: 10px auto;
 }
 .icon-1x {
     height: 1em;
@@ -1509,6 +1531,7 @@ img#onboarding_avatar
 }
 h4.drug_name, h4.drug_strength {
     font-weight: bold;
+    font-family: "Bendons-Medium";
 }
 #prescription_list{
     list-style-type: none;
@@ -1637,8 +1660,9 @@ ul.medicine_search_input li {
     .ui-page .ui-header .ui-title {
         line-height: 18px;
         font-size: 18px;
-        margin-left: 60px;
-        padding: 14px 0;
+        margin-left: 50px;
+         padding: 15px 0 12px 0;
+        font-weight: normal;
     }
     .ui-header .ui-btn-left{
         margin-left: 0;
@@ -1647,12 +1671,7 @@ ul.medicine_search_input li {
         margin-right: 0;
     }
     .ui-header .ui-btn-left, .ui-header .ui-btn-right{
-        margin-top: 3px;
-    }
-    .header-icon{
-        width: 30px;
-        height: 30px;
-        margin-top: 5px auto;
+        margin-top: 0px;
     }
     .patient_photo{
         padding-top: 0;

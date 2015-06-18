@@ -25,8 +25,11 @@
 .mbsc-android-holo .dwb-a {
     background: #29799c;
 }
-.mbsc-android-holo .dwbw .dwb {
-    border-left: 1px solid #424542;
+.mbsc-android-holo .dwb-s .dwb{
+    border-left: 1px solid #fff;
+}
+.mbsc-android-holo .dwb-c .dwb{
+    border-right: 1px solid #fff;
 }
 .mbsc-android-holo .dwbw:first-child .dwb {
     border: 0;

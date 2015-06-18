@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <div class="signup_continue_btn">
-                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" style="color:black !important" role="button">Continue</a> 
+                        <a href="#signup_detail_page1" data-transition="slide" class="btn btn-block signup_btn" style="color:#495559 !important" role="button">Continue</a> 
                 </div>
             </div>
         </div>
@@ -224,12 +224,12 @@
                                 <div id="signup_gender" class="row">
                                     <div class="col-xs-6">
                                         <!-- <a href="#signup_inner_slide" data-slide="next"> -->
-                                            <img src="img/male.svg" style="height:20vh" onClick="selectGender(this)"/>
+                                            <div class="male" style="height:20vh" onClick="selectGender(this,'male')"></div>
                                         <!-- </a>  -->
                                     </div>
                                     <div class="col-xs-6">
                                         <!-- <a href="#signup_inner_slide" data-slide="next"> -->
-                                            <img src="img/female.svg" style="height:20vh" onClick="selectGender(this)"/>
+                                            <div class="female" style="height:20vh" onClick="selectGender(this, 'female')"></div>
                                         <!-- </a>  -->
                                     </div>
                                 </div>
@@ -1984,7 +1984,7 @@
                                         <ul id="search_medicinine_strength" class="medicine_search_input" data-role="listview" data-icon="false" data-inset="true" data-filter="true" data-filter-placeholder="Select the strength" ></ul>
                                         </div>
                                 </div>
-                                <div class="container item">
+                                <div class="container item" style="padding-top:20px;">
                                     <h4 class="drug_name"></h4>
                                     <h4 class="drug_strength"></h4>
                                     <!-- <div class="auto-filled">
@@ -2586,7 +2586,20 @@ function setupSignUpPage2(){
     }, 400);
 }
 
-function selectGender(element){
+function selectGender(element, gender){
+    if(gender == 'male'){
+        $('#signup_gender .female').removeClass('selected');
+
+    }
+    else if(gender == 'female'){
+        $('#signup_gender .male').removeClass('selected');
+    }
+    if($(element).hasClass('selected')){
+            $(element).removeClass('selected');
+    }
+    else{
+            $(element).addClass('selected');
+    }
     $('#signup_detail_page2 .signup_btn').removeAttr('disabled'); 
 }
 

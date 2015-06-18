@@ -276,6 +276,26 @@ span.listview_selection
     margin-left: 4vh;
     padding-left: 40px;
 }
+#signup_gender .male{
+    background-image: url('../img/male-outline.svg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block; 
+}
+#signup_gender .male.selected{
+    background-image: url('../img/male.svg');
+}
+#signup_gender .female{
+    width: 100%;
+    background-image: url('../img/female-outline.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block; 
+}
+#signup_gender .female.selected{
+    background-image: url('../img/female.svg');
+}
 #signup_personal_listview a
 {
     background-color: transparent;
