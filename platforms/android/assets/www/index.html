@@ -47,7 +47,7 @@
                     <div class="login_header text-center">
                         <img src="img/login-logo.png"/>
                     </div>
-                    <div class="row">
+                    <div>
                         <!-- login form -->
                         <form id="login_form" role="form">
                             <div class="form-group has-feedback left-feedback no-label">
@@ -575,7 +575,7 @@
                         </div>
                         <div class="clear"></div>
                     </a>
-                    <a href="#" id="prescription_list_page"  onClick="loadPatientInfo(this.id)"> <!--onClick="loadPatientInfo(this.id)" > -->
+                    <a href="#" id="prescription_page2"  onClick="loadPatientInfo(this.id)"> <!--onClick="loadPatientInfo(this.id)" > -->
                         <div class="row list_item">
                            <div class="col-xs-3 text-center vertical-middle">
                                 <img class="main_page_logo" src="img/checklist-logo.png">
@@ -2159,7 +2159,7 @@
                 <div data-role="header" class="ui-header">
                     <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                     <h1>Prescription</h1>
-                    <a href="#prescription_page2" data-transition="slide"><i class="icon header-icon icon-add" onClick="resetPrescriptionPage2()"></i></a>
+                    <a href="#prescription_page2" data-transition="slide"><i class="icon header-icon icon-med-add" onClick="resetPrescriptionPage2()"></i></a>
                 </div>
                 <div data-role="main" class="ui-content">
                     <div class="patient_detail">
@@ -2171,7 +2171,7 @@
                                 <a class="left carousel-control btn"  href="#patientlist_page"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2('full')">Cancel</a>
                             </div>
                             <div class="continue_btn">
-                                <a class="right carousel-control btn" href="#prescription_detail_page" data-transition="slide" role="button" disabled>Compelete</a>
+                                <a class="right carousel-control btn" href="#prescription_detail_page" data-transition="slide" role="button">Compelete</a>
                             </div>
                     </div>
                 </div>
@@ -2197,11 +2197,11 @@
                         <h3 class="col-xs-10">Medicine Info</h3>
                     </div>
 
-                    <div classs="row">
+                    <div>
                         <a href="#prescription_strength" data-transition="slide">
                             <div class="row">
                                 <div class="col-xs-2 text-center icon-outer">
-                                    <i class="icon icon-2x icon-medinfo"></i>
+                                    <i class="icon icon-2x icon-med-strength"></i>
                                 </div>
                                 <label class="col-xs-4 text-left">Strength</label>
                                 <div class="col-xs-6 text-right">
@@ -2210,7 +2210,7 @@
                             </div>
                         </a>
                     </div>
-                    <div classs="row">
+                    <div>
                         <a href="#prescription_dosage" data-transition="slide" onClick="setupDosagePage()">
                             <div class="row">
                                 <div class="col-xs-2 text-center icon-outer">
@@ -2225,7 +2225,7 @@
 
                         </a>
                     </div>
-                    <div classs="row">
+                    <div>
                         <a href="#prescription_frequency" data-transition="slide">
                             <div class="row">
                                 <div class="col-xs-2 text-center icon-outer">
@@ -2335,7 +2335,7 @@
                     <form data-role="form">
                     <div class="row">
                         <div class="col-xs-2 text-center icon-outer">
-                            <i class="icon icon-2x icon-calendar"></i>
+                            <i class="icon icon-2x icon-med-calendar"></i>
                         </div>
                         <label class="col-xs-5 text-left">Start Date:</label>        
                         <div class="col-xs-5">
@@ -2344,21 +2344,21 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-2 text-center icon-outer">
-                            <i class="icon icon-2x icon-calendar"></i>
+                            <i class="icon icon-2x icon-med-calendar"></i>
                         </div>
                         <label class="col-xs-5 text-left">End Date:</label>        
                         <div class="col-xs-5">
                             <input type="text" class="datepicker_input" id="drug-end-date"/>
                         </div>
                     </div>
-                    <div class="row title">
+                    <div class="row title" style="border:none">
                         <h3>Frequency</h3>
                     </div>
                     <div class="row no-padding">        
                         <div class="col-xs-2 text-center">
                             <input type="number" id='drug-frequency'></input>
                         </div>
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #d6d6d6;">
+                        <div class="col-xs-4 text-center" style="border-right: 1px solid #d6d6d6;padding:0.5em 0;">
                             <span class="light-font">time(s) every</span>
                         </div>
                         <div class="col-xs-2 text-center">
@@ -3183,6 +3183,7 @@ function saveDrug(){
     var drug = {};
     drug.id = medicine_id;
     drug.name = $("#prescription_strength .drug_name").html();
+    drug.strength = $('#drug_strength_label').val();
     drug.dose = $('#drug_dosage_label').val();
     drug.dose_frequency = $('#prescription_frequency #drug-frequency').val();
     drug.dose_period_type = $("#prescription_frequency #drug-period-type").val();
@@ -3204,9 +3205,20 @@ function saveDrug(){
 }
 function addtoPrescriptionList(drug){
     //add to ul named prescription_list
-    $('#prescription_list_page #prescription_list').append('<li><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-10"><div class="row"><p class="light-grey ">'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
+    // var $sub_ul = $('<ul>');
+
+    // $sub_ul.attr('data-role','listview');
+    // console.log($sub_ul);
+    // // //$sub_ul.attr("data-role","listview");
+    // // console.log(sub_ul);
+    //  $sub_ul.append('<li><div class="row"><div class="col-xs-6">Start Date:</div><div class="col-xs-6 text-right">'+drug.start_date+':</div><div class="row"><div class="col-xs-6">End Date:</div><div class="col-xs-6 text-right">'+drug.end_date+':</div></li>').listview().trigger('create').listview('refresh');
+    //  console.log($sub_ul);
+    $('#prescription_list_page #prescription_list').listview();
+
+    $('#prescription_list_page #prescription_list').append('<li><div class="row drug_title" onClick="toggleDrugDetail(this)"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-10"><div class="row"><p class="light-grey ">'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div><div class="row drug_detail" style="display:none"><div class="row"><div class="col-xs-6">Strength:</div><div class="col-xs-6 text-right">'+drug.strength+'</div></div><div class="row"><div class="col-xs-6">Dosage:</div><div class="col-xs-6 text-right">'+drug.dose+'</div></div><div class="row"><div class="col-xs-6">Start Date:</div><div class="col-xs-6 text-right">'+drug.start_date+'</div></div><div class="row"><div class="col-xs-6">End Date:</div><div class="col-xs-6 text-right">'+drug.end_date+'</div></div></li>').listview('refresh');
+    $("#prescription_detail_page .prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
     //add to prescription detail
-    $(".prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
+   
 }
 function addtoPrescriptionArray(drug){
     prescription_array.drug.push(drug.id);
@@ -3232,18 +3244,23 @@ function addtoPrescriptionArray(drug){
 
 //show summary info of the whole prescription
 function completePrescription(){
-    var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-    var current_date = new Date();
-    $(".prescription_detail .prescription_detail_date label").text("Date: "+current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
-    //$(".prescription_detail .prescription_detail_drug").html('');
+    // var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    // var current_date = new Date();
+    // $(".prescription_detail .prescription_detail_date label").text("Date: "+current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
+    // $(".prescription_detail .prescription_detail_drug").html('');
     // for(var i =0;i<prescription_array.length;i++){
     //     $(".prescription_detail .prescription_detail_drug").append('<label>'+prescription_array[i].name+':'+'</label><label>'+prescription_array[i].frequency+', '+prescription_array[i].duration+'.</label>');
     // }
-    //console.log(JSON.stringify(prescription_array));
+    // console.log(JSON.stringify(prescription_array));
 }
 
 function setupDosagePage(){
     $('#drug_dosage_input').focus();
+}
+
+function toggleDrugDetail(element){
+    var target = $(element).parent('li').children('.drug_detail');
+    target.toggle();
 }
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",

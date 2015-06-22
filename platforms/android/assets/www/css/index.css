@@ -1517,8 +1517,14 @@ div#signup_input_group
 .icon-frequency{
     background-image: url('../icon/icon-frequency.svg'); 
 }
-.icon-calendar{
-    background-image: url('../icon/icon-calendar.svg'); 
+.icon-med-calendar{
+    background-image: url('../icon/icon-med-calendar.svg'); 
+}
+.icon-med-add{
+    background-image: url('../icon/icon-med-add.svg'); 
+}
+.icon-med-strength{
+    background-image: url('../icon/icon-med-strength.svg'); 
 }
 div#onborading_content
 {
@@ -1582,10 +1588,11 @@ ul.medicine_search_input{
     background-color: #fff;
     z-index: 10;
     overflow-y: auto; 
+    box-shadow: none;
 }
 
 ul.medicine_search_input li {
-    padding: 0.5em 0 !important;
+    padding: 0.6em 0 !important;
     border-bottom: 1px solid #A0B2B7;
 
     padding-left: 10px !important;
@@ -1672,6 +1679,7 @@ ul.medicine_search_input li {
     }
     .row{
         margin: 0 auto;
+        padding: 0 10px;
     }
     .ui-page .ui-header {
         height: 45px;
@@ -1868,7 +1876,9 @@ ul.medicine_search_input li {
         padding-left: 22%; 
     }
     #medicine_name_input li{
-        border-top: 1px solid #d6d6d6; 
+        border-top: 1px solid #d6d6d6;
+        border-radius: 0;
+
     }
     .prescription_page_content a {
         padding: 0;
@@ -1876,7 +1886,7 @@ ul.medicine_search_input li {
         text-decoration: none;
     }
     .prescription_page_content .row{
-        padding: 10px 5px 10px 10px;
+        padding: 10px;
         margin: 0px auto 0px auto;
         border-bottom: 1px solid #d6d6d6;
         background-color: #fff;
@@ -1956,15 +1966,18 @@ ul.medicine_search_input li {
     .prescription_page_content .row.no-padding label{
         line-height: inherit;
         height: inherit;
+        font-size: 1.2em;
+        padding: 0.4em;
     }
     .prescription_page_content .row.no-padding .ui-input-text{
         background-color: transparent;
     }
     .prescription_page_content .row.no-padding .ui-input-text input{
         text-align: center;
-        line-height: 2.2em;
+        line-height: inherit;
         padding-left: 0;
         padding-right: 0;
+        font-size: 1.2em;
     }
     .prescription_page_content .ui-select{
         margin: 0 auto;
@@ -1976,6 +1989,7 @@ ul.medicine_search_input li {
         padding: 0.5em;
         border: none;
         border-radius: 0;
+        box-shadow: none;
     }
     .prescription_page_content .row.no-padding .ui-select .ui-btn-active{
         background-color: #d6d6d6;
@@ -1983,11 +1997,11 @@ ul.medicine_search_input li {
     }
     .prescription_page_content .row.no-padding .ui-select span{
         
-        line-height: 2em;
+        line-height: 3em;
     }
 
     .prescription_page_content .gap{
-        padding: 5px 0;
+        padding: 10px 0;
         background-color: transparent;
     }
     
