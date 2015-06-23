@@ -393,6 +393,7 @@ span.listview_selection
     font-family: "Bendons-Medium";
     line-height: 58px;
     font-size: 1.5em;
+    font-weight: bold;
     padding: 0;
 }
 
@@ -1554,10 +1555,10 @@ h4.drug_name, h4.drug_strength {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-#prescription_list .drug_detail label{
+#prescription_list .drug_title label, #prescription_list .drug_detail label{
     line-height: 2em;
     margin: 0;
-    color: #8CA0A7;
+    
 }
 
 ul.medicine_search_input{
@@ -1585,6 +1586,10 @@ ul.medicine_search_input li {
     background-color: #f2f2f2;
     opacity: 1;
 }*/
+#prescription_list_page .prescription_list_content{
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
+}
 .prescription_item .prescription_btns{
     padding-top: 10px;
 }
