@@ -354,9 +354,9 @@ span.listview_selection
 }
 #login_form .ui-input-text input::-moz-placeholder{
     color: #FFF;
-} 
-#login_form .ui-input-text input:-webkit-placeholder{
-    color: #FFF;
+}
+#login_form .ui-input-text input:webkit-placeholder{
+    color: #fff;
 }
 .has-feedback .form-control {
     padding-right:  0;
@@ -1562,9 +1562,7 @@ h4.drug_name, h4.drug_strength {
 }
 #prescription_list li{
     width: 100%;
-    background-color: #e3e3e3 !important;
-    padding: 10px;
-    border-top:1px solid #A0B2B7 !important; 
+    background-color: #fff !important;
 }
 
 #prescription_list li p{
@@ -1573,9 +1571,16 @@ h4.drug_name, h4.drug_strength {
     font-size: 15px;
     color: #495559 !important;
 }
-#prescription_list li .icon{
-    width: 2.6em;
-    height: 2.6em;
+
+#prescription_list .drug_title, #prescription_list .drug_detail{
+    border-top: 1px solid #A0B2B7 !important; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#prescription_list .drug_title label, #prescription_list .drug_detail label{
+    line-height: 2em;
+    margin: 0;
+    color: #8CA0A7;
 }
 #prescription_list_page #prescription_list{
     margin: 0 auto;
@@ -1703,6 +1708,7 @@ ul.medicine_search_input li {
     .patient_photo{
         padding-top: 0;
         padding-right: 0;
+        padding-left: 10px !important;
         padding-bottom: 0;
     }
     .patient_photo img{
@@ -1710,7 +1716,7 @@ ul.medicine_search_input li {
         height: auto;
     }
     .patient_info{
-        padding-top: 0em;
+        padding: 5px 10px 0 10px !important;
     }
     .patient_detail{
     height: 15vh;
@@ -1941,6 +1947,8 @@ ul.medicine_search_input li {
     #strength_list .row{
         padding-left: 10px;
         padding-right: 10px;
+        border-bottom: none;
+        border-top: 1px solid #d6d6d6;
     }
     .prescription_page_content .ui-input-text, .prescription_page_content .ui-input-search{
         box-shadow: none;

@@ -3,6 +3,7 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="Fullscreen" value="false" />
     <preference name="Orientation" value="portrait" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <name>Evocare-Specialist</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

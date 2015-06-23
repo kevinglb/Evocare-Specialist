@@ -153,7 +153,7 @@ function getPatientList(page_id)
               {
                 transition: "slide",
                 reverse: false,
-                changeHash: true
+                changeHash: false
               });
             }
     			}

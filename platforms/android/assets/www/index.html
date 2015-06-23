@@ -2168,7 +2168,7 @@
                     </ul>
                     <div class="carousel_controls">
                         <div class="back_btn">
-                                <a class="left carousel-control btn"  href="#patientlist_page"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2('full')">Cancel</a>
+                                <a class="left carousel-control btn"  href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2('full')">Cancel</a>
                             </div>
                             <div class="continue_btn">
                                 <a class="right carousel-control btn" href="#prescription_detail_page" data-transition="slide" role="button">Compelete</a>
@@ -2492,8 +2492,14 @@
 
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+<script>
+$(document).bind("mobileinit", function(){ 
+        $.mobile.pushStateEnabled = false; 
+        $.mobile.useFastClick = false;
+}); 
+</script>
 <script>
 
         $(function () {
@@ -2718,7 +2724,7 @@ function loadMedicineStrength(medicine){
 }
 
 function loadStrengthlist(medicine_name){
-    console.log('start load list');
+    //console.log('start load list');
     var $strength_ul = $( "#prescription_strength  #strength_list" );
     //var $name_input = $("#medicinine_name_input").parent('.row').children('form').children('.ui-input-search').children('input');
     //var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
@@ -2741,7 +2747,7 @@ function loadStrengthlist(medicine_name){
         for(var i = 0;i<response.options.length;i++) {
             content +='<li id="'+response.options[i].rxcui+'"><a href="#prescription_page2" data-transition="slide" data-direction="reverse" class="ui-link"><div class="row">'+response.options[i].display+'</div></a></li>';
         }
-        console.log(content);
+        //console.log(content);
         $strength_ul.html(content).listview( "refresh" ).trigger( "updatelayout");
     });
                                 
@@ -3183,8 +3189,8 @@ function saveDrug(){
     var drug = {};
     drug.id = medicine_id;
     drug.name = $("#prescription_strength .drug_name").html();
-    drug.strength = $('#drug_strength_label').val();
-    drug.dose = $('#drug_dosage_label').val();
+    drug.strength = $('#drug_strength_label').html();
+    drug.dose = $('#drug_dosage_label').html();
     drug.dose_frequency = $('#prescription_frequency #drug-frequency').val();
     drug.dose_period_type = $("#prescription_frequency #drug-period-type").val();
     drug.dose_period_multiplier = $("#prescription_frequency #drug-period-multiplier").val();
@@ -3197,7 +3203,7 @@ function saveDrug(){
     if(drug.end_date ==""){
         drug.end_date = drug.start_date;
     }
-    console.log(drug);
+    //console.log(drug);
     //push into prescription_array
     $("#prescription_list_page .carousel_controls .right").removeAttr('disabled','disabled');
     addtoPrescriptionArray(drug);
@@ -3214,8 +3220,9 @@ function addtoPrescriptionList(drug){
     //  $sub_ul.append('<li><div class="row"><div class="col-xs-6">Start Date:</div><div class="col-xs-6 text-right">'+drug.start_date+':</div><div class="row"><div class="col-xs-6">End Date:</div><div class="col-xs-6 text-right">'+drug.end_date+':</div></li>').listview().trigger('create').listview('refresh');
     //  console.log($sub_ul);
     $('#prescription_list_page #prescription_list').listview();
+    console.log(JSON.stringify(drug));
+    $('#prescription_list_page #prescription_list').append('<li><div class="row drug_title" onClick="toggleDrugDetail(this)"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9 text-center"><label>'+drug.name+'</label></div></div><div class="drug_detail" style="display:none"><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-med-strength"></i></div><div class="col-xs-9 text-center"><label>'+drug.strength+'</label></div></div><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-dosage"></i></div><div class="col-xs-9 text-center"><label>'+drug.dose+'</label></div></div><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-med-calendar"></i></div><div class="col-xs-9 text-center"><label>'+drug.start_date+' to '+drug.end_date+'</label><label>'+drug.dose_frequency+' time(s) per '+drug.dose_period_multiplier+' '+drug.dose_period_type+'</label></div></div></li>').listview('refresh');
 
-    $('#prescription_list_page #prescription_list').append('<li><div class="row drug_title" onClick="toggleDrugDetail(this)"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-10"><div class="row"><p class="light-grey ">'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div><div class="row drug_detail" style="display:none"><div class="row"><div class="col-xs-6">Strength:</div><div class="col-xs-6 text-right">'+drug.strength+'</div></div><div class="row"><div class="col-xs-6">Dosage:</div><div class="col-xs-6 text-right">'+drug.dose+'</div></div><div class="row"><div class="col-xs-6">Start Date:</div><div class="col-xs-6 text-right">'+drug.start_date+'</div></div><div class="row"><div class="col-xs-6">End Date:</div><div class="col-xs-6 text-right">'+drug.end_date+'</div></div></li>').listview('refresh');
     $("#prescription_detail_page .prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
     //add to prescription detail
    

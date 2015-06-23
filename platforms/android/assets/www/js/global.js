@@ -73,6 +73,38 @@ function onDeviceReady()
         navigator.app.backHistory();
         setTimeout(function(){resetPrescriptionPage('full');},500);
        }
+       if($.mobile.activePage.is('#prescription_page2'))
+       {
+        //if there is no drug has been added
+        if($("#prescription_list_page #prescription_list li").length == 0){
+          resetPrescriptionPage2();
+          //console.log('no 0');
+          $.mobile.changePage("#patientlist_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+        else{
+          //console.log('no 0');
+          $.mobile.changePage("#prescription_list_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+       }
+       if($.mobile.activePage.is('#patientlist_page'))
+       {
+        $.mobile.changePage("#main_page", 
+        {
+          transition: "slide",
+          reverse: true,
+          changeHash: false
+        });
+       }
        else 
        {
         navigator.app.backHistory();
@@ -173,7 +205,7 @@ function resetPrescriptionPage2(part){
   $("#drug-period-multiplier").val(1);
   $("#prescription_frequency #on-period-multiplier").val(0);
   $("#prescription_frequency #off-period-multiplier").val(0);
-  $("#prescription_frequency #dose-period-type").val('Daily').change();
+  $("#prescription_frequency #drug-period-type").val('Daily').change();
   $("#prescription_frequency #on-period-type").val('Daily').change();
   $("#prescription_frequency #off-period-type").val('Daily').change();
   $('#drug-end-date').val('');
@@ -181,7 +213,7 @@ function resetPrescriptionPage2(part){
   var month= ["JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
   $("#drug-start-date").val(current_date.getDate()+"-"+month[current_date.getMonth()]+"-"+current_date.getFullYear());
     
-
+  //console.log('resetPrescriptionPage2');
 
   if(typeof(part) === "string"){
     prescription_array = {
