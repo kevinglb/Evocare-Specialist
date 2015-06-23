@@ -73,13 +73,93 @@ function onDeviceReady()
         navigator.app.backHistory();
         setTimeout(function(){resetPrescriptionPage('full');},500);
        }
+       if($.mobile.activePage.is('#prescription_page2'))
+       {
+        //if there is no drug has been added
+        if($("#prescription_list_page #prescription_list li").length == 0){
+          resetPrescriptionPage2();
+          //console.log('no 0');
+          $.mobile.changePage("#patientlist_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+        else{
+          //console.log('no 0');
+          $.mobile.changePage("#prescription_list_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+       }
+       if($.mobile.activePage.is('#patientlist_page'))
+       {
+        $.mobile.changePage("#main_page", 
+        {
+          transition: "slide",
+          reverse: true,
+          changeHash: false
+        });
+       }
        else 
        {
         navigator.app.backHistory();
        }
     }, false);
 
-    
+    $(".ui-header .head_back").bind('click',function(e){
+      console.log('click');
+      if($.mobile.activePage.is('#prescription_page2'))
+       {
+        //if there is no drug has been added
+        if($("#prescription_list_page #prescription_list li").length == 0){
+          resetPrescriptionPage2();
+          //console.log('no 0');
+          $.mobile.changePage("#patientlist_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+        else{
+          //console.log('no 0');
+          $.mobile.changePage("#prescription_list_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: true
+          });
+        }
+       }
+       else if($.mobile.activePage.is('#prescription_detail_page')){
+        $.mobile.changePage("##prescription_list_page", 
+        {
+          transition: "slide",
+          reverse: true,
+          changeHash: true
+        });
+       }
+       else if($.mobile.activePage.is('#patientlist_page')){
+        $.mobile.changePage("#main_page", 
+        {
+          transition: "slide",
+          reverse: true,
+          changeHash: false
+        });
+       }
+
+       else 
+       {
+        navigator.app.backHistory();
+       }
+
+    });
+
 }
 
 
@@ -153,4 +233,54 @@ function resetPrescriptionPage(part){
 
   }
   
+}
+
+function resetPrescriptionPage2(part){
+  /*prescription_page2*/
+  $('#prescription_page2 form').trigger('reset');
+  $("#medicine_name_input").parent('.row').children('form').children('.ui-input-search').children('input').val('');
+  $("#drug_strength_label").text('');
+  $("#drug_dosage_label").text('');
+  $("#drug_frequency_label").text('');
+  /*prescripition_strength*/
+  $('#prescription_strength #strength_list').listview().html('').listview('refresh');
+  
+  /*prescription_dosage*/
+  $("#drug_dosage_input").val(0);
+  /*prescription_frequency*/
+  $("#prescription_frequency form").trigger('reset');  
+  $("#drug-frequency").val(1);
+  $("#drug-period-multiplier").val(1);
+  $("#prescription_frequency #on-period-multiplier").val(0);
+  $("#prescription_frequency #off-period-multiplier").val(0);
+  $("#prescription_frequency #drug-period-type").val('Daily').change();
+  $("#prescription_frequency #on-period-type").val('Daily').change();
+  $("#prescription_frequency #off-period-type").val('Daily').change();
+  $('#drug-end-date').val('');
+  var current_date = new Date();
+  var month= ["JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  $("#drug-start-date").val(current_date.getDate()+"-"+month[current_date.getMonth()]+"-"+current_date.getFullYear());
+    
+  //console.log('resetPrescriptionPage2');
+
+  if(typeof(part) === "string"){
+    prescription_array = {
+                          drug:[],
+                          dose:[],
+                          dose_frequency:[],
+                          dose_period_type:[],
+                          dose_period_type:[],
+                          dose_period_multiplier:[],
+                          on_period_type:[],
+                          on_period_multiplier:[],
+                          off_period_type:[],
+                          off_period_multiplier:[],
+                          start_date:[],
+                          end_date:[]
+                        };
+                        
+    $("#prescription_list_page #prescription_list").html('').listview('refresh');
+    $("#prescription_detail_page .prescription_detail .prescription_detail_drug").html('');
+
+  }
 }

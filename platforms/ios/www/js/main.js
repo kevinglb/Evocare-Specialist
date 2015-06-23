@@ -4,22 +4,22 @@ var uploadAvatar = false;
 
 function loadPatientInfo(page_id)
 {
-	// load patient list 
-	getPatientList(page_id);
+  // load patient list 
+  getPatientList(page_id);
 }
 
 function getPatientList(page_id)
 {
-	$.ajax(
-		{
-    		url : patientList_url,
-    		type: "POST",
-    		data : {key: api_key},
-    		dataType: 'json',
-    		success: function(response)
-    		{
-    			if(response.status == "1")
-    			{
+  $.ajax(
+    {
+        url : patientList_url,
+        type: "POST",
+        data : {key: api_key},
+        dataType: 'json',
+        success: function(response)
+        {
+          if(response.status == "1")
+          {
             var output = [];
             patients_list = response.patients;
 
@@ -138,17 +138,35 @@ function getPatientList(page_id)
                 changeHash: true
               });
             }
-    			}
-    			else
-    			{
-    				alert("Sorry, cannot load your patient list");
-    			}
-    		},
-    		error: function (error)
-    		{
-    			alert("Sorry, failed to load patient list. Please check your network and try again later");
-    		}
-		});
+            if(page_id == "prescription_page2")
+            {
+              $.each(response.patients, function(index, value)
+              {
+                output += '<li class="patient" data-icon="false"><div id="' + value.id + '" onClick="setUpPrescriptionPage2(this.id)"><div class="col-xs-3 col-md-3 patient_photo text-center"><img class="img-circle" src="' + value.avatar + '"></div><div class="col-xs-9 col-md-9 patient_info"><div class="row"><p class="patient_name">' + value.full_name + '</p></div><div class="row"><p class="patient_date">' + value.gender.substring(0,1).toUpperCase() + ' . ' + value.date_of_birth + '</p></div><div class="row"><p class="patient_issue">' +value.condition + '</p></div></div></div></li>';
+              });
+
+              $('#patient_list').children('ul').empty();
+              $('#patient_list').children('ul').append(output).listview().listview('refresh');
+
+              // navigate to patientlist page after updating
+              $.mobile.changePage("#patientlist_page", 
+              {
+                transition: "slide",
+                reverse: false,
+                changeHash: false
+              });
+            }
+          }
+          else
+          {
+            alert("Sorry, cannot load your patient list");
+          }
+        },
+        error: function (error)
+        {
+          alert("Sorry, failed to load patient list. Please check your network and try again later");
+        }
+    });
 }
 
 //load data and fill in the VC Page
@@ -840,12 +858,13 @@ function setUpPrescriptionPage(patient_id){
             var latitude = response.pharmacy.latitude;
             var longitude = response.pharmacy.longitude;
             var address_array = response.pharmacy.address.split(' ');
-            
-            var q = 'q='+latitude+','+longitude;
-            
-
+            var location_string = "geo: "+latitude+','+longitude;
+            var q = '?q='+address_array[0];
+            for(var i = 1;i<address_array.length;i++){
+              q=q+'+'+address_array[i];
+            }
             $('.prescription_detail .prescription_detail_pharmacy label').text("Pharmacy: "+response.pharmacy.name);
-            $('.prescription_detail .prescription_detail_pharmacy a').attr("href", "maps://maps.apple.com/?"+q);
+            $('.prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
             pharmacy = response.pharmacy;
             console.log(JSON.stringify(pharmacy));
           }
@@ -873,7 +892,8 @@ function setUpPrescriptionPage(patient_id){
 
 //upload prescription_array to the server through API call
 function uploadPrescription(){
-  var patient_id = $('#prescription_page .patient_detail').attr("id");
+  // var patient_id = $('#prescription_page2 .patient_detail').attr("id");
+  var patient_id = $('#prescription_page2 .patient_detail').attr("id");
   var key_array = { key:api_key,
                     patient: patient_id,
                     pharmacy_full_name: pharmacy.name,
@@ -913,6 +933,74 @@ function uploadPrescription(){
       reverse: false,
       changeHash: false
     });
-    resetPrescriptionPage('full');
-    disablePrescription();
+    resetPrescriptionPage2('full');
+    //disablePrescription();
+}
+
+function setUpPrescriptionPage2(patient_id){
+    global_patient_id = patient_id;
+
+    // get single patient info by id
+    var single_patient = getSinglePatientInfo(patient_id);
+    var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    var current_date = new Date();
+    // set up patient info on prescription page header
+    var output = '<div class="col-xs-3 vertical-middle"><img src="' +single_patient.avatar + '" class="img-circle img-responsive"></div><div class="col-xs-9 vertical-middle"><div class="row"><div class="col-xs-6 patient_name md-size">' + single_patient.full_name + '</div><div class="col-xs-1 light-font gender">'+single_patient.gender.substring(0,1)+'</div><div class="col-xs-5 light-font birth_date">' + single_patient.date_of_birth + '</div></div><div class="row"><div class="col-xs-12 light-font disease_issue">' + single_patient.condition + '</div></div></div>';
+    /* load patient info in prescription_page2 */
+    $('#prescription_page2 .patient_detail').first().html(output);
+    $('#prescription_page2 .patient_detail').height($('#prescription_page2 .patient_detail').height());
+    $('#prescription_page2 .patient_detail').attr("id",patient_id);
+    /* load patient info in prescription_list_page */
+    $('#prescription_list_page .patient_detail').first().html(output);
+    $('#prescription_list_page .patient_detail').height($('#prescription_list_page .patient_detail').height());
+    $('#prescription_list_page .patient_detail').attr("id",patient_id);
+    
+    /* load patient info in prescription_detail_page */
+    $('#prescription_detail_page .patient_detail').first().html(output);
+    $('#prescription_detail_page .patient_detail').height($('#prescription_detail_page .patient_detail').height());
+    $('#prescription_detail_page .patient_detail').attr("id",patient_id);
+    $("#prescription_detail_page .prescription_detail .prescription_detail_date label").text("Date: "+current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
+    resetPrescriptionPage2();
+    
+    $.ajax(
+    {
+        url : getpharmacy_url,
+        type: "POST",
+        data : {key:api_key,patient:patient_id},
+        dataType: 'json',
+        success: function(response)
+        {
+          if(response.status == "1")
+          {
+            
+            //console.log(JSON.stringify(response.pharmacy));
+            var latitude = response.pharmacy.latitude;
+            var longitude = response.pharmacy.longitude;
+            var address_array = response.pharmacy.address.split(' ');
+            var location_string = "geo: "+latitude+','+longitude;
+            var q = '?q='+address_array[0];
+            for(var i = 1;i<address_array.length;i++){
+              q=q+'+'+address_array[i];
+            }
+            $('#prescription_detail_page .prescription_detail .prescription_detail_pharmacy label').text("Pharmacy: "+response.pharmacy.name);
+            $('#prescription_detail_page .prescription_detail .prescription_detail_pharmacy a').attr("href", location_string+q);
+            pharmacy = response.pharmacy;
+            console.log(JSON.stringify(pharmacy));
+          }
+          else
+          {
+            alert(response.message);
+          }
+        },
+        error: function (error)
+        {
+          alert("Sorry, some errors occurred. Please try again later");
+        }
+    });
+    $.mobile.changePage("#prescription_page2", 
+    {
+      transition: "slide",
+      reverse: false,
+      changeHash: true
+    });
 }

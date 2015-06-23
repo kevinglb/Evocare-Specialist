@@ -47,7 +47,7 @@
                     <div class="login_header text-center">
                         <img src="img/login-logo.png"/>
                     </div>
-                    <div class="row">
+                    <div>
                         <!-- login form -->
                         <form id="login_form" role="form">
                             <div class="form-group has-feedback left-feedback no-label">
@@ -575,7 +575,7 @@
                         </div>
                         <div class="clear"></div>
                     </a>
-                    <a href="#" id="prescription_page"  onClick="loadPatientInfo(this.id)" >
+                    <a href="#" id="prescription_page2"  onClick="loadPatientInfo(this.id)"> <!--onClick="loadPatientInfo(this.id)" > -->
                         <div class="row list_item">
                            <div class="col-xs-3 text-center vertical-middle">
                                 <img class="main_page_logo" src="img/checklist-logo.png">
@@ -678,7 +678,7 @@
             </div> 
             <!-- header -->
             <div data-role="header" class="ui-header">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="header_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                <a href="#" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <h1>Patient list</h1>
                 <div class="ui-btn-right multi-icons">
                 <!-- <a href="#"><i class="icon icon-filter icon-right"></i></a> --> 
@@ -1961,7 +1961,7 @@
             <!-- prescription_page -->
             <div id="prescription_page" data-role="page">
                 <div data-role="header" class="ui-header">
-                    <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <a href="#" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                     <h1>Prescription</h1>
                     <a href="#"><i class="icon header-icon icon-dots"></i></a>
                 </div>
@@ -1977,7 +1977,7 @@
                                     <h3>Create a prescription</h3>
                                     <div class="row bottom-border" style='margin:30px 0px;'>
                                         <label>Name:</label> 
-                                        <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" disabled></ul>
+                                        <!-- <ul id="search_medicine_name" class="medicine_search_input" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Type name of the medicine" data-icon="flase" disabled></ul> -->
                                     </div>
                                     <div class="row bottom-border" style='margin-bottom:30px;'>
                                         <label>Strength:</label> 
@@ -2154,7 +2154,328 @@
                     </div>
                 </div>
             </div>
-            
+
+            <div id="prescription_list_page" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Prescription</h1>
+                    <a href="#prescription_page2" data-transition="slide"><i class="icon header-icon icon-med-add" onClick="resetPrescriptionPage2()"></i></a>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div class="patient_detail">
+                    </div>
+                    <div class="prescription_list_content">
+                        <div class="row title ">
+                            <h3>Create Prescription</h3>
+                        </div>
+                        <ul id="prescription_list" data-role="listview">
+                        </ul>
+                    </div>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control btn"  href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2('full')">Cancel</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control btn" href="#prescription_detail_page" data-transition="slide" role="button">Compelete</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prescription_page2" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Prescription</h1>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
+                </div>
+                <div data-role="main" class="ui-content prescription_page_content">
+                    <div class="patient_detail">
+                    </div>
+                    <div class="row title">
+                        <h3>Create Prescription</h3>
+                    </div>
+                    <form data-role="form">
+                    <div class="row">
+                        <ul id="medicine_name_input" class="medicine_search_input" data-role="listview" data-icon="false" data-inset="true" data-filter="true" data-filter-placeholder="Medicine Name" ></ul>
+                    </div>
+                    <div class="row title">                      
+                        <h3 class="col-xs-10">Medicine Info</h3>
+                    </div>
+
+                    <div>
+                        <a href="#prescription_strength" data-transition="slide">
+                            <div class="row">
+                                <div class="col-xs-2 text-center icon-outer">
+                                    <i class="icon icon-2x icon-med-strength"></i>
+                                </div>
+                                <label class="col-xs-4 text-left">Strength</label>
+                                <div class="col-xs-6 text-right">
+                                    <label id="drug_strength_label"></label>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#prescription_dosage" data-transition="slide" onClick="setupDosagePage()">
+                            <div class="row">
+                                <div class="col-xs-2 text-center icon-outer">
+                                    <i class="icon icon-2x icon-dosage"></i>
+                                </div>
+                                <label class="col-xs-4 text-left">Dosage</label>
+                                
+                                <div class="col-xs-6 text-right">
+                                    <label id="drug_dosage_label"></label>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#prescription_frequency" data-transition="slide">
+                            <div class="row">
+                                <div class="col-xs-2 text-center icon-outer">
+                                    <i class="icon icon-2x icon-frequency"></i>
+                                </div>
+                                <label class="col-xs-4 text-left">Frequency</label>
+                                
+                                <div class="col-xs-6">
+                                    <label id="drug_frequency_label"></label>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div>
+                </form>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control btn"  href="#prescription_list_page"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2()">Cancel</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control btn" href="#prescription_list_page" data-transition="slide" role="button" onClick="saveDrug()">Save</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prescription_strength" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#"  data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Strength</h1>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
+                </div>
+                <div data-role="main" class="ui-content prescription_page_content">
+                    <div class="row title">
+                        <h3 class="drug_name"></h3>
+                    </div>
+                    <div class="row">
+                        <label>Strength:</label>
+                        <ul id="strength_list" data-role="listview" data-icon="false" data-inset="true" data-filter="false">
+                            <!-- <li>
+                                <a href="#prescription_page2" data-transition="slide" data-direction="reverse">
+                                    <div class="row">50mg</div>
+                                </a>
+                            </li>
+                            <li><a href="#prescription_page2" data-transition="slide" data-direction="reverse">
+                                    <div class="row">50mg</div>
+                                </a></li>
+                            <li><a href="#prescription_page2" data-transition="slide" data-direction="reverse">
+                                    <div class="row">50mg</div>
+                                </a></li>
+                            <li><a href="#prescription_page2" data-transition="slide" data-direction="reverse">
+                                    <div class="row">50mg</div>
+                                </a></li> -->
+                       </ul>
+                    </div>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="" disabled>Save</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prescription_dosage" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Dosage</h1>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
+                </div>
+
+                <div data-role="main" class="ui-content prescription_page_content">
+                    <div class="row title">
+                        <h3 class="drug_name"></h3>
+                    </div>
+                    <div class="row">
+                       <label for="drug_dosage_input" class="col-xs-3">Dosage</label>
+                       <div class="col-xs-6"> 
+                            <input id="drug_dosage_input" type="number"/>
+                        </div>
+                        <label class="col-xs-3 text-right" id="drug_dosage_unit">mg</label>
+                    </div>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="saveDosage()">Save</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prescription_frequency" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Frequency</h1>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
+                </div>
+                <div data-role="main" class="ui-content prescription_page_content">
+                    <div class="row title">
+                        <h3 class="drug_name"></h3>
+
+                    </div>
+                    <form data-role="form">
+                    <div class="row">
+                        <div class="col-xs-2 text-center icon-outer">
+                            <i class="icon icon-2x icon-med-calendar"></i>
+                        </div>
+                        <label class="col-xs-5 text-left">Start Date:</label>        
+                        <div class="col-xs-5">
+                            <input type="text" class="datepicker_input" id="drug-start-date"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 text-center icon-outer">
+                            <i class="icon icon-2x icon-med-calendar"></i>
+                        </div>
+                        <label class="col-xs-5 text-left">End Date:</label>        
+                        <div class="col-xs-5">
+                            <input type="text" class="datepicker_input" id="drug-end-date"/>
+                        </div>
+                    </div>
+                    <div class="row title" style="border:none">
+                        <h3>Frequency</h3>
+                    </div>
+                    <div class="row no-padding">        
+                        <div class="col-xs-2 text-center">
+                            <input type="number" id='drug-frequency'></input>
+                        </div>
+                        <div class="col-xs-4 text-center" style="border-right: 1px solid #d6d6d6;padding:0.5em 0;">
+                            <span class="light-font">TIME(S) EVERY</span>
+                        </div>
+                        <div class="col-xs-2 text-center">
+                            <input type="number" id='drug-period-multiplier'></input>
+                        </div>
+                        <div class="col-xs-4">
+                            <select id="drug-period-type" class="dose-period-type bottom-border" data-icon="false" >
+                                <option value="Hourly">Hour(s)</option>
+                                    <option value="Daily">Day(s)</option>
+                                    <option value="Weekly">Week(s)</option>
+                                    <option value="Monthly">Month(s)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="gap"></div>
+                    <div class="row no-padding">
+                        <div class="col-xs-2 text-center">
+                            <label class="md-font">On</label>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <input type="number" id="on-period-multiplier"></input>
+                        </div>
+                        <div class="col-xs-6">
+                            <select id="on-period-type"  data-icon="false" >
+                                <option value="Hourly">Hour(s)</option>
+                                    <option value="Daily">Day(s)</option>
+                                    <option value="Weekly">Week(s)</option>
+                                    <option value="Monthly">Month(s)</option>
+                            </select>
+                        </div>  
+                    </div>
+                    <div class="gap"></div>
+                    <div class="row no-padding">
+                        <div class="col-xs-2 text-center">
+                            <label class="md-font">Off</label>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <input type="number" id="off-period-multiplier"></input>
+                        </div>
+                        <div class="col-xs-6">
+                            <select id="off-period-type" data-icon="false" >
+                                <option value="Hourly">Hour(s)</option>
+                                <option value="Daily">Day(s)</option>
+                                <option value="Weekly">Week(s)</option>
+                                <option value="Monthly">Month(s)</option>
+                            </select>
+                        </div>
+                                            
+                    </div>
+                    </form>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="">Save</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div id="prescription_detail_page" data-role="page">
+                <div data-role="header" class="ui-header">
+                    <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
+                    <h1>Prescription</h1>
+                    <a href="#"><i class="icon header-icon icon-dots"></i></a>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div class="patient_detail">
+                    </div>
+                    <div class="container prescription_detail">
+                        <h3>Prescription details</h3>
+                        <div class="row prescription_detail_date">
+                        <label></label>
+                        </div>
+                        <div class="row prescription_detail_doctor">
+                            <label>Doctor: Name Lastname</label>
+                        </div>
+                        <div class="row prescription_detail_drug">
+                        </div>
+                        <div class="row prescription_detail_pharmacy">
+                            <label></label>
+                            <a><i class="icon icon-2x icon-location-g"></i></a>
+                        </div>
+                        <div class="row">
+                            <a href="＃" style="color:#495559">
+                                <div class="col-xs-2">
+                                    <i class="icon icon-2x icon-print"></i>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label class="light-grey" style="line-height:2em;">Print</label>
+                                </div>
+                            </a>
+                            <a href="＃" style="color:#495559">
+                                <div class="col-xs-2">
+                                    <i class="icon icon-2x icon-email"></i>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label class="light-grey" style="line-height:2em;">E-mail</label>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                                <a class="left carousel-control btn" href="#"  data-rel="back" data-transition="slide" data-direction="reverse" role="button">Back</a>
+                            </div>
+                            <div class="continue_btn">
+                                <a class="right carousel-control btn" href="#" data-transition="slide"  role="button" onClick="uploadPrescription()">Update</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
             <!-- prescription_page end-->
     <script type="text/javascript" src="cordova.js"></script>
     <script src="plugins/com.phonegap.plugins.sqlite/www/SQLitePlugin.js"></script>
@@ -2176,8 +2497,14 @@
 
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+<script>
+$(document).bind("mobileinit", function(){ 
+        $.mobile.pushStateEnabled = false; 
+        $.mobile.useFastClick = false;
+}); 
+</script>
 <script>
 
         $(function () {
@@ -2209,49 +2536,12 @@
                         console.log("year: " +selectYear);
                     }
                 })
-                    var date = new Date();
-                    var d = date.getDate();
-                    var m = date.getMonth();
-                    var y = date.getFullYear();
-                    //calendar initialization
-                    $("#calendar").jqmCalendar({
-                            events: [{
-                                "title": "Meet PM",
-                                "type" : "personal",
-                                "begin": new Date(y,m, 27 ),
-                                "end": new Date(y, m, 28)
-            
-                        }, 
-                        {
-                                "title": "gym",
-                                "type" : "fitness",
-                                "begin": new Date(y,m, 22 ),
-                                "end": new Date(y, m, 28)
-            
-                        },{
-                                "title": "Dinner",
-                                "type": "personal",
-                                "begin": new Date(y, m, d+3,1,10,0,0),
-                                "end": new Date(y, m, d + 4,15,15,0,0)
-            
-                        }, {
-                                "title": "Lunch with Friends",
-                                "type": "public",
-                                "begin": new Date(y, m, d + 6),
-                                "end": new Date(y, m, d + 7)
-            
-                        }, 
-                        ],
-                    months : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                    startOfWeek : 0
-                    }); 
-    
-                //autocomplete the search input for medicine name
-                $( "#search_medicine_name" ).on( "filterablebeforefilter", function ( e, data ) {
-                        var height = $('#prescription_page .patient_detail').height();
-                        $("#prescription_page .ui-content").animate({
-                            scrollTop: height
-                        },500);
+                 $( "#medicine_name_input" ).on( "filterablebeforefilter", function ( e, data ) {
+                        var height = $('#prescription_page2 .patient_detail').height();
+                         $("#prescription_page2 .ui-content").animate({
+                             scrollTop: height
+                         },500);
+                         $("#drug_strength_label").text('');
                         var $ul = $( this ),
                             $input = $( data.input ),
                             value = $input.val(),
@@ -2283,18 +2573,73 @@
                             }
                         //when a medicine name is selected
                         $ul.on('click','li',function(event){
-                            var text = $(this).html();
-                            
-                            $input.val(text);
+
+                            var drug_name = $(this).html();
+                            loadStrengthlist(drug_name);
+                            $("#drug_strength_label").text('');
+                            $('#prescription_strength').find('.drug_name').text(drug_name);
+                            $('#prescription_dosage').find('.drug_name').text(drug_name);
+                            $('#prescription_frequency').find('.drug_name').text(drug_name);
+                            $input.val(drug_name);
                             $ul.html('').listview('refresh');
+                            $( "#prescription_strength  #strength_list").html('').listview('refresh');
                             // $("#prescription_page .ui-content").animate({
                             //     scrollTop: 0
                             // },500);
-                            loadMedicineStrength(text)
+                            
                         });
                     
                 });
         });
+        //         //autocomplete the search input for medicine name
+        //         $( "#search_medicine_name" ).on( "filterablebeforefilter", function ( e, data ) {
+        //                 var height = $('#prescription_page .patient_detail').height();
+        //                  $("#prescription_page .ui-content").animate({
+        //                      scrollTop: height
+        //                  },500);
+        //                 var $ul = $( this ),
+        //                     $input = $( data.input ),
+        //                     value = $input.val(),
+        //                     html = "";
+        //                     $ul.html( "" );
+        //                     //console.log('search on');
+        //                     if(!value || value.length <3){
+        //                         //console.log('<3');
+        //                         $ul.html( "" ).listview('refresh');
+        //                         disablePrescription();
+        //                     }
+        //                     if ( value && value.length > 2 ) {
+        //                         $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" ).listview( "refresh" );
+        //                         $.ajax({
+        //                             url: medicinename_url,
+        //                             dataType: "json",
+        //                             type: "POST",
+        //                             data: {
+        //                                 key: api_key,
+        //                                 q: $input.val()
+        //                             }
+        //                         })
+        //                         .then( function ( response ) {
+        //                             $.each( response.terms, function ( i, val ) {
+        //                                 html += "<li>" + val + "</li>";
+        //                             });
+        //                             $ul.html( html ).listview( "refresh" ).trigger( "updatelayout");
+        //                         });
+        //                     }
+        //                 //when a medicine name is selected
+        //                 $ul.on('click','li',function(event){
+        //                     var text = $(this).html();
+                            
+        //                     $input.val(text);
+        //                     $ul.html('').listview('refresh');
+        //                     // $("#prescription_page .ui-content").animate({
+        //                     //     scrollTop: 0
+        //                     // },500);
+        //                     loadMedicineStrength(text)
+        //                 });
+                    
+        //         });
+        // });
 
 //detect the keyboard and hide control buttons when keyboard shows
 document.addEventListener("showkeyboard", function(){ 
@@ -2311,6 +2656,12 @@ $("#signup_inner_slide").bind('slid.bs.carousel',function(){
 
 $("#prescription_slide").bind('slid.bs.carousel',function(){
     detectPresctiptionSlide();
+});
+$("input[type='text']").on("click", function () {
+   $(this).select();
+});
+$("input[type='number']").on("click", function () {
+   $(this).select();
 });
 
 //load medicine strength list parameter'medicine' is the value of medicine name input 
@@ -2377,6 +2728,74 @@ function loadMedicineStrength(medicine){
     });
 }
 
+function loadStrengthlist(medicine_name){
+    //console.log('start load list');
+    var $strength_ul = $( "#prescription_strength  #strength_list" );
+    //var $name_input = $("#medicinine_name_input").parent('.row').children('form').children('.ui-input-search').children('input');
+    //var $strength_input = $("#search_medicinine_strength").parent('.row').children('form').children('.ui-input-search').children('input');
+    //var height = $('#prescription_page .patient_detail').height();
+                        
+    var content = '';
+    //$strength_ul.trigger('create').listview('refresh');
+    //$strength_input.val('');
+    //$strength_ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
+    //$strength_ul.listview( "refresh" );
+    $.ajax({
+        url: medicinestrength_url,
+        dataType: "json",
+        type: "POST",
+        data: {key: api_key, q: medicine_name}
+    })
+    .then( function ( response ) {
+        //console.log(JSON.stringify(response.options));
+        //console.log(response.options.length);
+        for(var i = 0;i<response.options.length;i++) {
+            content +='<li id="'+response.options[i].rxcui+'"><a href="#prescription_page2" data-transition="slide" data-direction="reverse" class="ui-link"><div class="row">'+response.options[i].display+'</div></a></li>';
+        }
+        //console.log(content);
+        $strength_ul.html(content).listview( "refresh" ).trigger( "updatelayout");
+    });
+                                
+    //when list item is selected
+    $strength_ul.on('click','li',function(event){
+
+        var strength = $(this).find('.row').html();
+        medicine_id = $(this).attr('id');
+        
+        console.log('strength: '+strength+' '+ medicine_id);
+        $('#drug_strength_label').text(strength);
+        //console.log(medicine_id);
+        //console.log('selected strength:'+strength);
+        
+        //$strength_input.val(strength);
+        //$strength_ul.html('').listview('refresh');
+        // $("#prescription_page .ui-content").animate({
+        //     scrollTop: 0
+        // },500);
+
+        // $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+    });
+
+    //when the medicine_strength input is focused the strength list will be loaded again
+    // $strength_input.bind('focus', function(event){
+    //     var medicine_name = $("#search_medicine_name").parent('.row').children('form').children('.ui-input-search').children('input');
+
+    //     console.log('medicine_name:'+ medicine_name.val());
+    //     $("#prescription_page .ui-content").animate({
+    //                         scrollTop: height
+    //                     },500);
+    //     loadMedicineStrength(medicine_name.val());
+        
+   
+    //     if($name_input.val() && $strength_input.val()){
+    //         $('#prescription_slide .carousel_controls .full_width_btn .right').removeAttr("disabled");
+    //     }
+    //     else{
+    //         $('#prescription_slide .carousel_controls .full_width_btn .right').attr('disabled','disabled');
+    //     }
+    // });
+}
+
 function addNewTag()
 {
     var index = $("#checklist_listview_create>li").length-1;
@@ -2399,10 +2818,14 @@ function addNewNote()
 function setHeightofContent(){
     var screen = $.mobile.getScreenHeight();
     var header;
+    var bottom;
+    var patient_detail;
     if($(window).width() <= 480){
+        bottom = $(".carousel_controls").outerHeight() || 48;
         header = $(".ui-page .ui-header").outerHeight() || 45;
     }
     else{
+        bottom = $(".carousel_controls").outerHeight() || 60;
         header = $(".ui-page .ui-header").outerHeight() || 56;
     }
     var  contentCurrent = screen - header;
@@ -2414,6 +2837,9 @@ function setHeightofContent(){
     $("#signup_detail_page2 .ui-content").css('height', '100vh');
     $("#signup_detail_page3 .ui-content").css('height', '100vh');
     $("#signup_detail_page4 .ui-content").css('height', '100vh');
+    $("#prescription_detail_page .prescription_detail").height(screen*0.85-header-bottom);
+    $("#prescription_list_page .prescription_list_content").height(screen*0.85-header-bottom);
+
 }
 
 function addSymptom(){
@@ -2737,27 +3163,89 @@ function changePeriodType(){
     $('#off-period-type').val(period_type).change();
 }
 //push new drug object into prescription_array 
+// function saveDrug(){
+//     var drug = {};
+//     drug.id = medicine_id;
+//     drug.name = $(".drug_name").html();
+//     drug.dose = $('#dose').val();
+//     drug.dose_frequency = $('#dose-frequency').val();
+//     drug.dose_period_type = $("#dose-period-type").val();
+//     drug.dose_period_multiplier = $("#dose-period-multiplier").val();
+//     drug.on_period_type = $("#on-period-type").val();
+//     drug.on_period_multiplier = $("#on-period-multiplier").val();
+//     drug.off_period_type = $("#off-period-type").val();
+//     drug.off_period_multiplier = $("#off-period-multiplier").val();
+//     drug.start_date = $("#start-date").val();
+//     drug.end_date = $("#end-date").val();
+//     if(drug.end_date ==""){
+//         drug.end_date = drug.start_date;
+//     }
+//     console.log(drug);
+//     //push into prescription_array
+//     addtoPrescriptionArray(drug);
+//     addtoPrescriptionList(drug);
+// }
+
+function saveDosage(){
+    var dosage = $("#prescription_dosage #drug_dosage_input").val() + ' '+$("#prescription_dosage #drug_dosage_unit").html();
+    $("#prescription_page2 #drug_dosage_label").text(dosage);
+}
+/*save drug info for new prescription page*/
 function saveDrug(){
     var drug = {};
     drug.id = medicine_id;
-    drug.name = $(".drug_name").html();
-    drug.dose = $('#dose').val();
-    drug.dose_frequency = $('#dose-frequency').val();
-    drug.dose_period_type = $("#dose-period-type").val();
-    drug.dose_period_multiplier = $("#dose-period-multiplier").val();
-    drug.on_period_type = $("#on-period-type").val();
-    drug.on_period_multiplier = $("#on-period-multiplier").val();
-    drug.off_period_type = $("#off-period-type").val();
-    drug.off_period_multiplier = $("#off-period-multiplier").val();
-    drug.start_date = $("#start-date").val();
-    drug.end_date = $("#end-date").val();
+    drug.name = $("#prescription_strength .drug_name").html();
+    drug.strength = $('#drug_strength_label').html();
+    drug.dose = $('#drug_dosage_label').html();
+    drug.dose_frequency = $('#prescription_frequency #drug-frequency').val();
+    drug.dose_period_type = $("#prescription_frequency #drug-period-type").val();
+    drug.dose_period_multiplier = $("#prescription_frequency #drug-period-multiplier").val();
+    drug.on_period_type = $("#prescription_frequency #on-period-type").val();
+    drug.on_period_multiplier = $("#prescription_frequency #on-period-multiplier").val();
+    drug.off_period_type = $("#prescription_frequency #off-period-type").val();
+    drug.off_period_multiplier = $("#prescription_frequency #off-period-multiplier").val();
+    drug.start_date = $("#prescription_frequency #drug-start-date").val();
+    drug.end_date = $("#prescription_frequency #drug-end-date").val();
     if(drug.end_date ==""){
         drug.end_date = drug.start_date;
     }
-    console.log(drug);
+    //console.log(drug);
     //push into prescription_array
+    $("#prescription_list_page .carousel_controls .right").removeAttr('disabled','disabled');
     addtoPrescriptionArray(drug);
     addtoPrescriptionList(drug);
+}
+function addtoPrescriptionList(drug){
+    //add to ul named prescription_list
+    // var $sub_ul = $('<ul>');
+
+    // $sub_ul.attr('data-role','listview');
+    // console.log($sub_ul);
+    // // //$sub_ul.attr("data-role","listview");
+    // // console.log(sub_ul);
+    //  $sub_ul.append('<li><div class="row"><div class="col-xs-6">Start Date:</div><div class="col-xs-6 text-right">'+drug.start_date+':</div><div class="row"><div class="col-xs-6">End Date:</div><div class="col-xs-6 text-right">'+drug.end_date+':</div></li>').listview().trigger('create').listview('refresh');
+    //  console.log($sub_ul);
+    $('#prescription_list_page #prescription_list').listview();
+    console.log(JSON.stringify(drug));
+    $('#prescription_list_page #prescription_list').append('<li><div class="row drug_title" onClick="toggleDrugDetail(this)"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-10 text-left md-font"><label>'+drug.name+'</label></div></div><div class="drug_detail" style="display:none"><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-med-strength"></i></div><div class="col-xs-10 text-left"><label>'+drug.strength+'</label></div></div><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-dosage"></i></div><div class="col-xs-10 text-left"><label>'+drug.dose+'</label></div></div><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-frequency"></i></div><div class="col-xs-10 text-left "><label>From '+drug.start_date+' To '+drug.end_date+'</label><label>'+drug.dose_frequency+' time(s) per '+drug.dose_period_multiplier+' '+getPeriodType(drug.dose_period_type)+'</label><label>'+drug.on_period_multiplier+' '+getPeriodType(drug.on_period_type)+' on / '+drug.off_period_multiplier+' '+getPeriodType(drug.off_period_type)+' off'+'</label></div></div></li>').listview('refresh');
+
+    $("#prescription_detail_page .prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
+    //add to prescription detail
+   
+}
+function getPeriodType(type){
+    if(type=="Daily"){
+        return 'day(s)';
+    }
+    else if(type == "Hourly"){
+        return 'hour(s)';
+    }
+    else if(type == "Weekly"){
+        return 'week(s)';
+    }
+    else{
+        return 'month(s)';
+    }
 }
 function addtoPrescriptionArray(drug){
     prescription_array.drug.push(drug.id);
@@ -2774,26 +3262,33 @@ function addtoPrescriptionArray(drug){
     console.log(JSON.stringify(prescription_array));
 }
 //add drug brief info into #prescription_list
-function addtoPrescriptionList(drug){
-    //add to ul named prescription_list
-    $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p class="light-grey ">'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
-    //add to prescription detail
-    $(".prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
-}
+// function addtoPrescriptionList(drug){
+//     //add to ul named prescription_list
+//     $('#prescription_list').append('<li><div class="row"><div class="col-xs-3 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-9"><div class="row"><p class="light-grey ">'+drug.name+'</p></div><div class="row"><p>Previously selected</p></div></div></div></li>').trigger('create').listview('refresh');
+//     //add to prescription detail
+//     $(".prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
+// }
 
 //show summary info of the whole prescription
 function completePrescription(){
-    var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-    var current_date = new Date();
-    $(".prescription_detail .prescription_detail_date label").text("Date: "+current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
-    //$(".prescription_detail .prescription_detail_drug").html('');
+    // var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    // var current_date = new Date();
+    // $(".prescription_detail .prescription_detail_date label").text("Date: "+current_date.getDate()+' '+monthNames[current_date.getMonth()]+' '+current_date.getFullYear());
+    // $(".prescription_detail .prescription_detail_drug").html('');
     // for(var i =0;i<prescription_array.length;i++){
     //     $(".prescription_detail .prescription_detail_drug").append('<label>'+prescription_array[i].name+':'+'</label><label>'+prescription_array[i].frequency+', '+prescription_array[i].duration+'.</label>');
     // }
-    //console.log(JSON.stringify(prescription_array));
+    // console.log(JSON.stringify(prescription_array));
 }
 
+function setupDosagePage(){
+    $('#drug_dosage_input').focus();
+}
 
+function toggleDrugDetail(element){
+    var target = $(element).parent('li').children('.drug_detail');
+    target.toggle();
+}
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],

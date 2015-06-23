@@ -111,7 +111,55 @@ function onDeviceReady()
        }
     }, false);
 
-    
+    $(".ui-header .head_back").bind('click',function(e){
+      console.log('click');
+      if($.mobile.activePage.is('#prescription_page2'))
+       {
+        //if there is no drug has been added
+        if($("#prescription_list_page #prescription_list li").length == 0){
+          resetPrescriptionPage2();
+          //console.log('no 0');
+          $.mobile.changePage("#patientlist_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+        else{
+          //console.log('no 0');
+          $.mobile.changePage("#prescription_list_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: true
+          });
+        }
+       }
+       else if($.mobile.activePage.is('#prescription_detail_page')){
+        $.mobile.changePage("##prescription_list_page", 
+        {
+          transition: "slide",
+          reverse: true,
+          changeHash: true
+        });
+       }
+       else if($.mobile.activePage.is('#patientlist_page')){
+        $.mobile.changePage("#main_page", 
+        {
+          transition: "slide",
+          reverse: true,
+          changeHash: false
+        });
+       }
+
+       else 
+       {
+        navigator.app.backHistory();
+       }
+
+    });
+
 }
 
 
