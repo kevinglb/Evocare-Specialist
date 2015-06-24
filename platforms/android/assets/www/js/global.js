@@ -73,6 +73,33 @@ function onDeviceReady()
         navigator.app.backHistory();
         setTimeout(function(){resetPrescriptionPage('full');},500);
        }
+      if($.mobile.activePage.is('#signup_detail_page1'))
+       {
+          $.mobile.changePage("#signup_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+       }
+       if($.mobile.activePage.is('#signup_detail_page2'))
+       {
+          $.mobile.changePage("#signup_detail_page1", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+       }
+        if($.mobile.activePage.is('#signup_detail_page3'))
+       {
+          $.mobile.changePage("#signup_detail_page2", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+       }
        if($.mobile.activePage.is('#prescription_page2'))
        {
         //if there is no drug has been added
@@ -113,6 +140,7 @@ function onDeviceReady()
 
     $(".ui-header .head_back").bind('click',function(e){
       console.log('click');
+      
       if($.mobile.activePage.is('#prescription_page2'))
        {
         //if there is no drug has been added
