@@ -1174,11 +1174,11 @@ div#signup_input_group
     font-size: 1.2em;
 }
 .ui-popup .popup-btns a:first-child{
-    border-bottom-left-radius: 0.3125em;
+    border-bottom-left-radius: 5px;
     border-right: 1px solid #fff; 
 }
 .ui-popup .popup-btns a:nth-child(2){
-    border-bottom-right-radius: 0.3125em;
+    border-bottom-right-radius: 5px;
     border-left: 1px solid #fff;
 }
 
@@ -1542,6 +1542,7 @@ h4.drug_name, h4.drug_strength {
 #prescription_list li{
     width: 100%;
     background-color: #fff !important;
+    border-top: 1px solid #d6d6d6;
 }
 
 #prescription_list li p{
@@ -1551,9 +1552,11 @@ h4.drug_name, h4.drug_strength {
     color: #495559 !important;
 }
 #prescription_list .drug_title, #prescription_list .drug_detail{
-    border-top: 1px solid #A0B2B7 !important; 
     padding-top: 10px;
     padding-bottom: 10px;
+}
+#prescription_list .drug_detail{
+    border-top: 1px solid #d6d6d6 !important;
 }
 #prescription_list .drug_title label, #prescription_list .drug_detail label{
     line-height: 2em;
@@ -1561,23 +1564,7 @@ h4.drug_name, h4.drug_strength {
     
 }
 
-ul.medicine_search_input{
-    /*position: absolute;*/
 
-    width: 100%;
-    max-height: 55vh;
-    background-color: #fff;
-    z-index: 10;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;  
-}
-
-ul.medicine_search_input li {
-    padding: 0.5em 0 !important;
-    border-bottom: 1px solid #A0B2B7;
-
-    padding-left: 10px !important;
-}
 
 /*#prescription_list .prescription_item .ui-input-text{
     box-shadow: none;
@@ -1871,6 +1858,22 @@ ul.medicine_search_input li {
          border-radius: 0;
  
      }
+     ul.medicine_search_input{
+    /*position: absolute;*/
+
+        width: 100%;
+        max-height: 55vh;
+        background-color: #fff;
+        z-index: 10;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;  
+    }
+
+    ul.medicine_search_input li {
+        padding: 0.5em 0 !important;
+        border-bottom: 1px solid #A0B2B7;
+        padding-left: 10px !important;  
+    }
      .prescription_page_content a {
          padding: 0;
          color: #495559;

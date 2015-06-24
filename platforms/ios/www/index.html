@@ -2173,7 +2173,7 @@
                     </div>
                     <div class="carousel_controls">
                         <div class="back_btn">
-                                <a class="left carousel-control btn"  href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2('full')">Cancel</a>
+                                <a class="left carousel-control btn"  href="#"  data-transition="slide" data-direction="reverse" role="button" onClick="cancelDrugList()">Cancel</a>
                             </div>
                             <div class="continue_btn">
                                 <a class="right carousel-control btn" href="#prescription_detail_page" data-transition="slide" role="button">Compelete</a>
@@ -2248,7 +2248,7 @@
                 </form>
                     <div class="carousel_controls">
                         <div class="back_btn">
-                                <a class="left carousel-control btn"  href="#prescription_list_page"  data-transition="slide" data-direction="reverse" role="button" onClick="resetPrescriptionPage2()">Cancel</a>
+                                <a class="left carousel-control btn"  href="#"  data-transition="slide" data-direction="reverse" role="button" onClick="cancelAddDrug()">Cancel</a>
                             </div>
                             <div class="continue_btn">
                                 <a class="right carousel-control btn" href="#prescription_list_page" data-transition="slide" role="button" onClick="saveDrug()">Save</a>
@@ -2473,6 +2473,18 @@
                             <div class="continue_btn">
                                 <a class="right carousel-control btn" href="#" data-transition="slide"  role="button" onClick="uploadPrescription()">Update</a>
                             </div>
+                    </div>
+
+                    <div data-role="popup" data-overlay-theme="b" data-dismissible="false" id="prescription_popup" class="submit_popup" >
+                        
+                        <div class="row title text-center">
+                            <h3></h3>
+                        </div>
+                        <div class="popup-btns">
+                                <a href="#" class="btn" data-rel="back">OK</a>
+                                <div class="clear"></div>
+                            </div>
+                        
                     </div>
                 </div>
             </div>
@@ -3227,7 +3239,7 @@ function addtoPrescriptionList(drug){
     //  console.log($sub_ul);
     $('#prescription_list_page #prescription_list').listview();
     console.log(JSON.stringify(drug));
-    $('#prescription_list_page #prescription_list').append('<li><div class="row drug_title" onClick="toggleDrugDetail(this)"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-10 text-left md-font"><label>'+drug.name+'</label></div></div><div class="drug_detail" style="display:none"><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-med-strength"></i></div><div class="col-xs-10 text-left"><label>'+drug.strength+'</label></div></div><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-dosage"></i></div><div class="col-xs-10 text-left"><label>'+drug.dose+'</label></div></div><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-frequency"></i></div><div class="col-xs-10 text-left "><label>From '+drug.start_date+' To '+drug.end_date+'</label><label>'+drug.dose_frequency+' time(s) per '+drug.dose_period_multiplier+' '+getPeriodType(drug.dose_period_type)+'</label><label>'+drug.on_period_multiplier+' '+getPeriodType(drug.on_period_type)+' on / '+drug.off_period_multiplier+' '+getPeriodType(drug.off_period_type)+' off'+'</label></div></div></li>').listview('refresh');
+    $('#prescription_list_page #prescription_list').append('<li><div class="row drug_title" onClick="toggleDrugDetail(this)"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-drug"></i></div><div class="col-xs-10 text-left md-font"><label>'+drug.name+'</label></div></div><div class="drug_detail" style="display:none"><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-med-strength"></i></div><div class="col-xs-10 text-left"><label>'+drug.strength+'</label></div></div><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-dosage"></i></div><div class="col-xs-10 text-left"><label>'+drug.dose+'</label></div></div><div class="row"><div class="col-xs-2 text-center"><i class="icon icon-2x icon-frequency"></i></div><div class="col-xs-10 text-left "><label>From '+drug.start_date+' To '+drug.end_date+'</label><label>'+drug.dose_frequency+' time(s) per '+drug.dose_period_multiplier+' '+getPeriodType(drug.dose_period_type)+'</label><label class="light-font">'+drug.on_period_multiplier+' '+getPeriodType(drug.on_period_type)+' on / '+drug.off_period_multiplier+' '+getPeriodType(drug.off_period_type)+' off'+'</label></div></div></li>').listview('refresh');
 
     $("#prescription_detail_page .prescription_detail .prescription_detail_drug").append('<label class="md-font">'+drug.name+':'+'</label><label>'+drug.dose_frequency+' time(s) '+drug.dose_period_type+', start from '+drug.start_date+', end at '+drug.end_date+'</label>');
     //add to prescription detail
@@ -3289,6 +3301,42 @@ function toggleDrugDetail(element){
     var target = $(element).parent('li').children('.drug_detail');
     target.toggle();
 }
+
+function cancelAddDrug(){
+    if($("#prescription_list_page #prescription_list li").length == 0){
+        resetPrescriptionPage2('full');
+        //console.log('no 0');
+        $.mobile.changePage("#patientlist_page", 
+        {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+    else{
+        resetPrescriptionPage2();
+        //console.log('no 0');
+        $.mobile.changePage("#prescription_list_page", 
+        {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        }
+}
+
+function cancelDrugList(){
+      resetPrescriptionPage2('full');
+        //console.log('no 0');
+        $.mobile.changePage("#patientlist_page", 
+        {
+            transition: "slide",
+            reverse: true,
+            changeHash: false
+          });
+        
+}
+
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],

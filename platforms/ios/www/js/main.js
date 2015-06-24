@@ -920,21 +920,34 @@ function uploadPrescription(){
         dataType: 'json',
         success: function(response)
         {
-            alert("Prescription is updated")
+          //alert("Prescription is updated");
+          $('#prescription_popup .title h3').text('The prescription has been uploaded.');
+          $('#prescription_popup').popup('open');
+          $("#prescription_popup .popup-btns a").addClass('success');
+           
         },
         error: function (error)
         {
-          alert("Sorry, some errors occurred. Please try again later");
+          $('#prescription_popup .title h3').text('Sorry some errors occurred, please try again');
+          $('#prescription_popup').popup('open');
         }
     });
-    $.mobile.changePage("#patientlist_page", 
-    {
-      transition: "slide",
-      reverse: false,
-      changeHash: false
-    });
-    resetPrescriptionPage2('full');
-    //disablePrescription();
+    
+    $("#prescription_popup").popup({
+      afterclose: function () {
+        if( $("#prescription_popup .popup-btns a").hasClass('success')){
+          resetPrescriptionPage2('full');
+          $.mobile.changePage("#patientlist_page", 
+          {
+                transition: "slide",
+                reverse: false,
+                changeHash: false
+             });
+         
+          }
+          $("#prescription_popup .popup-btns a").removwClass('success'); 
+        }
+      },'close');  
 }
 
 function setUpPrescriptionPage2(patient_id){
