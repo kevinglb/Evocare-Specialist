@@ -510,7 +510,7 @@
             </div> 
             <!-- header -->
             <div data-role="header"  class="ui-header" position="fixed">
-                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse"><i class="icon header-icon icon-arrow-left"></i></a>
+                <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
                 <a href="#main_right_menu" class="menu_btn"><i class="icon header-icon icon-bars"></i></a>
             </div>
             <!-- header -->
@@ -2370,6 +2370,7 @@
                             <input type="number" id='drug-period-multiplier'></input>
                         </div>
                         <div class="col-xs-4">
+                            <!-- <a href="#" class='btn' id="drug-period-type" onclick="selectDrugFrequency(this.id)">Hour(s)</a> -->
                             <select id="drug-period-type" class="dose-period-type bottom-border" data-icon="false" >
                                 <option value="Hourly">Hour(s)</option>
                                     <option value="Daily">Day(s)</option>
@@ -2421,6 +2422,23 @@
                             <div class="continue_btn">
                                 <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="">Save</a>
                             </div>
+                    </div>
+                </div>
+                <div data-role="popup" data-overlay-theme="b" id="frequency_popup" class="selector_popup" >
+                    <div class="row">
+                        <fieldset>
+                            <input name="frequency_option" id="frequency_hourly" value="Hourly"  type="radio">
+                            <label for="frequency_hourly" class="ui-radio-on">Hour(s)</label>
+                            
+                            <input name="frequency_option" id="frequency_daily" value="Daily" type="radio">
+                            <label for="frequency_daily" >Day(s)</label>
+
+                            <input name="frequency_option" id="frequency_weekly" value="Weekly" type="radio">
+                            <label for="frequency_weekly" >Week(s)</label>
+
+                            <input name="frequency_option" id="frequency_monthly" value="Monthly" type="radio">
+                            <label for="frequency_monthly" >Month(s)</label>
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -2515,7 +2533,9 @@
 $(document).bind("mobileinit", function(){ 
         $.mobile.pushStateEnabled = false; 
         $.mobile.useFastClick = false;
+         $.mobile.changePage.defaults.changeHash = false;
 }); 
+
 </script>
 <script>
 
@@ -2675,6 +2695,8 @@ $("input[type='text']").on("click", function () {
 $("input[type='number']").on("click", function () {
    $(this).select();
 });
+
+
 
 //load medicine strength list parameter'medicine' is the value of medicine name input 
 function loadMedicineStrength(medicine){
@@ -3337,6 +3359,15 @@ function cancelDrugList(){
         
 }
 
+function selectDrugFrequency(selector_id){
+    $('#frequency_popup').popup('open');
+    $('#frequency_popup .ui-radio label.ui-btn').on('click',function(event){
+        // var frequency = $(event.target).children('input').val();
+        // console.log(frequency);
+        console.log('selected');
+
+    });
+}
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
