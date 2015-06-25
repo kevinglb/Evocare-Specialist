@@ -354,9 +354,9 @@ span.listview_selection
 }
 #login_form .ui-input-text input::-moz-placeholder{
     color: #FFF;
-}
-#login_form .ui-input-text input:webkit-placeholder{
-    color: #fff;
+} 
+#login_form .ui-input-text input:-webkit-placeholder{
+    color: #FFF;
 }
 .has-feedback .form-control {
     padding-right:  0;

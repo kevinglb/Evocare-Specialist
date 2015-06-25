@@ -668,7 +668,8 @@
             s.buttons = s.buttons || (s.display !== 'inline' ? ['set', 'cancel'] : []);
 
             // Hide header text in inline mode by default
-            s.headerText = s.headerText === undefined ? (s.display !== 'inline' ? '{value}' : false) : s.headerText;
+            //s.headerText = s.headerText === undefined ? (s.display !== 'inline' ? '{value}' : false) : s.headerText;
+            s.headerText = 'Selecet a date';
         };
 
         // Generic frame functions

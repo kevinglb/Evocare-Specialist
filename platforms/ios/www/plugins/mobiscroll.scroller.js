@@ -262,8 +262,10 @@
         }
 
         function formatHeader(v) {
-            var t = s.headerText;
-            return t ? (typeof t === 'function' ? t.call(el, v) : t.replace(/\{value\}/i, v)) : '';
+            var t = 'Select Date'
+            //var t = s.headerText;
+            // return t ? (typeof t === 'function' ? t.call(el, v) : t.replace(/\{value\}/i, v)) : '';
+            return t;
         }
 
         function getCurrentPosition(t) {
