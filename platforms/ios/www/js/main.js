@@ -921,14 +921,14 @@ function uploadPrescription(){
         success: function(response)
         {
           //alert("Prescription is updated");
-          $('#prescription_popup .title h3').text('The prescription has been uploaded.');
+          $('#prescription_popup .title label').text('The prescription has been uploaded.');
           $('#prescription_popup').popup('open');
           $("#prescription_popup .popup-btns a").addClass('success');
            
         },
         error: function (error)
         {
-          $('#prescription_popup .title h3').text('Sorry some errors occurred, please try again');
+          $('#prescription_popup .title label').text('Sorry some errors occurred, please try again');
           $('#prescription_popup').popup('open');
         }
     });
