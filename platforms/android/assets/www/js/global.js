@@ -27,7 +27,8 @@ var prescription_array = {
                           end_date:[]
                         };
 var pharmacy;
-
+/*detect keyboard is visible or not*/
+var keyboard = false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady()
@@ -51,22 +52,18 @@ function onDeviceReady()
        }
        else if($.mobile.activePage.is('#triage_page'))
        {
-        console.log('reset triage page');
-        navigator.app.backHistory();
+        //navigator.app.backHistory();
         resetTriagePage();
        }
       else if($.mobile.activePage.is('#checklist_page'))
        {
-        console.log('reset checklist page');
         resetChecklistPage();
-        navigator.app.backHistory();
+        //navigator.app.backHistory();
        }
-
-
        else if($.mobile.activePage.is('#vc_page'))
        {
-        console.log('reset triage page');
-        navigator.app.backHistory();
+        
+        // navigator.app.backHistory();
         resetVCPage();
        }
 
@@ -87,7 +84,16 @@ function onDeviceReady()
           {
             transition: "slide",
             reverse: true,
-            changeHash: false
+            changeHash: true
+          });
+       }
+       else if($.mobile.activePage.is('#signup_page'))
+       {
+          $.mobile.changePage("#login_page", 
+          {
+            transition: "slide",
+            reverse: true,
+            changeHash: true
           });
        }
        else if($.mobile.activePage.is('#signup_detail_page2'))
@@ -96,7 +102,7 @@ function onDeviceReady()
           {
             transition: "slide",
             reverse: true,
-            changeHash: false
+            changeHash: true
           });
        }
         else if($.mobile.activePage.is('#signup_detail_page3'))
@@ -105,7 +111,7 @@ function onDeviceReady()
           {
             transition: "slide",
             reverse: true,
-            changeHash: false
+            changeHash: true
           });
        }
        else if($.mobile.activePage.is('#prescription_page2'))
@@ -148,16 +154,16 @@ function onDeviceReady()
 
     $(".ui-header .head_back").bind('click',function(e){
       console.log('click');
-      if($.mobile.activePage.is('#main_page'))
-       {
-        $.mobile.changePage("#login_page", 
-          {
-            transition: "slide",
-            reverse: true,
-            changeHash: false
-          });
-       }
-      else if($.mobile.activePage.is('#prescription_page2'))
+      // if($.mobile.activePage.is('#main_page'))
+      //  {
+      //   $.mobile.changePage("#login_page", 
+      //     {
+      //       transition: "slide",
+      //       reverse: true,
+      //       changeHash: false
+      //     });
+      //  }
+     if($.mobile.activePage.is('#prescription_page2'))
        {
         //if there is no drug has been added
         if($("#prescription_list_page #prescription_list li").length == 0){

@@ -1843,13 +1843,13 @@
                                 <div class="row">
                                     <fieldset>
                                         <input name="assign_option" id="assign_patient" value="patient"  type="radio">
-                                        <label for="assign_patient" class="light-font">Patient</label>
+                                        <label for="assign_patient">Patient</label>
 
                                         <input name="assign_option" id="assign_group" value="group" type="radio">
-                                        <label for="assign_group"  class="light-font">Group</label>
+                                        <label for="assign_group">Group</label>
 
                                         <input name="assign_option" id="assign_event" value="event" type="radio">
-                                        <label for="assign_event" class="light-font">Event</label>
+                                        <label for="assign_event">Event</label>
                                     </fieldset>
                                 </div>
                                  <div class=" popup-btns">
@@ -2036,12 +2036,12 @@
                                                 <input type="number" id="on-period-multiplier"></input>
                                             </div>
                                             <div class="col-xs-4 bottom-border">
-                                                <select id="on-period-type" class="bottom-border" data-icon="false" >
+                                                <!-- <select id="on-period-type" class="bottom-border" data-icon="false" >
                                                     <option value="Hourly">Hour(s)</option>
                                                     <option value="Daily">Day(s)</option>
                                                     <option value="Weekly">Week(s)</option>
                                                     <option value="Monthly">Month(s)</option>
-                                                </select>
+                                                </select> -->
                                             </div>
                                             <span class="col-xs-2">on</span>
                                         </div>
@@ -2051,12 +2051,12 @@
                                                 <input type="number" id="off-period-multiplier"></input>
                                             </div>
                                             <div class="col-xs-4 bottom-border">
-                                                <select id="off-period-type" class="bottom-border" data-icon="false" >
+                                                <!-- <select id="off-period-type" class="bottom-border" data-icon="false" >
                                                     <option value="Hourly">Hour(s)</option>
                                                     <option value="Daily">Day(s)</option>
                                                     <option value="Weekly">Week(s)</option>
                                                     <option value="Monthly">Month(s)</option>
-                                                </select>
+                                                </select> -->
                                             </div>
                                             <span class="col-xs-2">off</span>
                                         </div>
@@ -2370,13 +2370,15 @@
                             <input type="number" id='drug-period-multiplier'></input>
                         </div>
                         <div class="col-xs-4">
-                            <!-- <a href="#" class='btn' id="drug-period-type" onclick="selectDrugFrequency(this.id)">Hour(s)</a> -->
-                            <select id="drug-period-type" class="dose-period-type bottom-border" data-icon="false" >
+                            <div class="ui-btn frequency_selector" id="drug-period-type" onclick="showFrequencyPopUp(this)" readonly="readonly">
+                                <span value="" class="md-font">Hour(s)</span>
+                            </div>
+                            <!-- <select id="drug-period-type" class="dose-period-type bottom-border" data-icon="false" >
                                 <option value="Hourly">Hour(s)</option>
                                     <option value="Daily">Day(s)</option>
                                     <option value="Weekly">Week(s)</option>
                                     <option value="Monthly">Month(s)</option>
-                            </select>
+                            </select> -->
                         </div>
                     </div>
                     <div class="gap"></div>
@@ -2388,12 +2390,15 @@
                             <input type="number" id="on-period-multiplier"></input>
                         </div>
                         <div class="col-xs-6">
-                            <select id="on-period-type"  data-icon="false" >
+                            <div class="ui-btn frequency_selector" id="on-period-type" onclick="showFrequencyPopUp(this)" readonly="readonly">
+                                <span value="" class="md-font">Hour(s)</span>
+                            </div>
+                            <!-- <select id="on-period-type"  data-icon="false" >
                                 <option value="Hourly">Hour(s)</option>
                                     <option value="Daily">Day(s)</option>
                                     <option value="Weekly">Week(s)</option>
                                     <option value="Monthly">Month(s)</option>
-                            </select>
+                            </select> -->
                         </div>  
                     </div>
                     <div class="gap"></div>
@@ -2405,12 +2410,15 @@
                             <input type="number" id="off-period-multiplier"></input>
                         </div>
                         <div class="col-xs-6">
-                            <select id="off-period-type" data-icon="false" >
+                            <div class="ui-btn frequency_selector" id="off-period-type" onclick="showFrequencyPopUp(this)" readonly="readonly">
+                                <span value="" class="md-font">Hour(s)</span>
+                            </div>
+                            <!-- <select id="off-period-type" data-icon="false" >
                                 <option value="Hourly">Hour(s)</option>
                                 <option value="Daily">Day(s)</option>
                                 <option value="Weekly">Week(s)</option>
                                 <option value="Monthly">Month(s)</option>
-                            </select>
+                            </select> -->
                         </div>
                                             
                     </div>
@@ -2427,16 +2435,16 @@
                 <div data-role="popup" data-overlay-theme="b" id="frequency_popup" class="selector_popup" >
                     <div class="row">
                         <fieldset>
-                            <input name="frequency_option" id="frequency_hourly" value="Hourly"  type="radio">
+                            <input name="frequency_option" id="frequency_hourly" value="Hourly"  type="radio" onClick="setFrequency(this)">
                             <label for="frequency_hourly" class="ui-radio-on">Hour(s)</label>
                             
-                            <input name="frequency_option" id="frequency_daily" value="Daily" type="radio">
+                            <input name="frequency_option" id="frequency_daily" value="Daily" type="radio" onClick="setFrequency(this)">
                             <label for="frequency_daily" >Day(s)</label>
 
-                            <input name="frequency_option" id="frequency_weekly" value="Weekly" type="radio">
+                            <input name="frequency_option" id="frequency_weekly" value="Weekly" type="radio" onClick="setFrequency(this)">
                             <label for="frequency_weekly" >Week(s)</label>
 
-                            <input name="frequency_option" id="frequency_monthly" value="Monthly" type="radio">
+                            <input name="frequency_option" id="frequency_monthly" value="Monthly" type="radio" onClick="setFrequency(this)">
                             <label for="frequency_monthly" >Month(s)</label>
                         </fieldset>
                     </div>
@@ -2495,8 +2503,8 @@
 
                     <div data-role="popup" data-overlay-theme="b" data-dismissible="false" id="prescription_popup" class="submit_popup" >
                         
-                        <div class="row title text-center">
-                            <h3></h3>
+                        <div class="row title text-left">
+                            <label></label>
                         </div>
                         <div class="popup-btns">
                                 <a href="#" class="btn" data-rel="back">OK</a>
@@ -2676,10 +2684,12 @@ $(document).bind("mobileinit", function(){
 //detect the keyboard and hide control buttons when keyboard shows
 document.addEventListener("showkeyboard", function(){ 
     $('.carousel_controls').hide();
+    keyboard = true;
 }, false);
 
 document.addEventListener("hidekeyboard", function(){ 
     $('.carousel_controls').show();
+     keyboard = false;
 }, false);
 
 $("#signup_inner_slide").bind('slid.bs.carousel',function(){
@@ -3232,14 +3242,15 @@ function saveDrug(){
     drug.strength = $('#drug_strength_label').html();
     drug.dose = $('#drug_dosage_label').html();
     drug.dose_frequency = $('#prescription_frequency #drug-frequency').val();
-    drug.dose_period_type = $("#prescription_frequency #drug-period-type").val();
+    drug.dose_period_type = $("#prescription_frequency #drug-period-type span").attr('value');
     drug.dose_period_multiplier = $("#prescription_frequency #drug-period-multiplier").val();
-    drug.on_period_type = $("#prescription_frequency #on-period-type").val();
+    drug.on_period_type = $("#prescription_frequency #on-period-type span").attr('value');
     drug.on_period_multiplier = $("#prescription_frequency #on-period-multiplier").val();
-    drug.off_period_type = $("#prescription_frequency #off-period-type").val();
+    drug.off_period_type = $("#prescription_frequency #off-period-type span").attr('value');
     drug.off_period_multiplier = $("#prescription_frequency #off-period-multiplier").val();
     drug.start_date = $("#prescription_frequency #drug-start-date").val();
     drug.end_date = $("#prescription_frequency #drug-end-date").val();
+    console.log(JSON.stringify(drug));
     if(drug.end_date ==""){
         drug.end_date = drug.start_date;
     }
@@ -3359,20 +3370,47 @@ function cancelDrugList(){
         
 }
 
-function selectDrugFrequency(selector_id){
-    $('#frequency_popup').popup('open');
-    $('#frequency_popup .ui-radio label.ui-btn').on('click',function(event){
-        // var frequency = $(event.target).children('input').val();
-        // console.log(frequency);
-        console.log('selected');
+function showFrequencyPopUp(element){
+    //hideKeyboard();
+    var selector_id=$(element).attr('id');
+    //var top = $(window).outerHeight() - $('#frequency_popup').height();
+   
+    //$('#frequency_popup-popup').css('top', top/2);
+    if(keyboard){
+        //console.log('with timeout');
+        setTimeout(function(){ 
+            $('#frequency_popup').popup('open');
+        },300);
+    }
+    else {
+        //console.log('no timeout');
+        $('#frequency_popup').popup('open');
+    }
+    $('#frequency_popup').attr('target-id',selector_id);
+    return false;
+}
 
-    });
+function setFrequency(element){
+    var id = $('#frequency_popup').attr('target-id');
+    var frequency = $(element).val();
+    var frequency_text = $(element).parent().children('label').text();
+
+    $("#"+id).children('span').attr('value',frequency);
+    $("#"+id).children('span').text(frequency_text);
+    $('#frequency_popup').popup('close');
+    return false;
+
 }
 $("#country_selector").countrySelect({
                 //defaultCountry: "jp",
                 //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
                 preferredCountries: ['ie', 'cn', 'us']
 });
+
+function hideKeyboard() {
+    document.activeElement.blur();
+    $("input").blur();
+};
 </script>
         
         

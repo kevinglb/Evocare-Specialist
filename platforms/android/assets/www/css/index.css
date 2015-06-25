@@ -941,14 +941,19 @@ div#signup_input_group
 }
 
 .ui-radio-off::after{
-    content: url('../img/radio-unselected.png');
+    content: url('../img/radio-unselected.svg');
     background-color: transparent; !important;
+    width: 28px !important;
+    height: 28px !important;
     margin: -0.8em 5px 0 -3px !important; 
     border: none !important;
+    opacity: 1 !important;
 }
 .ui-radio-on::after {
-    content: url('../img/radio-selected.png');
+    content: url('../img/radio-selected.svg');
     display: block;
+    width: 28px !important;
+    height: 28px !important;
     margin: -0.8em  5px 0 -3px!important; 
     border: none !important;
 }
@@ -2022,13 +2027,30 @@ h4.drug_name, h4.drug_strength {
         
         line-height: 3em;
     }
-
+    .prescription_page_content .frequency_selector{
+        margin:  0 auto;
+        padding: 0.5em;
+        line-height: inherit;
+        border: none;
+        background-color: #fff;
+    }
+    .prescription_page_content .frequency_selector span{
+        line-height: inherit;
+    }
     .prescription_page_content .gap{
         padding: 10px 0;
         background-color: transparent;
     }
 
     /*submit_popup*/
+    .submit_popup .title{
+        padding: 10px 15px;
+    }
+    .submit_popup .title label{
+        font-size: 1.2em;
+        margin: 0;
+    }
+
     .submit_popup .popup-btns a{
         width: 100%;
         line-height: 2em;
@@ -2037,5 +2059,26 @@ h4.drug_name, h4.drug_strength {
         border-bottom-right-radius:  5px;         
         margin-top: 1em;
     }
+    
+
+    .selector_popup {
+        padding: 0;
+    
+    }
+    
+    .selector_popup .ui-radio label{
+        font-size: 1.2em;
+        line-height: 2em;
+        padding-left: 3.5em;
+    }
+    .selector_popup .ui-radio-on::after{
+        height: 32px !important;
+        width: 32px !important;
+    }
+    .selector_popup .ui-radio-off::after{
+        height: 32px !important;
+        width: 32px !important;
+    }
+
     
 }
