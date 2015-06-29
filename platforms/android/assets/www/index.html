@@ -6,13 +6,11 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-
         <!-- css & font libraries  -->
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-
         <!-- mobiscroll css -->
         <link rel="stylesheet" type="text/css" href="css/mobiscroll.animation.css"/>
         <link rel="stylesheet" type="text/css" href="css/mobiscroll.icons.css"/>
@@ -27,12 +25,10 @@
         <link rel="stylesheet" type="text/css" href="css/jw-jqm-cal.css"/>
          <!-- main css -->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-
         <!-- javascript libraries -->
         <script type="text/javascript" src="plugins/jquery-1.11.2.min.js"></script>
         <!-- <script type="text/javascript" src="plugins/jquery-ui.min.js"></script> -->
         <script type="text/javascript" src="plugins/jquery.mobile-1.4.5.min.js"></script>
-        
         <script type="text/javascript" src="plugins/bootstrap.min.js"></script>
         <script type="text/javascript" src="plugins/d3.min.js"></script>
         <script type="text/javascript" src="plugins/countrySelect.min.js"></script>
@@ -76,64 +72,6 @@
                 </div>
             </div>
         </div>
-        <!-- log in page end -->
-        <!-- signn up page -->
-       <!--  <div  id="signup_page" data-role="page">
-            <div data-role="header">
-            </div>
-            <div data-role="main" class="ui-content">
-                <div id="signup_content">
-                    <div class="row">
-       
-                        <form id="signup_form" role="form">
-                            <div class="form-group">
-                                <input type="text" id="signup_fullname" name="fullname" class="form-control  " placeholder="Full Name" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="signup_email" name="email" class="form-control  " placeholder="Email Address"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="signup_password" name="password" class="form-control  " placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="signup_password_confirm" name="password_confirm" class="form-control  " placeholder="Confirm Password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="signup_birthday" name="birthday" class="form-control   datepicker_input" placeholder="Date of Birth"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="signup_contact_number" name="contact_number" class="form-control  " placeholder="Contact Number"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="signup_hospital" name="hospital" class="form-control  " placeholder="Hospital" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="signup_job_title" name="job_title" class="form-control  " placeholder="Current Job Title" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="signup_registration_number" name="registration_number" class="form-control  " placeholder="ABA registration number" />
-                            </div>
-                            <div class="form-group">
-                                <select name="signup_medical_insurance" id="signup_medical_insurance" data-native-menu="false">
-                                    <option value="1">Do you have medical indemnity insurance?</option>
-                                    <option value="true">YES</option>
-                                    <option value="false">No</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <a type="submit" id="signup_submit" value="sign up" name="signup_btn" class="btn btn-lg btn-presepctive btn-block">REGISTER</a>
-                            </div>
-                        </form>
-                        <div class="below_content">
-                            <div class="row text-center">
-                                <a href="#login_page"  data-transition="slidedown">Do you have an account?</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
         <div id="signup_page" data-role="page" class="signup_page">
             <div class="ui-content">
                 <div class="text-center container logo_container">
@@ -174,28 +112,26 @@
         <!-- signup detail page for user to fill info -->
         <div id="signup_detail_page1" class="text-center" data-role="page"  class="signup_page">
             <div class="ui-content">
-                            <div class="text-center logo_container container">
-                                <img src="img/login-logo.png"/>
-                            </div>
-
-                                <div class="container form_container">
-                                    <div class="form-group bottom-border color-g">
-                                        <input id="signup_firstname" type="text" placeholder="First Name"/>
-                                    </div>
-                                    <div class="form-group bottom-border color-g">
-                                        <input id="signup_lastname"  type="text" placeholder="Last name"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
-                                    </div>
-                                    <div class="dots-row">
-                                        <span class="dot active"></span>
-                                        <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    </div>
-
-                                </div>
-                            </div>
+                <div class="text-center logo_container container">
+                    <img src="img/login-logo.png"/>
+                </div>
+                <div class="container form_container">
+                    <div class="form-group bottom-border color-g">
+                        <input id="signup_firstname" type="text" placeholder="First Name"/>
+                    </div>
+                    <div class="form-group bottom-border color-g">
+                        <input id="signup_lastname"  type="text" placeholder="Last name"/>
+                    </div>
+                    <div class="form-group">
+                        <img type="file" id="signup_avatar" class="signup_avatar_lg img-circle" src="img/ChooseAvatar.svg" onclick="selectAvatar(this.id); return false;"/>
+                    </div>
+                    <div class="dots-row">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
             <div class="signup_continue_btn">
                 <a href="#signup_detail_page2" data-transition="slide" class="btn btn-block signup_btn " role="button">Continue</a>
             </div>
@@ -208,9 +144,7 @@
                         <span class="welcome"></span>
                     </div>
                     <div class="progress" style="width:90%; margin:0 auto;">
-                        <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">
-                            20% Completed
-                        </div>
+                        <div class="progress-bar progress-bar-success" aria-valuenow='20' role="progressbar" aria-valuemin='0' aria-valuemax='100' style="width:20%;">20% Completed</div>
                     </div>
                 </div>
                 <div class="container form_container ">
@@ -354,7 +288,6 @@
                      </div>
                 </div>
             </div>
-
              <div id="signup_detail_page4" data-role="page" class="signup_page">
                  <div class="ui-content text-center">
                      <div class="container thumbs_container" style="height:20vh">
@@ -468,28 +401,28 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div class="container row" style="margin-top: 5vh">
+                    <div class="col-xs-4">
+                        <a href="#signup_detail_page3" role="button" class="btn back_btn" data-slide="prev" onClick=""><i class="icon-reverse icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i> Back</a>
                     </div>
-                               <div class="container row" style="margin-top: 5vh">
-                        <div class="col-xs-4">
-                            <a href="#signup_detail_page3" role="button" class="btn back_btn" data-slide="prev" onClick=""><i class="icon-reverse icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i> Back</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="dots-row">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot active"></span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip <i class="icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i></a>
+                    <div class="col-xs-4">
+                        <div class="dots-row">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                            <div class="clear"></div>
                         </div>
                     </div>
-                 </div>
-                    <div class="signup_continue_btn" >
-                        <a href="#" class="signup_btn btn-block btn"  role="button">Continue</a>
-                     </div>
-             </div>
+                    <div class="col-xs-4">
+                        <a href="#" role="button" class="btn skip_btn" data-slide="next" onClick="">Skip <i class="icon icon-1x icon-angle-right-g" style="vertical-align:middle;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="signup_continue_btn" >
+                <a href="#" class="signup_btn btn-block btn"  role="button">Continue</a>
+                </div>
+        </div>
         <!-- signup detail pages -->
         <!-- main page -->
         <div  id="main_page" data-role="page">
@@ -551,7 +484,6 @@
                         </div>
                         <div class="clear"></div>
                     </a>
-
                     <a href="#" id="consultant_page" data-transition="slide" onClick="loadPatientInfo(this.id)">
 
                         <div class="row list_item">
@@ -588,6 +520,15 @@
                     </a>
                 </div>
                </div>
+            </div>
+            <div data-role="popup" data-overlay-theme="b" data-dismissible="false" id="main_popup" class="submit_popup">
+                <div class="row title text-left">
+                        <label></label>
+                </div>
+                <div class="popup-btns">
+                    <a href="#" class="btn" data-rel="back">OK</a>
+                    <div class="clear"></div>
+                </div>
             </div>    
             <!-- content -->  
         </div>
@@ -860,19 +801,16 @@
                                 </div>
                            </div>
                         </div>
-
-                         <div class="carousel_controls">
-                            <div class="back_btn">
-                                <a class="left carousel-control" href="#vc_slide" role="button" data-slide="prev" 
-                                onClick="detectTriageCarousel()" disabled="disabled">Back</a>
-                                <!-- <a class="carousel-control add_symptom" onClick="addSymptom()" role="button" style="display:none">+Symptom</a> -->
-                            </div>
-                            <div class="continue_btn">
-                                <a class="right carousel-control" href="#vc_slide" role="button" data-slide="next" onClick="detectTriageCarousel()">Continue</a>
-                                <a class="carousel-control save_note" role="button" style="display:none;">Save</a>
-                            </div>
-                        </div>
                     </form>
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                            <a class="left carousel-control" href="#vc_slide" role="button" data-slide="prev" onClick="detectTriageCarousel()" disabled="disabled">Back</a>
+                        </div>
+                        <div class="continue_btn">
+                            <a class="right carousel-control" href="#vc_slide" role="button" data-slide="next" onClick="detectTriageCarousel()">Continue</a>
+                            <a class="carousel-control save_note" role="button" style="display:none;">Save</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- content -->
@@ -898,7 +836,6 @@
                 </div>
                 <!-- caoursel -->
                 <div id="triage_slide" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-
                     <!-- wrapper for slides -->
                     <form id="triage_form" role="form">
                         <div class="carousel-inner" role="listbox">
@@ -1387,16 +1324,14 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="carousel_controls">
-                            <div class="back_btn">
-                                <a class="left carousel-control" href="#schedule_slide" role="button" data-slide="prev">Back</a>
-                            </div>
-                            <div class="continue_btn">
-                                <a class="right carousel-control" href="#schedule_slide" role="button" data-slide="next" >Continue</a>
-                                <!-- <a class="carousel-control save_note" role="button" onClick="createNewTriage()" style="display:none;">Save</a> -->
-                            </div>
+                        <div class="back_btn">
+                            <a class="left carousel-control" href="#schedule_slide" role="button" data-slide="prev">Back</a>
                         </div>
+                        <div class="continue_btn">
+                            <a class="right carousel-control" href="#schedule_slide" role="button" data-slide="next" >Continue</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- content -->
@@ -1548,12 +1483,9 @@
                             </div>
                             <div class="form-group bottom-border">
                                 <label>Preferred pharmacy</label>
-                                 
                                 <input name="onboarding__pharmacy_name" id="onboarding__pharmacy_name"  placeholder="Name"/>
-                                  
                                 <input name="onboarding__pharmacy_address" id="onboarding__pharmacy_address"  placeholder
-                                  ="Address">
-                                  
+                                  ="Address">   
                                 <input type="number" name="onboarding__pharmacy_phoneNo" id="onboarding__pharmacy_phoneNo" class="  " placeholder="Phone number"/>
                             </div>
                             <div id="onboarding_family_history" class="form-group">
@@ -1690,7 +1622,6 @@
                                             <a href="#" class="close_link text-center" ><i class="fa fa-2x fa-close"></i></a>
                                         </div>
                                     </li>
-                                    
                                     <li>
                                         <div class="col-xs-10">
                                             <input type="text" id="checklist_category_create" name="category" placeholder="Category">
@@ -1699,7 +1630,6 @@
                                             <a href="#" class="close_link text-center" ><i class="fa fa-2x fa-close"></i></a>
                                         </div>
                                     </li>
-
                                     <li>
                                         <div class="col-xs-10">
                                             <input type="text" id="checklist_tag1_create" name="tag1" placeholder="Optional tag">
@@ -1708,7 +1638,6 @@
                                             <a href="#" class="close_link text-center" onClick="removeTag(this)" ><i class="fa fa-2x fa-close"></i></a>
                                         </div>
                                         </li>
-                                
                                     <li>
                                         <div class="col-xs-10">
                                             <input type="text" id="checklist_tag2_create" name="tag2" placeholder="Optional tag">
@@ -1724,7 +1653,6 @@
                             </div>
                         </div>
                          <div class="item container">
-                            
                                 <div class="row">
                                     <h3>Checklist Name</h3>
                                     <ul id="checklist_listview_item" data-role="listview">
@@ -1836,8 +1764,6 @@
                                 <label>Order Blood Test</label>
                                 <input type="text" value="Blood Test Department"></input>
                             </div>
-
-                            <!-- <a href="#assign_popup" data-rel="popup" data-position-to="window" class="btn">Assign</a> -->
                             <div data-role="popup" data-overlay-theme="b" id="assign_popup" >
                                 <h1>Assign Checklist Name to</h1>
                                 <div class="row">
@@ -1884,7 +1810,6 @@
     
                                         <input name="chemotherapy_5" id="chemotherapy_5" value="" type="checkbox">
                                         <label for="chemotherapy_5">checklist item 5</label>
-
                                     </div>
                                 </div>
                         </div>
@@ -1931,7 +1856,6 @@
                                     <div class="col-xs-4 upcoming_date">
                                         <p>4 JUN 2015</p>
                                     </div>
-                            
                                 </li>
                             </ul>
                             <div class="row">
@@ -1939,25 +1863,21 @@
                             </div>
                             
                         </div>
-                    </div>
-                              <!-- controls -->
-                        <div class="carousel_controls">
-                            <div class="back_btn">
-                                <a class="left carousel-control" href="#checklist_slide" role="button" data-slide="prev" onClick="detectChecklistCarousel()">Back</a>
-                            </div>
-                            <div class="continue_btn">
-                                <a class="right carousel-control" href="#checklist_slide" role="button" data-slide="next" onClick="detectChecklistCarousel()">Continue</a>
-                                <a href="#assign_popup" data-rel="popup" data-position-to="window" class="assign_btn carousel-control" style="display:none;">Assign</a>
-                                <a href="#" class="save_btn carousel-control" style="display:none;" onClick="" >Save</a>
-                            </div>
+                    </div>          
+                    <div class="carousel_controls">
+                        <div class="back_btn">
+                            <a class="left carousel-control" href="#checklist_slide" role="button" data-slide="prev" onClick="detectChecklistCarousel()">Back</a>
                         </div>
+                        <div class="continue_btn">
+                            <a class="right carousel-control" href="#checklist_slide" role="button" data-slide="next" onClick="detectChecklistCarousel()">Continue</a>
+                            <a href="#assign_popup" data-rel="popup" data-position-to="window" class="assign_btn carousel-control" style="display:none;">Assign</a>
+                            <a href="#" class="save_btn carousel-control" style="display:none;" onClick="" >Save</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- content end -->
             </div>
         </div>
-
-
-            <!-- checlist page end -->
             <!-- prescription_page -->
             <div id="prescription_page" data-role="page">
                 <div data-role="header" class="ui-header">
@@ -1987,20 +1907,6 @@
                                 <div class="container item" style="padding-top:20px;">
                                     <h4 class="drug_name"></h4>
                                     <h4 class="drug_strength"></h4>
-                                    <!-- <div class="auto-filled">
-                                        <div class="row">
-                                            <label>Dosage</label>
-                                            <div class="col-xs-4 bottom-border">
-                                                <input id='medicine-dosage' class="medicine_dosage" ></input>
-                                            </div>
-                                            <div class="col-xs-4 bottom-border">
-                                                <input id='medicine-dosage-unit' class="medicine_dosage_unit"></input>
-                                            </div>
-                                            <div class="col-xs-4"></div>
-                                        </div>                       
-                                        
-                                    </div> -->
-
                                     <div class="manual-filled">
                                         <div class="row">
                                             <label>Dosage</label>
@@ -2026,7 +1932,6 @@
                                                     <option value="Daily">Day(s)</option>
                                                     <option value="Weekly">Week(s)</option>
                                                     <option value="Monthly">Month(s)</option>
-
                                                 </select>
                                             </div>
                                         </div>
@@ -2166,7 +2071,7 @@
                     </div>
                     <div class="prescription_list_content">
                         <div class="row title ">
-                            <h3>Create Prescription</h3>
+                            <h3>Prescription List</h3>
                         </div>
                         <ul id="prescription_list" data-role="listview">
                         </ul>
@@ -2181,7 +2086,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="prescription_page2" data-role="page">
                 <div data-role="header" class="ui-header">
                     <a href="#" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
@@ -2201,7 +2105,6 @@
                     <div class="row title">                      
                         <h3 class="col-xs-10">Medicine Info</h3>
                     </div>
-
                     <div>
                         <a href="#prescription_strength" data-transition="slide">
                             <div class="row">
@@ -2227,7 +2130,6 @@
                                     <label id="drug_dosage_label"></label>
                                 </div>
                             </div>
-
                         </a>
                     </div>
                     <div>
@@ -2242,7 +2144,6 @@
                                     <label id="drug_frequency_label"></label>
                                 </div>
                             </div>
-
                         </a>
                     </div>
                 </form>
@@ -2270,29 +2171,15 @@
                     <div class="row">
                         <label>Strength:</label>
                         <ul id="strength_list" data-role="listview" data-icon="false" data-inset="true" data-filter="false">
-                            <!-- <li>
-                                <a href="#prescription_page2" data-transition="slide" data-direction="reverse">
-                                    <div class="row">50mg</div>
-                                </a>
-                            </li>
-                            <li><a href="#prescription_page2" data-transition="slide" data-direction="reverse">
-                                    <div class="row">50mg</div>
-                                </a></li>
-                            <li><a href="#prescription_page2" data-transition="slide" data-direction="reverse">
-                                    <div class="row">50mg</div>
-                                </a></li>
-                            <li><a href="#prescription_page2" data-transition="slide" data-direction="reverse">
-                                    <div class="row">50mg</div>
-                                </a></li> -->
                        </ul>
                     </div>
                     <div class="carousel_controls">
                         <div class="back_btn">
-                                <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
-                            </div>
-                            <div class="continue_btn">
-                                <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="" disabled>Save</a>
-                            </div>
+                            <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
+                        </div>
+                        <div class="continue_btn">
+                            <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="" disabled>Save</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2303,7 +2190,6 @@
                     <h1>Dosage</h1>
                     <a href="#"><i class="icon header-icon icon-dots"></i></a>
                 </div>
-
                 <div data-role="main" class="ui-content prescription_page_content">
                     <div class="row title">
                         <h3 class="drug_name"></h3>
@@ -2335,7 +2221,6 @@
                 <div data-role="main" class="ui-content prescription_page_content">
                     <div class="row title">
                         <h3 class="drug_name"></h3>
-
                     </div>
                     <form data-role="form">
                     <div class="row">
@@ -2373,12 +2258,6 @@
                             <div class="ui-btn frequency_selector" id="drug-period-type" onclick="showFrequencyPopUp(this)" readonly="readonly">
                                 <span value="" class="md-font">Hour(s)</span>
                             </div>
-                            <!-- <select id="drug-period-type" class="dose-period-type bottom-border" data-icon="false" >
-                                <option value="Hourly">Hour(s)</option>
-                                    <option value="Daily">Day(s)</option>
-                                    <option value="Weekly">Week(s)</option>
-                                    <option value="Monthly">Month(s)</option>
-                            </select> -->
                         </div>
                     </div>
                     <div class="gap"></div>
@@ -2393,12 +2272,6 @@
                             <div class="ui-btn frequency_selector" id="on-period-type" onclick="showFrequencyPopUp(this)" readonly="readonly">
                                 <span value="" class="md-font">Hour(s)</span>
                             </div>
-                            <!-- <select id="on-period-type"  data-icon="false" >
-                                <option value="Hourly">Hour(s)</option>
-                                    <option value="Daily">Day(s)</option>
-                                    <option value="Weekly">Week(s)</option>
-                                    <option value="Monthly">Month(s)</option>
-                            </select> -->
                         </div>  
                     </div>
                     <div class="gap"></div>
@@ -2413,43 +2286,36 @@
                             <div class="ui-btn frequency_selector" id="off-period-type" onclick="showFrequencyPopUp(this)" readonly="readonly">
                                 <span value="" class="md-font">Hour(s)</span>
                             </div>
-                            <!-- <select id="off-period-type" data-icon="false" >
-                                <option value="Hourly">Hour(s)</option>
-                                <option value="Daily">Day(s)</option>
-                                <option value="Weekly">Week(s)</option>
-                                <option value="Monthly">Month(s)</option>
-                            </select> -->
+                        </div>                                        
+                    </div>
+                </form>
+                <div class="carousel_controls">
+                    <div class="back_btn">
+                        <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
                         </div>
-                                            
-                    </div>
-                    </form>
-                    <div class="carousel_controls">
-                        <div class="back_btn">
-                                <a class="left carousel-control btn" href="#prescription_page2"  data-transition="slide" data-direction="reverse" role="button" >Cancel</a>
-                            </div>
-                            <div class="continue_btn">
-                                <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="">Save</a>
-                            </div>
-                    </div>
-                </div>
-                <div data-role="popup" data-overlay-theme="b" id="frequency_popup" class="selector_popup" >
-                    <div class="row">
-                        <fieldset>
-                            <input name="frequency_option" id="frequency_hourly" value="Hourly"  type="radio" onClick="setFrequency(this)">
-                            <label for="frequency_hourly" class="ui-radio-on">Hour(s)</label>
-                            
-                            <input name="frequency_option" id="frequency_daily" value="Daily" type="radio" onClick="setFrequency(this)">
-                            <label for="frequency_daily" >Day(s)</label>
-
-                            <input name="frequency_option" id="frequency_weekly" value="Weekly" type="radio" onClick="setFrequency(this)">
-                            <label for="frequency_weekly" >Week(s)</label>
-
-                            <input name="frequency_option" id="frequency_monthly" value="Monthly" type="radio" onClick="setFrequency(this)">
-                            <label for="frequency_monthly" >Month(s)</label>
-                        </fieldset>
+                    <div class="continue_btn">
+                        <a class="right carousel-control btn" href="#prescription_page2" data-transition="slide" data-direction="reverse" role="button" onClick="">Save</a>
                     </div>
                 </div>
             </div>
+            <div data-role="popup" data-overlay-theme="b" id="frequency_popup" class="selector_popup" >
+                <div class="row">
+                    <fieldset>
+                        <input name="frequency_option" id="frequency_hourly" value="Hourly"  type="radio" onClick="setFrequency(this)">
+                        <label for="frequency_hourly" class="ui-radio-on">Hour(s)</label>
+                        
+                        <input name="frequency_option" id="frequency_daily" value="Daily" type="radio" onClick="setFrequency(this)">
+                        <label for="frequency_daily" >Day(s)</label>
+
+                        <input name="frequency_option" id="frequency_weekly" value="Weekly" type="radio" onClick="setFrequency(this)">
+                        <label for="frequency_weekly" >Week(s)</label>
+    
+                        <input name="frequency_option" id="frequency_monthly" value="Monthly" type="radio" onClick="setFrequency(this)">
+                        <label for="frequency_monthly" >Month(s)</label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
             <div id="prescription_detail_page" data-role="page">
                 <div data-role="header" class="ui-header">
                     <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="head_back"><i class="icon header-icon icon-arrow-left"></i></a>
@@ -2507,9 +2373,9 @@
                             <label></label>
                         </div>
                         <div class="popup-btns">
-                                <a href="#" class="btn" data-rel="back">OK</a>
-                                <div class="clear"></div>
-                            </div>
+                            <a href="#" class="btn" data-rel="back">OK</a>
+                            <div class="clear"></div>
+                        </div>
                         
                     </div>
                 </div>
@@ -2532,7 +2398,6 @@
     <script type="text/javascript" src="plugins/mobiscroll.treelist.js"></script>
     <script type="text/javascript" src="plugins/mobiscroll.frame.android.js"></script>
     <script type="text/javascript" src="plugins/mobiscroll.frame.android-holo.js"></script>
-
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
@@ -2541,7 +2406,7 @@
 $(document).bind("mobileinit", function(){ 
         $.mobile.pushStateEnabled = false; 
         $.mobile.useFastClick = false;
-         $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.changePage.defaults.changeHash = false;
 }); 
 
 </script>

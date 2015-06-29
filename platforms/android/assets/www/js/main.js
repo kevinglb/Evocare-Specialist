@@ -8,6 +8,15 @@ function loadPatientInfo(page_id)
 	getPatientList(page_id);
 }
 
+
+/*
+Perhaps we only need load the patient list for patientlit_page at the very first time(maybe when open the app) and then replace the 'onClick' function for every link when the user go for
+different sections
+
+also we need a common function for "$mobile.changePage()" with target page id ,reverse(boolean) and changeHash(boolean) as parameters, in this way we can reduce lines of code
+
+Kevin
+*/
 function getPatientList(page_id)
 {
 	$.ajax(
@@ -159,12 +168,16 @@ function getPatientList(page_id)
     			}
     			else
     			{
-    				alert("Sorry, cannot load your patient list");
+    				// alert("Sorry, cannot load your patient list");
+            $("#main_popup .title label").text('Sorry, cannot load your patient list');
+            $("#main_popup").popup('open');
     			}
     		},
     		error: function (error)
     		{
-    			alert("Sorry, failed to load patient list. Please check your network and try again later");
+    			//alert("Sorry, failed to load patient list. Please check your network and try again later");
+          $("#main_popup .title label").text('Sorry, failed to load patient list. Please check your network and try again later');
+          $("#main_popup").popup('open');
     		}
 		});
 }
@@ -1016,4 +1029,13 @@ function setUpPrescriptionPage2(patient_id){
       reverse: false,
       changeHash: true
     });
+}
+
+function changePage(page_id, reverse, changeHash){
+  $.mobile.changePage(page_id,
+  {
+    transition: "slide",
+    reverse: reverse,
+    changeHash: changeHash
+  });
 }

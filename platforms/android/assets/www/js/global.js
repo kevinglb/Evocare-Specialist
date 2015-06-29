@@ -210,6 +210,8 @@ function onDeviceReady()
 
     });
 
+
+
 }
 
 
